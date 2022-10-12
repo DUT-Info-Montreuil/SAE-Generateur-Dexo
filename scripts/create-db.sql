@@ -44,6 +44,7 @@ CREATE TABLE public.templates
 (
   'idTemplate' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
+  'nom' TEXT,
   /* TODO: add other attr */
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
@@ -78,7 +79,7 @@ CREATE TABLE public.exercices
   'idCompte' SERIAL,
   'idCategorie' SERIAL,
   'nom' TEXT,
-  'data' TEXT,
+  'data' JSON,
 
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES public.categorie(idcategorie)
