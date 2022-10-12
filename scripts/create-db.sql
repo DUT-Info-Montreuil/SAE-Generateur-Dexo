@@ -5,7 +5,6 @@
 COMMENT ON DATABASE sae_ge IS 'Base de donnée de la SAE sur le site du générateur dexercice';
 
 USE sae_ge; */
-
 -- TABLE ROLE
 DROP TABLE IF EXISTS public.role CASCADE;
 CREATE TABLE public.role
@@ -58,7 +57,7 @@ CREATE TABLE public.exercices
   idCompte INT,
   idCategorie SERIAL,
   nom TEXT,
-  data JSON,
+  data TEXT,
 
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES public.categorie(idcategorie)
