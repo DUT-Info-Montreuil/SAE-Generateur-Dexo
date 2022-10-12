@@ -3,16 +3,16 @@ CREATE DATABASE sae_ge;
 
 
 -- TABLE ROLE
-DROP TABLE sae_ge.role IF EXIST;
-CREATE TABLE sae_ge.role
+DROP TABLE public.role IF EXIST;
+CREATE TABLE public.role
 (
   'idRole' SERIAL PRIMARY KEY,
   'nom' TEXT
 );
 
 -- TABLE COMPTE
-DROP TABLE sae_ge.compte IF EXIST;
-CREATE TABLE sae_ge.compte 
+DROP TABLE public.compte IF EXIST;
+CREATE TABLE public.compte 
 (
   'idCompte' SERIAL PRIMARY KEY, 
   'idRole' SERIAL,
@@ -22,12 +22,12 @@ CREATE TABLE sae_ge.compte
   'password' TEXT,
   'email' TEXT,
   
-  CONSTRAINT fk_role FOREIGN KEY(idrole) REFERENCES sae_ge.role(idrole)
+  CONSTRAINT fk_role FOREIGN KEY(idrole) REFERENCES public.role(idrole)
 );
 
 -- TABLE PHOTO
-DROP TABLE sae_ge.photo IF EXIST;
-CREATE TABLE sae_ge.photo 
+DROP TABLE public.photo IF EXIST;
+CREATE TABLE public.photo 
 (
   'idPhoto' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
@@ -35,44 +35,44 @@ CREATE TABLE sae_ge.photo
   'url' TEXT,
   'partager' BOOLEAN,
   
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES sae_ge.compte(idcompte)
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
 );
 
 -- TABLE TEMPLATES
-DROP TABLE sae_ge.templates IF EXIST;
-CREATE TABLE sae_ge.templates
+DROP TABLE public.templates IF EXIST;
+CREATE TABLE public.templates
 (
   'idTemplate' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
   /* TODO: add other attr */
   
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES sae_ge.compte(idcompte)
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
 );
 
 -- TABLE HISTORIQUE
-DROP TABLE sae_ge.historique IF EXIST;
-CREATE TABLE sae_ge.historique
+DROP TABLE public.historique IF EXIST;
+CREATE TABLE public.historique
 (
   'idHistorique' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
   'idTemplate' SERIAL,
   /* TODO: add other attr */
   
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES sae_ge.compte(idcompte),
-  CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES sae_ge.compte(idtemplate)
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
+  CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES public.compte(idtemplate)
 );
 
 -- TABLE CATEGORIE
-DROP TABLE sae_ge.categorie IF EXIST;
-CREATE TABLE sae_ge.categorie
+DROP TABLE public.categorie IF EXIST;
+CREATE TABLE public.categorie
 (
   'idCategorie' SERIAL PRIMARY KEY,
   'nom' TEXT
 );
 
 -- TABLE EXERCICE
-DROP TABLE sae_ge.exercices IF EXIST;
-CREATE TABLE sae_ge.exercices
+DROP TABLE public.exercices IF EXIST;
+CREATE TABLE public.exercices
 (
   'idExercice' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
@@ -80,6 +80,6 @@ CREATE TABLE sae_ge.exercices
   'nom' TEXT,
   'data' TEXT,
 
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES sae_ge.compte(idcompte),
-  CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES sae_ge.categorie(idcategorie)
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
+  CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES public.categorie(idcategorie)
 );
