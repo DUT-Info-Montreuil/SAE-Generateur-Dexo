@@ -71,7 +71,6 @@ CREATE TABLE public.templates
   idCompte INT,
   idExercice INT,
   nom TEXT,
-  data JSON,
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_exercice FOREIGN KEY(idexercice) REFERENCES public.exercices(idexercice)
