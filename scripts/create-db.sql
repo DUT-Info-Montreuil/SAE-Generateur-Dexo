@@ -1,5 +1,9 @@
 -- CREATE DATABASE
-CREATE DATABASE sae_ge;
+CREATE DATABASE sae_ge
+  WITH
+  ENCODING = 'UTF8';
+COMMENT ON DATABASE sae_ge IS 'Base de donnée de la SAE sur le site du générateur dexercice';
+
 USE sae_ge;
 
 
