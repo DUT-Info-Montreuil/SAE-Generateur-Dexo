@@ -1,5 +1,6 @@
 -- CREATE DATABASE
 CREATE DATABASE sae_ge;
+USE sae_ge;
 
 
 -- TABLE ROLE
@@ -38,31 +39,6 @@ CREATE TABLE public.photo
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
 );
 
--- TABLE TEMPLATES
-DROP TABLE public.templates IF EXIST;
-CREATE TABLE public.templates
-(
-  'idTemplate' SERIAL PRIMARY KEY,
-  'idCompte' SERIAL,
-  'nom' TEXT,
-  /* TODO: add other attr */
-  
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
-);
-
--- TABLE HISTORIQUE
-DROP TABLE public.historique IF EXIST;
-CREATE TABLE public.historique
-(
-  'idHistorique' SERIAL PRIMARY KEY,
-  'idCompte' SERIAL,
-  'idTemplate' SERIAL,
-  'data' JSON,
-  
-  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
-  CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES public.compte(idtemplate)
-);
-
 -- TABLE CATEGORIE
 DROP TABLE public.categorie IF EXIST;
 CREATE TABLE public.categorie
@@ -84,3 +60,43 @@ CREATE TABLE public.exercices
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES public.categorie(idcategorie)
 );
+
+-- TABLE TEMPLATES
+DROP TABLE public.templates IF EXIST;
+CREATE TABLE public.templates
+(
+  'idTemplate' SERIAL PRIMARY KEY,
+  'idCompte' SERIAL,
+  'idExercice' SERIAL,
+  'nom' TEXT,
+  'data' JSON,
+  
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
+  CONSTRAINT fk_exercice FOREIGN KEY(idexercice) REFERENCES public.exercices(idexercice)
+);
+
+-- TABLE HISTORIQUE
+DROP TABLE public.historique IF EXIST;
+CREATE TABLE public.historique
+(
+  'idHistorique' SERIAL PRIMARY KEY,
+  'idCompte' SERIAL,
+  'idTemplate' SERIAL,
+  'data' JSON,
+  
+  CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
+  CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES public.compte(idtemplate)
+);
+
+-- RELATION HISTORIQUE COMPTE
+DROP TABLE public.templates_exercice IF EXIST;
+CREATE TABLE public.templates_exercice
+(
+  'idTemplate' SERIAL,
+  'idExercice' SERIAL,
+  
+  PRIMARY KEY(idtemplate, idexercice),
+  FOREIGN KEY(idtemplate) REFERENCES public.template(idtemplate),
+  FOREIGN KEY(idexercice) REFERENCES public.exercices(idexercice)
+);
+
