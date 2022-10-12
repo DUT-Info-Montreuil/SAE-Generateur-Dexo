@@ -56,7 +56,7 @@ CREATE TABLE public.historique
   'idHistorique' SERIAL PRIMARY KEY,
   'idCompte' SERIAL,
   'idTemplate' SERIAL,
-  /* TODO: add other attr */
+  'data' JSON,
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES public.compte(idtemplate)
