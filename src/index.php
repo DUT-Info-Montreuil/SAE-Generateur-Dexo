@@ -16,8 +16,17 @@ $content = $cont->getDisplay();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Essaie</title>
     </head>
-  
+
     <body>
         <?= $content ?>
+        <h1>Page de test</h1>
+
+        <?php 
+        require_once "./database.php";
+
+        $db = new Database();
+        $result = $db->get_role_table();
+        var_dump($result);
+        ?>
     </body>
 </html>
