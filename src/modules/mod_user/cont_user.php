@@ -1,6 +1,6 @@
 <?php
-    require_once "./modules/module/mod_user/vue_user.php";
-    require_once "./modules/module/mod_user/model_user.php";
+    require_once "./modules/mod_user/vue_user.php";
+    require_once "./modules/mod_user/model_user.php";
     class ContUser{
         private $vue;
         private $model;

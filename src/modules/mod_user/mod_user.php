@@ -1,5 +1,5 @@
 <?php
-    require_once "./modules/module/mod_user/cont_user.php";
+    require_once "./modules/mod_user/cont_user.php";
     class ModUser{
         
         private $controler;

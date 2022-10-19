@@ -1,5 +1,8 @@
 <?php
-require_once "./modules/module/mod_user/mod_user.php";
+require_once "./modules/mod_user/mod_user.php";
+require_once "./connexion.php";
+
+Connexion::set_up_connection();
 
 $cont = new ModUser();
 $content = $cont->getDisplay();
