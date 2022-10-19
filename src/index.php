@@ -1,3 +1,10 @@
+<?php
+require_once "./modules/module/mod_user/mod_user.php";
+
+$cont = new ModUser();
+$content = $cont->getDisplay();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -8,6 +15,6 @@
     </head>
   
     <body>
-        <h1>Page de test</h1>
+        <?= $content ?>
     </body>
 </html>
