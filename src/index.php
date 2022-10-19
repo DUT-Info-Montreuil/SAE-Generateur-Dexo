@@ -1,3 +1,13 @@
+<?php
+require_once "./modules/mod_user/mod_user.php";
+require_once "./connexion.php";
+
+Connexion::set_up_connection();
+
+$cont = new ModUser();
+$content = $cont->getDisplay();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -8,6 +18,6 @@
     </head>
   
     <body>
-        <h1>Page de test</h1>
+        <?= $content ?>
     </body>
 </html>
