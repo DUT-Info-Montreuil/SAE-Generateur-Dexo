@@ -22,10 +22,11 @@ $content = $cont->getDisplay();
         <h1>Page de test</h1>
 
         <?php 
+        require_once "./connexion.php";
         require_once "./database.php";
-
-        $db = new Database();
-        $result = $db->get_role_table();
+        
+        Connexion::set_up_connection();
+        $result = Database::get_role_table();
         var_dump($result);
         ?>
     </body>
