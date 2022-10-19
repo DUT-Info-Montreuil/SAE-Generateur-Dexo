@@ -43,8 +43,14 @@
                 <label for="psw"><b>Mot de passe</b></label>
                 <input type="password" placeholder="mot de passe" name="psw" required>
 
-                <label for="psw"><b>Adresse email</b></label>
-                <input type="password" placeholder="exemple@xyz.exemple" name="email" required>
+                <label for="email"><b>Adresse email</b></label>
+                <input type="text" placeholder="exemple@xyz.exemple" name="email" required>
+                
+                <label for="surname"><b>Nom</b></label>
+                <input type="text" placeholder="Jean" name="surname" required>
+
+                <label for="name"><b>Prénom</b></label>
+                <input type="text" placeholder="Lexample" name="name" required>
                     
                 <button type="submit">S'inscrire</button>
               </div>

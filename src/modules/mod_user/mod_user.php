@@ -13,6 +13,7 @@
             
             switch($this->status){
                 case "register" :
+                    $this->controler->tryRegister();
                     $this->controler->getRegisterForm();
                     break;
                 case "login" :

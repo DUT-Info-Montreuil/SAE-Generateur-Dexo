@@ -18,7 +18,7 @@ class Database extends Connexion
 
     private static function query_builder($table, $attr, $where, $limit) 
     {
-        $request;
+        $request = "";
         if ($attr == NULL)
             $request = "SELECT *";
         else $request = self::attributes_builder($attr);
@@ -35,7 +35,7 @@ class Database extends Connexion
 
     public static function inner_join_query($table1, $on1, $table2, $on2, $attr, $where, $limit)
     {
-        $request;
+        $request = "";
         if ($attr == NULL)
             $request = "SELECT * FROM public.".$table1;
         if(gettype($attr) == "array")

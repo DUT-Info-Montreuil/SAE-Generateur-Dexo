@@ -11,7 +11,7 @@
             $username = $_POST['uname'];
             $pass = $_POST['psw'];
 
-            $query ="SELECT username ,password FROM Compte WHERE login like ?";
+            $query ="SELECT login ,password, nom , prenom FROM Compte WHERE login like ?";
             $prep = parent::$bdd->prepare($query);
             $prep->execute([$username]);
 
@@ -20,9 +20,15 @@
             if (!is_null($login_info['password'])){
                 if (password_verify($pass,$login_info['password'])) {
                     $_SESSION['id'] = $login_info['id'];
-                    $_SESSION['username'] = $username;
+                    $_SESSION['nom'] = $login_info['nom'];
+                    $_SESSION['prenom'] = $login_info['prenom'];
                 }
             }
+        }
+
+        public function register()
+        {
+            $query = "INSERT INTO Compte (idCompte , nom , prenom , login , password , email) VALUES (DEFAULT , ? , ? , ? , ? , ?)";
         }
     }
 ?>

@@ -17,6 +17,12 @@
                 $this->model->login();
             }
         }
+        public function tryRegister()
+        {
+            if( isset($_POST['uname']) && isset($_POST['psw']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']) && strlen($_POST['psw']) > 6) {
+                $this->model->register();
+            }
+        }
 
         public function displayMod(){
             return $this->vue->getDisplay();
