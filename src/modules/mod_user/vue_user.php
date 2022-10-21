@@ -47,10 +47,10 @@
                 <input type="text" placeholder="exemple@xyz.exemple" name="email" required>
                 
                 <label for="surname"><b>Nom</b></label>
-                <input type="text" placeholder="Jean" name="surname" required>
+                <input type="text" placeholder="Lexample" name="surname" required>
 
                 <label for="name"><b>Prénom</b></label>
-                <input type="text" placeholder="Lexample" name="name" required>
+                <input type="text" placeholder="Jean" name="name" required>
                     
                 <button type="submit">S'inscrire</button>
               </div>

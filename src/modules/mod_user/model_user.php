@@ -28,7 +28,18 @@
 
         public function register()
         {
-            $query = "INSERT INTO Compte (idCompte , nom , prenom , login , password , email) VALUES (DEFAULT , ? , ? , ? , ? , ?)";
+            $uname = $_POST['uname'];
+            $password = isset($_POST['psw']);
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $email = $_POST['email'];
+
+            $password = password_hash($password,PASSWORD_DEFAULT);
+
+            $query = "INSERT INTO Compte (idCompte , idRole , nom , prenom , login , password , email) VALUES (DEFAULT , DEFAULT , ? , ? , ? , ? , ?)";
+            $prepare = parent::$bdd->prepare($query);
+            $prepare->execute([$surname,$name,$uname,$password,$email]);
+
         }
     }
 ?>
