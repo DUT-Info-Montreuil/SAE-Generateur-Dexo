@@ -1,3 +1,15 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+
+    --green1: #94d3a2;
+    --green2: #298e46;
+    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +18,7 @@
 
 html
 {
-    background: white;
+    background: var(--white1);
 
     height: 100%;
     width: 100%;
@@ -24,7 +36,7 @@ body
 
 .form
 {
-    background: #9AC8EB;
+    background: var(--white3);
 
     height: 480px;
     width: 480px;
@@ -43,7 +55,7 @@ body
     height: 500px;
     width: 500px;
 
-    background: #9AC8EB;
+    background: var(--white3);
 
     position: absolute;
     z-index: -1;
@@ -81,12 +93,12 @@ body
 }
 .buttons-form {
     appearance: none;
-    background-color: #2ea44f;
+    background-color: var(--white3);
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
     box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
     box-sizing: border-box;
-    color: #fff;
+    color: dimgrey;
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -109,23 +121,21 @@ body
     outline: none;
 }
 
-.buttons-form:hover {
-    background-color: #2c974b;
-}
+.buttons-form:hover { background-color: var(--white5); }
 
 .buttons-form:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    box-shadow: var(--green3);
     outline: none;
 }
 
 .buttons-form:disabled {
-    background-color: #94d3a2;
+    background-color: var(--green1);
     border-color: rgba(27, 31, 35, .1);
     color: rgba(255, 255, 255, .8);
     cursor: default;
 }
 
 .buttons-form:active {
-    background-color: #298e46;
+    background-color: var(--green2);
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
