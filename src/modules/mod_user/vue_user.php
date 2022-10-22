@@ -39,11 +39,11 @@ class VueUser extends GenericView
     { ?>
         <div id="register-form">
             <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
-                <input type="text" placeholder="Nom" name="surname" required>
-                <input type="text" placeholder="Prénom" name="name" required>
-                <input type="text" placeholder="identifiant" name="uname" required>
-                <input type="text" placeholder="Adresse email" name="email" required>
-                <input type="password" placeholder="Mot de passe" name="psw" required>
+                <input type="text" placeholder="  Nom" name="surname" required>
+                <input type="text" placeholder="  Prénom" name="name" required>
+                <input type="text" placeholder="  Identifiant" name="uname" required>
+                <input type="text" placeholder="  Adresse email" name="email" required>
+                <input type="password" placeholder="  Mot de passe" name="psw" required>
 
                 <div id="register-form-buttons">
                     <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
