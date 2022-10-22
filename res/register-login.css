@@ -52,12 +52,6 @@ body
     align-items: center;
 }
 
-
-#register-submit {
-    margin-right: auto;
-    margin-top: 10px;
-}
-
 #register-redirect-connexion {
     text-decoration: none;
     color: white;
