@@ -16,10 +16,7 @@ class Connexion
         $bdd_name = "sae_ge";
         try {
             self::$bdd = new PDO("pgsql:host=$host;dbname=$bdd_name", $json->user, $json->password);
-        }catch (PDOException $Exception){
-            echo $Exception->getMessage();
-        }
-
+        } catch (PDOException $Exception) { echo $Exception->getMessage(); }
     }
 }
 ?>
