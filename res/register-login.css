@@ -34,6 +34,16 @@ body
     align-items: center;
 }
 
+#remember-me-section {
+    margin-top: 20px;
+    width: 100%;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+}
+
 .form
 {
     background: var(--white3);
