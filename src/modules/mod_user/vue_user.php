@@ -39,25 +39,25 @@ class VueUser extends GenericView
     { ?>
         <div id="register-form">
             <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
-                <label for="uname"><b>identifiant</b></label>
-                <input type="text" placeholder="identifiant" name="uname" required class="register-input">
-
-                <label for="psw"><b>Mot de passe</b></label>
-                <input type="password" placeholder="mot de passe" name="psw" required class="register-input">
-
-                <label for="email"><b>Adresse email</b></label>
-                <input type="text" placeholder="exemple@xyz.exemple" name="email" required class="register-input">
-
-                <label for="surname"><b>Nom</b></label>
+                <label for="surname">Nom</label>
                 <input type="text" placeholder="Lexample" name="surname" required class="register-input">
 
-                <label for="name"><b>Prénom</b></label>
+                <label for="name">Prénom</label>
                 <input type="text" placeholder="Jean" name="name" required class="register-input">
 
+                <label for="uname">identifiant</label>
+                <input type="text" placeholder="identifiant" name="uname" required class="register-input">
+
+                <label for="email">Adresse email</label>
+                <input type="text" placeholder="exemple@xyz.exemple" name="email" required class="register-input">
+
+                <label for="psw">Mot de passe</label>
+                <input type="password" placeholder="mot de passe" name="psw" required class="register-input">
+
                 <div id="register-form-buttons">
-                    <button id="register-submit" class="buttons-form" type="submit">S'inscrire</button>
-                    <button id="back-button" class="buttons-form" type="button">Retour</button>
-                    <button id="connexion-button" class="buttons-form" type="button">Se connecter</button>
+                    <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
+                    <button id="back-button" class="buttons-form" type="button">RETOUR</button>
+                    <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
                 </div>
             </form>
         </div>

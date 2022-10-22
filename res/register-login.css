@@ -54,6 +54,10 @@ body
     align-items: center;
 }
 
+#register-form-container > label {
+    font-weight: bold;
+}
+
 #connexion-button {
     text-decoration: none;
     color: white;
