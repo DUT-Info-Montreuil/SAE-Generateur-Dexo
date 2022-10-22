@@ -20,16 +20,16 @@ class VueUser extends GenericView
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
 
-                    <button type="submit">Se connecter</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
+                    <div>
+                        <button type="submit">Se connecter</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
 
-                <div>
-                    <button type="button">Retour</button>
-                    <span><a href="#">Mot de passe oublié ?</a></span>
-                    <span>Pas de compte ? <a href="./index.php?module=user&status=register">S'inscrire</a></span>
+                        <button type="button">Retour</button>
+                        <span><a href="#">Mot de passe oublié ?</a></span>
+                        <span>Pas de compte ? <a href="./index.php?module=user&status=register">S'inscrire</a></span>
+                    </div>
                 </div>
             </form>
         </div>
@@ -37,8 +37,7 @@ class VueUser extends GenericView
 
 
     public function registerForm()
-    {
-        ?>
+    { ?>
         <div id="register-form">
             <div id="register-background">
                 <form action="./index.php?module=user&status=register" method="post" id="form-register-container">
