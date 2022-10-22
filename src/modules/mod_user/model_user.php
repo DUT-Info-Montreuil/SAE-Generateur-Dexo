@@ -22,8 +22,10 @@
                     $_SESSION['id'] = $login_info['id'];
                     $_SESSION['nom'] = $login_info['nom'];
                     $_SESSION['prenom'] = $login_info['prenom'];
+                    return true;
                 }
             }
+            return false;
         }
 
         public function register()
@@ -40,6 +42,17 @@
             $prepare = parent::$bdd->prepare($query);
             $prepare->execute([$surname,$name,$uname,$password,$email]);
 
+        }
+
+        public function loginIsTaken()
+        {
+            $testLogin = $_POST['uname'];
+
+            $query = "SELECT login FROM Compte WHERE login LIKE ?";
+            $prepare = parent::$bdd->prepare($query);
+            $prepare->execute([$testLogin]);
+
+            return $prepare->fetch();
         }
     }
 ?>

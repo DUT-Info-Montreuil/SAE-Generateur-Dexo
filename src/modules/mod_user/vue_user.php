@@ -9,63 +9,79 @@ class VueUser extends GenericView
     }
 
     public function loginForm()
-    { ?>
-            <div class="form">
-                <div class="border-form"></div>
+    {
+        ?>
+        <div id="form-connect">
+            <form action="./index.php?module=user&status=login" method="post">
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
 
-                <img src="../res/profile-user.png" alt="profile-user-img"/>
-                <h1>BIENVENUE !</h1>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <form class="form-container" action="./index.php?module=user&status=login" method="POST">
-                    <input type="text" placeholder="  Entrez l'identifiant/email" name="uname" required>
-                    <input type="password" placeholder="  Mot de passe" name="psw" required>
+                    <div>
+                        <button type="submit">Se connecter</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
 
-                    <div class="form-buttons">
-                        <button class="buttons-form" type="submit">CONNECTION</button>
-                        <button id="register-submit" class="buttons-form" type="button">PAS DE COMPTE ?</button>
-                        <button id="back-button" class="buttons-form" type="button">RETOUR</button>
+                        <button type="button">Retour</button>
+                        <span><a href="#">Mot de passe oublié ?</a></span>
+                        <span>Pas de compte ? <a href="./index.php?module=user&status=register">S'inscrire</a></span>
                     </div>
-
-                    <label for="remember"><b>Remember me</b></label>
-                    <input type="checkbox" checked="checked" name="remember">
-                </form>
-            </div>
-
-            <script src="./vue_user.js" type="text/javascript"></script>
+                </div>
+            </form>
+        </div>
     <?php }
 
 
     public function registerForm()
     { ?>
-            <div class="form">
-                <div class="border-form"></div>
+        <div id="register-form">
+            <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
+                <label for="uname"><b>identifiant</b></label>
+                <input type="text" placeholder="identifiant" name="uname" required class="register-input">
 
-                <img src="../res/profile-user.png" alt="profile-user-img"/>
-                <h1>BIENVENUE !</h1>
+                <label for="psw"><b>Mot de passe</b></label>
+                <input type="password" placeholder="mot de passe" name="psw" required class="register-input">
 
-                <form class="form-container" action="./index.php?module=user&status=register" method="POST">
-                    <input type="text" placeholder="  Nom" name="surname" required>
-                    <input type="text" placeholder="  Prénom" name="name" required>
-                    <input type="text" placeholder="  Identifiant" name="uname" required>
-                    <input type="text" placeholder="  Adresse email" name="email" required>
-                    <input type="password" placeholder="  Mot de passe" name="psw" required>
+                <label for="email"><b>Adresse email</b></label>
+                <input type="text" placeholder="exemple@xyz.exemple" name="email" required class="register-input">
 
-                    <div class="form-buttons">
-                        <button class="buttons-form" type="submit">INSCRIPTION</button>
-                        <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
-                        <button id="back-button" class="buttons-form" type="button">RETOUR</button>
-                    </div>
-                </form>
-            </div>
+                <label for="surname"><b>Nom</b></label>
+                <input type="text" placeholder="Lexample" name="surname" required class="register-input">
 
-            <script src="./vue_user.js" type="text/javascript"></script>
+                <label for="name"><b>Prénom</b></label>
+                <input type="text" placeholder="Jean" name="name" required class="register-input">
+
+                <div id="register-form-buttons">
+                    <button type="submit" id="register-submit" class="register-button">S'inscrire</button>
+                    <button type="button" class="register-button" >Retour</button>
+                    <span><a href="./index.php?module=user&status=login" id="register-redirect-connexion">Se connecter</a></span>
+                </div>
+            </form>
+        </div>
     <?php }
 
     public function loginAlreadyTaken()
-    {?>
-            <div>
-                <p>Le login que vous avez saisi est déjà utilisé par un autre utilisateur, veuillez en choisir un autre.</p>
-            </div>
+    {
+        ?>
+        <div>
+            <p>Le login que vous avez saisi est déjà utilisé par un autre utilisateur, veuillez en choisir un autre.</p>
+        </div>
+        <?php
+    }
+    
+    public function wrongInfos()
+    { ?>
+        <div>
+            <p>Les informations entrées ne nous ont pas permis de vous identifier.</p>
+        </div>
+    <?php }
+
+    public function lostForm()
+    { ?>
     <?php }
 }
 ?>
