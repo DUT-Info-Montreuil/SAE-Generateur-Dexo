@@ -28,7 +28,7 @@ class VueUser extends GenericView
 
                 <div>
                     <button type="button">Retour</button>
-                    <span><a href="#">Mot de passe oublié ?</a></span>
+                    <span><a href="./index.php?module=user&status=lost">Mot de passe oublié ?</a></span>
                     <span>Pas de compte ? <a href="./index.php?module=user&status=register">S'inscrire</a></span>
                 </div>
             </form>
@@ -60,8 +60,9 @@ class VueUser extends GenericView
                     <button type="submit" id="register-submit" class="register-button">S'inscrire</button>
                 </form>
                 <div>
-                    <button type="button" class="register-button" >Retour</button>
-                    <span><a href="./index.php?module=user&status=login" id="register-redirect-connexion">Se connecter</a></span>
+                    <button type="button" class="register-button">Retour</button>
+                    <span><a href="./index.php?module=user&status=login"
+                             id="register-redirect-connexion">Se connecter</a></span>
                 </div>
             </div>
         </div>
@@ -76,6 +77,15 @@ class VueUser extends GenericView
         <?php
     }
 
-}
+    public function wrongInfos()
+    {
+        ?>
+        <div>
+            <p>Les informations entrées ne nous ont pas permis de vous identifier.</p>
+        </div>
+    <?php }
 
-?>
+    public function lostForm()
+    {?>
+    <?php }
+} ?>

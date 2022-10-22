@@ -14,7 +14,11 @@
         public function getRegisterForm() { $this->vue->registerForm(); }
         public function tryLogin() {
             if ( isset($_POST['uname']) && isset($_POST['psw']) && strlen($_POST['uname']) > 0 && strlen($_POST['psw']) > 6){
-                $this->model->login();
+                if ($this->model->login()) {
+                    // header loaction : main ...
+                } else {
+                    $this->vue->wrongInfos();
+                }
             }
         }
         public function tryRegister()
@@ -22,8 +26,17 @@
             $variables_set = isset($_POST['uname']) && isset($_POST['psw']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']);
             $valid_password_length = strlen($_POST['psw']) > 6;
             if( $variables_set && $valid_password_length) {
-                $this->model->register();
+                if ($this->model->loginIsTaken() === false) {
+                    $this->model->register();
+                } else {
+                    $this->vue->loginAlreadyTaken();
+                }
             }
+        }
+
+        public function getLostForm()
+        {
+            $this->vue->lostForm();
         }
 
         public function displayMod(){
