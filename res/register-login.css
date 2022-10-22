@@ -38,6 +38,17 @@ body
 #register-form > img { height: 100px; width: 100px; }
 #register-form > h1 { height: 30px; margin-top:3px; margin-bottom: 30px; }
 
+#border-register-form
+{
+    height: 500px;
+    width: 500px;
+
+    background: #9AC8EB;
+
+    position: absolute;
+    z-index: -1;
+    filter: blur(5px);
+}
 
 #register-form-buttons
 {

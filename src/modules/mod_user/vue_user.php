@@ -38,6 +38,8 @@ class VueUser extends GenericView
     public function registerForm()
     { ?>
             <div id="register-form">
+                <div id="border-register-form"></div>
+
                 <img src="../res/profile-user.png" alt="profile-user-img"/>
                 <h1>BIENVENUE !</h1>
 
