@@ -21,8 +21,8 @@ class VueUser extends GenericView
                     <input type="password" placeholder="  Mot de passe" name="psw" required>
 
                     <div class="form-buttons">
-                        <button id="register-submit" class="buttons-form" type="submit">CONNECTION</button>
-                        <button id="connexion-button" class="buttons-form" type="button">PAS DE COMPTE ?</button>
+                        <button class="buttons-form" type="submit">CONNECTION</button>
+                        <button id="register-submit" class="buttons-form" type="button">PAS DE COMPTE ?</button>
                         <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     </div>
 
@@ -51,7 +51,7 @@ class VueUser extends GenericView
                     <input type="password" placeholder="  Mot de passe" name="psw" required>
 
                     <div class="form-buttons">
-                        <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
+                        <button class="buttons-form" type="submit">INSCRIPTION</button>
                         <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
                         <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     </div>
