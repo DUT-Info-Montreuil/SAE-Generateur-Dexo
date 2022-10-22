@@ -26,8 +26,8 @@ body
 {
     background: aquamarine;
 
-    height: 50vh;
-    width: 35vw;
+    height: 480px;
+    width: 480px;
 
     display: flex;
     justify-content: center;
