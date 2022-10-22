@@ -34,6 +34,7 @@ body
     align-items: center;
 }
 
+
 #register-form-buttons
 {
     padding-top: 10px;
@@ -43,6 +44,8 @@ body
     align-items: center;
     gap: 6px;
 }
+
+#register-form-buttons > button { text-decoration: none; color: white; }
 
 
 #register-form-container
@@ -57,11 +60,6 @@ body
 #register-form-container > label { font-weight: bold; }
 #register-form-container > input { width: 85%; height: 30px; border-radius: 3px; }
 
-
-#connexion-button {
-    text-decoration: none;
-    color: white;
-}
 
 .register-input {
     width: 85%;
