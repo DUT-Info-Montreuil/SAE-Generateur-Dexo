@@ -36,6 +36,8 @@ body
 
 #register-form-buttons
 {
+    padding-top: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +54,7 @@ body
     align-items: center;
 }
 
-#register-redirect-connexion {
+#connexion-button {
     text-decoration: none;
     color: white;
 }
@@ -60,7 +62,7 @@ body
 .register-input {
     width: 85%;
 }
-.register-button {
+.buttons-form {
     appearance: none;
     background-color: #2ea44f;
     border: 1px solid rgba(27, 31, 35, .15);

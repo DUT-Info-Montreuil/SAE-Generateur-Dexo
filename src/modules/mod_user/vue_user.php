@@ -55,13 +55,14 @@ class VueUser extends GenericView
                 <input type="text" placeholder="Jean" name="name" required class="register-input">
 
                 <div id="register-form-buttons">
-                    <button id="register-submit" class="register-button" type="submit">S'inscrire</button>
-                    <button class="register-button" type="button">Retour</button>
-                    <button id="register-redirect-connexion" class="register-button" type="button">Se connecter</button>
-                    <!-- href="./index.php?module=user&status=login" -->
+                    <button id="register-submit" class="buttons-form" type="submit">S'inscrire</button>
+                    <button id="back-button" class="buttons-form" type="button">Retour</button>
+                    <button id="connexion-button" class="buttons-form" type="button">Se connecter</button>
                 </div>
             </form>
         </div>
+
+        <script src="./vue_user.js" type="text/javascript"></script>
     <?php }
 
     public function loginAlreadyTaken()
