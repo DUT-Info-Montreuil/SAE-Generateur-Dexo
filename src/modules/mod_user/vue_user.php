@@ -26,8 +26,10 @@ class VueUser extends GenericView
                         <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     </div>
 
-                    <label for="remember"><b>Remember me</b></label>
-                    <input type="checkbox" checked="checked" name="remember">
+                    <div id="remember-me-section">
+                        <input type="checkbox" checked="checked" name="remember">
+                        <label for="remember"><b>Remember me</b></label>
+                    </div>
                 </form>
             </div>
 

@@ -20,6 +20,8 @@
                     $this->controler->tryLogin();
                     $this->controler->getLoginForm();
                     break;
+                case "lost" :
+                    $this->controler->getLostForm();
             }        
         }
 
