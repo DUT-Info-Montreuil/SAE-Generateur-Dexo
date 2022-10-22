@@ -24,7 +24,7 @@ body
 
 #register-form
 {
-    background: aquamarine;
+    background: #9AC8EB;
 
     height: 480px;
     width: 480px;
@@ -32,7 +32,11 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+#register-form > img { height: 100px; width: 100px; }
+#register-form > h1 { height: 30px; margin-top:3px; margin-bottom: 30px; }
 
 
 #register-form-buttons

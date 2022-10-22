@@ -37,23 +37,26 @@ class VueUser extends GenericView
 
     public function registerForm()
     { ?>
-        <div id="register-form">
-            <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
-                <input type="text" placeholder="  Nom" name="surname" required>
-                <input type="text" placeholder="  Prénom" name="name" required>
-                <input type="text" placeholder="  Identifiant" name="uname" required>
-                <input type="text" placeholder="  Adresse email" name="email" required>
-                <input type="password" placeholder="  Mot de passe" name="psw" required>
+            <div id="register-form">
+                <img src="../res/profile-user.png" alt="profile-user-img"/>
+                <h1>BIENVENUE !</h1>
 
-                <div id="register-form-buttons">
-                    <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
-                    <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
-                    <button id="back-button" class="buttons-form" type="button">RETOUR</button>
-                </div>
-            </form>
-        </div>
+                <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
+                    <input type="text" placeholder="  Nom" name="surname" required>
+                    <input type="text" placeholder="  Prénom" name="name" required>
+                    <input type="text" placeholder="  Identifiant" name="uname" required>
+                    <input type="text" placeholder="  Adresse email" name="email" required>
+                    <input type="password" placeholder="  Mot de passe" name="psw" required>
 
-        <script src="./vue_user.js" type="text/javascript"></script>
+                    <div id="register-form-buttons">
+                        <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
+                        <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
+                        <button id="back-button" class="buttons-form" type="button">RETOUR</button>
+                    </div>
+                </form>
+            </div>
+
+            <script src="./vue_user.js" type="text/javascript"></script>
     <?php }
 
     public function loginAlreadyTaken()
