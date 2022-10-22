@@ -19,7 +19,6 @@ $content = $cont->getDisplay();
     </head>
 
     <body>
-        <h1>Page de test</h1>
         <?= $content ?>
     </body>
 </html>
