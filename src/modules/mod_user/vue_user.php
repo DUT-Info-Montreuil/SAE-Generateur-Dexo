@@ -56,8 +56,8 @@ class VueUser extends GenericView
 
                 <div id="register-form-buttons">
                     <button id="register-submit" class="buttons-form" type="submit">INSCRIPTION</button>
-                    <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     <button id="connexion-button" class="buttons-form" type="button">CONNECTION</button>
+                    <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                 </div>
             </form>
         </div>
