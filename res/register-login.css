@@ -58,6 +58,10 @@ body
     font-weight: bold;
 }
 
+#register-form-container > input {
+    width: 85%;
+}
+
 #connexion-button {
     text-decoration: none;
     color: white;
