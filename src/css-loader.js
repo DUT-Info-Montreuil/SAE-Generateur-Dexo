@@ -5,6 +5,7 @@ const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1
 const pathsCSS =
     {
         "register": "../res/register-login.css",
+        "login": "../res/register-login.css",
         "home": "../res/home-page.css"
     }
 
