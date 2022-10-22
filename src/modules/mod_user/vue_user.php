@@ -9,8 +9,7 @@ class VueUser extends GenericView
     }
 
     public function loginForm()
-    {
-        ?>
+    { ?>
         <div id="form-connect">
             <form action="./index.php?module=user&status=login" method="post">
                 <div class="container">
@@ -22,14 +21,14 @@ class VueUser extends GenericView
 
                     <div>
                         <button type="submit">Se connecter</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-
                         <button type="button">Retour</button>
-                        <span><a href="#">Mot de passe oublié ?</a></span>
-                        <span>Pas de compte ? <a href="./index.php?module=user&status=register">S'inscrire</a></span>
+
+                        <span>Pas de compte ? <a href="./ind                        <span><a href="#">Mot de passe oublié ?</a></span>
+                        ex.php?module=user&status=register">S'inscrire</a></span>
                     </div>
+
+                    <label for="remember"><b>Remember me</b></label>
+                    <input type="checkbox" checked="checked" name="remember">
                 </div>
             </form>
         </div>
@@ -56,9 +55,10 @@ class VueUser extends GenericView
                 <input type="text" placeholder="Jean" name="name" required class="register-input">
 
                 <div id="register-form-buttons">
-                    <button type="submit" id="register-submit" class="register-button">S'inscrire</button>
-                    <button type="button" class="register-button" >Retour</button>
-                    <span><a href="./index.php?module=user&status=login" id="register-redirect-connexion">Se connecter</a></span>
+                    <button id="register-submit" class="register-button" type="submit">S'inscrire</button>
+                    <button class="register-button" type="button">Retour</button>
+                    <button id="register-redirect-connexion" class="register-button" type="button">Se connecter</button>
+                    <!-- href="./index.php?module=user&status=login" -->
                 </div>
             </form>
         </div>
