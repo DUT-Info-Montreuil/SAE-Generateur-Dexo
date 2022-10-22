@@ -44,6 +44,7 @@ body
     gap: 6px;
 }
 
+
 #register-form-container
 {
     width: 100%;
@@ -54,13 +55,9 @@ body
     align-items: center;
 }
 
-#register-form-container > label {
-    font-weight: bold;
-}
+#register-form-container > label { font-weight: bold; }
+#register-form-container > input { width: 85%; }
 
-#register-form-container > input {
-    width: 85%;
-}
 
 #connexion-button {
     text-decoration: none;
