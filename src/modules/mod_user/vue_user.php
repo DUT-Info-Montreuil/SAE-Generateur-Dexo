@@ -39,30 +39,28 @@ class VueUser extends GenericView
     public function registerForm()
     { ?>
         <div id="register-form">
-            <div id="register-background">
-                <form action="./index.php?module=user&status=register" method="post" id="form-register-container">
-                    <label for="uname"><b>identifiant</b></label>
-                    <input type="text" placeholder="identifiant" name="uname" required class="register-input">
+            <form action="./index.php?module=user&status=register" method="post" id="register-form-container">
+                <label for="uname"><b>identifiant</b></label>
+                <input type="text" placeholder="identifiant" name="uname" required class="register-input">
 
-                    <label for="psw"><b>Mot de passe</b></label>
-                    <input type="password" placeholder="mot de passe" name="psw" required class="register-input">
+                <label for="psw"><b>Mot de passe</b></label>
+                <input type="password" placeholder="mot de passe" name="psw" required class="register-input">
 
-                    <label for="email"><b>Adresse email</b></label>
-                    <input type="text" placeholder="exemple@xyz.exemple" name="email" required class="register-input">
+                <label for="email"><b>Adresse email</b></label>
+                <input type="text" placeholder="exemple@xyz.exemple" name="email" required class="register-input">
 
-                    <label for="surname"><b>Nom</b></label>
-                    <input type="text" placeholder="Lexample" name="surname" required class="register-input">
+                <label for="surname"><b>Nom</b></label>
+                <input type="text" placeholder="Lexample" name="surname" required class="register-input">
 
-                    <label for="name"><b>Prénom</b></label>
-                    <input type="text" placeholder="Jean" name="name" required class="register-input">
+                <label for="name"><b>Prénom</b></label>
+                <input type="text" placeholder="Jean" name="name" required class="register-input">
 
+                <div id="register-form-buttons">
                     <button type="submit" id="register-submit" class="register-button">S'inscrire</button>
-                </form>
-                <div>
                     <button type="button" class="register-button" >Retour</button>
                     <span><a href="./index.php?module=user&status=login" id="register-redirect-connexion">Se connecter</a></span>
                 </div>
-            </div>
+            </form>
         </div>
     <?php }
 
