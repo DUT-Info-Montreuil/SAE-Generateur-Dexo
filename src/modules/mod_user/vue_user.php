@@ -22,7 +22,7 @@ class VueUser extends GenericView
 
                     <div class="form-buttons">
                         <button class="buttons-form" type="submit">CONNECTION</button>
-                        <button id="register-submit" class="buttons-form" type="button">PAS DE COMPTE ?</button>
+                        <button id="register-button" class="buttons-form" type="button">PAS DE COMPTE ?</button>
                         <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     </div>
 
