@@ -1,3 +1,93 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+    --green1: #94d3a2;
+    --green2: #298e46;
+    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     color: black;
+    overflow: hidden;
+}
+
+#left-panel-close 
+{
+    display: block;
+
+    position: absolute;
+    left: 0;
+    top: 70px;
+
+    width: 35px;
+    height: 100vh;
+
+    background: var(--white5);
+}
+
+.img-button-panel {
+    width: 30px;
+    height: 30px;
+}
+
+#left-panel-close > img {
+    left: 0;
+    top: 75px;
+}
+
+#right-panel-close
+{
+    display: block;
+
+    position: absolute;
+    left: calc(100vw - 35px);
+    top: 70px;
+
+    width: 35px;
+    height: calc(100vh - 50px);
+
+    background: var(--white5);
+}
+
+#right-panel-close > img {
+    left: calc(100vw - 35px);
+    top: 75px;
+
+    transform: rotate(180deg);
+}
+
+
+#left-panel-open {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    top: 70px;
+
+    width: calc(100vw / 5);
+    height: 100vh;
+
+    background: var(--white5);
+}
+
+#right-panel-open {
+    display: none;
+
+    position: absolute;
+    left: calc(100vw - calc(100vw / 5));
+    top: 70px;
+
+    width: calc(100vw / 5);
+    height: calc(100vh - 50px);
+
+    background: var(--white5);
 }
