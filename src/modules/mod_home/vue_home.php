@@ -1,6 +1,7 @@
 <?php
 require_once "./generic_view.php";
 
+
 class VueHome extends GenericView
 {
 
@@ -14,22 +15,25 @@ class VueHome extends GenericView
     public function displayHeader()
     { ?>
         <header>
-        <nav>
             <h3>Historique</h3>
             <h2>Titre de la page</h2> <!--replace by a variable in php -->
+
+
             <div>
-                <img class="logo" src="../res/img/done.png">
-                <a href="index.php?module=user&status=register"><!--need to redirect to coonect or register page -->
-                    <img class="logo" src="../res/img/account.png">
-                </a>
+                <p><a href="index.php?module=user&status=register">inscription</a></p>
             </div>
-        </nav>
         </header>
-    <?
-    }
+    <?php }
+
     private function displayAsideLeft()
-    {?>
-        <aside id="leftAside">
+    { ?>
+        <aside id="left-panel-close">
+            <img id="left-arrow-close" src="../res/arrow.png" alt="Arrow">
+        </aside>
+
+        <aside id="left-panel-open">
+            <img id="left-arrow-open" src="../res/arrow.png" alt="Arrow">
+
             <section class="titleAside">
                 <h2>Galeries</h2>
                 <div>
@@ -44,10 +48,10 @@ class VueHome extends GenericView
                     <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
                 </div>
             </section>
 
@@ -57,10 +61,10 @@ class VueHome extends GenericView
                     <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
                 </div>
             </section>
 
@@ -70,17 +74,26 @@ class VueHome extends GenericView
                     <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
-                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
+                    <img src="../res/img/img1.jpeg" height="10">
                 </div>
             </section>
         </aside>
-    <?}
+
+        <script src="./left_panel.js" type="text/javascript"></script>
+    <?php }
+
     private function displayAsideRight()
-    {?>
-        <aside id="rightAside">
+    { ?>
+        <aside id="right-panel-close">
+            <img id="right-arrow-close" src="../res/arrow.png" alt="Arrow">
+        </aside>
+
+        <aside id="right-panel-open">
+            <img id="right-arrow-open" src="../res/arrow.png" alt="Arrow">
+
             <section class="titleAside">
                 <div>
                     <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
@@ -128,12 +141,10 @@ class VueHome extends GenericView
                     <!-- contenue à cacher/appeler  ou non -->
                 </div>
             </section>
+        </aside>
 
-            <div>
-                <p><a href="index.php?module=user&status=register">inscription</a></p>
-            </div>
-        </header>
-    <?}
+        <script src="./right_panel.js" type="text/javascript"></script>
+    <?php }
 
     public function displayMain()
     {
@@ -143,10 +154,10 @@ class VueHome extends GenericView
     }
 
     public function displayArticle()
-    {?>
+    { ?>
         <article id="sheet">
             <!--remplacer par le generation en php -->
         </article>
-    <?}
+    <?php }
 }
 ?>
