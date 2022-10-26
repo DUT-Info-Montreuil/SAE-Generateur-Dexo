@@ -16,8 +16,10 @@
                 $module = new ModUser();
                 break;
             case "home":
-            default :
                 $module = new ModHome();
+                break;
+            default :
+                break;
         }
         $content = $module->getDisplay();
     ?>
