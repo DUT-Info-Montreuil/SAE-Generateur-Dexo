@@ -18,9 +18,9 @@ class VueHome extends GenericView
             <h3>Historique</h3>
             <h2>Titre de la page</h2> <!--replace by a variable in php -->
             <div>
-                <img class="logo" src="img/done.png">
+                <img class="logo" src="../res/img/done.png">
                 <a href="index.php?module=user&status=register"><!--need to redirect to coonect or register page -->
-                    <img class="logo" src="img/account.png">
+                    <img class="logo" src="../res/img/account.png">
                 </a>
             </div>
         </nav>
@@ -33,47 +33,47 @@ class VueHome extends GenericView
             <section class="titleAside">
                 <h2>Galeries</h2>
                 <div>
-                    <img class="loupeImg" src="img/loupe.png">
-                    <img class="Show" src="img/show.png"> <!-- JS passer à img/hide.png-->
+                    <img class="loupeImg" src="../res/img/loupe.png">
+                    <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
             </section>
 
             <section>
                 <div>
                     <h2>Utilisé recement</h2>
-                    <img class="Show" src="img/show.png"> <!-- JS passer à img/hide.png-->
+                    <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
                 </div>
             </section>
 
             <section>
                 <div>
                     <h2>Mes Photos</h2>
-                    <img class="Show" src="img/show.png"> <!-- JS passer à img/hide.png-->
+                    <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
                 </div>
             </section>
 
             <section>
                 <div>
                     <h2>Banque de photos</h2>
-                    <img class="Show" src="img/show.png"> <!-- JS passer à img/hide.png-->
+                    <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
                 </div>
                 <div>
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
-                    <img src="img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
+                    <img src="../res/img/img1.jpeg">
                 </div>
             </section>
         </aside>
@@ -83,15 +83,15 @@ class VueHome extends GenericView
         <aside id="rightAside">
             <section class="titleAside">
                 <div>
-                    <img class="Show" src="img/show.png"> <!-- JS passer à img/hide.png-->
-                    <img class="loupeImg" src="img/loupe.png">
+                    <img class="Show" src="../res/img/show.png"> <!-- JS passer à img/hide.png-->
+                    <img class="loupeImg" src="../res/img/loupe.png">
                 </div>
                 <h2>Exercise</h2>
             </section>
 
             <section>
                 <div>
-                    <img class="Hide" src="img/hide.png"> <!-- JS passer à img/show.png-->
+                    <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     <h2>Categorie 1</h2>
                 </div>
                 <div>
@@ -101,7 +101,7 @@ class VueHome extends GenericView
 
             <section>
                 <div>
-                    <img class="Hide" src="img/hide.png"> <!-- JS passer à img/show.png-->
+                    <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     <h2>Categorie 2</h2>
                 </div>
                 <div>
@@ -111,7 +111,7 @@ class VueHome extends GenericView
 
             <section>
                 <div>
-                    <img class="Hide" src="img/hide.png"> <!-- JS passer à img/show.png-->
+                    <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     <h2>Categorie 3</h2>
                 </div>
                 <div>
@@ -121,7 +121,7 @@ class VueHome extends GenericView
 
             <section>
                 <div>
-                    <img class="Hide" src="img/hide.png"> <!-- JS passer à img/show.png-->
+                    <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     <h2>Categorie 4</h2>
                 </div>
                 <div>
