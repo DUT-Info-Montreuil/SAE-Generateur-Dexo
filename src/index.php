@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
+        ini_set('display_errors', 1);
+        
         require_once "./modules/mod_user/mod_user.php";
         require_once "./connexion.php";
 
