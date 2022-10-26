@@ -1,0 +1,61 @@
+body{
+    margin: auto;
+    background-color: #E5E8E8;
+    padding: 1%;
+}
+
+nav{
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+
+main{
+    display: flex;
+    justify-content: space-between;
+}
+/* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
+aside{
+    width: 25%;
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+aside section div {
+
+}
+.titleAside{
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+article{
+    width: 45%;
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+/* Image */
+.loupeImg{
+    width: 6%;
+    vertical-align: text-top;
+}
+.Show{
+    width: 4%;
+    vertical-align: text-top;
+}
+.Hide{
+    width: 5%;
+    vertical-align: text-top;
+}
+img{
+    width: 4%;
+}
+.logo{
+    width: 70px;
+    vertical-align: text-top;
+}

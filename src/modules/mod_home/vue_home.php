@@ -9,7 +9,6 @@ class VueHome extends GenericView
         parent::__construct();
         $this->displayHeader();
         $this->displayMain();
-        $this->displayPannels();
     }
 
     public function displayHeader()
@@ -134,7 +133,20 @@ class VueHome extends GenericView
                 <p><a href="index.php?module=user&status=register">inscription</a></p>
             </div>
         </header>
-<?php
+    <?}
+
+    public function displayMain()
+    {
+        $this->displayAsideLeft();
+        $this->displayArticle();
+        $this->displayAsideRight();
     }
+
+    public function displayArticle()
+    {?>
+        <article id="sheet">
+            <!--remplacer par le generation en php -->
+        </article>
+    <?}
 }
 ?>
