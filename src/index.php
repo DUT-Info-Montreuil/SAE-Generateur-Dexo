@@ -34,8 +34,10 @@
         <script src="css-loader.js" type="text/javascript"></script>
         <title>SAE-GE</title>
     </head>
-
+        
     <body>
         <?= $content ?>
+        <div id="popInErrorDiv"></div>
     </body>
+    <script src="./main.js"></script>
 </html>
