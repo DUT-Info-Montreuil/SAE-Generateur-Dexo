@@ -40,6 +40,9 @@ html {
 }
 
 #left-panel-close > img {
+    width: 35px;
+    height: 35px;
+
     left: 0;
     top: 75px;
 }
@@ -48,7 +51,7 @@ html {
 {
     display: block;
 
-    position: absolute;
+    position: fixed;
     left: calc(100vw - 35px);
     top: 70px;
 
@@ -59,6 +62,8 @@ html {
 }
 
 #right-panel-close > img {
+    width: 35px;
+    height: 35px;
     left: calc(100vw - 35px);
     top: 75px;
 
@@ -69,7 +74,7 @@ html {
 #left-panel-open {
     display: none;
 
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 70px;
 
@@ -82,7 +87,7 @@ html {
 #right-panel-open {
     display: none;
 
-    position: absolute;
+    position: fixed;
     left: calc(100vw - calc(100vw / 5));
     top: 70px;
 
@@ -90,4 +95,70 @@ html {
     height: calc(100vh - 50px);
 
     background: var(--white5);
+}
+
+#right-panel-open > img {
+    width: 35px;
+    height: 35px;
+    left: calc(100vw - 35px);
+    top: 75px;
+
+    transform: rotate(90deg);
+}
+
+#left-panel-open > img {
+    width: 35px;
+    height: 35px;
+
+    left: 0;
+    top: 75px;
+}
+
+
+nav{
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+
+/* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
+aside{
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.titleAside{
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+article{
+    width: 45%;
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Image */
+.loupeImg{
+    width: 6%;
+    vertical-align: text-top;
+}
+.Show{
+    width: 4%;
+    vertical-align: text-top;
+}
+.Hide{
+    width: 5%;
+    vertical-align: text-top;
+}
+
+.logo{
+    width: 70px;
+    vertical-align: text-top;
 }

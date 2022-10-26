@@ -7,8 +7,6 @@ const pathsCSS =
         "register": "../res/register-login.css",
         "login": "../res/register-login.css",
         "home": "../res/home-page.css",
-        "page": "../res/mainPage.css"
-
     }
 
 /** Create a balise <link> with good path of css according to the page displayed.
@@ -31,9 +29,6 @@ window.onload = function()
 
         if (nameVar === "status") {
             createLinkCSS(pathsCSS[valueVar]);
-        } else {
-            createLinkCSS(pathsCSS["home"]);
-            createLinkCSS(pathsCSS["page"])
-        } // TODO Temporary
+        } else createLinkCSS(pathsCSS["home"]); // TODO Temporary
     }
 }
