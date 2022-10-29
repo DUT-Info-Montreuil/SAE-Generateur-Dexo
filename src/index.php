@@ -4,16 +4,26 @@
         ini_set('display_errors', 1);
         
         require_once "./modules/mod_user/mod_user.php";
+        require_once "./modules/mod_home/mod_home.php";
         require_once "./connexion.php";
 
         session_start();
         Connexion::set_up_connection();
 
-        if (!isset($_GET["status"]))
-            header("Location:index.php?status=home");
-
-        $cont = new ModUser();
-        $content = $cont->getDisplay();
+        if (!isset($_GET["module"]))
+            header("Location:index.php?module=home");
+        $module = "";
+        switch ($_GET["module"]){
+            case "user":
+                $module = new ModUser();
+                break;
+            case "home":
+                $module = new ModHome();
+                break;
+            default :
+                break;
+        }
+        $content = $module->getDisplay();
     ?>
 
     <head>
@@ -26,20 +36,6 @@
     </head>
 
     <body>
-        <header>
-            <div>
-                <p>history</p>
-            </div>
-
-            <div>
-                <p>page title</p>
-            </div>
-
-            <div>
-                <p><a href="index.php?status=register">inscription</a></p>
-            </div>
-        </header>
-
         <?= $content ?>
     </body>
 </html>

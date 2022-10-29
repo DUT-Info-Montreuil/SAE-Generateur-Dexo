@@ -69,5 +69,14 @@ class VueUser extends GenericView
                 <p>Le login que vous avez saisi est déjà utilisé par un autre utilisateur, veuillez en choisir un autre.</p>
             </div>
     <?php }
+
+    public function wrongInfos()
+    {
+        # code...
+    }
+    public function lostForm()
+    {
+        # code...
+    }
 }
 ?>

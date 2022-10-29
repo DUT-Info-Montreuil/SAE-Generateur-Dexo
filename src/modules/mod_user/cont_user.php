@@ -24,12 +24,14 @@
         public function tryRegister()
         {
             $variables_set = isset($_POST['uname']) && isset($_POST['psw']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']);
-            $valid_password_length = strlen($_POST['psw']) > 6;
-            if( $variables_set && $valid_password_length) {
-                if ($this->model->loginIsTaken() === false) {
-                    $this->model->register();
-                } else {
-                    $this->vue->loginAlreadyTaken();
+            if($variables_set){
+                $valid_password_length = strlen($_POST['psw']) > 6;
+                if($valid_password_length) {
+                    if ($this->model->loginIsTaken() === false) {
+                        $this->model->register();
+                    } else {
+                        $this->vue->loginAlreadyTaken();
+                    }
                 }
             }
         }
