@@ -167,7 +167,7 @@ article{
 #popInErrorDiv {
     position: absolute;
     top : 60px;
-    right: 0%;
+    right: 0;
     width: 10%;
     display: flex;
     flex-direction: column;
