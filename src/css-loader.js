@@ -4,8 +4,7 @@ const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1
 // Contain all path of style sheet
 const pathsCSS =
     {
-        "register": "../res/register-login.css",
-        "login": "../res/register-login.css",
+        "loginRegister": "../res/register-login.css",
         "home": "../res/home-page.css",
     }
 
@@ -26,9 +25,11 @@ window.onload = function()
     for (let i = 0; i < urlVars.length; i++) {
         const nameVar = urlVars[i].split('=')[0];
         const valueVar = urlVars[i].split('=')[1];
-
-        if (nameVar === "status") {
-            createLinkCSS(pathsCSS[valueVar]);
-        } else createLinkCSS(pathsCSS["home"]); // TODO Temporary
+        console.log(nameVar)
+        if (nameVar === 'module' && valueVar === 'user') {
+            createLinkCSS(pathsCSS['loginRegister']);
+        } else if (nameVar === 'module' && valueVar === 'home') {
+            createLinkCSS(pathsCSS["home"]); // TODO Temporary
+        }
     }
 }
