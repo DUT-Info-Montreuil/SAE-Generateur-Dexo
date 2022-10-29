@@ -10,6 +10,7 @@ class VueHome extends GenericView
         parent::__construct();
         $this->displayHeader();
         $this->displayMain();
+        $this->setInfoDiv();
     }
 
     public function displayHeader()
@@ -158,6 +159,12 @@ class VueHome extends GenericView
         <article id="sheet">
             <!--remplacer par le generation en php -->
         </article>
+    <?php }
+
+    private function setInfoDiv()
+    {
+        ?>
+        <div id="popInInfoDiv"></div>
     <?php }
 }
 ?>

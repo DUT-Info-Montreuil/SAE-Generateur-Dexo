@@ -31,13 +31,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../res/global.css" rel="stylesheet"/>
         <script src="css-loader.js" type="text/javascript"></script>
-        <link href="../res/home-page.css" rel="stylesheet"/>
         <title>SAE-GE</title>
     </head>
 
     <body>
         <?= $content ?>
-        <div id="popInErrorDiv"></div>
     </body>
     <script src="./main.js"></script>
 </html>

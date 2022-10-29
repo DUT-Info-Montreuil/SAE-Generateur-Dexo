@@ -31,6 +31,7 @@ class VueUser extends GenericView
                         <label for="remember"><b>Remember me</b></label>
                     </div>
                 </form>
+                <div id="popInInfoDiv" class="test"></div>
             </div>
 
             <script src="./vue_user.js" type="text/javascript"></script>
@@ -58,6 +59,7 @@ class VueUser extends GenericView
                         <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                     </div>
                 </form>
+                <div id="popInInfoDiv" class="test"></div>
             </div>
 
             <script src="./vue_user.js" type="text/javascript"></script>
@@ -71,9 +73,13 @@ class VueUser extends GenericView
     <?php }
 
     public function wrongInfos()
-    {
-        # code...
-    }
+    { ?>
+        <script type="text/javascript" defer>
+            window.addEventListener('load', function () {
+                popin('Les informations entrées sont érronées, veuillez réessayer');
+            })
+        </script>
+    <?php }
     public function lostForm()
     {
         # code...
