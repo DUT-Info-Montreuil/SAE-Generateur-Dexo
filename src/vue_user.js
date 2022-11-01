@@ -1,4 +1,4 @@
-/* Script created at 22/10/2022 */
+/* Script created at 26/10/2022 */
 
 const loginUrl = "./index.php?module=user&status=login";
 const registerUrl = "./index.php?module=user&status=register";

@@ -12,15 +12,20 @@ class VueHome extends GenericView
         $this->displayMain();
     }
 
+    private function displayAccountMenu()
+    { ?>
+
+    <?php }
+
     public function displayHeader()
     { ?>
         <header>
             <h3>Historique</h3>
-            <h2>Titre de la page</h2> <!--replace by a variable in php -->
-
+            <h2>Titre de la page</h2> <!--replace by a variable in php
+             <a href="index.php?module=user&status=register">inscription</a>-->
 
             <div>
-                <p><a href="index.php?module=user&status=register">inscription</a></p>
+                <img id="account-button" src="../res/profile-user.png" alt="profile-user"/>
             </div>
         </header>
     <?php }
