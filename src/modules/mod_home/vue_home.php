@@ -89,7 +89,7 @@ class VueHome extends GenericView
     </section>
 </aside>
 
-<script src="./left_panel.js" type="text/javascript"></script>
+<script src="./js/left_panel.js" type="text/javascript"></script>
 
     <?php }
 
@@ -152,7 +152,7 @@ class VueHome extends GenericView
     </section>
 </aside>
 
-<script src="./right_panel.js" type="text/javascript"></script>
+<script src="./js/right_panel.js" type="text/javascript"></script>
 
     <?php }
 

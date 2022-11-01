@@ -32,7 +32,7 @@ class VueUser extends GenericView
     </form>
 </div>
 
-<script src="./vue_user.js" type="text/javascript"></script>
+<script src="./js/vue_user.js" type="text/javascript"></script>
 
     <?php }
 
@@ -61,7 +61,7 @@ class VueUser extends GenericView
     </form>
 </div>
 
-<script src="./vue_user.js" type="text/javascript"></script>
+<script src="./js/vue_user.js" type="text/javascript"></script>
 
     <?php }
 

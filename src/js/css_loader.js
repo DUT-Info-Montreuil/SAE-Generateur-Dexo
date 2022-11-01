@@ -4,9 +4,9 @@ const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1
 // Contain all path of style sheet
 const pathsCSS =
     {
-        "register": "register-login.css",
-        "login": "register-login.css",
-        "home": "home-page.css",
+        "register": "./css/register-login.css",
+        "login": "./css/register-login.css",
+        "home": "./css/home-page.css",
     }
 
 /** Create a balise <link> with good path of css according to the page displayed.
