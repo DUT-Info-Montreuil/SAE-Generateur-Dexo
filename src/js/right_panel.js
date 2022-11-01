@@ -1,3 +1,4 @@
+/* Script created at 26/10/2022 */
 
 const rightPanelClose = document.getElementById("right-panel-close");
 const rightPanelOpen = document.getElementById("right-panel-open");

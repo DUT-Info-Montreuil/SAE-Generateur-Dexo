@@ -1,3 +1,4 @@
+/* Script created at 26/10/2022 */
 
 const leftPanelClose = document.getElementById("left-panel-close");
 const leftPanelOpen = document.getElementById("left-panel-open");
