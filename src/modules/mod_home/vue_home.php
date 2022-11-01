@@ -12,9 +12,33 @@ class VueHome extends GenericView
     }
 
     private function displayAccountMenu()
-    { ?>
+    {
+        if (!isset($_GET["user"])) {
+        ?>
+
+<div class="account-menu">
+    <table>
+        <tbody>
+            <tr>Paramètre</tr>
+            <tr>S'inscrire</tr>
+            <tr>Se connecter</tr>
+        </tbody>
+    </table>
+</div>
+
+    <?php } else { ?>
+
+<div class="account-menu">
+    <table>
+        <tbody>
+            <tr>Paramètre</tr>
+            <tr>Se déconnecter</tr>
+        </tbody>
+    </table>
+</div>
 
     <?php }
+    }
 
     public function displayHeader()
     { ?>
