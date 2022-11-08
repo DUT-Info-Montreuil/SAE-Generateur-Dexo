@@ -185,16 +185,5 @@ article{
     width: 100%;
     border-radius: 3px;
     background: red;
-    animation-delay: 3000ms;
-    animation-duration: 5000ms;
-    animation-name: disapearPopIn;
     text-align: center;
-}
-
-@keyframes disapearPopIn {
-    from {
-        opacity: 1;
-    } to {
-        opacity: 0;
-    }
 }

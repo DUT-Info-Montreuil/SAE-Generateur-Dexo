@@ -12,6 +12,7 @@ function popin(text,isPermanent = true){
     elem.classList.add("popInElement");
 
     if (isPermanent === false) {
+        elem.classList.add("popInDissapear")
         setTimeout(() => {
             div.removeChild(elem);
         },8000)
