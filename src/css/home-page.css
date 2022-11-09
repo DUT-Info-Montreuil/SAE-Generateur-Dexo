@@ -169,7 +169,7 @@ article{
 }
 
 
-#popInInfoDiv {
+#pop-in-info-div {
     position: absolute;
     top : 60px;
     right: 0;
@@ -179,7 +179,7 @@ article{
     justify-content: center;
     align-items: center;
 }
-.popInElement {
+.pop-in-element {
     margin-right: 5px;
     margin-top: 5px;
     width: 100%;

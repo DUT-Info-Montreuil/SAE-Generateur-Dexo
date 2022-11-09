@@ -27,9 +27,11 @@ window.onload = function()
         const valueVar = urlVars[i].split('=')[1];
 
         if (nameVar === 'module' && valueVar === 'user') {
-            createLinkCSS(pathsCSS['loginRegister']);
-        } else if (nameVar === 'module' && valueVar === 'home') {
-            createLinkCSS(pathsCSS["home"]); // TODO Temporary
+            if ( valueVar == "user") {
+                createLinkCSS(pathsCSS['loginRegister']);
+            } else if (valueVar === 'home') {
+                createLinkCSS(pathsCSS["home"]);
+            }
         }
     }
 }

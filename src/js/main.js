@@ -1,7 +1,7 @@
 function popin(text,isPermanent = true){
-    let div = document.getElementById("popInInfoDiv");
-    let elem = document.createElement("div");
-    let paragraph = document.createElement("p");
+    const div = document.getElementById("pop-in-info-div");
+    const elem = document.createElement("div");
+    const paragraph = document.createElement("p");
 
 
     paragraph.textContent = text;
@@ -9,10 +9,10 @@ function popin(text,isPermanent = true){
 
     elem.appendChild(paragraph);
     div.insertBefore(elem,div.firstChild);
-    elem.classList.add("popInElement");
+    elem.classList.add("pop-in-element");
 
-    if (isPermanent === false) {
-        elem.classList.add("popInDissapear")
+    if (!isPermanent) {
+        elem.classList.add("pop-in-dissapear")
         setTimeout(() => {
             div.removeChild(elem);
         },8000)

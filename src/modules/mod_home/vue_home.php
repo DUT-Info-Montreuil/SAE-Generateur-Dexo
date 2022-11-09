@@ -200,7 +200,7 @@ class VueHome extends GenericView
     private function setInfoDiv()
     {
         ?>
-        <div id="popInInfoDiv"></div>
+        <div id="pop-in-info-div"></div>
     <?php }
 }
 ?>
