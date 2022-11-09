@@ -7,7 +7,7 @@
     --green1: #94d3a2;
     --green2: #298e46;
     --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
-    --panel-width:calc(100vw / 4);
+    --panel-width: calc(100vw / 4);
     --OpenButtonWidth:2vw;
     --search-icon:6%;
 }
