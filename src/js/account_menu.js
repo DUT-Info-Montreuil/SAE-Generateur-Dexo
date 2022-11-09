@@ -15,7 +15,9 @@ accountButton.addEventListener("click", () => {
     menu.style.display = showMenu ? "flex" : "none";
 
     const posButton = button.getBoundingClientRect();
-    menu.style.setProperty("left", posButton.left.toString() + measure);
-    menu.style.setProperty("top", posButton.top.toString() + measure);
+    const posLeftMenu = posButton.left;
+    const posTopMenu = posButton.top + button.clientHeight;
+    menu.style.setProperty("left", posLeftMenu.toString() + measure);
+    menu.style.setProperty("top", posTopMenu.toString() + measure);
 });
 
