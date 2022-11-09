@@ -18,6 +18,16 @@
 html {
     color: black;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 #account-button {
@@ -129,6 +139,11 @@ nav{
     margin-bottom: 20px;
 }
 
+#A4-exo-iframe {
+    overflow: scroll;
+    width: 720px;
+    height: 720px;
+}
 
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
 aside{

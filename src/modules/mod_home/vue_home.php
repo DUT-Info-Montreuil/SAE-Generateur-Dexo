@@ -43,6 +43,16 @@ class VueHome extends GenericView
     <?php
     }
 
+
+    public function displayA4Exo() 
+    { ?>
+
+<iframe id="A4-exo-iframe" src="./html/A4-paper-exo.html">
+    <p>Don't support iframe</p>
+</iframe>
+
+    <?php }
+
     public function displayHeader()
     { ?>
 
@@ -186,7 +196,8 @@ class VueHome extends GenericView
     public function displayMain()
     {
         $this->displayAsideLeft();
-        $this->displayArticle();
+        // $this->displayArticle();
+        $this->displayA4Exo();
         $this->displayAsideRight();
     }
 
