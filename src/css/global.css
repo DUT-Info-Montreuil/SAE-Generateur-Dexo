@@ -1,3 +1,15 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+    --green1: #94d3a2;
+    --green2: #298e46;
+    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+}
+
+
 header {
     background: #f7f7f7;
     width: 100%;
@@ -14,6 +26,8 @@ header {
 }
 
 .account-menu {
+    background-color: var(--white5);
+
     display: none;
     flex-direction: column;
     gap: 3px;
