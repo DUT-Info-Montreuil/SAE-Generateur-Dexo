@@ -1,19 +1,36 @@
 <?php
-    require_once "./modules/mod_user/vue_user.php";
-    require_once "./modules/mod_user/model_user.php";
-    class ContUser{
-        private $vue;
-        private $model;
-        
-        public function __construct(){
-            $this->vue = new VueUser();
-            $this->model = new ModelUser();
-        }
+require_once "./modules/mod_user/vue_user.php";
+require_once "./modules/mod_user/model_user.php";
 
-        public function getLoginForm() { $this->vue->loginForm(); }
-        public function getRegisterForm() { $this->vue->registerForm(); }
-        public function tryLogin() {
-            if ( isset($_POST['uname']) && isset($_POST['psw']) && strlen($_POST['uname']) > 0 && strlen($_POST['psw']) > 6){
+
+class ContUser
+{
+    private static $LENGTH_MIN_PASSWORD = 6;
+    private static $LENGTH_MIN_USERNAME = 0;
+
+
+    private $model;
+    private $vue;
+
+
+    public function __construct()
+    {
+        $this->vue = new VueUser();
+        $this->model = new ModelUser();
+    }
+
+
+    public function getLoginForm() { $this->vue->loginForm(); }
+    public function getRegisterForm() { $this->vue->registerForm(); }
+    public function getLostForm() { $this->vue->lostForm(); }
+
+    public function tryLogin()
+    {
+        $is_vars_set = isset($_POST['uname'], $_POST['psw']);
+        if ($is_vars_set) {
+            $valid_pwd_length = strlen($_POST['psw']) > $this->$LENGTH_MIN_PASSWORD;
+            $valid_username_length = strlen($_POST['uname']) > $this->$LENGTH_MIN_USERNAME;
+            if ($valid_username_length && $valid_pwd_length) {
                 if ($this->model->login()) {
                     // header loaction : main ...
                 } else {
@@ -21,28 +38,18 @@
                 }
             }
         }
-        public function tryRegister()
-        {
-            $variables_set = isset($_POST['uname']) && isset($_POST['psw']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email']);
-            $valid_password_length = strlen($_POST['psw']) > 6;
-            if( $variables_set && $valid_password_length) {
-                if ($this->model->loginIsTaken() === false) {
-                    $this->model->register();
-                } else {
-                    $this->vue->loginAlreadyTaken();
-                }
-            }
-        }
+    }
 
-        public function getLostForm()
-        {
-            $this->vue->lostForm();
-        }
-
-        public function displayMod(){
-            return $this->vue->getDisplay();
+    public function tryRegister()
+    {
+        $is_vars_set = isset($_POST['uname'], $_POST['psw'], $_POST['name'], $_POST['surname'], $_POST['email']);
+        if($is_vars_set) {
+            $valid_pwd_length = strlen($_POST['psw']) > $this->$LENGTH_MIN_PASSWORD;
+            if($valid_pwd_length)
+                (!$this->model->loginIsTaken()) ? $this->model->register() : $this->vue->loginAlreadyTaken();
         }
     }
 
-
+    public function displayMod() { return $this->vue->getDisplay(); }
+}
 ?>

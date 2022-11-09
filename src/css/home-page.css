@@ -1,0 +1,169 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+    --green1: #94d3a2;
+    --green2: #298e46;
+    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color: black;
+    overflow: hidden;
+}
+
+#account-button {
+    height: 35px;
+    width: 35px;
+}
+
+#left-panel-close 
+{
+    display: block;
+
+    position: absolute;
+    left: 0;
+    top: 70px;
+
+    width: 35px;
+    height: 100vh;
+
+    background: var(--white5);
+}
+
+.img-button-panel {
+    width: 30px;
+    height: 30px;
+}
+
+#left-panel-close > img {
+    width: 35px;
+    height: 35px;
+
+    left: 0;
+    top: 75px;
+}
+
+#right-panel-close
+{
+    display: block;
+
+    position: fixed;
+    left: calc(100vw - 35px);
+    top: 70px;
+
+    width: 35px;
+    height: calc(100vh - 50px);
+
+    background: var(--white5);
+}
+
+#right-panel-close > img {
+    width: 35px;
+    height: 35px;
+    left: calc(100vw - 35px);
+    top: 75px;
+
+    transform: rotate(180deg);
+}
+
+
+#left-panel-open {
+    display: none;
+
+    position: fixed;
+    left: 0;
+    top: 70px;
+
+    width: calc(100vw / 5);
+    height: 100vh;
+
+    background: var(--white5);
+}
+
+#right-panel-open {
+    display: none;
+
+    position: fixed;
+    left: calc(100vw - calc(100vw / 5));
+    top: 70px;
+
+    width: calc(100vw / 5);
+    height: calc(100vh - 50px);
+
+    background: var(--white5);
+}
+
+#right-panel-open > img {
+    width: 35px;
+    height: 35px;
+    left: calc(100vw - 35px);
+    top: 75px;
+
+    transform: rotate(90deg);
+}
+
+#left-panel-open > img {
+    width: 35px;
+    height: 35px;
+
+    left: 0;
+    top: 75px;
+}
+
+
+nav{
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+
+/* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
+aside{
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.titleAside{
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+article{
+    width: 45%;
+    padding : 0.5em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Image */
+.loupeImg{
+    width: 6%;
+    vertical-align: text-top;
+}
+.Show{
+    width: 4%;
+    vertical-align: text-top;
+}
+.Hide{
+    width: 5%;
+    vertical-align: text-top;
+}
+
+.logo{
+    width: 70px;
+    vertical-align: text-top;
+}
