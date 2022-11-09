@@ -19,7 +19,7 @@ class VueHome extends GenericView
 
 <div class="account-menu">
 <!-- TODO --> <div><a href="./index.php?module=user&status=settings">Paramètre</a></div>
-    <div><a href="./iindex.php?module=user&status=register">S'inscrire</a></div>
+    <div><a href="./index.php?module=user&status=register">S'inscrire</a></div>
     <div><a href="./index.php?module=user&status=login">Se connecter</a></div>
 </div>
 
