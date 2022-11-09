@@ -14,5 +14,14 @@ header {
 }
 
 .account-menu {
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
 
+    width: 100px;
+    height: 200px;
+
+    position: absolute;
 }
