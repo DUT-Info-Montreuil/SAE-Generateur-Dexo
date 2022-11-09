@@ -9,6 +9,7 @@ class VueHome extends GenericView
         parent::__construct();
         $this->displayHeader();
         $this->displayMain();
+        $this->setInfoDiv();
     }
 
     private function displayAccountMenu()
@@ -194,6 +195,12 @@ class VueHome extends GenericView
     <!--remplacer par le generation en php -->
 </article>
 
+    <?php }
+
+    private function setInfoDiv()
+    {
+        ?>
+        <div id="pop-in-info-div"></div>
     <?php }
 }
 ?>
