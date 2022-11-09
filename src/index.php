@@ -8,7 +8,7 @@
     require_once "./connexion.php";
 
     session_start();
-    // Connexion::set_up_connection();
+    Connexion::set_up_connection();
 
     if (!isset($_GET["module"]))
         header("Location:index.php?module=home");
