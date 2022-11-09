@@ -12,6 +12,9 @@ header {
     top: 0;
     left: 0;
 }
+a {
+    text-decoration: none;
+}
 .pop-in-dissapear {
     animation-delay: 3000ms;
     animation-duration: 5000ms;

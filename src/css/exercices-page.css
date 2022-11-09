@@ -1,0 +1,38 @@
+body {
+    height: 100vh;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    position: static;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 50px);
+    width: 100%;
+}
+
+#container > div {
+    background: red;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+aside {
+    background: blue;
+    width: 20%;
+    height: 100%;
+}
+
+#preview {
+    position: relative;
+    height: 30%;
+    width: 100%;
+    background-color: white;
+}
