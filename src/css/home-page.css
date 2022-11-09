@@ -140,9 +140,11 @@ nav{
 }
 
 #A4-exo-iframe {
-    overflow: scroll;
-    width: 720px;
-    height: 720px;
+    overflow-y: scroll;
+
+    margin-top: 55px;
+    width: calc(100vw / 2);
+    height: calc(100vh - 60px);
 }
 
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/

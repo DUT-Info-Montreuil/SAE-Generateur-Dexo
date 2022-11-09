@@ -1,24 +1,32 @@
 html {
-    width: 100%;
-    height: 100%;
+    margin: 0 auto;
+
+    border: 2.5px solid red;
+
+    width: calc(21cm + 10vw);
+    height: calc(29.7cm + 10vh);
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+    margin: 0 auto;
+    width: 21cm;
+    height: 29.7cm;
 }
 
 header {
-    width: 100%;
-    height: 20%;
+    width: 21cm;
+    height: calc(29.7cm / 4);
 }
 
 #A4-paper {
-    padding: 10% 10% 10% 10%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
-#tabulation {
-    border: 2px solid black
+#marge {
+    border: 1px dashed black;
+    width: 21cm;
+    height: 29.7cm;
 }
