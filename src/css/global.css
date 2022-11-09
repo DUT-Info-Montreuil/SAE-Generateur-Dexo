@@ -12,3 +12,20 @@ header {
     top: 0;
     left: 0;
 }
+.pop-in-dissapear {
+    animation-delay: 3000ms;
+    animation-duration: 5000ms;
+    animation-name: disapearPopIn;
+}
+
+@keyframes disapearPopIn {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
+.account-menu {
+
+}

@@ -10,7 +10,9 @@ class VueHome extends GenericView
         $this->displayHeader();
         $this->displayMain();
         $this->displayScript();
+        $this->setInfoDiv();
     }
+    
     public function displayMain()
     {
         $this->displayAsideLeft();
@@ -33,9 +35,33 @@ class VueHome extends GenericView
         <script src="./js/vue_home.js" type="text/javascript"></script>
     <?php }
     private function displayAccountMenu()
-    { ?>
+    {
+        if (!isset($_GET["user"])) {
+        ?>
+
+<div class="account-menu">
+    <table>
+        <tbody>
+            <tr>Paramètre</tr>
+            <tr>S'inscrire</tr>
+            <tr>Se connecter</tr>
+        </tbody>
+    </table>
+</div>
+
+    <?php } else { ?>
+
+<div class="account-menu">
+    <table>
+        <tbody>
+            <tr>Paramètre</tr>
+            <tr>Se déconnecter</tr>
+        </tbody>
+    </table>
+</div>
 
     <?php }
+    }
 
     public function displayHeader()
     { ?>
@@ -196,6 +222,11 @@ class VueHome extends GenericView
                 </section>
             </section>
         </aside>
-<?php }
+    <?php }
+
+    private function setInfoDiv()
+    { ?>
+        <div id="pop-in-info-div"></div>
+    <?php }
 }
 ?>
