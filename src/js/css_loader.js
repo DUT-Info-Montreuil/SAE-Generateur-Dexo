@@ -26,7 +26,7 @@ window.onload = function()
         const nameVar = urlVars[i].split('=')[0];
         const valueVar = urlVars[i].split('=')[1];
 
-        if (nameVar === 'module' && valueVar === 'user') {
+        if (nameVar === 'module') {
             if ( valueVar == "user") {
                 createLinkCSS(pathsCSS['loginRegister']);
             } else if (valueVar === 'home') {
