@@ -9,7 +9,7 @@
     --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
     --panel-width: calc(100vw / 4);
     --OpenButtonWidth:2vw;
-    --search-icon:6%;
+    --search-icon: 6%;
 }
 
 * {
