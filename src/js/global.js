@@ -22,4 +22,7 @@ function popin(text,isPermanent = true){
 }
 
 
-let worker = new Worker('test_worker.js');
+let banquePhotosIframe = document.getElementById("banques-photos-iframe");
+
+let worker = new Worker('./js/test_worker.js');
+worker.onmessage = function () { banquePhotosIframe.contentWindow.location.reload(); }

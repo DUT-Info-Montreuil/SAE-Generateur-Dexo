@@ -182,9 +182,7 @@ class VueHome extends GenericView
                         <h2>Categorie 1</h2>
                     </button>
                     <div class="content">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem consequatur molestiae doloremque,
-                            sed beatae dolor velit vel corrupti veniam ab pariatur, assumenda harum ipsum impedit. Adipisci
-                            labore autem consequatur reprehenderit!</p>
+                        <iframe id="banques-photos-iframe" src="./html/banques-photos.html"></iframe>
                     </div>
                 </section>
 

@@ -1,8 +1,3 @@
-
-
-while (true) {
-    setTimeout(() => {
-        console.log("Test boucle while parallele");
-    }, 100)
-}
-
+setInterval(function() {
+    postMessage("loop");
+}, 1_000);
