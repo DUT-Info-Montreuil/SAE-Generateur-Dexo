@@ -1,6 +1,7 @@
 <?php
 require_once "./generic_view.php";
 
+
 class VueHome extends GenericView
 {
 
@@ -22,67 +23,72 @@ class VueHome extends GenericView
         $this->displayAccountMenu();
     }
 
-    private function displayScript()
-    { ?>
+    /**
+     * @return void
+     */
+    private function displayScript() { ?>
         <script src="./js/left_panel.js" type="text/javascript"></script>
         <script src="./js/right_panel.js" type="text/javascript"></script>
         <script src="./js/vue_home.js" type="text/javascript"></script>
-    <?php }
+<?php }
 
-    private function displayAccountMenu()
-    {
+    /**
+     * Display account menu
+     *  When user connected, the menu displayed:
+     *      - settings
+     *      - logout
+     *  When user not connected, the menu displayed:
+     *      - settings
+     *      - login
+     *      - register
+     * @return void
+     */
+    private function displayAccountMenu() {
         if (!isset($_GET["user"])) { ?>
-
-<div class="account-menu">
-<!-- TODO --> <div><a href="./index.php?module=user&status=settings">Paramètre</a></div>
-    <div><a href="./index.php?module=user&status=register">S'inscrire</a></div>
-    <div><a href="./index.php?module=user&status=login">Se connecter</a></div>
-</div>
-
-    <?php } else { ?>
-
-<div class="account-menu">
-    <table>
-        <tbody>
-<!-- TODO --> <tr scope="row"><a href="./index.php?module=user&status=settings">Paramètre</a></tr>
-<!-- TODO --> <tr scope="row"><a href="./index.php?module=user&status=logout">Se déconnecter</a></tr>
-        </tbody>
-    </table>
-</div>
-
-    <?php } ?>
-
+            <div class="account-menu">
+            <!-- TODO --> <div><a href="./index.php?module=user&status=settings">Paramètre</a></div>
+                <div><a href="./index.php?module=user&status=register">S'inscrire</a></div>
+                <div><a href="./index.php?module=user&status=login">Se connecter</a></div>
+            </div>
+<?php   } else { ?>
+            <div class="account-menu">
+                <table>
+                    <tbody>
+            <!-- TODO --> <tr><a href="./index.php?module=user&status=settings">Paramètre</a></tr>
+            <!-- TODO --> <tr><a href="./index.php?module=user&status=logout">Se déconnecter</a></tr>
+                    </tbody>
+                </table>
+            </div>
+<?php   } ?>
 <script src="./js/account_menu.js" type="text/javascript"></script>
-    
-    <?php }
+<?php }
 
+    /**
+     * Display an A4 paper
+     * @return void
+     */
+    public function displayA4Exo() { ?>
+        <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
+            <p>Don't support object tag</p>
+        </object>
+<?php }
 
-    public function displayA4Exo() 
-    { ?>
-
-<iframe id="A4-exo-iframe" src="./html/A4-paper-exo.html">
-    <p>Don't support iframe</p>
-</iframe>
-
-    <?php }
-
-    public function displayHeader()
-    { ?>
+    public function displayHeader() { ?>
         <header>
             <h3>Historique</h3>
             <h2>Titre de la page</h2>
-            <!--replace by a variable in php
-     <a href="index.php?module=user&status=register">inscription</a>-->
 
             <div>
                 <img id="account-button" src="../res/profile-user.png" alt="profile-user" />
             </div>
         </header>
+<?php }
 
-    <?php }
-
-    private function displayAsideLeft()
-    { ?>
+    /**
+     * Display images available on the website
+     * @return void
+     */
+    private function displayAsideLeft() { ?>
         <aside id="left-panel-close">
             <img id="left-arrow-close" src="../res/arrow.png" alt="Arrow">
         </aside>
@@ -150,8 +156,11 @@ class VueHome extends GenericView
         </aside>
     <?php }
 
-    private function displayAsideRight()
-    { ?>
+    /**
+     * Display exercise available on the website
+     * @return void
+     */
+    private function displayAsideRight() { ?>
 
         <aside id="right-panel-close">
             <img id="right-arrow-close" src="../res/arrow.png" alt="Arrow">
@@ -182,7 +191,9 @@ class VueHome extends GenericView
                         <h2>Categorie 1</h2>
                     </button>
                     <div class="content">
-                        <iframe id="banques-photos-iframe" src="./html/banques-photos.html"></iframe>
+                        <object title="banques-photos" id="banques-photos-object" data="./html/banques-photos.html" type="text/html" role="application">
+                            <p>Don't support object tag</p>
+                        </object>
                     </div>
                 </section>
 
@@ -223,11 +234,10 @@ class VueHome extends GenericView
                 </section>
             </section>
         </aside>
-    <?php }
+<?php }
 
-    private function setInfoDiv()
-    { ?>
+    private function setInfoDiv() { ?>
         <div id="pop-in-info-div"></div>
-    <?php }
+<?php }
 }
 ?>
