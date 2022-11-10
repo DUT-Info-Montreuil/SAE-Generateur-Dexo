@@ -1,7 +1,7 @@
 <?php
 class Connexion
 {
-    static protected $bdd;
+    protected static $bdd;
 
 
     public function __construct() { }

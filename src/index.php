@@ -1,31 +1,31 @@
 <?php
-        ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
 
-        require_once "./modules/mod_user/mod_user.php";
-        require_once "./modules/mod_home/mod_home.php";
-        require_once "./connexion.php";
+    require_once "./modules/mod_user/mod_user.php";
+    require_once "./modules/mod_home/mod_home.php";
+    require_once "./connexion.php";
 
-        session_start();
-        Connexion::set_up_connection();
+    session_start();
+    Connexion::set_up_connection();
 
-        if (!isset($_GET["module"]))
-            header("Location:index.php?module=home");
-        $module = "";
-        switch ($_GET["module"]){
-            case "user":
-                $module = new ModUser();
-                break;
-            case "home":
-                $module = new ModHome();
-                break;
-            default :
-                break;
-        }
-        $content = $module->getDisplay();
-        ?>
+    if (!isset($_GET["module"]))
+        header("Location:index.php?module=home");
+    $module = "";
+    switch ($_GET["module"]){
+        case "user":
+            $module = new ModUser();
+            break;
+        case "home":
+            $module = new ModHome();
+            break;
+        default :
+            break;
+    }
+    $content = $module->getDisplay();
+?>
 
-    <!DOCTYPE html>
-    <html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,5 +38,8 @@
     <body>
         <?= $content ?>
     </body>
-    <script src="./js/main.js"></script>
+
+    <footer>
+        <script src="./js/global.js"></script>
+    </footer>
 </html>

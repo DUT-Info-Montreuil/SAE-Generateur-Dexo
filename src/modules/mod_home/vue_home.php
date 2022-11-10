@@ -4,42 +4,34 @@ require_once "./generic_view.php";
 class VueHome extends GenericView
 {
 
+
     public function __construct()
     {
         parent::__construct();
         $this->displayHeader();
         $this->displayMain();
-        $this->displayA4Exo();
-        $this->displayAccountMenu();
-        $this->displayScript();
         $this->setInfoDiv();
+        $this->displayScript();
     }
     
     public function displayMain()
     {
         $this->displayAsideLeft();
-        $this->displayArticle();
+        $this->displayA4Exo();
         $this->displayAsideRight();
+        $this->displayAccountMenu();
     }
 
-    public function displayArticle()
-    { ?>
-
-        <article id="sheet">
-            <!--remplacer par le generation en php -->
-        </article>
-
-    <?php }
     private function displayScript()
     { ?>
         <script src="./js/left_panel.js" type="text/javascript"></script>
         <script src="./js/right_panel.js" type="text/javascript"></script>
         <script src="./js/vue_home.js" type="text/javascript"></script>
     <?php }
+
     private function displayAccountMenu()
     {
-        if (!isset($_GET["user"])) {
-        ?>
+        if (!isset($_GET["user"])) { ?>
 
 <div class="account-menu">
 <!-- TODO --> <div><a href="./index.php?module=user&status=settings">Paramètre</a></div>
@@ -58,14 +50,11 @@ class VueHome extends GenericView
     </table>
 </div>
 
-    <?php }
-
-    ?>
+    <?php } ?>
 
 <script src="./js/account_menu.js" type="text/javascript"></script>
     
-    <?php
-    }
+    <?php }
 
 
     public function displayA4Exo() 
