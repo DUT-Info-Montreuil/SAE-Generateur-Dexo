@@ -9,6 +9,8 @@ class VueHome extends GenericView
         parent::__construct();
         $this->displayHeader();
         $this->displayMain();
+        $this->displayA4Exo();
+        $this->displayAccountMenu();
         $this->displayScript();
         $this->setInfoDiv();
     }
@@ -40,13 +42,9 @@ class VueHome extends GenericView
         ?>
 
 <div class="account-menu">
-    <table>
-        <tbody>
-            <tr>Paramètre</tr>
-            <tr>S'inscrire</tr>
-            <tr>Se connecter</tr>
-        </tbody>
-    </table>
+<!-- TODO --> <div><a href="./index.php?module=user&status=settings">Paramètre</a></div>
+    <div><a href="./index.php?module=user&status=register">S'inscrire</a></div>
+    <div><a href="./index.php?module=user&status=login">Se connecter</a></div>
 </div>
 
     <?php } else { ?>
@@ -54,14 +52,30 @@ class VueHome extends GenericView
 <div class="account-menu">
     <table>
         <tbody>
-            <tr>Paramètre</tr>
-            <tr>Se déconnecter</tr>
+<!-- TODO --> <tr scope="row"><a href="./index.php?module=user&status=settings">Paramètre</a></tr>
+<!-- TODO --> <tr scope="row"><a href="./index.php?module=user&status=logout">Se déconnecter</a></tr>
         </tbody>
     </table>
 </div>
 
     <?php }
+
+    ?>
+
+<script src="./js/account_menu.js" type="text/javascript"></script>
+    
+    <?php
     }
+
+
+    public function displayA4Exo() 
+    { ?>
+
+<iframe id="A4-exo-iframe" src="./html/A4-paper-exo.html">
+    <p>Don't support iframe</p>
+</iframe>
+
+    <?php }
 
     public function displayHeader()
     { ?>
