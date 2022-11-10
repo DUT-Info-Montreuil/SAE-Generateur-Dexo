@@ -7,6 +7,9 @@
     --green1: #94d3a2;
     --green2: #298e46;
     --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+    --panel-width: calc(100vw / 4);
+    --OpenButtonWidth:2vw;
+    --search-icon: 6%;
 }
 
 * {
@@ -18,25 +21,21 @@
 html {
     color: black;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 #account-button {
-    height: 10px;
-    width: 10px;
-}
-
-#left-panel-close 
-{
-    display: block;
-
-    position: absolute;
-    left: 0;
-    top: 70px;
-
+    height: 35px;
     width: 35px;
-    height: 100vh;
-
-    background: var(--white5);
 }
 
 .img-button-panel {
@@ -44,82 +43,68 @@ html {
     height: 30px;
 }
 
-#left-panel-close > img {
-    width: 35px;
-    height: 35px;
-
-    left: 0;
-    top: 75px;
-}
-
-#right-panel-close
-{
-    display: block;
-
+#left-panel{
     position: fixed;
-    left: calc(100vw - 35px);
+    left: 0;
     top: 70px;
 
-    width: 35px;
-    height: calc(100vh - 50px);
+    width: var(--panel-width);
+    height: 100vh;
+
+    background: var(--white5);
+    animation-duration: 0.5s;
+}
+
+#right-panel {
+    position: fixed;
+    left: calc(100vw - var(--panel-width));
+    top: 70px;
+
+    width: var(--panel-width);
+    height: 100vh;
+
+    background: var(--white5);
+    animation-duration: 0.5s;
+}
+#left-panel-close
+{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 70px;
+
+    width: var(--panel-width);
+    height: 100vh;
 
     background: var(--white5);
 }
-
-#right-panel-close > img {
-    width: 35px;
-    height: 35px;
-    left: calc(100vw - 35px);
-    top: 75px;
-
-    transform: rotate(180deg);
-}
-
-
-#left-panel-open {
+#right-panel-close
+{
     display: none;
-
     position: fixed;
-    left: 0;
+    left: calc(100vw - var(--panel-width));
     top: 70px;
 
-    width: calc(100vw / 5);
+    width: var(--panel-width);
     height: 100vh;
 
     background: var(--white5);
 }
 
-#right-panel-open {
-    display: none;
-
-    position: fixed;
-    left: calc(100vw - calc(100vw / 5));
-    top: 70px;
-
-    width: calc(100vw / 5);
-    height: calc(100vh - 50px);
-
-    background: var(--white5);
-}
-
-#right-panel-open > img {
-    width: 35px;
+#right-arrow-collapse{
+    width: var(--OpenButtonWidth);
     height: 35px;
     left: calc(100vw - 35px);
     top: 75px;
-
-    transform: rotate(90deg);
 }
-
-#left-panel-open > img {
-    width: 35px;
+#left-arrow-collapse{
+    width: var(--OpenButtonWidth);
     height: 35px;
-
+    
     left: 0;
     top: 75px;
+    transform: rotate(180deg);
 }
-
-
 nav{
     font-size: 2em;
     display: flex;
@@ -129,19 +114,45 @@ nav{
     margin-bottom: 20px;
 }
 
+#A4-exo-iframe {
+    overflow-y: scroll;
+
+    margin-top: 55px;
+    width: calc(100vw / 2);
+    height: calc(100vh - 60px);
+}
 
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
 aside{
+    animation-fill-mode: forwards;
     padding : 0.5em;
     border: 1px solid #000000;
     border-radius: 5px;
+    animation-duration: 5000ms;
 }
-
 .titleAside{
-    border: 1px solid #000000;
     text-align: center;
 }
-
+.search-Part {
+    margin : 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.search-Part > input,.search-Part > button {
+    border: none;
+    background-color: white;
+}
+.search-Part > input{
+    width: 90%;
+    vertical-align: middle;
+}
+.search-Part > button {
+    width: 5%;
+    cursor: pointer;
+}
+input:focus{
+    outline: none;
+}
 article{
     width: 45%;
     padding : 0.5em;
@@ -151,7 +162,7 @@ article{
 
 /* Image */
 .loupeImg{
-    width: 6%;
+    width: 100%;
     vertical-align: text-top;
 }
 .Show{
@@ -161,9 +172,103 @@ article{
 .Hide{
     width: 5%;
     vertical-align: text-top;
+    animation-fill-mode: forwards;
+    animation-duration: 400ms;
 }
-
 .logo{
     width: 70px;
     vertical-align: text-top;
+}
+
+
+/* -------------------------------- Collapsing Part --------------------------------*/
+.collapsibleAside{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    font-size: 15px;
+}
+.collapsible {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.hideAside{
+    background-color:#555;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: 20%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.hideAside:hover{
+    background-color:white;
+    color: black;
+}
+
+@keyframes rotate {
+    from  {transform: rotate(0deg)}
+    to    {transform: rotate(-90deg);}
+}
+@keyframes rotateReverse {
+    from {transform: rotate(-90deg)}
+    to   {transform: rotate(0deg)}
+}
+@keyframes HidePanelRight {
+    to   {transform: translateX(var(--panel-width))}
+}
+@keyframes OpenPanelRight {
+    from   {transform: translateX(calc(var(--panel-width)))}
+    to   {transform: translateX(calc(- var(--panel-width)))}
+
+}
+@keyframes HidePanelLeft {
+    to   {left:  calc(-1*var(--panel-width));}
+}
+@keyframes OpenPanelLeft {
+    from {left:  calc(-1*var(--panel-width));}
+    to   {left: 0;}
+
+}
+
+.collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#pop-in-info-div {
+    position: absolute;
+    top : 60px;
+    right: 0;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-in-element {
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+    background: red;
+    text-align: center;
 }

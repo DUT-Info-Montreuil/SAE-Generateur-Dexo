@@ -1,3 +1,15 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+    --green1: #94d3a2;
+    --green2: #298e46;
+    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
+}
+
+
 header {
     background: #f7f7f7;
     width: 100%;
@@ -11,4 +23,45 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+}
+.pop-in-dissapear {
+    animation-delay: 3000ms;
+    animation-duration: 5000ms;
+    animation-name: disapearPopIn;
+}
+
+@keyframes disapearPopIn {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
+.account-menu {
+    background-color: var(--white4);
+
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    height: auto;
+    padding: 5px 5px 5px 5px;
+
+    position: absolute;
+}
+
+.account-menu div {
+    width: 100%;
+    height: 100%;
+
+    border-bottom: black solid;
+    border-width: 3px;
+}
+
+.account-menu div a {
+    text-decoration: none;
 }
