@@ -1,5 +1,3 @@
-
-
 function popin(text,isPermanent = true){
     const div = document.getElementById("pop-in-info-div");
     const elem = document.createElement("div");
@@ -20,9 +18,3 @@ function popin(text,isPermanent = true){
         },8000)
     }
 }
-
-
-let banquePhotosIframe = document.getElementById("banques-photos-iframe");
-
-let worker = new Worker('./js/test_worker.js');
-worker.onmessage = function () { banquePhotosIframe.contentWindow.location.reload(); }
