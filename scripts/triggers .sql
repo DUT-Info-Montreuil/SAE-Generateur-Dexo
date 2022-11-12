@@ -15,6 +15,7 @@ CREATE OR REPLACE FUNCTION public.update_insert_delete_event()
 					'data', NEW.data
 				)::text
 			);
+			RETURN NEW;
 		END IF;
 		
 		IF (tg_op = 'DELETE') THEN
@@ -25,6 +26,7 @@ CREATE OR REPLACE FUNCTION public.update_insert_delete_event()
 					'idcategorie', OLD.idcategorie
 				)::text
 			);
+			RETURN NEW;
 		END IF;
 		
 		IF (tg_op = 'UPDATE') THEN
@@ -38,7 +40,10 @@ CREATE OR REPLACE FUNCTION public.update_insert_delete_event()
 					'data', NEW.data
 				)::text
 			);
+			RETURN NEW;
 		END IF;
+		
+		RETURN NULL;
 	END;
 $$ LANGUAGE plpgsql;
 
