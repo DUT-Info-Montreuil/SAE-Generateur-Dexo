@@ -18,10 +18,13 @@ class VueExercices extends GenericView
         <div id="container">
             <aside id="tools">
                 <p value="h1" class="elements">trait_exists</p>
-                <p value="image" class="elements">image</p>
+                <p value="img" class="elements">image</p>
+                <p value="p" class="elements">paragraph</p>
             </aside>
             <div id="preview-div">
-                <div id="preview">
+                <div id="A4-page">
+                    <div id="preview">
+                    </div>
                 </div>
             </div>
             <aside id="options">

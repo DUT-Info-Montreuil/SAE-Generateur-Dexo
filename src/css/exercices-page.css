@@ -21,7 +21,6 @@ header {
     width: 60%;
     height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 aside {
@@ -29,10 +28,49 @@ aside {
     width: 20%;
     height: 100%;
 }
-
+#preview-div {
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+#A4-page {
+    position: relative;
+    height: 29cm;
+    width: 21cm;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
 #preview {
     position: relative;
-    height: 30%;
-    width: 100%;
+    height: 5cm;
+    width: 20cm;
+    border: dashed red 2px;
     background-color: white;
+}
+.img-input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #1c1b1b;
+}
+.img-input::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 40%;
+    height: 40%;
+    border: 1px dashed #1c1b1b;
+}
+.option-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.option-label {
+    flex-basis: 100%;
+}
+.preview-elements-moving {
+    cursor: move;
 }
