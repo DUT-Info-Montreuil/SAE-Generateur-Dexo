@@ -1,5 +1,4 @@
-:root
-{
+:root {
     --white1: #fcfcfc;
     --white2: #fcfcfc;
     --white3: #f7f7f7;
@@ -9,7 +8,7 @@
     --green2: #298e46;
     --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
     --panel-width: calc(100vw / 4);
-    --OpenButtonWidth:2vw;
+    --OpenButtonWidth: 2vw;
     --search-icon: 6%;
 }
 
@@ -19,16 +18,14 @@
     box-sizing: border-box;
 }
 
-html
-{
+html {
     color: black;
     overflow: hidden;
     width: 100%;
     height: 100%;
 }
 
-body
-{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,20 +33,17 @@ body
     height: 100%;
 }
 
-#account-button
-{
+#account-button {
     height: 35px;
     width: 35px;
 }
 
-.img-button-panel
-{
+.img-button-panel {
     width: 30px;
     height: 30px;
 }
 
-#left-panel
-{
+#left-panel {
     position: fixed;
     left: 0;
     top: 70px;
@@ -61,8 +55,7 @@ body
     animation-duration: 0.5s;
 }
 
-#right-panel
-{
+#right-panel {
     position: fixed;
     left: calc(100vw - var(--panel-width));
     top: 70px;
@@ -74,8 +67,7 @@ body
     animation-duration: 0.5s;
 }
 
-#left-panel-close
-{
+#left-panel-close {
     display: none;
     position: fixed;
     left: 0;
@@ -87,8 +79,7 @@ body
     background: var(--white5);
 }
 
-#right-panel-close
-{
+#right-panel-close {
     display: none;
     position: fixed;
     left: calc(100vw - var(--panel-width));
@@ -100,26 +91,23 @@ body
     background: var(--white5);
 }
 
-#right-arrow-collapse
-{
+#right-arrow-collapse {
     width: var(--OpenButtonWidth);
     height: 35px;
     left: calc(100vw - 35px);
     top: 75px;
 }
 
-#left-arrow-collapse
-{
+#left-arrow-collapse {
     width: var(--OpenButtonWidth);
     height: 35px;
-    
+
     left: 0;
     top: 75px;
     transform: rotate(180deg);
 }
 
-nav
-{
+nav {
     font-size: 2em;
     display: flex;
     align-items: center;
@@ -128,8 +116,7 @@ nav
     margin-bottom: 20px;
 }
 
-#A4-exo-iframe
-{
+#A4-exo-iframe {
     overflow-y: scroll;
 
     margin-top: 55px;
@@ -138,83 +125,76 @@ nav
 }
 
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
-aside
-{
+aside {
     animation-fill-mode: forwards;
-    padding : 0.5em;
+    padding: 0.5em;
     border: 1px solid #000000;
     border-radius: 5px;
     animation-duration: 5000ms;
 }
 
-.titleAside{ text-align: center; }
+.titleAside {
+    text-align: center;
+}
 
-.search-Part
-{
-    margin : 10px;
+.search-Part {
+    margin: 10px;
     background-color: white;
     border-radius: 10px;
 }
 
-.search-Part > input, .search-Part > button
-{
+.search-Part > input, .search-Part > button {
     border: none;
     background-color: white;
 }
 
-.search-Part > input
-{
+.search-Part > input {
     width: 90%;
     vertical-align: middle;
 }
 
-.search-Part > button
-{
+.search-Part > button {
     width: 5%;
     cursor: pointer;
 }
 
-input:focus{ outline: none; }
+input:focus {
+    outline: none;
+}
 
-article
-{
+article {
     width: 45%;
-    padding : 0.5em;
+    padding: 0.5em;
     border: 1px solid #000000;
     border-radius: 5px;
 }
 
 /* Image */
-.loupeImg
-{
+.loupeImg {
     width: 100%;
     vertical-align: text-top;
 }
 
-.Show
-{
+.Show {
     width: 4%;
     vertical-align: text-top;
 }
 
-.Hide
-{
+.Hide {
     width: 5%;
     vertical-align: text-top;
     animation-fill-mode: forwards;
     animation-duration: 400ms;
 }
 
-.logo
-{
+.logo {
     width: 70px;
     vertical-align: text-top;
 }
 
 
 /* -------------------------------- Collapsing Part -------------------------------- */
-.collapsibleAside
-{
+.collapsibleAside {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -224,8 +204,7 @@ article
     font-size: 15px;
 }
 
-.collapsible
-{
+.collapsible {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -236,9 +215,8 @@ article
     margin-bottom: 20px;
 }
 
-.hideAside
-{
-    background-color:#555;
+.hideAside {
+    background-color: #555;
     border-radius: 10px;
     width: 60%;
     margin-left: 20%;
@@ -249,54 +227,73 @@ article
     color: white;
 }
 
-.hideAside:hover
-{
-    background-color:white;
+.hideAside:hover {
+    background-color: white;
     color: black;
 }
 
-@keyframes rotate
-{
-    from  { transform: rotate(0deg); }
-    to { transform: rotate(-90deg); }
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
 }
 
-@keyframes rotateReverse
-{
-    from { transform: rotate(-90deg); }
-    to { transform: rotate(0deg); }
+@keyframes rotateReverse {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
-@keyframes HidePanelRight { to { transform: translateX(var(--panel-width)); } }
-
-@keyframes OpenPanelRight
-{
-    from { transform: translateX(calc(var(--panel-width))); }
-    to { transform: translateX(calc(-var(--panel-width))); }
+@keyframes HidePanelRight {
+    to {
+        transform: translateX(var(--panel-width));
+    }
 }
 
-@keyframes HidePanelLeft { to { left: calc(-1*var(--panel-width)); }  }
-
-@keyframes OpenPanelLeft
-{
-    from { left:  calc(-1*var(--panel-width)); }
-    to { left: 0; }
+@keyframes OpenPanelRight {
+    from {
+        transform: translateX(calc(var(--panel-width)));
+    }
+    to {
+        transform: translateX(calc(-var(--panel-width)));
+    }
 }
 
-.collapsible:hover { background-color: #555; }
+@keyframes HidePanelLeft {
+    to {
+        left: calc(-1 * var(--panel-width));
+    }
+}
 
-.content
-{
+@keyframes OpenPanelLeft {
+    from {
+        left: calc(-1 * var(--panel-width));
+    }
+    to {
+        left: 0;
+    }
+}
+
+.collapsible:hover {
+    background-color: #555;
+}
+
+.content {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
 
-#pop-in-info-div
-{
+#pop-in-info-div {
     position: absolute;
-    top : 60px;
+    top: 60px;
     right: 0;
     width: 10%;
     display: flex;
@@ -305,8 +302,7 @@ article
     align-items: center;
 }
 
-.pop-in-element
-{
+.pop-in-element {
     margin-right: 5px;
     margin-top: 5px;
     width: 100%;

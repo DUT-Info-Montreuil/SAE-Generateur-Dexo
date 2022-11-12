@@ -7,8 +7,8 @@ let isRightPanelOpened = true;
 
 rightPanelButtonClose.addEventListener("click", () => rightPanel.style.animationName = "HidePanelRight");
 
-rightPanel.onanimationend = function(ev) {
-    if (ev.animationName === 'HidePanelRight' || ev.animationName === 'OpenPanelRight' ) {
+rightPanel.onanimationend = function (ev) {
+    if (ev.animationName === 'HidePanelRight' || ev.animationName === 'OpenPanelRight') {
         if (isRightPanelOpened) {
             rightPanel.style.display = "none";
             rightPanelClose.style.display = 'block';
@@ -18,10 +18,10 @@ rightPanel.onanimationend = function(ev) {
         }
         isRightPanelOpened = !isRightPanelOpened;
     }
-    
+
 };
 
-rightPanelClose.onclick = function() {
+rightPanelClose.onclick = function () {
     rightPanelClose.style.display = "none";
     rightPanel.style.display = 'block';
     rightPanel.style.animationName = "OpenPanelRight";

@@ -12,8 +12,7 @@ class ModUser
 
         $this->status = isset($_GET['status']) ? $_GET['status'] : 'login';
 
-        switch($this->status)
-        {
+        switch ($this->status) {
             case "register" :
                 $this->controler->tryRegister();
                 $this->controler->getRegisterForm();
@@ -28,6 +27,10 @@ class ModUser
     }
 
 
-    public function getDisplay() { return $this->controler->displayMod(); }
+    public function getDisplay()
+    {
+        return $this->controler->displayMod();
+    }
 }
+
 ?>

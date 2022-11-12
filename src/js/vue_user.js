@@ -10,8 +10,14 @@ const backButton = document.getElementById("back-button");
 
 
 if (registerButton != null)
-    registerButton.onclick = function() { document.location = registerUrl; }
+    registerButton.onclick = function () {
+        document.location = registerUrl;
+    }
 if (connexionButton != null)
-    connexionButton.onclick = function() { document.location = loginUrl; }
+    connexionButton.onclick = function () {
+        document.location = loginUrl;
+    }
 if (backButton != null)
-    backButton.onclick = function() { document.location = homeUrl; }
+    backButton.onclick = function () {
+        document.location = homeUrl;
+    }
