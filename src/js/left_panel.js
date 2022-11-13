@@ -6,10 +6,10 @@ const leftPanelButtonClose = leftPanel.getElementsByClassName("hideAside")[0];
 let isLeftPanelOpened = true;
 
 
-leftPanelButtonClose.addEventListener("click", () =>  leftPanel.style.animationName = "HidePanelLeft");
+leftPanelButtonClose.addEventListener("click", () => leftPanel.style.animationName = "HidePanelLeft");
 
-leftPanel.onanimationend = function(ev) {
-    if (ev.animationName === 'HidePanelLeft' || ev.animationName === 'OpenPanelLeft' ) {
+leftPanel.onanimationend = function (ev) {
+    if (ev.animationName === 'HidePanelLeft' || ev.animationName === 'OpenPanelLeft') {
         if (isLeftPanelOpened) {
             leftPanel.style.display = "none";
             leftPanelClose.style.display = 'block';
@@ -21,7 +21,7 @@ leftPanel.onanimationend = function(ev) {
     }
 };
 
-leftPanelClose.onclick = function() {
+leftPanelClose.onclick = function () {
     leftPanelClose.style.display = "none";
     leftPanel.style.display = 'block';
     leftPanel.style.animationName = "OpenPanelLeft";

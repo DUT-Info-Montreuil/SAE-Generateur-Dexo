@@ -20,9 +20,20 @@ class ContUser
     }
 
 
-    public function getLoginForm() { $this->vue->loginForm(); }
-    public function getRegisterForm() { $this->vue->registerForm(); }
-    public function getLostForm() { $this->vue->lostForm(); }
+    public function getLoginForm()
+    {
+        $this->vue->loginForm();
+    }
+
+    public function getRegisterForm()
+    {
+        $this->vue->registerForm();
+    }
+
+    public function getLostForm()
+    {
+        $this->vue->lostForm();
+    }
 
     public function tryLogin()
     {
@@ -43,13 +54,17 @@ class ContUser
     public function tryRegister()
     {
         $is_vars_set = isset($_POST['uname'], $_POST['psw'], $_POST['name'], $_POST['surname'], $_POST['email']);
-        if($is_vars_set) {
+        if ($is_vars_set) {
             $valid_pwd_length = strlen($_POST['psw']) > $this->$LENGTH_MIN_PASSWORD;
-            if($valid_pwd_length)
+            if ($valid_pwd_length)
                 (!$this->model->loginIsTaken()) ? $this->model->register() : $this->vue->loginAlreadyTaken();
         }
     }
 
-    public function displayMod() { return $this->vue->getDisplay(); }
+    public function displayMod()
+    {
+        return $this->vue->getDisplay();
+    }
 }
+
 ?>

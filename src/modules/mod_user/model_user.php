@@ -3,7 +3,9 @@ require_once "./connexion.php";
 
 class ModelUser extends Connexion
 {
-    public function __construct() { }
+    public function __construct()
+    {
+    }
 
     public function login()
     {
@@ -16,7 +18,7 @@ class ModelUser extends Connexion
 
         $login_info = $prep->fetch();
 
-        if (isset($login_info["password"]) && password_verify($pass,$login_info["password"])) {
+        if (isset($login_info["password"]) && password_verify($pass, $login_info["password"])) {
             $_SESSION["id"] = $login_info["id"];
             $_SESSION["nom"] = $login_info["nom"];
             $_SESSION["prenom"] = $login_info["prenom"];
@@ -34,11 +36,11 @@ class ModelUser extends Connexion
         $surname = $_POST["surname"];
         $email = $_POST["email"];
 
-        $password = password_hash($password,PASSWORD_DEFAULT);
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO Compte (idCompte , idRole , nom , prenom , login , password , email) VALUES (DEFAULT , DEFAULT , ? , ? , ? , ? , ?)";
         $prepare = parent::$bdd->prepare($query);
-        $prepare->execute([$surname,$name,$uname,$password,$email]);
+        $prepare->execute([$surname, $name, $uname, $password, $email]);
 
     }
 
@@ -53,4 +55,5 @@ class ModelUser extends Connexion
         return $prepare->fetch();
     }
 }
+
 ?>

@@ -42,8 +42,16 @@ body {
     flex-direction: column;
 }
 
-.form > img { height: 100px; width: 100px; }
-.form > h1 { height: 30px; margin-top:3px; margin-bottom: 30px; }
+.form > img {
+    height: 100px;
+    width: 100px;
+}
+
+.form > h1 {
+    height: 30px;
+    margin-top: 3px;
+    margin-bottom: 30px;
+}
 
 .border-form {
     height: 500px;
@@ -65,7 +73,10 @@ body {
     gap: 6px;
 }
 
-#form-buttons > button { text-decoration: none; color: white; }
+#form-buttons > button {
+    text-decoration: none;
+    color: white;
+}
 
 .form-container {
     display: flex;
@@ -75,8 +86,15 @@ body {
     gap: 3px;
 }
 
-.form-container > label { font-weight: bold; }
-.form-container > input { width: 85%; height: 30px; border-radius: 3px; }
+.form-container > label {
+    font-weight: bold;
+}
+
+.form-container > input {
+    width: 85%;
+    height: 30px;
+    border-radius: 3px;
+}
 
 .register-input {
     width: 85%;
@@ -112,7 +130,9 @@ body {
     outline: none;
 }
 
-.buttons-form:hover { background-color: var(--white5); }
+.buttons-form:hover {
+    background-color: var(--white5);
+}
 
 .buttons-form:focus {
     box-shadow: var(--green3);
