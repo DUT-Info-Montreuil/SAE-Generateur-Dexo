@@ -155,7 +155,7 @@ class VueHome extends GenericView
                         <h2>Categorie 1</h2>
                     </button>
                     <div class="content">
-                        <object id="exos-categorie1" data="./html/cat1.html">
+                        <object id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -167,7 +167,7 @@ class VueHome extends GenericView
                         <h2>Categorie 2</h2>
                     </button>
                     <div class="content">
-                        <object id="exos-categorie2" data="./html/cat2.html">
+                        <object id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -179,7 +179,7 @@ class VueHome extends GenericView
                         <h2>Categorie 3</h2>
                     </button>
                     <div class="content">
-                        <object id="exos-categorie3" data="./html/cat3.html">
+                        <object id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -191,7 +191,7 @@ class VueHome extends GenericView
                         <h2>Categorie 4</h2>
                     </button>
                     <div class="content">
-                        <object id="exos-categorie4" data="./html/cat4.html">
+                        <object id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
