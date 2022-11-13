@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import datetime
 
+from psycopg.sql import SQL
 
-def get_first_row_sql(connection, query: str, *args) -> None | tuple:
+
+def get_first_row_sql(connection, query: SQL, *args) -> None | tuple:
     """ get_first_row_sql(connection: Connection[Any], query: str,  *args: tuple) -> None | str
             Fetch the first row if the query is executed correctly by the cursor
     :param connection: The connection on the database thanks to pgsql.connect

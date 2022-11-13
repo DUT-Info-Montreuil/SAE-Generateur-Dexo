@@ -26,10 +26,11 @@ class Categories:
         """ first_launch() -> None """
         pass
 
-    def refresh(self, payload: str) -> None:
+    def refresh(self, notify_name: str, payload: str) -> None:
         """ refresh(self, payload: str) -> None
                 It allows to append into a html file when the exercise recently added.
 
+        :param notify_name:
         :param payload: json format output from postgresql trigger """
 
         json_data = json.loads(payload)
@@ -54,8 +55,16 @@ class Categories:
 
             # if the name_exercise and name_exercise found on postgresql database
             if name_category and name_exercise is not None:
-                path_file_html = self.categories_html_path[name_category]
-                if exists(path_file_html):
+                path_file_html: str = None
+                # If in the BDD somebody add new category which isn't write in categories_html_path variable
+                try:
+                    path_file_html = self.categories_html_path[name_category]
+                except Exception as e:
+                    print(f"[{datetime.datetime.now()}] La catégorie {name_category} n'est pas referencé au sain du code Python (line 15 de categories.py)")
+                    print(e)
+
+                # If the html file exists at location '../html/categories/xxx.html'
+                if path_file_html is not None and exists(path_file_html):
                     print(f"[{datetime.datetime.now()}] Creation de l'exercice -> {name_exercise} dans la catégorie -> {name_category} en cours...")
 
                     content_html: str

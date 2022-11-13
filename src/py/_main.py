@@ -23,9 +23,10 @@ print(f"[{datetime.datetime.now()}] Connection à la BDD {Server.BDD.get_name()}
 cat: Categories = Categories(connection)
 
 with connection.cursor() as c:
-    c.execute(Const.LISTEN_QUERY)
+    c.execute(f"LISTEN {Const.INSERT_NOTIFY_NAME};LISTEN {Const.DELETED_NOTIFY_NAME};LISTEN {Const.UPDATED_NOTIFY_NAME}")
+
 
 while True:
     for notify in connection.notifies():
-        cat.refresh(notify.payload)
+        cat.refresh(notify.channel, notify.payload)
     sleep(Const.AMOUNT_THREAD_TIME_SLEEP)
