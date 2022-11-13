@@ -4,23 +4,33 @@ import json
 from html.parser import HTMLParser
 from os.path import exists
 
+from psycopg import Connection
+
 from const import *
 from exercise_element_generator import ExerciseElementGenerator
 from functions import get_first_row_sql
 
 
 class Categories:
+    connection: Connection = None
 
-    connection = None
-    categories_html_path: dict[HTMLParser] = {
-        'categorie1': Const.CAT1_HTML_PATH,
-        'categorie2': Const.CAT2_HTML_PATH,
-        'categorie3': Const.CAT3_HTML_PATH,
-        'categorie4': Const.CAT4_HTML_PATH
-    }
-
-    def __init__(self, connection) -> None:
+    def __init__(self, connection: Connection) -> None:
         self.connection = connection
+
+    @staticmethod
+    def __get_html_path(cat_name: str) -> str | None:
+        path: str = None
+        if cat_name in Const.LIST_CATEGORIES:
+            if cat_name == "categorie1":
+                path = Const.CAT1_HTML_PATH
+            elif cat_name == "categorie2":
+                path = Const.CAT2_HTML_PATH
+            elif cat_name == "categorie3":
+                path = Const.CAT3_HTML_PATH
+            elif cat_name == "categorie4":
+                path = Const.CAT4_HTML_PATH
+
+        return path
 
     def first_launch(self) -> None:
         """ first_launch() -> None """
@@ -55,13 +65,10 @@ class Categories:
 
             # if the name_exercise and name_exercise found on postgresql database
             if name_category and name_exercise is not None:
-                path_file_html: str = None
+                path_file_html: str = self.__get_html_path(name_category)
                 # If in the BDD somebody add new category which isn't write in categories_html_path variable
-                try:
-                    path_file_html = self.categories_html_path[name_category]
-                except Exception as e:
-                    print(f"[{datetime.datetime.now()}] La catégorie {name_category} n'est pas referencé au sain du code Python (line 15 de categories.py)")
-                    print(e)
+                if path_file_html is None:
+                    print(f"[{datetime.datetime.now()}] La catégorie {name_category} n'est pas referencé au sain du code Python dans la fonction get_html_path")
 
                 # If the html file exists at location '../html/categories/xxx.html'
                 if path_file_html is not None and exists(path_file_html):
