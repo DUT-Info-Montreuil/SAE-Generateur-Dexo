@@ -1,31 +1,17 @@
-:root {
-    --white1: #fcfcfc;
-    --white2: #fcfcfc;
-    --white3: #f7f7f7;
-    --white4: #f3f3f3;
-    --white5: #eaeaea;
-
-    --green1: #94d3a2;
-    --green2: #298e46;
-    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html
-{
+html {
     background: var(--white1);
 
     height: 100%;
     width: 100%;
 }
 
-body
-{
+body {
     height: 100%;
     width: 100%;
 
@@ -44,8 +30,7 @@ body
     gap: 5px;
 }
 
-.form
-{
+.form {
     background: var(--white3);
 
     height: 480px;
@@ -60,8 +45,7 @@ body
 .form > img { height: 100px; width: 100px; }
 .form > h1 { height: 30px; margin-top:3px; margin-bottom: 30px; }
 
-.border-form
-{
+.border-form {
     height: 500px;
     width: 500px;
 
@@ -72,8 +56,7 @@ body
     filter: blur(5px);
 }
 
-.form-buttons
-{
+.form-buttons {
     padding-top: 10px;
 
     display: flex;
@@ -84,9 +67,7 @@ body
 
 #form-buttons > button { text-decoration: none; color: white; }
 
-
-.form-container
-{
+.form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,10 +78,10 @@ body
 .form-container > label { font-weight: bold; }
 .form-container > input { width: 85%; height: 30px; border-radius: 3px; }
 
-
 .register-input {
     width: 85%;
 }
+
 .buttons-form {
     appearance: none;
     background-color: var(--white3);
@@ -149,6 +130,7 @@ body
     background-color: var(--green2);
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
+
 #pop-in-info-div {
     width: 100%;
     justify-content: center;
