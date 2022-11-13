@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
 import json
-from html.parser import HTMLParser
 from os.path import exists
 
 from psycopg import Connection
 
 from const import *
-from exercise_element_generator import ExerciseElementGenerator
+from exercise_html_generator import ExerciseHTMLGenerator
 from functions import get_first_row_sql
 
 
@@ -78,7 +77,7 @@ class Categories:
                     with open(path_file_html, 'r') as html_file:
                         content_html = html_file.read()
 
-                    div = ExerciseElementGenerator.generate_div(name_category, name_exercise, id_exercise)
+                    div = ExerciseHTMLGenerator.generate_div(name_category, name_exercise, id_exercise)
                     with open(path_file_html, 'w') as html_file:
                         i = 0; final_data_html = ""
                         len_content_without_end_tags = (len(content_html)-1) - (len(Const.END_TAGS)-1)
