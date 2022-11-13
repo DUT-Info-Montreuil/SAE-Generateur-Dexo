@@ -1,7 +1,7 @@
 html {
     margin: 0 auto;
 
-    border: 2.5px solid red;
+    border: 3px solid red;
 
     width: calc(21cm + 10vw);
     height: calc(29.7cm + 10vh);
@@ -19,10 +19,7 @@ header {
 }
 
 #A4-paper {
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 5vh 5vw;
 }
 
 #marge {
