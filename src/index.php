@@ -25,7 +25,12 @@
             default :
                 break;
         }
-        $content = $module->getDisplay();
+
+        if ($module !== ""){
+            $content = $module->getDisplay();
+        } else {
+            $content = "Module not found";
+        }
         ?>
 
     <!DOCTYPE html>
