@@ -1,11 +1,11 @@
-var coll = document.getElementsByClassName("collapsible");
+const coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
+    coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
-        var collapseLogo = this.getElementsByClassName("Hide")[0];
-        
-        var content = this.nextElementSibling;
+        const collapseLogo = this.getElementsByClassName("Hide")[0];
+
+        let content = this.nextElementSibling;
         if (content.style.maxHeight) { //(open)
             // if(null) return false
             content.style.maxHeight = null;

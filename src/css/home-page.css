@@ -1,16 +1,9 @@
 :root {
-    --white1: #fcfcfc;
-    --white2: #fcfcfc;
-    --white3: #f7f7f7;
-    --white4: #f3f3f3;
-    --white5: #eaeaea;
-    --green1: #94d3a2;
-    --green2: #298e46;
-    --green3: rgba(46, 164, 79, .4) 0 0 0 3px;
     --panel-width: calc(100vw / 4);
-    --OpenButtonWidth:2vw;
+    --OpenButtonWidth: 2vw;
     --search-icon: 6%;
 }
+
 
 * {
     margin: 0;
@@ -43,7 +36,7 @@ body {
     height: 30px;
 }
 
-#left-panel{
+#left-panel {
     position: fixed;
     left: 0;
     top: 70px;
@@ -66,8 +59,8 @@ body {
     background: var(--white5);
     animation-duration: 0.5s;
 }
-#left-panel-close
-{
+
+#left-panel-close {
     display: none;
     position: fixed;
     left: 0;
@@ -78,8 +71,8 @@ body {
 
     background: var(--white5);
 }
-#right-panel-close
-{
+
+#right-panel-close {
     display: none;
     position: fixed;
     left: calc(100vw - var(--panel-width));
@@ -91,21 +84,23 @@ body {
     background: var(--white5);
 }
 
-#right-arrow-collapse{
+#right-arrow-collapse {
     width: var(--OpenButtonWidth);
     height: 35px;
     left: calc(100vw - 35px);
     top: 75px;
 }
-#left-arrow-collapse{
+
+#left-arrow-collapse {
     width: var(--OpenButtonWidth);
     height: 35px;
-    
+
     left: 0;
     top: 75px;
     transform: rotate(180deg);
 }
-nav{
+
+nav {
     font-size: 2em;
     display: flex;
     align-items: center;
@@ -123,66 +118,76 @@ nav{
 }
 
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
-aside{
+aside {
     animation-fill-mode: forwards;
-    padding : 0.5em;
+    padding: 0.5em;
     border: 1px solid #000000;
     border-radius: 5px;
     animation-duration: 5000ms;
 }
-.titleAside{
+
+.titleAside {
     text-align: center;
 }
+
 .search-Part {
-    margin : 10px;
+    margin: 10px;
     background-color: white;
     border-radius: 10px;
 }
-.search-Part > input,.search-Part > button {
+
+.search-Part > input, .search-Part > button {
     border: none;
     background-color: white;
 }
-.search-Part > input{
+
+.search-Part > input {
     width: 90%;
     vertical-align: middle;
 }
+
 .search-Part > button {
     width: 5%;
     cursor: pointer;
 }
-input:focus{
+
+input:focus {
     outline: none;
 }
-article{
+
+article {
     width: 45%;
-    padding : 0.5em;
+    padding: 0.5em;
     border: 1px solid #000000;
     border-radius: 5px;
 }
 
 /* Image */
-.loupeImg{
+.loupeImg {
     width: 100%;
     vertical-align: text-top;
 }
-.Show{
+
+.Show {
     width: 4%;
     vertical-align: text-top;
 }
-.Hide{
+
+.Hide {
     width: 5%;
     vertical-align: text-top;
     animation-fill-mode: forwards;
     animation-duration: 400ms;
 }
-.logo{
+
+.logo {
     width: 70px;
     vertical-align: text-top;
 }
 
 
-/* -------------------------------- Collapsing Part --------------------------------*/
-.collapsibleAside{
+/* -------------------------------- Collapsing Part -------------------------------- */
+.collapsibleAside {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -191,6 +196,7 @@ article{
     width: 100%;
     font-size: 15px;
 }
+
 .collapsible {
     display: flex;
     align-items: center;
@@ -201,8 +207,9 @@ article{
     font-size: 15px;
     margin-bottom: 20px;
 }
-.hideAside{
-    background-color:#555;
+
+.hideAside {
+    background-color: #555;
     border-radius: 10px;
     width: 60%;
     margin-left: 20%;
@@ -212,34 +219,58 @@ article{
     align-items: center;
     color: white;
 }
-.hideAside:hover{
-    background-color:white;
+
+.hideAside:hover {
+    background-color: white;
     color: black;
 }
 
 @keyframes rotate {
-    from  {transform: rotate(0deg)}
-    to    {transform: rotate(-90deg);}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
 }
+
 @keyframes rotateReverse {
-    from {transform: rotate(-90deg)}
-    to   {transform: rotate(0deg)}
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
+
 @keyframes HidePanelRight {
-    to   {transform: translateX(var(--panel-width))}
+    to {
+        transform: translateX(var(--panel-width));
+    }
 }
+
 @keyframes OpenPanelRight {
-    from   {transform: translateX(calc(var(--panel-width)))}
-    to   {transform: translateX(calc(- var(--panel-width)))}
-
+    from {
+        transform: translateX(calc(var(--panel-width)));
+    }
+    to {
+        transform: translateX(calc(-var(--panel-width)));
+    }
 }
+
 @keyframes HidePanelLeft {
-    to   {left:  calc(-1*var(--panel-width));}
+    to {
+        left: calc(-1 * var(--panel-width));
+    }
 }
-@keyframes OpenPanelLeft {
-    from {left:  calc(-1*var(--panel-width));}
-    to   {left: 0;}
 
+@keyframes OpenPanelLeft {
+    from {
+        left: calc(-1 * var(--panel-width));
+    }
+    to {
+        left: 0;
+    }
 }
 
 .collapsible:hover {
@@ -255,7 +286,7 @@ article{
 
 #pop-in-info-div {
     position: absolute;
-    top : 60px;
+    top: 60px;
     right: 0;
     width: 10%;
     display: flex;

@@ -3,24 +3,25 @@ const leftPanel = document.getElementById("left-panel");
 const leftPanelClose = document.getElementById("left-panel-close");
 const leftPanelButtonClose = leftPanel.getElementsByClassName("hideAside")[0];
 
-let isleftPanelOpnned = true;
+let isLeftPanelOpened = true;
 
-leftPanelButtonClose.onclick = function() {
-    leftPanel.style.animationName = "HidePanelLeft";
-}
-leftPanel.onanimationend = function(ev) {
-    if (ev.animationName == 'HidePanelLeft' || ev.animationName == 'OpenPanelLeft' ) {
-        if (isleftPanelOpnned) {
+
+leftPanelButtonClose.addEventListener("click", () => leftPanel.style.animationName = "HidePanelLeft");
+
+leftPanel.onanimationend = function (ev) {
+    if (ev.animationName === 'HidePanelLeft' || ev.animationName === 'OpenPanelLeft') {
+        if (isLeftPanelOpened) {
             leftPanel.style.display = "none";
             leftPanelClose.style.display = 'block';
         } else {
             leftPanel.style.display = "block";
             leftPanelClose.style.display = 'none';
         }
-        isleftPanelOpnned = !isleftPanelOpnned;
+        isLeftPanelOpened = !isLeftPanelOpened;
     }
 };
-leftPanelClose.onclick = function() {
+
+leftPanelClose.onclick = function () {
     leftPanelClose.style.display = "none";
     leftPanel.style.display = 'block';
     leftPanel.style.animationName = "OpenPanelLeft";

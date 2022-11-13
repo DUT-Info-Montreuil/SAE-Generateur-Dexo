@@ -13,6 +13,10 @@ class ModHome
     }
 
 
-    public function getDisplay() { return $this->controler->displayMod(); }
+    public function getDisplay()
+    {
+        return $this->controler->displayMod();
+    }
 }
+
 ?>

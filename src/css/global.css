@@ -24,16 +24,18 @@ header {
     top: 0;
     left: 0;
 }
-.pop-in-dissapear {
+
+.pop-in-disappear {
     animation-delay: 3000ms;
     animation-duration: 5000ms;
-    animation-name: disapearPopIn;
+    animation-name: disappearPopIn;
 }
 
-@keyframes disapearPopIn {
+@keyframes disappear-pop-in {
     from {
         opacity: 1;
-    } to {
+    }
+    to {
         opacity: 0;
     }
 }
