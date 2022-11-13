@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-from html.parser import HTMLParser
-
-
 class ExerciseElementGenerator:
 
     @staticmethod
@@ -14,10 +11,4 @@ class ExerciseElementGenerator:
 
     @staticmethod
     def generate_div(name_category: str, name_exercise: str, id_exercise: int):
-        html_parse = HTMLParser()
-        html_parse.feed(f"<div {ExerciseElementGenerator.generate_id_attribute(name_category, id_exercise)} " +
-                        f" {ExerciseElementGenerator.generate_class_attribute(name_category)} draggable=\"true\">" +
-                        f"<p>{name_exercise}</p>" +
-                        f"</div>")
-
-        return html_parse
+        return f"<div {ExerciseElementGenerator.generate_id_attribute(name_category, id_exercise)} {ExerciseElementGenerator.generate_class_attribute(name_category)} draggable=\"true\"><p>{name_exercise}</p></div>"
