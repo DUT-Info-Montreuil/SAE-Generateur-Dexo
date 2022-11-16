@@ -20,4 +20,7 @@ function popin(text, isPermanent = true) {
     }
 }
 
-$(".categories").draggable()
+$(function () {
+    $(".categories").draggable()
+    $(".categories").droppable()
+});
