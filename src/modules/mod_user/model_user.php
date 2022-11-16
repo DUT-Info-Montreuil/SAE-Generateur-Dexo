@@ -10,14 +10,14 @@ class ModelUser extends Connexion
         $username = $_POST["uname"];
         $pass = $_POST["psw"];
 
-        $query = "SELECT login ,password, nom , prenom FROM Compte WHERE login like ?";
+        $query = "SELECT * FROM compte WHERE login LIKE :username";
         $prep = parent::$bdd->prepare($query);
-        $prep->execute([$username]);
-
+        $prep->bindValue(':username',$username);
+        $prep->execute();
+        
         $login_info = $prep->fetch();
-
         if (isset($login_info["password"]) && password_verify($pass,$login_info["password"])) {
-            $_SESSION["id"] = $login_info["id"];
+            $_SESSION["id"] = $login_info["idcompte"];
             $_SESSION["nom"] = $login_info["nom"];
             $_SESSION["prenom"] = $login_info["prenom"];
             return true;
@@ -29,7 +29,7 @@ class ModelUser extends Connexion
     public function register()
     {
         $uname = $_POST["uname"];
-        $password = isset($_POST["psw"]);
+        $password = $_POST["psw"];
         $name = $_POST["name"];
         $surname = $_POST["surname"];
         $email = $_POST["email"];
