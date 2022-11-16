@@ -1,3 +1,4 @@
+
 function popin(text, isPermanent = true) {
     const div = document.getElementById("pop-in-info-div");
     const elem = document.createElement("div");
@@ -18,3 +19,5 @@ function popin(text, isPermanent = true) {
         }, 8000)
     }
 }
+
+$(".categories").draggable()
