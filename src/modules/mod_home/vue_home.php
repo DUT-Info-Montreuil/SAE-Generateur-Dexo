@@ -31,6 +31,7 @@ class VueHome extends GenericView
     {
         $this->displayAsideLeft();
         $this->displayA4Exo();
+        $this->displayPopInImage();
         $this->displayAsideRight();
         $this->displayAccountMenu();
     }
@@ -39,6 +40,13 @@ class VueHome extends GenericView
      * Display images available on the website
      * @return void
      */
+    private function displayPopInImage(){
+        ?>
+        <object id="pop-in_Image" data="./html/upload-Image.html" type="text/html">
+            <p>Don't support object tag</p>
+        </object>
+        <?php
+    }
     private function displayAsideLeft()
     { ?>
         <aside id="left-panel-close">
@@ -79,10 +87,10 @@ class VueHome extends GenericView
                 <section>
                     <button class="collapsible">
                         <h2>Mes Photos</h2>
-
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
+                        <button id="show">affiche le menu</button>
                         <img src="../res/img/img1.jpeg" height="10">
                         <img src="../res/img/img1.jpeg" height="10">
                         <img src="../res/img/img1.jpeg" height="10">
@@ -245,9 +253,12 @@ class VueHome extends GenericView
      */
     private function displayScript()
     { ?>
+
         <script src="./js/left_panel.js" type="text/javascript"></script>
         <script src="./js/right_panel.js" type="text/javascript"></script>
         <script src="./js/vue_home.js" type="text/javascript"></script>
+        <script src="./js/upload-Image.js"></script>
+        <script src="./js/show_hide_popIn_Image.js" type="text/javascript"></script>
     <?php }
 }
 
