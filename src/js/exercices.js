@@ -10,11 +10,18 @@ fetch('../res/exerciceOptions.json')
 const draggables = document.getElementsByClassName("elements");
 const preview = document.getElementById('preview');
 const optionAside = document.getElementById('options');
+const sendButton = document.getElementById('sendButton');
+const jsonOutput = document.getElementById('jsonOutput');
 const page = {
     title: "",
     elements: Array(),
-    height: "5cm"
+    height: "5cm",
+    idCategorie: 1
 };
+sendButton.addEventListener("click",(ev) => {
+    sendButton.parentNode.submit();
+})
+
 preview.addEventListener("mousedown", (ev) => {
     if (ev.target !== preview) {
         mooveX = ev.offsetX;
@@ -34,8 +41,8 @@ preview.addEventListener("mousemove", (ev) => {
 
         if ((mousePosRelativelyToPreviewY > 0 && mousePosRelativelyToPreviewX > 0)
             && (mousePosRelativelyToPreviewY + elementHeight < bound.height && mousePosRelativelyToPreviewX + elementWidth < bound.width)) {
-            draggedElement.style.top = mousePosRelativelyToPreviewY + 'px';
-            draggedElement.style.left = mousePosRelativelyToPreviewX + 'px';
+            draggedElement.style.top = 0.0264583333 * mousePosRelativelyToPreviewY + 'cm';
+            draggedElement.style.left = 0.0264583333 *mousePosRelativelyToPreviewX + 'cm';
             updateObject(ev.target);
         }
     }
@@ -55,8 +62,9 @@ preview.addEventListener('click', (ev) => {
             }
             element.setAttribute('value', id);
             element.style.position = 'absolute';
-            element.style.left = ev.offsetX.toString() + 'px';
-            element.style.top = ev.offsetY.toString() + 'px';
+
+            element.style.left =  0.0264583333 * ev.offsetX.toString() + 'cm';
+            element.style.top = 0.0264583333 * ev.offsetY.toString() + 'cm';
 
             preview.append(element);
             displayOptions(element);
@@ -174,5 +182,6 @@ function updateObject(element) {
             index++;
             currentStyle = element.style[index];
         }
+        jsonOutput.setAttribute('value', JSON.stringify(page))
     }
 }

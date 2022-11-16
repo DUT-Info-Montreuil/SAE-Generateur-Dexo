@@ -7,13 +7,15 @@ class VueExercices extends GenericView
     public function __construct()
     {
         parent::__construct();
-        $this->displayMain();
     }
     public function displayMain()
     { ?>
         <header>
             <a href="./index.php?module=home"><p>Annuler</p></a>
-            <a href="./index.php?"><p>Valider</p></a>
+            <form action="./index.php?module=exercices&status=send" method="POST">
+                <input type="hidden" id="jsonOutput" name="json">
+                <p id="sendButton">Valider</p>
+            </form>
         </header>
         <div id="container">
             <aside id="tools">

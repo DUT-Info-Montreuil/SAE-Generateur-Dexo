@@ -13,6 +13,17 @@ class ContExercices
         $this->model = new ModelExercices();
     }
 
+    public function getCreatePage()
+    {
+        $this->vue->displayMain();
+    }
+    public function trySendJSON()
+    {
+        if (isset($_POST['json'])){
+            $this->model->tryAddJSON();
+        }
+    }
+
     public function displayMod() { return $this->vue->getDisplay(); }
 }
 
