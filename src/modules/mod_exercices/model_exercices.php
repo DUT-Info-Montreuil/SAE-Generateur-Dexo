@@ -17,10 +17,14 @@ class ModelExercices extends Connexion
             $idCategorie = $json->{'idCategorie'};
             $title = $json->{'title'};
 
-            $query = "INSERT INTO public.exercices VALUES (DEFAULT,?,?,?,?)";
-
+            $query = "INSERT INTO public.exercices VALUES (DEFAULT,:idCompte,:idCategorie,:title,:json)";
             $prepare = parent::$bdd->prepare($query);
-            $prepare->execute([$idCompte,$idCategorie,$title,json_encode($data)]);
+            $prepare->bindValue(':idCompte',$idCompte);
+            $prepare->bindValue(':idCategorie',$idCategorie);
+            $prepare->bindValue(':title',$title);
+            $prepare->bindValue(':json',json_encode($data));
+            
+            $prepare->execute();
         }
     }
 

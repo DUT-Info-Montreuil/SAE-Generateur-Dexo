@@ -8,7 +8,11 @@ class ModexErcices
 
 
     public function __construct()
-    {
+    {/*
+        if (!isset($_SESSION['id'])){
+            header("Location: ./index.php?module=user&status=login");
+            exit;
+        }*/
         $this->controler = new ContExercices();
 
         $this->status = isset($_GET['status']) ? $_GET['status'] : 'create';
