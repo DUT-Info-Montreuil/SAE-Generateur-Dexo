@@ -152,7 +152,7 @@ class VueHome extends GenericView
                 <section>
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Categorie 1</h2>
+                        <h2>Principe alphabétique</h2>
                     </button>
                     <div class="content">
                         <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
@@ -164,7 +164,7 @@ class VueHome extends GenericView
                 <section>
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Categorie 2</h2>
+                        <h2>Conscience phonologique</h2>
                     </button>
                     <div class="content">
                         <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
@@ -176,7 +176,7 @@ class VueHome extends GenericView
                 <section>
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Categorie 3</h2>
+                        <h2>Décodage</h2>
                     </button>
                     <div class="content">
                         <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
@@ -188,7 +188,7 @@ class VueHome extends GenericView
                 <section>
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Categorie 4</h2>
+                        <h2>Encodage</h2>
                     </button>
                     <div class="content">
                         <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
