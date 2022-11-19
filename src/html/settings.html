@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html id="html-settings" lang="fr">
+<head>
+    <link rel="stylesheet" href="../css/settings.css">
+    <link id="theme" rel="stylesheet" href="../css/themes/white.css">
+
+    <style>
+        html { background: unset; }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Settings</title>
+</head>
+<body>
+    <div id="settings-container">
+        <aside id="nav-part">
+            <nav style="display: flex; flex-direction: column;">
+                <button id="display-button">Affichage</button>
+                <button id="account-button">Compte et sécurité</button>
+            </nav>
+        </aside>
+
+        <aside id="aside-part">
+            <div id="display-part">
+                <div class="title">
+                    <h1>Affichage</h1>
+                    <img id="cancel-button" src="../../res/img/close.png" alt="close">
+                </div>
+
+                <h2>Thèmes: </h2>
+                <div style="margin-left: 50px">
+                    <ul>
+                        <li>
+                            <input type="radio" id="white-theme" name="theme" value="white-theme" checked>
+                            <label for="white-theme">Blanc</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" id="dark-theme" name="theme" value="dark-theme">
+                            <label for="dark-theme">Noir</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="account-part">
+                <div class="title"><h1>Compte et sécurité</h1></div>
+                <div>
+                    <h2>Mot de passe:</h2>
+                    <ul>
+                        <li>Modifier le mot de passe</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

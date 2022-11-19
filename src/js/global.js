@@ -1,3 +1,9 @@
+
+let elementTargetExo = null;
+let posXExo = 0;
+let posYExo = 0;
+
+
 function popin(text, isPermanent = true) {
     const div = document.getElementById("pop-in-info-div");
     const elem = document.createElement("div");

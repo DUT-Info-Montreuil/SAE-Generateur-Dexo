@@ -1,4 +1,6 @@
 html {
+    background-color: var(--eerie-black);
+
     margin: 0 auto;
 
     border: 3px solid red;
@@ -11,11 +13,13 @@ body {
     margin: 0 auto;
     width: 21cm;
     height: 29.7cm;
+
+    background-color: white;
 }
 
 header {
     width: 21cm;
-    height: calc(29.7cm / 4);
+    height: calc(29.7cm / 6);
 }
 
 #A4-paper {
@@ -26,4 +30,9 @@ header {
     border: 1px dashed black;
     width: 21cm;
     height: 29.7cm;
+}
+
+#container {
+    width: 21cm;
+    height: calc(29.7cm - calc(29.7cm / 6));
 }

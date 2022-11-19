@@ -1,0 +1,69 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+}
+
+#header-index {
+    background-color: var(--white5);
+    color: black;
+}
+
+#html-index {
+    background-color: var(--white3);
+    color: black;
+}
+
+#html-settings {
+    background: unset;
+    color: black;
+}
+
+#html-A4 {
+    background-color: var(--white3);
+    scrollbar-color: var(--white5) var(--white1);
+}
+
+#settings-container {
+    background-color: var(--eerie-black);
+}
+
+#nav-part {
+    background-color: var(--white5);
+}
+
+#aside-part {
+    background-color: var(--white3);
+}
+
+.account-menu {
+    background-color: var(--white5);
+}
+
+.account-menu div {
+    border-bottom: black solid 1px;
+    color: black;
+}
+
+.collapsible {
+    background-color: var(--white5);
+    color: black;
+}
+
+.collapsible:hover {
+    background-color: var(--grey);
+}
+
+.panels {
+    background-color: var(--white1);
+}
+
+.hideAside {
+    background-color: var(--white5);
+}
+
+.hideAside > h2 {
+    color: black;
+}
