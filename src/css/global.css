@@ -8,7 +8,6 @@
 }
 
 
-
 * {
     margin: 0;
     padding: 0;
@@ -54,9 +53,9 @@ header {
 .account-menu {
     display: none;
     flex-direction: column;
-    gap: 3px;
     justify-content: center;
     align-items: center;
+    gap: 3px;
 
     width: auto;
     height: auto;
@@ -65,13 +64,6 @@ header {
     position: absolute;
 }
 
-.account-menu div {
+.account-menu > button {
     width: 100%;
-    height: 100%;
-
-    border-width: 3px;
-}
-
-.account-menu div a {
-    text-decoration: none;
 }

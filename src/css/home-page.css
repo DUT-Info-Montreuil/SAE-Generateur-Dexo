@@ -37,6 +37,17 @@
 }
 
 
+input:focus {
+    outline: none;
+}
+
+article {
+    width: 45%;
+    padding: 0.5em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 #account-button {
     height: var(--size-account-button);
     width: var(--size-account-button);
@@ -176,17 +187,6 @@ aside {
 .search-Part > button {
     width: 5%;
     cursor: pointer;
-}
-
-input:focus {
-    outline: none;
-}
-
-article {
-    width: 45%;
-    padding: 0.5em;
-    border: 1px solid black;
-    border-radius: 5px;
 }
 
 /* Image */

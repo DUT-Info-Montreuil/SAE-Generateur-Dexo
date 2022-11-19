@@ -1,30 +1,46 @@
 const settingsIframe = document.getElementById("settings-iframe");
 
-function appendLink(path) {
-    let cssTheme = document.createElement("link");
+
+function appendLink(doc, path) {
+    let cssTheme = doc.createElement("link");
     cssTheme.rel = "stylesheet";
     cssTheme.id = "theme";
     cssTheme.href = path;
 
-    document.head.append(cssTheme);
+    doc.head.append(cssTheme);
+}
+
+
+function removeLink(doc) {
+    const themeLink = doc.getElementById("theme");
+    doc.head.removeChild(themeLink);
 }
 
 
 settingsIframe.addEventListener("load" ,() => {
     const radioWhiteTheme = settingsIframe.contentDocument.getElementById("white-theme");
     const radioBlackTheme = settingsIframe.contentDocument.getElementById("dark-theme");
+    const A4Iframe = document.getElementById("A4-exo-iframe");
 
     radioWhiteTheme.addEventListener("click", () => {
-        const themeLink = document.getElementById("theme");
-        document.head.removeChild(themeLink);
+        const path = "./css/themes/white.css";
 
-        appendLink("./css/themes/white.css");
+        removeLink(document);
+        appendLink(document, path);
+        removeLink(A4Iframe.contentDocument);
+        appendLink(A4Iframe.contentDocument, '.' + path);
+        removeLink(settingsIframe.contentDocument);
+        appendLink(settingsIframe.contentDocument, '.' + path);
     });
 
     radioBlackTheme.addEventListener("click", () => {
-        const themeLink = document.getElementById("theme");
-        document.head.removeChild(themeLink);
+        const path = "./css/themes/dark.css";
 
-        appendLink("./css/themes/dark.css");
+        removeLink(document);
+        appendLink(document, path);
+        removeLink(A4Iframe.contentDocument);
+        appendLink(A4Iframe.contentDocument, '.' + path);
+        removeLink(settingsIframe.contentDocument);
+        appendLink(settingsIframe.contentDocument, '.' + path);
     });
 });

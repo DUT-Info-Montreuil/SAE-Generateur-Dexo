@@ -19,7 +19,7 @@ class VueHome extends GenericView
 
     public function displayHeader()
     { ?>
-        <header>
+        <header id="header-index">
             <h1>Historique</h1>
             <h1>SAE | Générateur d'exercices !</h1>
             <div> <img id="account-button" src="../res/profile-user.png" alt="profile-user"/> </div>
@@ -214,14 +214,14 @@ class VueHome extends GenericView
     {
         if (!isset($_GET["user"])) { ?>
             <div class="account-menu">
-                <div><button class="settings-button">Paramètre</button></div>
-                <div><button id="register-button">S'inscrire</button></div>
-                <div><button id="login-button">Se connecter</button></div>
+                <button class="settings-button">Paramètre</button>
+                <button id="register-button">S'inscrire</button>
+                <button id="login-button">Se connecter</button>
             </div>
         <?php } else { ?>
             <div class="account-menu">
-                <div><button class="settings-button">Paramètre</button></div>
-                <div><button id="logout-button">Se connecter</button></div>
+                <button class="settings-button">Paramètre</button>
+                <button id="logout-button">Se connecter</button>
             </div>
         <?php } ?>
     <?php }

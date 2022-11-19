@@ -6,20 +6,40 @@
     --white5: #eaeaea;
 }
 
+#header-index {
+    background-color: var(--white5);
+    color: black;
+}
 
-header {
+#html-index {
+    background-color: var(--white3);
+    color: black;
+}
+
+#html-settings {
+    background: unset;
+    color: black;
+}
+
+#html-A4 {
+    background-color: var(--white3);
+    scrollbar-color: var(--white5) var(--white1);
+}
+
+#settings-container {
+    background-color: var(--eerie-black);
+}
+
+#nav-part {
     background-color: var(--white5);
 }
 
-html {
+#aside-part {
     background-color: var(--white3);
-    color: black;
-
-    scrollbar-color: var(--white5) var(--white3);
 }
 
 .account-menu {
-    background-color: var(--grey);
+    background-color: var(--white5);
 }
 
 .account-menu div {
@@ -37,6 +57,5 @@ html {
 }
 
 .panels {
-    background-color: var(--white3);
+    background-color: var(--white1);
 }
-

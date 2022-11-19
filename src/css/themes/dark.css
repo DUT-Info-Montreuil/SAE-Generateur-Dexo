@@ -5,15 +5,36 @@
 }
 
 
-header {
+#header-index {
+    background-color: var(--eerie-black);
+    color: white;
+}
+
+#html-index {
+    background-color: var(--rich-black);
+    color: white;
+}
+
+#html-settings {
+    background: unset;
+    color: white;
+}
+
+#html-A4 {
+    background-color: var(--eerie-black);
+    scrollbar-color: var(--grey) var(--eerie-black);
+}
+
+#settings-container {
     background-color: var(--eerie-black);
 }
 
-html {
+#nav-part {
     background-color: var(--rich-black);
-    color: white;
+}
 
-    scrollbar-color: var(--grey) var(--eerie-black);
+#aside-part {
+    background-color: var(--eerie-black);
 }
 
 .account-menu {
@@ -37,4 +58,3 @@ html {
 .panels {
     background-color: var(--eerie-black);
 }
-
