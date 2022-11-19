@@ -3,7 +3,6 @@
 
         require_once "./modules/mod_user/mod_user.php";
         require_once "./modules/mod_home/mod_home.php";
-        require_once "./modules/mod_exercices/mod_exercices.php";
         require_once "./connexion.php";
 
     session_start();
@@ -15,9 +14,6 @@
         switch ($_GET["module"]){
             case "user":
                 $module = new ModUser();
-                break;
-            case "exercices" :
-                $module = new ModexErcices();
                 break;
             case "home":
                 $module = new ModHome();

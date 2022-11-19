@@ -10,17 +10,13 @@ fetch('../../res/exerciceOptions.json')
 const draggables = document.getElementsByClassName("elements");
 const preview = document.getElementById('preview');
 const optionAside = document.getElementById('options');
-const sendButton = document.getElementById('sendButton');
 const jsonOutput = document.getElementById('jsonOutput');
 const page = {
-    title: "",
+    title: "test",
     elements: Array(),
     height: "5cm",
-    idCategorie: 1
+    idCategorie: "1"
 };
-sendButton.addEventListener("click",(ev) => {
-    sendButton.parentNode.submit();
-})
 
 preview.addEventListener("mousedown", (ev) => {
     if (ev.target !== preview) {
