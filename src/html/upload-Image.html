@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="../css/upload-Image.css" rel="stylesheet" />
+    <title>examples</title>
+    <script src="../js/librairies/jquery-3.6.1.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <section id="pop-in_Image">
+        <section id="addImage">
+            <div id="headerMenu">
+                <h1>Add Image Menu</h1>
+                <img id="exit" src="https://cdn-icons-png.flaticon.com/512/59/59836.png" width="20">
+            </div>
+            <form method="post" action="upload" enctype="multipart/form-data">
+                <div>
+                    <input type="file" id="image_uploads" name="image_uploads[]" accept=".jpg, .jpeg, .png" multiple />
+                </div>
+
+                <div class="preview">
+                </div>
+                <div class="urlImage">
+                    <input type="url" id="image-url" placeholder="https://example.com/this-image.jpg">
+                    <span id="get-image-url">Charger l'image</span>
+
+                </div>
+                <div id="footerMenu">
+                    <div id="dataFooter">
+                        <p class="dataMenu">No picture are currently added for upload</p>
+                        <p class="numberImg"></p>
+                    </div>
+                    <div id="optionFooter">
+                        <label for="image_uploads"><img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" width="20"></label>
+                        <img id="remove" src="https://cdn-icons-png.flaticon.com/512/1828/1828901.png" width="20">
+                        <button>Add all picture</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </section>
+</body>
+
+</html>
