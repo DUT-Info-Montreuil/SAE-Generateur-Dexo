@@ -81,3 +81,14 @@ aside {
 .preview-elements-moving {
     cursor: move;
 }
+#input-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#title-label {
+    text-align: center;
+    flex-basis: 100%;
+}

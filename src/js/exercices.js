@@ -11,13 +11,18 @@ const draggables = document.getElementsByClassName("elements");
 const preview = document.getElementById('preview');
 const optionAside = document.getElementById('options');
 const jsonOutput = document.getElementById('jsonOutput');
+const title = document.getElementById('title-exo');
 const page = {
-    title: "test",
+    title: "Title Here",
     elements: Array(),
     height: "5cm",
     idCategorie: "1"
 };
 
+
+title.addEventListener('input', (ev) => {
+    page.title = title.value;
+})
 preview.addEventListener("mousedown", (ev) => {
     if (ev.target !== preview) {
         mooveX = ev.offsetX;

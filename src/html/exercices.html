@@ -9,10 +9,13 @@
 <body>
 <header>
     <p id="cancel-exercice">Annuler</p>
-    <form action="../index.php?module=exercices&status=send" method="POST">
-        <input type="hidden" id="jsonOutput" name="json">
-        <p id="send-exercice">Valider</p>
-    </form>
+    <input type="hidden" id="jsonOutput" name="json">
+    <div id="input-title">
+        <label for="title-exo" id="title-label">Titre de l'exercice</label>
+        <input type="text" id="title-exo" value="Title Here">
+    </div>
+
+    <p id="send-exercice">Valider</p>
 </header>
 <div id="container">
     <aside id="tools">
