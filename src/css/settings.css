@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    box-shadow: 10px 5px 5px black;
+    width: 70vw;
+    height: 70vh;
+}
+
+nav div {
+    border: gray solid 1px;
+}
+
+#nav-part {
+    width: 20%;
+    height: 100%;
+
+    border-right: gray solid 1px;
+}
+
+#aside-part {
+    width: 80%;
+    height: 100%;
+}
+
+#account-part {
+    display: none;
+}
+
+#cancel-button {
+    width: 30px;
+    height: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 12pt;
+    border-bottom: gray solid 1px;
+}

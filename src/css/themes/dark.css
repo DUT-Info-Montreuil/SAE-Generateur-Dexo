@@ -1,0 +1,40 @@
+:root {
+    --rich-black: #020202;
+    --eerie-black: #181818;
+    --grey: #413F42;
+}
+
+
+header {
+    background-color: var(--eerie-black);
+}
+
+html {
+    background-color: var(--rich-black);
+    color: white;
+
+    scrollbar-color: var(--grey) var(--eerie-black);
+}
+
+.account-menu {
+    background-color: var(--grey);
+}
+
+.account-menu div {
+    border-bottom: black solid 1px;
+    color: white;
+}
+
+.collapsible {
+    background-color: var(--rich-black);
+    color: white;
+}
+
+.collapsible:hover {
+    background-color: var(--grey);
+}
+
+.panels {
+    background-color: var(--eerie-black);
+}
+

@@ -1,136 +1,73 @@
 :root {
-    --panel-width: calc(100vw / 5);
-    --OpenButtonWidth: 2vw;
+    --panel-open-width: calc(100vw / 5);
+    --panel-close-width: 3vw;
+    --open-button-width: 2vw;
     --search-icon: 6%;
-    --dark-grey: #9A9B94;
+
+    --size-account-button: 35px;
+    --size-button-panels: 30px;
 }
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@keyframes rotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(-90deg); }
 }
 
-html {
-    background-color: #E9E9E5;
-    color: black;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+@keyframes rotateReverse {
+    from { transform: rotate(-90deg); }
+    to { transform: rotate(0deg); }
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+@keyframes HidePanelRight {
+    to { transform: translateX(var(--panel-open-width)); }
 }
 
-.object-categories {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+@keyframes OpenPanelRight {
+    from { transform: translateX(calc(var(--panel-open-width))); }
+    to { transform: translateX(calc(-var(--panel-open-width))); }
 }
+
+@keyframes HidePanelLeft {
+    to { left: calc(-1 * var(--panel-open-width)); }
+}
+
+@keyframes OpenPanelLeft {
+    from { left: calc(-1 * var(--panel-open-width)); }
+    to { left: 0; }
+}
+
 
 #account-button {
-    height: 35px;
-    width: 35px;
+    height: var(--size-account-button);
+    width: var(--size-account-button);
 }
 
-.img-button-panel {
-    width: 30px;
-    height: 30px;
-}
+#left-panel { left: 0; }
+#right-panel { left: calc(100vw - var(--panel-open-width)); }
 
-#left-panel {
-    position: fixed;
-    left: 0;
-    top: 70px;
-
-    width: var(--panel-width);
-    height: calc(97vh - 70px);
-
-    background: var(--dark-grey);
-    animation-duration: 0.5s;
-}
-
-#right-panel {
-    position: fixed;
-    left: calc(100vw - var(--panel-width));
-    top: 70px;
-
-    width: var(--panel-width);
-    height: calc(97vh - 70px);
-
-    background-color: var(--dark-grey);
-    animation-duration: 0.5s;
-}
-
-#left-panel-close {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 70px;
-
-    width: 5vw;
-    height: calc(97vh - 70px);
-
-    background-color: var(--dark-grey);
-}
-
-#right-panel-close {
-    display: none;
-    position: fixed;
-    left: calc(100vw - 5vw);
-    top: 70px;
-
-    width: 5vw;
-    height: calc(97vh - 70px);
-
-    background: var(--white5);
-}
+#left-panel-close { left: 0; }
+#right-panel-close { left: calc(100vw - var(--panel-close-width)); }
 
 #right-arrow-collapse {
-    width: var(--OpenButtonWidth);
-    height: 35px;
-    left: calc(100vw - 35px);
-    top: 75px;
+    width: var(--size-button-panels);
+    height: var(--size-button-panels);
 }
 
 #left-arrow-collapse {
-    width: var(--OpenButtonWidth);
-    height: 35px;
-
     left: 0;
     top: 75px;
-    transform: rotate(180deg);
 }
 
-#right-arrow-close {
-    width: var(--OpenButtonWidth);
-    height: 35px;
-    transform: rotate(180deg);
-}
+#right-arrow-close { transform: rotate(180deg); }
 
 #left-arrow-close {
-    width: var(--OpenButtonWidth);
+    width: var(--open-button-width);
     height: 35px;
     transform: rotate(180deg);
-}
-
-nav {
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #000000;
-    margin-bottom: 20px;
 }
 
 #A4-exo-iframe {
+    overflow-x: scroll;
     overflow-y: scroll;
 
     margin-top: 55px;
@@ -138,28 +75,97 @@ nav {
     height: calc(100vh - 60px);
 }
 
+#settings-iframe {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#pop-in-info-div {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.panels {
+    display: block;
+
+    position: fixed;
+    top: 70px;
+
+    width: var(--panel-open-width);
+    height: calc(97vh - 70px);
+
+    border-radius: 5px 0 0 5px;
+
+    animation-duration: 0.5s;
+}
+
+.panels-close {
+    display: none;
+    width: 3vw;
+}
+
+.arrows-collapse {
+    width: var(--open-button-width);
+    height: 35px;
+}
+
+.object-categories {
+    width: inherit;
+    height: inherit;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: none;
+}
+
+.checkboxes { display: none; }
+
+.img-button-panel {
+    width: var(--size-button-panels);
+    height: var(--size-button-panels);
+}
+
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
 aside {
     animation-fill-mode: forwards;
     padding: 0.5em;
-    border: 1px solid #000000;
+    border: 1px solid black;
     border-radius: 5px;
     animation-duration: 5000ms;
 }
 
 .titleAside {
     text-align: center;
+    margin-bottom: 5vh;
+}
+
+.titleAside > h1 {
+    font-weight: bold;
+    font-size: 4vh;
 }
 
 .search-Part {
     margin: 10px;
-    background-color: #D4D6C8;
+    background-color: var(--grey);
     border-radius: 10px;
 }
 
 .search-Part > input, .search-Part > button {
     border: none;
-    background-color: #D4D6C8;
+    background-color: var(--grey);
 }
 
 .search-Part > input {
@@ -179,7 +185,7 @@ input:focus {
 article {
     width: 45%;
     padding: 0.5em;
-    border: 1px solid #000000;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -219,27 +225,29 @@ article {
 }
 
 .collapsible {
-    background-color: #D4D6C8;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     cursor: pointer;
-    padding: 5px;
-    width: 100%;
-    font-size: 15px;
-    margin-bottom: 20px;
+    width: 70%;
+    height: 10%;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    font-size: x-large;
+    text-align: center;
 }
 
 .hideAside {
-    background-color: #D4D6C8;
-    border-radius: 10px;
-    width: 60%;
-    margin-left: 20%;
-    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    height: 35px;
+
+    margin: auto;
+    padding: 5px;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
     color: white;
+    background-color: var(--eerie-black);
 }
 
 .hideAside:hover {
@@ -247,74 +255,9 @@ article {
     color: black;
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(-90deg);
-    }
-}
-
-@keyframes rotateReverse {
-    from {
-        transform: rotate(-90deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes HidePanelRight {
-    to {
-        transform: translateX(var(--panel-width));
-    }
-}
-
-@keyframes OpenPanelRight {
-    from {
-        transform: translateX(calc(var(--panel-width)));
-    }
-    to {
-        transform: translateX(calc(-var(--panel-width)));
-    }
-}
-
-@keyframes HidePanelLeft {
-    to {
-        left: calc(-1 * var(--panel-width));
-    }
-}
-
-@keyframes OpenPanelLeft {
-    from {
-        left: calc(-1 * var(--panel-width));
-    }
-    to {
-        left: 0;
-    }
-}
-
-.collapsible:hover {
-    background-color: #555;
-}
-
-.content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-#pop-in-info-div {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.categories-section {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .pop-in-element {
@@ -324,4 +267,12 @@ article {
     border-radius: 3px;
     background: red;
     text-align: center;
+}
+
+.contentAside {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }

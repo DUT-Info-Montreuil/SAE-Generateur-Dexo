@@ -1,0 +1,42 @@
+:root {
+    --white1: #fcfcfc;
+    --white2: #fcfcfc;
+    --white3: #f7f7f7;
+    --white4: #f3f3f3;
+    --white5: #eaeaea;
+}
+
+
+header {
+    background-color: var(--white5);
+}
+
+html {
+    background-color: var(--white3);
+    color: black;
+
+    scrollbar-color: var(--white5) var(--white3);
+}
+
+.account-menu {
+    background-color: var(--grey);
+}
+
+.account-menu div {
+    border-bottom: black solid 1px;
+    color: black;
+}
+
+.collapsible {
+    background-color: var(--white5);
+    color: black;
+}
+
+.collapsible:hover {
+    background-color: var(--grey);
+}
+
+.panels {
+    background-color: var(--white3);
+}
+
