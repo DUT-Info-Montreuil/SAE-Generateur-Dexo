@@ -23,6 +23,14 @@ nav div {
     border: gray solid 1px;
 }
 
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 12pt;
+}
+
 #nav-part {
     width: 20%;
     height: 100%;
@@ -49,6 +57,5 @@ nav div {
     justify-content: space-between;
     align-items: center;
 
-    font-size: 12pt;
     border-bottom: gray solid 1px;
 }

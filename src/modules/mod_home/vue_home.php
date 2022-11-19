@@ -214,21 +214,14 @@ class VueHome extends GenericView
     {
         if (!isset($_GET["user"])) { ?>
             <div class="account-menu">
-                <!-- TODO -->
-                <div><button id="settings-button">Paramètre</button></div>
-                <div><a href="./index.php?module=user&status=register">S'inscrire</a></div>
-                <div><a href="./index.php?module=user&status=login">Se connecter</a></div>
+                <div><button class="settings-button">Paramètre</button></div>
+                <div><button id="register-button">S'inscrire</button></div>
+                <div><button id="login-button">Se connecter</button></div>
             </div>
         <?php } else { ?>
             <div class="account-menu">
-                <table>
-                    <tbody>
-                    <!-- TODO -->
-                    <tr><a href="./index.php?module=user&status=settings">Paramètre</a></tr>
-                    <!-- TODO -->
-                    <tr><a href="./index.php?module=user&status=logout">Se déconnecter</a></tr>
-                    </tbody>
-                </table>
+                <div><button class="settings-button">Paramètre</button></div>
+                <div><button id="logout-button">Se connecter</button></div>
             </div>
         <?php } ?>
     <?php }
