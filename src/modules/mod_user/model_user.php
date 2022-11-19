@@ -53,4 +53,5 @@ class ModelUser extends Connexion
         return $prepare->fetch();
     }
 }
+
 ?>

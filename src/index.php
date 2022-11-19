@@ -41,6 +41,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/global.css" rel="stylesheet"/>
         <script src="./js/css_loader.js" type="text/javascript"></script>
+        <script src="./js/librairies/jquery-3.6.1.min.js" type="text/javascript"></script>
         <title>SAE-GE</title>
     </head>
 
