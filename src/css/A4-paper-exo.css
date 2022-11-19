@@ -1,0 +1,29 @@
+html {
+    margin: 0 auto;
+
+    border: 3px solid red;
+
+    width: calc(21cm + 10vw);
+    height: calc(29.7cm + 10vh);
+}
+
+body {
+    margin: 0 auto;
+    width: 21cm;
+    height: 29.7cm;
+}
+
+header {
+    width: 21cm;
+    height: calc(29.7cm / 4);
+}
+
+#A4-paper {
+    padding: 5vh 5vw;
+}
+
+#marge {
+    border: 1px dashed black;
+    width: 21cm;
+    height: 29.7cm;
+}

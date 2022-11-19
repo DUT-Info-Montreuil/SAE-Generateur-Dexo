@@ -1,19 +1,28 @@
 /* Script created at 26/10/2022 */
-
+const leftPanel = document.getElementById("left-panel");
 const leftPanelClose = document.getElementById("left-panel-close");
-const leftPanelOpen = document.getElementById("left-panel-open");
+const leftPanelButtonClose = leftPanel.getElementsByClassName("hideAside")[0];
 
-const leftPanelButtonClose = document.getElementById("left-arrow-close");
-const leftPanelButtonOpen = document.getElementById("left-arrow-open");
-
+let isLeftPanelOpened = true;
 
 
-leftPanelButtonClose.onclick = function() {
-    leftPanelClose.style.display = 'none';
-    leftPanelOpen.style.display = 'block';
-}
+leftPanelButtonClose.addEventListener("click", () => leftPanel.style.animationName = "HidePanelLeft");
 
-leftPanelButtonOpen.onclick = function() {
-    leftPanelClose.style.display = 'block';
-    leftPanelOpen.style.display = 'none';
+leftPanel.onanimationend = function (ev) {
+    if (ev.animationName === 'HidePanelLeft' || ev.animationName === 'OpenPanelLeft') {
+        if (isLeftPanelOpened) {
+            leftPanel.style.display = "none";
+            leftPanelClose.style.display = 'block';
+        } else {
+            leftPanel.style.display = "block";
+            leftPanelClose.style.display = 'none';
+        }
+        isLeftPanelOpened = !isLeftPanelOpened;
+    }
+};
+
+leftPanelClose.onclick = function () {
+    leftPanelClose.style.display = "none";
+    leftPanel.style.display = 'block';
+    leftPanel.style.animationName = "OpenPanelLeft";
 }

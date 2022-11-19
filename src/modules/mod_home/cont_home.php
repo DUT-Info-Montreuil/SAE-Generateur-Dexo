@@ -13,7 +13,10 @@ class ContHome
         $this->model = new ModelHome();
     }
 
-    public function displayMod() { return $this->vue->getDisplay(); }
+    public function displayMod()
+    {
+        return $this->vue->getDisplay();
+    }
 }
 
 

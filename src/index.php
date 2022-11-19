@@ -1,13 +1,13 @@
 <?php
-        ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
 
         require_once "./modules/mod_user/mod_user.php";
         require_once "./modules/mod_home/mod_home.php";
         require_once "./modules/mod_exercices/mod_exercices.php";
         require_once "./connexion.php";
 
-        session_start();
-        Connexion::set_up_connection();
+    session_start();
+    Connexion::set_up_connection();
 
         if (!isset($_GET["module"]))
             header("Location:index.php?module=home");
@@ -33,8 +33,8 @@
         }
         ?>
 
-    <!DOCTYPE html>
-    <html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,5 +47,9 @@
     <body>
         <?= $content ?>
     </body>
-    <script src="./js/main.js" type="text/javascript"></script>
+
+    <footer>
+        <script src="./js/global.js"></script>
+        <script src="./js/main.js" type="text/javascript"></script>
+    </footer>
 </html>
