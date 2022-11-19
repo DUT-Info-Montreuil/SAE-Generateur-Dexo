@@ -154,7 +154,7 @@ class VueHome extends GenericView
             <section class="contentAside">
                 <div>
                     <div style="display: flex; justify-content: space-around">
-                        <label for="checkbox-category1" class="collapsible">Categorie 1</label>
+                        <label for="checkbox-category1" class="collapsible">Principe alphabétique</label>
                         <input type="checkbox" id="checkbox-category1" class="checkboxes">
                     </div>
 
@@ -165,7 +165,7 @@ class VueHome extends GenericView
 
                 <div>
                     <div style="display: flex; justify-content: space-around">
-                        <label for="checkbox-category2" class="collapsible">Categorie 2</label>
+                        <label for="checkbox-category2" class="collapsible">Conscience phonologique</label>
                         <input type="checkbox" id="checkbox-category2" class="checkboxes">
                     </div>
 
@@ -176,7 +176,7 @@ class VueHome extends GenericView
 
                 <div>
                     <div style="display: flex; justify-content: space-around">
-                        <label for="checkbox-category3" class="collapsible">Categorie 3</label>
+                        <label for="checkbox-category3" class="collapsible">Décodage</label>
                         <input type="checkbox" id="checkbox-category3" class="checkboxes">
                     </div>
 
@@ -187,7 +187,7 @@ class VueHome extends GenericView
 
                 <div>
                     <div style="display: flex; justify-content: space-around">
-                        <label for="checkbox-category4" class="collapsible">Categorie 4</label>
+                        <label for="checkbox-category4" class="collapsible">Encodage</label>
                         <input type="checkbox" id="checkbox-category4" class="checkboxes">
                     </div>
 
