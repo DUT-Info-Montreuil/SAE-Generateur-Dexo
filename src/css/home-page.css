@@ -1,7 +1,8 @@
 :root {
-    --panel-width: calc(100vw / 4);
+    --panel-width: calc(100vw / 5);
     --OpenButtonWidth: 2vw;
     --search-icon: 6%;
+    --dark-grey: #9A9B94;
 }
 
 
@@ -12,6 +13,7 @@
 }
 
 html {
+    background-color: #E9E9E5;
     color: black;
     overflow: hidden;
     width: 100%;
@@ -49,9 +51,9 @@ body {
     top: 70px;
 
     width: var(--panel-width);
-    height: 100vh;
+    height: calc(97vh - 70px);
 
-    background: var(--white5);
+    background: var(--dark-grey);
     animation-duration: 0.5s;
 }
 
@@ -61,9 +63,9 @@ body {
     top: 70px;
 
     width: var(--panel-width);
-    height: 100vh;
+    height: calc(97vh - 70px);
 
-    background: var(--white5);
+    background-color: var(--dark-grey);
     animation-duration: 0.5s;
 }
 
@@ -73,20 +75,20 @@ body {
     left: 0;
     top: 70px;
 
-    width: var(--panel-width);
-    height: 100vh;
+    width: 5vw;
+    height: calc(97vh - 70px);
 
-    background: var(--white5);
+    background-color: var(--dark-grey);
 }
 
 #right-panel-close {
     display: none;
     position: fixed;
-    left: calc(100vw - var(--panel-width));
+    left: calc(100vw - 5vw);
     top: 70px;
 
-    width: var(--panel-width);
-    height: 100vh;
+    width: 5vw;
+    height: calc(97vh - 70px);
 
     background: var(--white5);
 }
@@ -104,6 +106,18 @@ body {
 
     left: 0;
     top: 75px;
+    transform: rotate(180deg);
+}
+
+#right-arrow-close {
+    width: var(--OpenButtonWidth);
+    height: 35px;
+    transform: rotate(180deg);
+}
+
+#left-arrow-close {
+    width: var(--OpenButtonWidth);
+    height: 35px;
     transform: rotate(180deg);
 }
 
@@ -139,13 +153,13 @@ aside {
 
 .search-Part {
     margin: 10px;
-    background-color: white;
+    background-color: #D4D6C8;
     border-radius: 10px;
 }
 
 .search-Part > input, .search-Part > button {
     border: none;
-    background-color: white;
+    background-color: #D4D6C8;
 }
 
 .search-Part > input {
@@ -205,18 +219,19 @@ article {
 }
 
 .collapsible {
+    background-color: #D4D6C8;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding: 18px;
+    padding: 5px;
     width: 100%;
     font-size: 15px;
     margin-bottom: 20px;
 }
 
 .hideAside {
-    background-color: #555;
+    background-color: #D4D6C8;
     border-radius: 10px;
     width: 60%;
     margin-left: 20%;

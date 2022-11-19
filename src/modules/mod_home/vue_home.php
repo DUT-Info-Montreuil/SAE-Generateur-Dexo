@@ -149,7 +149,7 @@ class VueHome extends GenericView
                     </div>
                 </section>
 
-                <section>
+                <section style="position: -webkit-sticky; position: sticky;">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Categorie 1</h2>
@@ -161,7 +161,7 @@ class VueHome extends GenericView
                     </div>
                 </section>
 
-                <section>
+                <section style="position: -webkit-sticky; position: sticky;">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Categorie 2</h2>
@@ -173,7 +173,7 @@ class VueHome extends GenericView
                     </div>
                 </section>
 
-                <section>
+                <section style="position: -webkit-sticky; position: sticky;">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Categorie 3</h2>
@@ -185,7 +185,7 @@ class VueHome extends GenericView
                     </div>
                 </section>
 
-                <section>
+                <section style="position: -webkit-sticky; position: sticky;">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Categorie 4</h2>
