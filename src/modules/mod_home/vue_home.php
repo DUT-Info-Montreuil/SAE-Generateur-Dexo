@@ -155,7 +155,7 @@ class VueHome extends GenericView
                         <h2>Categorie 1</h2>
                     </button>
                     <div class="content">
-                        <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
+                        <object class="object-categories" id="exos-categorie1" type="text/html" role="application" data="./html/categories/cat1.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
