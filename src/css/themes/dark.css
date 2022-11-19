@@ -1,0 +1,60 @@
+:root {
+    --rich-black: #020202;
+    --eerie-black: #181818;
+    --grey: #413F42;
+}
+
+
+#header-index {
+    background-color: var(--eerie-black);
+    color: white;
+}
+
+#html-index {
+    background-color: var(--rich-black);
+    color: white;
+}
+
+#html-settings {
+    background: unset;
+    color: white;
+}
+
+#html-A4 {
+    background-color: var(--eerie-black);
+    scrollbar-color: var(--grey) var(--eerie-black);
+}
+
+#settings-container {
+    background-color: var(--eerie-black);
+}
+
+#nav-part {
+    background-color: var(--rich-black);
+}
+
+#aside-part {
+    background-color: var(--eerie-black);
+}
+
+.account-menu {
+    background-color: var(--grey);
+}
+
+.account-menu div {
+    border-bottom: black solid 1px;
+    color: white;
+}
+
+.collapsible {
+    background-color: var(--rich-black);
+    color: white;
+}
+
+.collapsible:hover {
+    background-color: var(--grey);
+}
+
+.panels {
+    background-color: var(--eerie-black);
+}
