@@ -54,58 +54,59 @@ class VueHome extends GenericView
                      alt="Arrow">
             </div>
 
+            <section class="titleAside">
+                <h1>GALERIES</h1>
+                <div class="search-Part">
+                    <label for="exercice-search"></label>
+                    <input type="search" id="site-search" name="searchBar">
+                    <button>
+                        <img class="loupeImg" src="../res/img/loupe.png">
+                    </button>
+                </div>
+            </section>
+
             <section class="contentAside">
-                <section class="titleAside">
-                    <h1>GALERIES</h1>
-                    <div class="search-Part">
-                        <label for="exercice-search"></label>
-                        <input type="search" id="site-search" name="searchBar">
-                        <button>
-                            <img class="loupeImg" src="../res/img/loupe.png">
-                        </button>
+                <div>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-used-recently" class="collapsible">Utilisé recement</label>
+                        <input type="checkbox" id="checkbox-used-recently" class="checkboxes">
                     </div>
-                </section>
 
-                <section>
-                    <button class="collapsible">
-                        <h2>Utilisé recement</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <button class="collapsible">
-                        <h2>Mes Photos</h2>
+                <div>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-my-pictures" class="collapsible">Mes Photos</label>
+                        <input type="checkbox" id="checkbox-my-pictures" class="checkboxes">
+                    </div>
 
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <button class="collapsible">
-                        <h2>Banque de photos</h2>
+                <div>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-pictures-bank" class="collapsible">Banque de photos</label>
+                        <input type="checkbox" id="checkbox-pictures-bank" class="checkboxes">
+                    </div>
 
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
-                        <img src="../res/img/img1.jpeg" height="10">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
-                </section>
+                </div>
             </section>
 
         </aside>
