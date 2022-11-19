@@ -3,7 +3,7 @@ let draggedElement = null;
 let rawAllOptions;
 let mooveX, mooveY;
 let id = 0;
-fetch('../res/exerciceOptions.json')
+fetch('../../res/exerciceOptions.json')
     .then((res) => res.json())
     .then((json) => rawAllOptions = json);
 
