@@ -23,7 +23,7 @@
 
 #html-A4 {
     background-color: var(--white3);
-    scrollbar-color: var(--white5) var(--white1);
+    scrollbar-color: var(--white5) var(--white1); /* firefox */
 }
 
 #settings-container {
