@@ -24,7 +24,7 @@
 
 @keyframes OpenPanelRight {
     from { transform: translateX(calc(var(--panel-open-width))); }
-    to { transform: translateX(calc(-var(--panel-open-width))); }
+    to { transform: translateX(calc(var(--panel-open-width))); }
 }
 
 @keyframes HidePanelLeft {
@@ -109,6 +109,11 @@ article {
     align-items: center;
 }
 
+#exercice-edit {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
 
 .panels {
     display: block;
@@ -287,3 +292,4 @@ aside {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
+

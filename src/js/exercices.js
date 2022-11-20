@@ -1,3 +1,4 @@
+let navElement = null;
 let selectedItem = null;
 let draggedElement = null;
 let rawAllOptions;
@@ -22,6 +23,17 @@ const page = {
 
 title.addEventListener('input', (ev) => {
     page.title = title.value;
+})
+document.getElementsByTagName('body')[0].addEventListener('keydown' , (ev) => {
+    if (ev.key === "Backspace" && selectedItem != null) {
+        let id = selectedItem.getAttribute('value');
+        page.elements = page.elements.filter((el) => {
+            return id != el.id;
+        })
+        preview.removeChild(selectedItem);
+        selectedItem = null;
+    }
+
 })
 preview.addEventListener("mousedown", (ev) => {
     if (ev.target !== preview) {
@@ -51,14 +63,15 @@ preview.addEventListener("mousemove", (ev) => {
 preview.addEventListener('click', (ev) => {
     clearOptionAside();
     if (ev.composedPath()[0] !== preview) {
-        displayOptions(ev.composedPath()[0]);
+        selectedItem = ev.composedPath()[0];
+        displayOptions(selectedItem);
     } else {
-        if (selectedItem != null) {
+        if (navElement != null) {
             let element;
-            if (selectedItem === 'p' || selectedItem === 'h1') {
-                element = document.createElement(selectedItem);
+            if (navElement === 'p' || navElement === 'h1') {
+                element = document.createElement(navElement);
                 element.innerHTML = ('TITRE');
-            } else if (selectedItem === 'img') {
+            } else if (navElement === 'img') {
                 element = createImage();
             }
             element.setAttribute('value', id);
@@ -83,7 +96,7 @@ preview.addEventListener("mouseup", () => {
 
 for (let draggable of draggables) {
     draggable.addEventListener('click', (ev) => {
-        selectedItem = ev.target.getAttribute('value');
+        navElement = ev.target.getAttribute('value');
     })
 }
 

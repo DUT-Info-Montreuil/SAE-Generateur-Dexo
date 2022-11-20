@@ -7,23 +7,20 @@ body {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 header {
     position: static !important;
 }
-#container {
+#container-exercises {
     display: flex;
     flex-direction: row;
     height: calc(100% - 50px);
     width: 100%;
 }
 
-#container > div {
+#container-exercises > div {
     background: red;
     width: 60%;
     height: 100%;

@@ -6,7 +6,6 @@ if(isset($_POST['json'])) {
     tryAddJSON();
 }
 
-
 function tryAddJSON() {
     $json = json_decode($_POST["json"]);
     $data = $json->{'elements'};

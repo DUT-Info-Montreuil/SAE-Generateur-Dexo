@@ -38,6 +38,10 @@
     background-color: var(--white3);
 }
 
+#header-exercises {
+    background-color: var(--white5);
+}
+
 .account-menu {
     background-color: var(--white5);
 }

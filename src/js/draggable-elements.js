@@ -13,7 +13,7 @@ A4.onload = function () {
 }
 exercice.onload = function () {
     const cancel = exercice.contentDocument.getElementById('cancel-exercice');
-    const send = exercice.contentDocument.getElementById('send-exercice');
+    const send = exercice.contentDocument.getElementById('send-exercises');
     const data = exercice.contentDocument.getElementById('jsonOutput');
     cancel.addEventListener('click', (ev) => {
         exercice.style.display = "none";
@@ -26,6 +26,7 @@ exercice.onload = function () {
                 data: ({"json" : exo})
             }).then(function (re) {
                 console.log(re);
+                exercice.style.display = "none";
             })
         });
 }
