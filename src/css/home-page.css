@@ -24,7 +24,7 @@
 
 @keyframes OpenPanelRight {
     from { transform: translateX(calc(var(--panel-open-width))); }
-    to { transform: translateX(calc(var(--panel-open-width))); }
+    to { transform: translateX(calc(-var(--panel-open-width))); }
 }
 
 @keyframes HidePanelLeft {
