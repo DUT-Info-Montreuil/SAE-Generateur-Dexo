@@ -23,6 +23,7 @@ const page = {
 
 title.addEventListener('input', (ev) => {
     page.title = title.value;
+    jsonOutput.setAttribute('value', JSON.stringify(page));
 })
 document.getElementsByTagName('body')[0].addEventListener('keydown' , (ev) => {
     if (ev.key === "Backspace" && selectedItem != null) {
