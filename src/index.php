@@ -30,12 +30,13 @@
         ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html id="html-index" lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/global.css" rel="stylesheet"/>
+        <link href="./css/themes/white.css" rel="stylesheet" id="theme">
         <script src="./js/css_loader.js" type="text/javascript"></script>
         <script src="./js/librairies/jquery-3.6.1.min.js" type="text/javascript"></script>
         <title>SAE-GE</title>
