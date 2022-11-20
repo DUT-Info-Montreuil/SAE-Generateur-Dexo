@@ -22,8 +22,12 @@
 
 #html-A4 {
     background-color: var(--eerie-black);
-    scrollbar-color: var(--grey) var(--eerie-black);
+    scrollbar-color: var(--grey) var(--eerie-black); /* firefox */
 }
+
+/* edge, safari, chrome */
+#html-A4::-webkit-scrollbar { background-color: var(--eerie-black); }
+#html-A4::-webkit-scrollbar-thumb { background-color: var(--grey); }
 
 #settings-container {
     background-color: var(--eerie-black);
@@ -57,4 +61,12 @@
 
 .panels {
     background-color: var(--eerie-black);
+}
+
+.panels-close {
+    background-color: var(--eerie-black);
+}
+
+.hideAside {
+    background-color: var(--grey );
 }
