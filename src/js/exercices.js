@@ -175,9 +175,7 @@ function getRelativePositionsMouse(bound, event) {
 function updateObject(element) {
     let elementId = element.getAttribute('value');
     if (typeof elementId === "string") {
-        let objectToUpdate = page.elements.find((el) => {
-            return el.id === elementId;
-        })
+        let objectToUpdate = page.elements.find((el) => el.id === elementId);
         if (objectToUpdate === undefined) {
 
             const type = element.tagName;
