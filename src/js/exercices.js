@@ -46,8 +46,8 @@ preview.addEventListener("mousedown", (ev) => {
 })
 preview.addEventListener("mousemove", (ev) => {
     if (draggedElement != null) {
-        let elementHeight = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('height').split('px')[0]);
-        let elementWidth = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('width').split('px')[0]);
+        let elementHeight = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('height').replace('px', ''));
+        let elementWidth = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('width').replace('px', ''));
         const bound = preview.getBoundingClientRect();
         const relativeMousePositions = getRelativePositionsMouse(bound, ev);
         let mousePosRelativelyToPreviewX = relativeMousePositions.posX - mooveX;
