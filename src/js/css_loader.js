@@ -5,8 +5,7 @@ const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1
 const pathsCSS =
     {
         "loginRegister": "./css/register-login.css",
-        "home": "./css/home-page.css",
-        "exercices" : "./css/exercices-page.css"
+        "home": "./css/home-page.css"
     }
 
 /** Create a balise <link> with good path of css according to the page displayed.
@@ -30,8 +29,6 @@ window.onload = function () {
                 createLinkCSS(pathsCSS['loginRegister']);
             } else if (valueVar === 'home') {
                 createLinkCSS(pathsCSS["home"]);
-            } else if (valueVar === "exercices") {
-                createLinkCSS(pathsCSS["exercices"]);
             }
         }
     }
