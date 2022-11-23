@@ -170,18 +170,6 @@ article {
     overflow-y: scroll;
 }
 
-.content {
-    padding: 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    border: red solid 3px;
-}
-
-.checkboxes {
-    display: none;
-}
-
 .img-button-panel {
     width: var(--size-button-panels);
     height: var(--size-button-panels);
@@ -286,13 +274,9 @@ aside {
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    font-size: 15px;
+    /* font-size: 15px; */
     margin-bottom: 20px;
     border: none;
-}
-
-.content {
-    padding: 5px;
 }
 
 .hideAside {
@@ -338,4 +322,10 @@ aside {
     /* Internet Explorer/Edge */
     user-select: none;
     /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
