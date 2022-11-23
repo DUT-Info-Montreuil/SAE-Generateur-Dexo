@@ -168,7 +168,14 @@ article {
     height: inherit;
     overflow-x: hidden;
     overflow-y: scroll;
-    display: none;
+}
+
+.content {
+    padding: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border: red solid 3px;
 }
 
 .checkboxes {
@@ -261,7 +268,8 @@ aside {
     font-size: 15px;
 }
 
-.collapsible {
+
+/* .collapsible {
     cursor: pointer;
     width: 95%;
     height: 10%;
@@ -269,6 +277,18 @@ aside {
     margin-bottom: 2.5px;
     font-size: x-large;
     text-align: center;
+} */
+
+.collapsible {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 20px;
+    border: none;
 }
 
 .content {

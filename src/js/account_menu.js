@@ -14,13 +14,13 @@ let showSettingMenu = false;
 
 
 const settingsMenu = document.getElementById("settings-iframe");
-settingsMenu.addEventListener("load" ,() => {
+settingsMenu.addEventListener("load", () => {
     settingsButton[0].addEventListener("click", () => {
         showSettingMenu = !showSettingMenu;
         settingsMenu.style.display = showSettingMenu ? "block" : "none";
     });
 
-    registerButton.addEventListener("click", () =>  {
+    registerButton.addEventListener("click", () => {
         document.location.href = "index.php?module=user&status=register";
     });
 
@@ -28,9 +28,9 @@ settingsMenu.addEventListener("load" ,() => {
         document.location.href = "index.php?module=user&status=login";
     });
 
-    logoutButton.addEventListener("click", () => {
-        document.location.href = "index.php?module=user&status=logout";
-    });
+    // logoutButton.addEventListener("click", () => {
+    //     document.location.href = "index.php?module=user&status=logout";
+    // });
 });
 
 accountButton.addEventListener("click", () => {

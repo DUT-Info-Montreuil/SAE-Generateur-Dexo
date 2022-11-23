@@ -67,12 +67,24 @@ class VueHome extends GenericView
 
             <section class="contentAside">
                 <div>
-                    <div style="display: flex; justify-content: space-around">
+                    <!-- <div style="display: flex; justify-content: space-around">
                         <label for="checkbox-used-recently" class="collapsible">Utilisé recement</label>
                         <input type="checkbox" id="checkbox-used-recently" class="checkboxes">
                     </div>
 
                     <div class="content">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                    </div> -->
+                    <!-- <label for="checkbox-used-recently" class="collapsible">Utilisé recement</label> -->
+
+                    <button class="collapsible">
+                        <h2>Utilisé recement</h2>
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                    </button>
+                    <div class="content" style="padding: 10px">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -154,47 +166,85 @@ class VueHome extends GenericView
 
             <section class="contentAside">
                 <div>
-                    <div style="display: flex; justify-content: space-around">
+                    <!-- <div style="display: flex; justify-content: space-around">
                     <img class="Hide" src="../res/img/hide.png">
                         <label for="checkbox-category1" class="collapsible">Principe alphabétique</label>
                     </div>
 
                     <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
                         <p>Don't support object tag</p>
-                    </object>
+                    </object> -->
+
+                    <button class="collapsible">
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <h2>Principe alphabétique</h2>
+                    </button>
+                    <div class="content">
+                        <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
+                            <p>Don't support object tag</p>
+                        </object>
+                    </div>
+
                 </div>
 
                 <div>
-                    <div style="display: flex; justify-content: space-around">
+                    <!-- <div style="display: flex; justify-content: space-around">
                         <label for="checkbox-category2" class="collapsible">Conscience phonologique</label>
                         <input type="checkbox" id="checkbox-category2" class="checkboxes">
                     </div>
 
                     <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
                         <p>Don't support object tag</p>
-                    </object>
+                    </object> -->
+                    <button class="collapsible">
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <h2>Conscience phonologique</h2>
+                    </button>
+                    <div class="content">
+                        <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
+                            <p>Don't support object tag</p>
+                        </object>
+                    </div>
                 </div>
 
                 <div>
-                    <div style="display: flex; justify-content: space-around">
+                    <!-- <div style="display: flex; justify-content: space-around">
                         <label for="checkbox-category3" class="collapsible">Décodage</label>
                         <input type="checkbox" id="checkbox-category3" class="checkboxes">
                     </div>
 
                     <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
                         <p>Don't support object tag</p>
-                    </object>
+                    </object> -->
+                    <button class="collapsible">
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <h2>Décodage</h2>
+                    </button>
+                    <div class="content">
+                        <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat1.html">
+                            <p>Don't support object tag</p>
+                        </object>
+                    </div>
                 </div>
 
                 <div>
-                    <div style="display: flex; justify-content: space-around">
+                    <!-- <div style="display: flex; justify-content: space-around">
                         <label for="checkbox-category4" class="collapsible">Encodage</label>
                         <input type="checkbox" id="checkbox-category4" class="checkboxes">
                     </div>
 
                     <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
                         <p>Don't support object tag</p>
-                    </object>
+                    </object> -->
+                    <button class="collapsible">
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <h2>Décodage</h2>
+                    </button>
+                    <div class="content">
+                        <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
+                            <p>Don't support object tag</p>
+                        </object>
+                    </div>
                 </div>
             </section>
         </aside>
