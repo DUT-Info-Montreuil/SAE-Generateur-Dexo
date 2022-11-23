@@ -26,7 +26,7 @@ title.addEventListener('input', (ev) => {
     jsonOutput.setAttribute('value', JSON.stringify(page));
 })
 document.getElementsByTagName('body')[0].addEventListener('keydown' , (ev) => {
-    if (ev.key === "Backspace" && selectedItem != null) {
+    if (ev.key === "Delete" && selectedItem != null) {
         let id = selectedItem.getAttribute('value');
         page.elements = page.elements.filter((el) => {
             return id != el.id;
