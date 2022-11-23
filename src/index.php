@@ -5,8 +5,8 @@
     require_once "./modules/mod_home/mod_home.php";
     require_once "./connexion.php";
 
-    // session_start();
-    // Connexion::set_up_connection();
+    session_start();
+    Connexion::set_up_connection();
 
     if (!isset($_GET["module"]))
         header("Location:index.php?module=home");
