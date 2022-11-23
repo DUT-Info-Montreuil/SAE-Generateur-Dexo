@@ -34,7 +34,7 @@ function canBeSend($json) {
     $strJsonFileContents = json_decode(file_get_contents("../../res/exerciceOptions.json"));
 
     foreach ($data as $key => $value) {
-        if ($canBeSend === true && isset($strJsonFileContents->{strtolower($value->{'type'})})) {
+        if (isset($strJsonFileContents->{strtolower($value->{'type'})})) {
             $properties = $value->{'properties'};
             if (!(isset($properties->{'left'}) && isset($properties->{'top'}))) {
                 $left = getDoubleSize($properties->{'left'});
