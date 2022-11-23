@@ -46,7 +46,7 @@ function canBeSend($json) {
             }
         }
     }
-    return $canBeSend;
+    return true;
 }
 
 function getDoubleSize(string $property) {
