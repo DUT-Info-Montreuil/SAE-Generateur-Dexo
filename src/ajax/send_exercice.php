@@ -41,7 +41,7 @@ function canBeSend($json) {
                 $top = getDoubleSize($properties->{'top'});
                 $maxTop = getDoubleSize($json->{'height'});
                 if (!($left > 0 && $left < 21 && $top > 0 && $top < $maxTop && $maxTop > 0 && $maxTop < 29.7)) {
-                    $canBeSend = false;
+                    return false;
                 }
             }
         }
