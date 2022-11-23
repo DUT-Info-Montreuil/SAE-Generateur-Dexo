@@ -41,17 +41,17 @@ class VueHome extends GenericView
     { ?>
         <aside id="left-panel-close" class="panels-close">
             <img id="left-arrow-close"
-                 class="arrows-collapse"
-                 src="../res/arrow.png" alt="Arrow">
+                class="arrows-collapse"
+                src="../res/arrow.png" alt="Arrow">
         </aside>
 
         <aside id="left-panel" class="panels">
             <div class="hideAside">
                 <h2>Cacher</h2>
                 <img id="left-arrow-collapse"
-                     class="arrows-collapse"
-                     src="../res/img/circleArrow.png"
-                     alt="Arrow">
+                    class="arrows-collapse"
+                    src="../res/img/circleArrow.png"
+                    alt="Arrow">
             </div>
 
             <section class="titleAside">
@@ -155,8 +155,8 @@ class VueHome extends GenericView
             <section class="contentAside">
                 <div>
                     <div style="display: flex; justify-content: space-around">
+                    <img class="Hide" src="../res/img/hide.png">
                         <label for="checkbox-category1" class="collapsible">Principe alphabétique</label>
-                        <input type="checkbox" id="checkbox-category1" class="checkboxes">
                     </div>
 
                     <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
