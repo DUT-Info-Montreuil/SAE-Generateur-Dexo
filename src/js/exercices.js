@@ -126,9 +126,7 @@ function displayOptions(element) {
 }
 
 function getOptions(tagName) {
-    let key = Object.keys(rawAllOptions).find(el => {
-        return el.toLowerCase() === tagName.toLowerCase();
-    })
+    let key = Object.keys(rawAllOptions).find(el => el.toLowerCase() === tagName.toLowerCase());
     return rawAllOptions[key];
 }
 
