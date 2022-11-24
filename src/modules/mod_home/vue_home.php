@@ -78,10 +78,10 @@ class VueHome extends GenericView
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
                 </div>
 
@@ -91,10 +91,10 @@ class VueHome extends GenericView
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
                 </div>
 
@@ -104,10 +104,10 @@ class VueHome extends GenericView
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
                     </div>
                 </div>
             </section>
