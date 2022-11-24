@@ -14,9 +14,17 @@ class VueHome extends GenericView
         $this->displayAccountMenu();
         $this->displaySettingsMenu();
         $this->displayPopInInfo();
+        $this->displayExercices();
         $this->putScripts();
     }
 
+    public function displayExercices()
+    {?>
+        <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
+            <p>Don't support object tag</p>
+        </object>
+        <?php
+    }
     public function displayHeader()
     { ?>
         <header id="header-index">
