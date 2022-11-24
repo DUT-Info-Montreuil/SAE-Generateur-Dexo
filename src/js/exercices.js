@@ -28,9 +28,7 @@ title.addEventListener('input', (ev) => {
 document.getElementsByTagName('body')[0].addEventListener('keydown' , (ev) => {
     if (ev.key === "Delete" && selectedItem != null) {
         let id = selectedItem.getAttribute('value');
-        page.elements = page.elements.filter((el) => {
-            return id != el.id;
-        })
+        page.elements = page.elements.filter((el) => id != el.id);
         preview.removeChild(selectedItem);
         selectedItem = null;
     }
