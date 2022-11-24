@@ -14,13 +14,13 @@ let showSettingMenu = false;
 
 
 const settingsMenu = document.getElementById("settings-iframe");
-settingsMenu.addEventListener("load" ,() => {
+settingsMenu.addEventListener("load", () => {
     settingsButton[0].addEventListener("click", () => {
         showSettingMenu = !showSettingMenu;
         settingsMenu.style.display = showSettingMenu ? "block" : "none";
     });
 
-    registerButton.addEventListener("click", () =>  {
+    registerButton.addEventListener("click", () => {
         document.location.href = "index.php?module=user&status=register";
     });
 
