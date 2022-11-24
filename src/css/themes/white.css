@@ -6,19 +6,20 @@
     --white5: #eaeaea;
 }
 
+html {
+    color: black;
+}
+
 #header-index {
     background-color: var(--white5);
-    color: black;
 }
 
 #html-index {
     background-color: var(--white3);
-    color: black;
 }
 
 #html-settings {
     background: unset;
-    color: black;
 }
 
 #html-A4 {

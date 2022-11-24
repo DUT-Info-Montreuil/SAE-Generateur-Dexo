@@ -4,6 +4,9 @@
     --grey: #413F42;
 }
 
+html {
+    color: white;
+}
 
 #header-index {
     background-color: var(--eerie-black);
@@ -12,12 +15,10 @@
 
 #html-index {
     background-color: var(--rich-black);
-    color: white;
 }
 
 #html-settings {
     background: unset;
-    color: white;
 }
 
 #html-A4 {
