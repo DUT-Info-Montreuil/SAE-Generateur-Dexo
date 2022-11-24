@@ -10,9 +10,17 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 header {
     position: static !important;
 }
+
+aside {
+    background: blue;
+    width: 20%;
+    height: 100%;
+}
+
 #container-exercises {
     display: flex;
     flex-direction: row;
@@ -27,36 +35,32 @@ header {
     display: flex;
     justify-content: center;
 }
-aside {
-    background: blue;
-    width: 20%;
-    height: 100%;
-}
+
 #preview-div {
     overflow: scroll;
     padding-top: 5px;
     padding-bottom: 10px;
 }
+
 #A4-page {
     position: relative;
     height: 29cm;
     width: 21cm;
-    background-color: white;
     display: flex;
     justify-content: center;
 }
+
 #preview {
     position: relative;
     height: 5cm;
     width: 20cm;
-    border: dashed red 2px;
-    background-color: white;
 }
+
 .img-input {
     width: 20px;
     height: 20px;
-    border: 2px solid #1c1b1b;
 }
+
 .img-input::before {
     content: '';
     position: absolute;
@@ -64,20 +68,23 @@ aside {
     left: 25%;
     width: 40%;
     height: 40%;
-    border: 1px dashed #1c1b1b;
 }
+
 .option-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
 }
+
 .option-label {
     flex-basis: 100%;
 }
+
 .preview-elements-moving {
     cursor: move;
 }
+
 #input-title {
     display: flex;
     flex-direction: row;
@@ -85,6 +92,7 @@ aside {
     align-items: center;
     flex-wrap: wrap;
 }
+
 #title-label {
     text-align: center;
     flex-basis: 100%;
