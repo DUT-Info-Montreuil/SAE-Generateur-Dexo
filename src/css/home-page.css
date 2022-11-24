@@ -31,12 +31,8 @@
 }
 
 @keyframes OpenPanelLeft {
-    from {
-        left: calc(-1 * var(--panel-open-width));
-    }
-    to {
-        left: 0;
-    }
+    from { left: calc(-1 * var(--panel-open-width)); }
+    to { left: 0; }
 }
 
 input:focus {
