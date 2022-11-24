@@ -35,15 +35,11 @@ h2 {
     height: 100%;
 
     border-right: gray solid 1px;
-
-    padding: 5px;
 }
 
 #aside-part {
     width: 80%;
     height: 100%;
-
-    padding: 5px;
 }
 
 #account-part {
