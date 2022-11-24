@@ -3,7 +3,6 @@
     --panel-close-width: 3vw;
     --open-button-width: 2vw;
     --search-icon: 6%;
-
     --size-account-button: 35px;
     --size-button-panels: 30px;
 }
@@ -36,7 +35,6 @@
     to { left: 0; }
 }
 
-
 input:focus {
     outline: none;
 }
@@ -54,8 +52,8 @@ article {
 }
 
 #left-panel { left: 0; border-radius: 0 5px 5px 0; }
-#right-panel { left: calc(100vw - var(--panel-open-width)); border-radius: 5px 0 0 5px; }
 
+#right-panel { left: calc(100vw - var(--panel-open-width)); border-radius: 5px 0 0 5px; }
 #left-panel-close { left: 0; border-radius: 0 5px 5px 0; }
 #right-panel-close { left: calc(100vw - var(--panel-close-width)); border-radius: 5px 0 0 5px; }
 
@@ -80,7 +78,6 @@ article {
 #A4-exo-iframe {
     overflow-x: scroll;
     overflow-y: scroll;
-
     margin-top: 55px;
     width: calc(100vw / 2);
     height: calc(100vh - 60px);
@@ -88,11 +85,9 @@ article {
 
 #settings-iframe {
     display: none;
-
     position: absolute;
     top: 0;
     left: 0;
-
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -109,28 +104,21 @@ article {
     align-items: center;
 }
 
-
 .panels {
     display: block;
-
     position: fixed;
     top: 70px;
-
     width: var(--panel-open-width);
     height: calc(97vh - 70px);
-
     animation-duration: 0.5s;
 }
 
 .panels-close {
     display: none;
-
     width: 3vw;
     height: calc(97vh - 70px);
-
     position: fixed;
     top: 70px;
-
     animation-duration: 0.5s;
 }
 
@@ -144,17 +132,16 @@ article {
     height: inherit;
     overflow-x: hidden;
     overflow-y: scroll;
-    display: none;
 }
-
-.checkboxes { display: none; }
 
 .img-button-panel {
     width: var(--size-button-panels);
     height: var(--size-button-panels);
 }
 
+
 /* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
+
 aside {
     animation-fill-mode: forwards;
     padding: 0.5em;
@@ -168,7 +155,7 @@ aside {
     margin-bottom: 5vh;
 }
 
-.titleAside > h1 {
+.titleAside>h1 {
     font-weight: bold;
     font-size: 4vh;
 }
@@ -179,22 +166,25 @@ aside {
     border-radius: 10px;
 }
 
-.search-Part > input, .search-Part > button {
+.search-Part>input,
+.search-Part>button {
     border: none;
     background-color: var(--grey);
 }
 
-.search-Part > input {
+.search-Part>input {
     width: 90%;
     vertical-align: middle;
 }
 
-.search-Part > button {
+.search-Part>button {
     width: 5%;
     cursor: pointer;
 }
 
+
 /* Image */
+
 .loupeImg {
     width: 100%;
     vertical-align: text-top;
@@ -219,6 +209,7 @@ aside {
 
 
 /* -------------------------------- Collapsing Part -------------------------------- */
+
 .collapsibleAside {
     display: flex;
     align-items: center;
@@ -229,7 +220,8 @@ aside {
     font-size: 15px;
 }
 
-.collapsible {
+
+/* .collapsible {
     cursor: pointer;
     width: 95%;
     height: 10%;
@@ -237,24 +229,29 @@ aside {
     margin-bottom: 2.5px;
     font-size: x-large;
     text-align: center;
-}
+} */
 
-.content {
-    padding: 5px;
+.collapsible {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    /* font-size: 15px; */
+    margin-bottom: 20px;
+    border: none;
 }
 
 .hideAside {
     border-radius: 5px;
     width: 50%;
     height: 35px;
-
     margin: auto;
     padding: 5px;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     color: white;
     background-color: var(--eerie-black);
 }
@@ -284,4 +281,10 @@ aside {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
