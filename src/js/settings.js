@@ -2,16 +2,17 @@ const settings = document.getElementById("settings-iframe");
 
 
 settings.addEventListener("load", () => {
-    const cancelButton = settings.contentDocument.getElementById("cancel-button");
+    const cancelButton = settings.contentDocument.getElementsByClassName("cancel-button");
     const displayButton = settings.contentDocument.getElementById("display-button");
     const accountButton = settings.contentDocument.getElementById("account-button");
     const contentDisplay = settings.contentDocument.getElementById("display-part");
     const contentAccount = settings.contentDocument.getElementById("account-part");
 
-    cancelButton.addEventListener("click", () => {
-        settings.style.display = "none";
-        showSettingMenu = false;
-    });
+    for (let butt of cancelButton)
+        butt.addEventListener("click", () => {
+            settings.style.display = "none";
+            showSettingMenu = false;
+        });
 
     displayButton.addEventListener("click", () => {
         contentDisplay.style.display = "block";
