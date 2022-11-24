@@ -50,11 +50,6 @@ h2 {
     display: none;
 }
 
-#cancel-button {
-    width: 30px;
-    height: 30px;
-}
-
 #settings-container {
     display: flex;
     flex-direction: row;
@@ -68,4 +63,9 @@ h2 {
     align-items: center;
 
     border-bottom: gray solid 1px;
+}
+
+.cancel-button {
+    width: 30px;
+    height: 30px;
 }
