@@ -35,6 +35,7 @@
     to { left: 0; }
 }
 
+
 input:focus {
     outline: none;
 }
@@ -46,14 +47,23 @@ article {
     border-radius: 5px;
 }
 
+/* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
+aside {
+    animation-fill-mode: forwards;
+    padding: 0.5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    animation-duration: 5000ms;
+}
+
 #account-button {
     height: var(--size-account-button);
     width: var(--size-account-button);
 }
 
 #left-panel { left: 0; border-radius: 0 5px 5px 0; }
-
 #right-panel { left: calc(100vw - var(--panel-open-width)); border-radius: 5px 0 0 5px; }
+
 #left-panel-close { left: 0; border-radius: 0 5px 5px 0; }
 #right-panel-close { left: calc(100vw - var(--panel-close-width)); border-radius: 5px 0 0 5px; }
 
@@ -139,23 +149,12 @@ article {
     height: var(--size-button-panels);
 }
 
-
-/* Page is 100% aside=25% article=45%  5%void (2.5 right and left)*/
-
-aside {
-    animation-fill-mode: forwards;
-    padding: 0.5em;
-    border: 1px solid black;
-    border-radius: 5px;
-    animation-duration: 5000ms;
-}
-
 .titleAside {
     text-align: center;
     margin-bottom: 5vh;
 }
 
-.titleAside>h1 {
+.titleAside > h1 {
     font-weight: bold;
     font-size: 4vh;
 }
@@ -166,25 +165,22 @@ aside {
     border-radius: 10px;
 }
 
-.search-Part>input,
-.search-Part>button {
+.search-Part > input, .search-Part > button {
     border: none;
     background-color: var(--grey);
 }
 
-.search-Part>input {
+.search-Part > input {
     width: 90%;
     vertical-align: middle;
 }
 
-.search-Part>button {
+.search-Part > button {
     width: 5%;
     cursor: pointer;
 }
 
-
 /* Image */
-
 .loupeImg {
     width: 100%;
     vertical-align: text-top;
@@ -209,7 +205,6 @@ aside {
 
 
 /* -------------------------------- Collapsing Part -------------------------------- */
-
 .collapsibleAside {
     display: flex;
     align-items: center;
@@ -220,17 +215,6 @@ aside {
     font-size: 15px;
 }
 
-
-/* .collapsible {
-    cursor: pointer;
-    width: 95%;
-    height: 10%;
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
-    font-size: x-large;
-    text-align: center;
-} */
-
 .collapsible {
     display: flex;
     align-items: center;
@@ -238,7 +222,6 @@ aside {
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    /* font-size: 15px; */
     margin-bottom: 20px;
     border: none;
 }
@@ -275,16 +258,16 @@ aside {
     text-align: center;
 }
 
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
 .contentAside {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-}
-
-.content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
 }

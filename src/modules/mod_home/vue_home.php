@@ -41,17 +41,17 @@ class VueHome extends GenericView
     { ?>
         <aside id="left-panel-close" class="panels-close">
             <img id="left-arrow-close"
-                class="arrows-collapse"
-                src="../res/arrow.png" alt="Arrow">
+                 class="arrows-collapse"
+                 src="../res/arrow.png" alt="Arrow">
         </aside>
 
         <aside id="left-panel" class="panels">
             <div class="hideAside">
                 <h2>Cacher</h2>
                 <img id="left-arrow-collapse"
-                    class="arrows-collapse"
-                    src="../res/img/circleArrow.png"
-                    alt="Arrow">
+                     class="arrows-collapse"
+                     src="../res/img/circleArrow.png"
+                     alt="Arrow">
             </div>
 
             <section class="titleAside">
@@ -160,7 +160,6 @@ class VueHome extends GenericView
                             <p>Don't support object tag</p>
                         </object>
                     </div>
-
                 </div>
 
                 <div>
