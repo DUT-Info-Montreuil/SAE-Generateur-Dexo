@@ -39,11 +39,11 @@ class ContUser
     {
         $is_vars_set = isset($_POST['uname'], $_POST['psw']);
         if ($is_vars_set) {
-            $valid_pwd_length = strlen($_POST['psw']) > $this->$LENGTH_MIN_PASSWORD;
-            $valid_username_length = strlen($_POST['uname']) > $this->$LENGTH_MIN_USERNAME;
+            $valid_pwd_length = strlen($_POST['psw']) > $this::$LENGTH_MIN_PASSWORD;
+            $valid_username_length = strlen($_POST['uname']) > $this::$LENGTH_MIN_USERNAME;
             if ($valid_username_length && $valid_pwd_length) {
                 if ($this->model->login()) {
-                    // header loaction : main ...
+                    header("Location: index.php");
                 } else {
                     $this->vue->wrongInfos();
                 }
@@ -55,7 +55,7 @@ class ContUser
     {
         $is_vars_set = isset($_POST['uname'], $_POST['psw'], $_POST['name'], $_POST['surname'], $_POST['email']);
         if ($is_vars_set) {
-            $valid_pwd_length = strlen($_POST['psw']) > $this->$LENGTH_MIN_PASSWORD;
+            $valid_pwd_length = strlen($_POST['psw']) > $this::$LENGTH_MIN_PASSWORD;
             if ($valid_pwd_length)
                 (!$this->model->loginIsTaken()) ? $this->model->register() : $this->vue->loginAlreadyTaken();
         }

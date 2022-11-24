@@ -114,6 +114,12 @@ aside {
     align-items: center;
 }
 
+#exercice-edit {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
 .panels {
     display: block;
     position: fixed;

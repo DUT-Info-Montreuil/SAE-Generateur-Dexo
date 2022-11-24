@@ -1,28 +1,33 @@
 <?php
     ini_set('display_errors', 1);
 
-    require_once "./modules/mod_user/mod_user.php";
-    require_once "./modules/mod_home/mod_home.php";
-    require_once "./connexion.php";
+        require_once "./modules/mod_user/mod_user.php";
+        require_once "./modules/mod_home/mod_home.php";
+        require_once "./connexion.php";
 
     session_start();
     Connexion::set_up_connection();
 
-    if (!isset($_GET["module"]))
-        header("Location:index.php?module=home");
-    $module = "";
-    switch ($_GET["module"]){
-        case "user":
-            $module = new ModUser();
-            break;
-        case "home":
-            $module = new ModHome();
-            break;
-        default :
-            break;
-    }
-    $content = $module->getDisplay();
-?>
+        if (!isset($_GET["module"]))
+            header("Location:index.php?module=home");
+        $module = "";
+        switch ($_GET["module"]){
+            case "user":
+                $module = new ModUser();
+                break;
+            case "home":
+                $module = new ModHome();
+                break;
+            default :
+                break;
+        }
+
+        if ($module !== ""){
+            $content = $module->getDisplay();
+        } else {
+            $content = "Module not found";
+        }
+        ?>
 
 <!DOCTYPE html>
 <html id="html-index" lang="fr">

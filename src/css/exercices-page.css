@@ -1,0 +1,99 @@
+body {
+    height: 100vh;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: static !important;
+}
+
+aside {
+    background: blue;
+    width: 20%;
+    height: 100%;
+}
+
+#container-exercises {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 50px);
+    width: 100%;
+}
+
+#container-exercises > div {
+    background: red;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#preview-div {
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#A4-page {
+    position: relative;
+    height: 29cm;
+    width: 21cm;
+    display: flex;
+    justify-content: center;
+}
+
+#preview {
+    position: relative;
+    height: 5cm;
+    width: 20cm;
+}
+
+.img-input {
+    width: 20px;
+    height: 20px;
+}
+
+.img-input::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 40%;
+    height: 40%;
+}
+
+.option-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.option-label {
+    flex-basis: 100%;
+}
+
+.preview-elements-moving {
+    cursor: move;
+}
+
+#input-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#title-label {
+    text-align: center;
+    flex-basis: 100%;
+}
