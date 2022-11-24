@@ -1,4 +1,3 @@
-
 let elementTargetExo = null;
 let posXExo = 0;
 let posYExo = 0;

@@ -27,8 +27,13 @@ html {
 }
 
 /* edge, safari, chrome */
-#html-A4::-webkit-scrollbar { background-color: var(--eerie-black); }
-#html-A4::-webkit-scrollbar-thumb { background-color: var(--grey); }
+#html-A4::-webkit-scrollbar {
+    background-color: var(--eerie-black);
+}
+
+#html-A4::-webkit-scrollbar-thumb {
+    background-color: var(--grey);
+}
 
 #settings-container {
     background-color: var(--eerie-black);
@@ -69,5 +74,5 @@ html {
 }
 
 .hideAside {
-    background-color: var(--grey );
+    background-color: var(--grey);
 }

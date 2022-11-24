@@ -4,8 +4,6 @@ require_once "./generic_view.php";
 
 class VueHome extends GenericView
 {
-
-
     public function __construct()
     {
         parent::__construct();
@@ -19,18 +17,18 @@ class VueHome extends GenericView
     }
 
     public function displayExercices()
-    {?>
+    { ?>
         <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
             <p>Don't support object tag</p>
         </object>
-        <?php
-    }
+    <?php }
+
     public function displayHeader()
     { ?>
         <header id="header-index">
             <h1>Historique</h1>
             <h1>SAE | Générateur d'exercices !</h1>
-            <div> <img id="account-button" src="../res/profile-user.png" alt="profile-user"/> </div>
+            <div><img id="account-button" src="../res/profile-user.png" alt="profile-user"/></div>
         </header>
     <?php }
 
@@ -164,7 +162,8 @@ class VueHome extends GenericView
                         <h2>Principe alphabétique</h2>
                     </button>
                     <div class="content">
-                        <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
+                        <object class="object-categories" id="exos-categorie1" type="text/html"
+                                data="./html/categories/cat1.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -176,7 +175,8 @@ class VueHome extends GenericView
                         <h2>Conscience phonologique</h2>
                     </button>
                     <div class="content">
-                        <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
+                        <object class="object-categories" id="exos-categorie2" type="text/html"
+                                data="./html/categories/cat2.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -188,7 +188,8 @@ class VueHome extends GenericView
                         <h2>Décodage</h2>
                     </button>
                     <div class="content">
-                        <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
+                        <object class="object-categories" id="exos-categorie3" type="text/html"
+                                data="./html/categories/cat3.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -200,7 +201,8 @@ class VueHome extends GenericView
                         <h2>Encodage</h2>
                     </button>
                     <div class="content">
-                        <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
+                        <object class="object-categories" id="exos-categorie4" type="text/html"
+                                data="./html/categories/cat4.html">
                             <p>Don't support object tag</p>
                         </object>
                     </div>
@@ -237,13 +239,16 @@ class VueHome extends GenericView
     <?php }
 
     private function displaySettingsMenu()
-    {  ?>
+    { ?>
         <object title="Settings" type="text/html" role="application" id="settings-iframe" data="./html/settings.html">
             <p>Don't support object tag</p>
         </object>
     <?php }
 
-    private function displayPopInInfo() { ?> <div id="pop-in-info-div"></div> <?php }
+    private function displayPopInInfo()
+    { ?>
+        <div id="pop-in-info-div"></div>
+    <?php }
 
     /**
      * @return void
@@ -258,5 +263,4 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/settings.js"></script>
     <?php }
 }
-
 ?>

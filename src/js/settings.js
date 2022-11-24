@@ -1,7 +1,7 @@
 const settings = document.getElementById("settings-iframe");
 
 
-settings.addEventListener("load" ,() => {
+settings.addEventListener("load", () => {
     const cancelButton = settings.contentDocument.getElementById("cancel-button");
     const displayButton = settings.contentDocument.getElementById("display-button");
     const accountButton = settings.contentDocument.getElementById("account-button");
@@ -14,12 +14,12 @@ settings.addEventListener("load" ,() => {
     });
 
     displayButton.addEventListener("click", () => {
-       contentDisplay.style.display = "block";
-       contentAccount.style.display = "none";
+        contentDisplay.style.display = "block";
+        contentAccount.style.display = "none";
     });
 
     accountButton.addEventListener("click", () => {
-       contentAccount.style.display = "block";
-       contentDisplay.style.display = "none";
+        contentAccount.style.display = "block";
+        contentDisplay.style.display = "none";
     });
 });
