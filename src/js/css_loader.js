@@ -5,7 +5,7 @@ const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1
 const pathsCSS =
     {
         "loginRegister": "./css/register-login.css",
-        "home": "./css/home-page.css",
+        "home": "./css/home-page.css"
     }
 
 /** Create a balise <link> with good path of css according to the page displayed.

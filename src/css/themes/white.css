@@ -38,8 +38,29 @@
     background-color: var(--white3);
 }
 
+#header-exercises {
+    background-color: var(--white5);
+}
+
 .account-menu {
     background-color: var(--white5);
+}
+
+#A4-page {
+    background-color: white;
+}
+
+#preview {
+    border: dashed red 2px;
+    background-color: white;
+}
+
+.img-input {
+    border: 2px solid #1c1b1b;
+}
+
+.img-input::before {
+    border: 1px dashed #1c1b1b;
 }
 
 .account-menu div {

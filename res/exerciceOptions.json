@@ -1,0 +1,10 @@
+{
+  "p" : {
+    "type" : "text",
+    "font-size" : {
+      "type": "slider",
+      "min": 10,
+      "max": 30
+    }
+  }
+}
