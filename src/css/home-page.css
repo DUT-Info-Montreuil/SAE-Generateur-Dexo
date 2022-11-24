@@ -67,9 +67,7 @@ article {
     top: 75px;
 }
 
-#right-arrow-close {
-    transform: rotate(180deg);
-}
+#right-arrow-close { transform: rotate(180deg); }
 
 #left-arrow-close {
     width: var(--open-button-width);
