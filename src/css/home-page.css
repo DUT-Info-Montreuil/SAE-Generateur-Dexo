@@ -51,10 +51,7 @@ article {
     width: var(--size-account-button);
 }
 
-#left-panel {
-    left: 0;
-    border-radius: 0 5px 5px 0;
-}
+#left-panel { left: 0; border-radius: 0 5px 5px 0; }
 
 #right-panel {
     left: calc(100vw - var(--panel-open-width));
