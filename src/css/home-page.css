@@ -27,9 +27,7 @@
 }
 
 @keyframes HidePanelLeft {
-    to {
-        left: calc(-1 * var(--panel-open-width));
-    }
+    to { left: calc(-1 * var(--panel-open-width)); }
 }
 
 @keyframes OpenPanelLeft {
