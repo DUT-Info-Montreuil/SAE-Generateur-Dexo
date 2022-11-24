@@ -41,17 +41,17 @@ class VueHome extends GenericView
     { ?>
         <aside id="left-panel-close" class="panels-close">
             <img id="left-arrow-close"
-                class="arrows-collapse"
-                src="../res/arrow.png" alt="Arrow">
+                 class="arrows-collapse"
+                 src="../res/arrow.png" alt="Arrow">
         </aside>
 
         <aside id="left-panel" class="panels">
             <div class="hideAside">
                 <h2>Cacher</h2>
                 <img id="left-arrow-collapse"
-                    class="arrows-collapse"
-                    src="../res/img/circleArrow.png"
-                    alt="Arrow">
+                     class="arrows-collapse"
+                     src="../res/img/circleArrow.png"
+                     alt="Arrow">
             </div>
 
             <section class="titleAside">
@@ -67,10 +67,11 @@ class VueHome extends GenericView
 
             <section class="contentAside">
                 <div>
-                    <button class="collapsible">
-                        <h2>Utilisé recement</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-used-recently" class="collapsible">Utilisé recement</label>
+                        <input type="checkbox" id="checkbox-used-recently" class="checkboxes">
+                    </div>
+
                     <div class="content">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -80,10 +81,11 @@ class VueHome extends GenericView
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <h2>Mes Photos</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-my-pictures" class="collapsible">Mes Photos</label>
+                        <input type="checkbox" id="checkbox-my-pictures" class="checkboxes">
+                    </div>
+
                     <div class="content">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -93,10 +95,11 @@ class VueHome extends GenericView
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <h2>Banque de photos</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-pictures-bank" class="collapsible">Banque de photos</label>
+                        <input type="checkbox" id="checkbox-pictures-bank" class="checkboxes">
+                    </div>
+
                     <div class="content">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -151,52 +154,47 @@ class VueHome extends GenericView
 
             <section class="contentAside">
                 <div>
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Principe alphabétique</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
-                            <p>Don't support object tag</p>
-                        </object>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-category1" class="collapsible">Principe alphabétique</label>
+                        <input type="checkbox" id="checkbox-category1" class="checkboxes">
                     </div>
 
+                    <object class="object-categories" id="exos-categorie1" type="text/html" data="./html/categories/cat1.html">
+                        <p>Don't support object tag</p>
+                    </object>
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Conscience phonologique</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
-                            <p>Don't support object tag</p>
-                        </object>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-category2" class="collapsible">Conscience phonologique</label>
+                        <input type="checkbox" id="checkbox-category2" class="checkboxes">
                     </div>
+
+                    <object class="object-categories" id="exos-categorie2" type="text/html" data="./html/categories/cat2.html">
+                        <p>Don't support object tag</p>
+                    </object>
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Décodage</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
-                            <p>Don't support object tag</p>
-                        </object>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-category3" class="collapsible">Décodage</label>
+                        <input type="checkbox" id="checkbox-category3" class="checkboxes">
                     </div>
+
+                    <object class="object-categories" id="exos-categorie3" type="text/html" data="./html/categories/cat3.html">
+                        <p>Don't support object tag</p>
+                    </object>
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Encodage</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
-                            <p>Don't support object tag</p>
-                        </object>
+                    <div style="display: flex; justify-content: space-around">
+                        <label for="checkbox-category4" class="collapsible">Encodage</label>
+                        <input type="checkbox" id="checkbox-category4" class="checkboxes">
                     </div>
+
+                    <object class="object-categories" id="exos-categorie4" type="text/html" data="./html/categories/cat4.html">
+                        <p>Don't support object tag</p>
+                    </object>
                 </div>
             </section>
         </aside>
