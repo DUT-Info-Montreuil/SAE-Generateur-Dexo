@@ -1,29 +1,22 @@
--- CREATE DATABASE
-/* CREATE DATABASE sae_ge
-  WITH
-  ENCODING = 'UTF8';
-COMMENT ON DATABASE sae_ge IS 'Base de donnée de la SAE sur le site du générateur dexercice';
-
-USE sae_ge; */
 -- TABLE ROLE
 DROP TABLE IF EXISTS public.role CASCADE;
 CREATE TABLE public.role
 (
-  idRole SERIAL PRIMARY KEY,
-  nom TEXT
+  idRole SERIAL PRIMARY KEY NOT NULL,
+  nom TEXT NOT NULL
 );
 
 -- TABLE COMPTE
 DROP TABLE IF EXISTS public.compte CASCADE;
 CREATE TABLE public.compte 
 (
-  idCompte SERIAL PRIMARY KEY, 
-  idRole INT,
-  nom TEXT,
-  prenom TEXT,
-  login TEXT,
-  password TEXT,
-  email TEXT,
+  idCompte SERIAL PRIMARY KEY NOT NULL, 
+  idRole INT NOT NULL,
+  nom TEXT NOT NULL,
+  prenom TEXT NOT NULL,
+  login TEXT NOT NULL,
+  password TEXT NOT NULL,
+  email TEXT NOT NULL,
   
   CONSTRAINT fk_role FOREIGN KEY(idrole) REFERENCES public.role(idrole)
 );
@@ -32,11 +25,11 @@ CREATE TABLE public.compte
 DROP TABLE IF EXISTS public.photo CASCADE;
 CREATE TABLE public.photo 
 (
-  idPhoto SERIAL PRIMARY KEY,
-  idCompte INT,
-  nom TEXT,
-  url TEXT,
-  partager BOOLEAN,
+  idPhoto SERIAL PRIMARY KEY NOT NULL,
+  idCompte INT NOT NULL,
+  nom TEXT NOT NULL,
+  url TEXT NOT NULL,
+  partager BOOLEAN NOT NULL,
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte)
 );
@@ -45,19 +38,19 @@ CREATE TABLE public.photo
 DROP TABLE IF EXISTS public.categorie CASCADE;
 CREATE TABLE public.categorie
 (
-  idCategorie SERIAL PRIMARY KEY,
-  nom TEXT
+  idCategorie SERIAL PRIMARY KEY NOT NULL,
+  nom TEXT NOT NULL
 );
 
 -- TABLE EXERCICE
 DROP TABLE IF EXISTS public.exercices CASCADE;
 CREATE TABLE public.exercices
 (
-  idExercice SERIAL PRIMARY KEY,
-  idCompte INT,
-  idCategorie SERIAL,
-  nom TEXT,
-  data TEXT,
+  idExercice SERIAL PRIMARY KEY NOT NULL,
+  idCompte INT NOT NULL,
+  idCategorie SERIAL NOT NULL,
+  nom TEXT NOT NULL,
+  data TEXT NOT NULL,
 
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_categorie FOREIGN KEY(idcategorie) REFERENCES public.categorie(idcategorie)
@@ -67,10 +60,10 @@ CREATE TABLE public.exercices
 DROP TABLE IF EXISTS public.templates CASCADE;
 CREATE TABLE public.templates
 (
-  idTemplate SERIAL PRIMARY KEY,
-  idCompte INT,
-  idExercice INT,
-  nom TEXT,
+  idTemplate SERIAL PRIMARY KEY NOT NULL,
+  idCompte INT NOT NULL,
+  idExercice INT NOT NULL,
+  nom TEXT NOT NULL,
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_exercice FOREIGN KEY(idexercice) REFERENCES public.exercices(idexercice)
@@ -80,10 +73,10 @@ CREATE TABLE public.templates
 DROP TABLE IF EXISTS public.historique CASCADE;
 CREATE TABLE public.historique
 (
-  idHistorique SERIAL PRIMARY KEY,
-  idCompte INT,
-  idTemplate INT,
-  data JSON,
+  idHistorique SERIAL PRIMARY KEY NOT NULL,
+  idCompte INT NOT NULL,
+  idTemplate INT NOT NULL,
+  data TEXT NOT NULL,
   
   CONSTRAINT fk_compte FOREIGN KEY(idcompte) REFERENCES public.compte(idcompte),
   CONSTRAINT fk_template FOREIGN KEY(idtemplate) REFERENCES public.templates(idtemplate)
@@ -93,8 +86,8 @@ CREATE TABLE public.historique
 DROP TABLE IF EXISTS public.templates_exercice CASCADE;
 CREATE TABLE public.templates_exercice
 (
-  idTemplate INT,
-  idExercice INT,
+  idTemplate INT NOT NULL,
+  idExercice INT NOT NULL,
   
   PRIMARY KEY(idtemplate, idexercice),
   FOREIGN KEY(idtemplate) REFERENCES public.templates(idtemplate),
