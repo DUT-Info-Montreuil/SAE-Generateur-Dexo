@@ -87,7 +87,7 @@ class VueHome extends GenericView
 
                 <div>
                     <button class="collapsible">
-                        <h2>Mes Photos</h2>
+                        <h2>Banque de photos</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
@@ -100,7 +100,7 @@ class VueHome extends GenericView
 
                 <div>
                     <button class="collapsible">
-                        <h2>Banque de photos</h2>
+                        <h2>Mes Photos</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content">
@@ -111,7 +111,6 @@ class VueHome extends GenericView
                     </div>
                 </div>
             </section>
-
         </aside>
     <?php }
 
