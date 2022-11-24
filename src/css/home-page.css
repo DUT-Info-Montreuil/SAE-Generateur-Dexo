@@ -18,9 +18,7 @@
 }
 
 @keyframes HidePanelRight {
-    to {
-        transform: translateX(var(--panel-open-width));
-    }
+    to { transform: translateX(var(--panel-open-width)); }
 }
 
 @keyframes OpenPanelRight {
