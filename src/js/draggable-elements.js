@@ -1,7 +1,8 @@
 const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
-
-
+const categories = document.getElementsByClassName('object-categories');
+console.log(categories);
+waitOnload(categories,0);
 A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("dragover", (event) => {
         event.preventDefault();
@@ -37,3 +38,15 @@ exercice.addEventListener("load", () => {
         })
     });
 });
+
+function waitOnload(elements,index) {
+    console.log(elements[index].id);
+    console.log(index);
+    if (typeof elements[index] !== "undefined"){
+        elements[index].addEventListener('load', (ev) =>{
+            waitOnload(elements,index+1);
+        })
+    } else {
+        console.log('all load');
+    }
+}
