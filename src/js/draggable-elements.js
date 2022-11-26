@@ -1,8 +1,10 @@
 const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
-console.log(categories);
-waitOnload(categories,0);
+let draggedElement = null;
+
+waitAllCategories(categories)
+
 A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("dragover", (event) => {
         event.preventDefault();
@@ -10,9 +12,11 @@ A4.addEventListener("load", () => {
         posXExo = event.layerX;
         posYExo = event.layerY;
     });
-
-    A4.contentDocument.addEventListener('drop', (ev) => {
-        exercice.style.display = "block";
+    A4.contentDocument.addEventListener('drop', () => {
+        //changer la condition quand on aura des vrais éléments :')
+        if (draggedElement !== null && draggedElement.tagName !== 'IMG'){
+            exercice.style.display = "block";
+        }
     });
 });
 
@@ -39,14 +43,58 @@ exercice.addEventListener("load", () => {
     });
 });
 
+
+async function waitAllCategories(categories) {
+    // if categories of images will be set to objects, add it here
+    await waitAllLoad(categories);
+    console.log(categories[0].contentDocument);
+
+    let draggableOutsideObject = document.getElementsByClassName('draggable');
+    let draggableInsideCategories = [];
+
+    for (let category of categories) {
+        for (let draggableElement of category.contentDocument.getElementsByClassName('draggable')) {
+            draggableElement.addEventListener('dragstart', (ev) => draggedElement = ev.target);
+            draggableElement.addEventListener('dragend', (ev) => draggedElement = null);
+        }
+    }
+
+    for (let draggableOutsideObjectKey of draggableOutsideObject){
+        draggableOutsideObjectKey.addEventListener('dragstart', (ev) => draggedElement = ev.target);
+        draggableOutsideObjectKey.addEventListener('dragend', (ev) => draggedElement = null);
+    }
+}
+
+async function waitAllLoad(elements) {
+    let size = elements.length;
+    let test = Array(size).fill(false);
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('load' , () => test[i] = true);
+    }
+
+    return await until(() => test.every(el => el === true))
+}
+
+function until(conditionFunction) {
+
+    const res = resolve => {
+        if(conditionFunction()) resolve();
+        else setTimeout(() => res(resolve), 50);
+    }
+
+    return new Promise(res);
+}
+
+/*
+waitOnload(categories,0);
 function waitOnload(elements,index) {
-    console.log(elements[index].id);
-    console.log(index);
-    if (typeof elements[index] !== "undefined"){
+    try {
+        console.log('i')
         elements[index].addEventListener('load', (ev) =>{
             waitOnload(elements,index+1);
         })
-    } else {
-        console.log('all load');
+    } catch (e) {
+        console.log('hi')
     }
-}
+}*/
