@@ -86,10 +86,13 @@ class VueHome extends GenericView
                 </div>
 
                 <div>
-                    <button class="collapsible">
-                        <h2>Banque de photos</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                    </button>
+                    <div id="menu_Image">
+                        <p>Import Image</p>
+                        <button class="collapsible">
+                            <h2>Banque de photos</h2>
+                            <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        </button>
+                    </div>
                     <div class="content">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
