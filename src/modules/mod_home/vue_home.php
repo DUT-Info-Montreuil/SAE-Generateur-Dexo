@@ -87,11 +87,12 @@ class VueHome extends GenericView
 
                 <div>
                     <div id="menu_Image">
-                        <p>Import Image</p>
                         <button class="collapsible">
                             <h2>Banque de photos</h2>
                             <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         </button>
+                        <label for="menuImg"><img src="../res/img/upload.png"></label>
+                        <input id="menuImg" style="display : none" type="checkbox" onclick="showHideMenuImage()">
                     </div>
                     <div class="content">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -263,6 +264,7 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/toggle-themes.js"></script>
         <script type="text/javascript" src="./js/account_menu.js"></script>
         <script type="text/javascript" src="./js/settings.js"></script>
+        <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
     <?php }
 }
 ?>

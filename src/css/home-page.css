@@ -269,7 +269,6 @@ aside {
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    margin-bottom: 20px;
     border: none;
 }
 
@@ -306,6 +305,7 @@ aside {
 }
 
 .content {
+    margin-top: 20px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -329,8 +329,14 @@ aside {
 
 #menu_Image {
     display: flex;
+    align-items: center;
+}
+
+#menu_Image img {
+    height: 20px;
 }
 
 #menu_Image .collapsible {
-    width: 50%;
+    width: auto;
+    margin-right: 10px;
 }
