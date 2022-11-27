@@ -1,7 +1,8 @@
+const iframeImgMenu = document.getElementById("pop-in_Image");
+
 function showHideMenuImage() {
-    console.log("test");
-    if (document.getElementById("pop-in_Image").style.display == 'block')
-        document.getElementById("pop-in_Image").style.display = 'block';
+    if (iframeImgMenu.style.display == 'block')
+        iframeImgMenu.style.display = 'none';
     else
-        document.getElementById("pop-in_Image").style.display = 'block';
+        iframeImgMenu.style.display = 'block';
 };

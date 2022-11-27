@@ -37,6 +37,16 @@ class VueHome extends GenericView
         $this->displayAsideLeft();
         $this->displayA4Exo();
         $this->displayAsideRight();
+        $this->displayImagUploadMenu();
+    }
+    public function displayImagUploadMenu(){
+        ?>
+        <section id="pop-in_Image">
+            <object title="image-menu" type="text/html" id="upload-Image-iframe" data="./html/upload-Image.html">
+                <p>Don't support object tag</p>
+            </object> 
+        </section>
+        <?php
     }
 
     /**
@@ -92,7 +102,7 @@ class VueHome extends GenericView
                             <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         </button>
                         <label for="menuImg"><img src="../res/img/upload.png"></label>
-                        <input id="menuImg" style="display : none" type="checkbox" onclick="showHideMenuImage()">
+                        <input id="menuImg" style="display : none" type="button" onclick="showHideMenuImage()">
                     </div>
                     <div class="content">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
