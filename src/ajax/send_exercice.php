@@ -1,12 +1,14 @@
 <?php
 require "../connexion.php";
+
 session_start();
 Connexion::set_up_connection("../../res/");
-if(isset($_POST['json'])) {
-    tryAddJSON();
-}
 
-function tryAddJSON() {
+if (isset($_POST['json']))
+    tryAddJSON();
+
+function tryAddJSON()
+{
     $json = json_decode($_POST["json"]);
     $data = $json->{'elements'};
 
@@ -27,8 +29,8 @@ function tryAddJSON() {
     }
 }
 
-function canBeSend($json) {
-    $canBeSend = true;
+function canBeSend($json)
+{
     $data = $json->{'elements'};
 
     $strJsonFileContents = json_decode(file_get_contents("../../res/exerciceOptions.json"));
@@ -49,10 +51,7 @@ function canBeSend($json) {
     return true;
 }
 
-function getDoubleSize(string $property) {
+function getDoubleSize($property)
+{
     return doubleval(substr($property, 0, strpos($property, 'cm')));
 }
-
-?>
-
-

@@ -1,4 +1,3 @@
-/* Script created at 09/11/2022 */
 const measure = "px";
 
 const accountButton = document.getElementById("account-button");
@@ -26,10 +25,6 @@ settingsMenu.addEventListener("load", () => {
 
     loginButton.addEventListener("click", () => {
         document.location.href = "index.php?module=user&status=login";
-    });
-
-    logoutButton.addEventListener("click", () => {
-        document.location.href = "index.php?module=user&status=logout";
     });
 });
 

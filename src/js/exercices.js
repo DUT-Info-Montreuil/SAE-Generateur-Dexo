@@ -21,16 +21,17 @@ const page = {
 };
 
 
-title.addEventListener('input', (ev) => {
+title.addEventListener('input', () => {
     page.title = title.value;
     jsonOutput.setAttribute('value', JSON.stringify(page));
 })
-document.getElementsByTagName('body')[0].addEventListener('keydown' , (ev) => {
+document.body.addEventListener('keydown', (ev) => {
     if (ev.key === "Delete" && selectedItem != null) {
         let id = selectedItem.getAttribute('value');
-        page.elements = page.elements.filter((el) => id != el.id);
+        page.elements = page.elements.filter((el) => id !== el.id);
         preview.removeChild(selectedItem);
         selectedItem = null;
+        clearOptionAside();
     }
 
 })
@@ -54,7 +55,7 @@ preview.addEventListener("mousemove", (ev) => {
         if ((mousePosRelativelyToPreviewY > 0 && mousePosRelativelyToPreviewX > 0)
             && (mousePosRelativelyToPreviewY + elementHeight < bound.height && mousePosRelativelyToPreviewX + elementWidth < bound.width)) {
             draggedElement.style.top = 0.0264583333 * mousePosRelativelyToPreviewY + 'cm';
-            draggedElement.style.left = 0.0264583333 *mousePosRelativelyToPreviewX + 'cm';
+            draggedElement.style.left = 0.0264583333 * mousePosRelativelyToPreviewX + 'cm';
             updateObject(ev.target);
         }
     }
@@ -76,7 +77,7 @@ preview.addEventListener('click', (ev) => {
             element.setAttribute('value', id);
             element.style.position = 'absolute';
 
-            element.style.left =  0.0264583333 * ev.offsetX.toString() + 'cm';
+            element.style.left = 0.0264583333 * ev.offsetX.toString() + 'cm';
             element.style.top = 0.0264583333 * ev.offsetY.toString() + 'cm';
 
             preview.append(element);
@@ -107,20 +108,43 @@ function createImage() {
 
 
 function clearOptionAside() {
-    for (let i = 0; i < optionAside.children.length; i++) {
-        optionAside.removeChild(optionAside.children[i]);
+    let child = optionAside.lastElementChild;
+    while (child) {
+        optionAside.removeChild(child);
+        child = optionAside.lastElementChild;
     }
 }
+
 
 function displayOptions(element) {
     let parameters = getOptions(element.tagName);
     if (parameters !== undefined) {
         let keys = Object.keys(parameters);
+        createTypeSpecificOptions(element,parameters.type);
         for (let i = 1; i < keys.length; i++) {
             let options = createOptions(parameters[keys[i]], element, keys[i]);
             optionAside.appendChild(options);
         }
     }
+}
+function createTypeSpecificOptions(element,type) {
+    const container = document.createElement('div');
+    const label = document.createElement('label');
+
+    container.classList.add('option-container');
+    label.classList.add('option-label');
+
+    if (type === "text") {
+        label.textContent = "Contenu du texte"
+        let inputField = document.createElement("input");
+        inputField.value = element.textContent;
+        inputField.addEventListener("input", () => {
+            element.textContent = inputField.value ;
+            updateObject(element);
+        });
+        container.append(label,inputField);
+    }
+    optionAside.append(container);
 }
 
 function getOptions(tagName) {
@@ -163,6 +187,7 @@ function createOptions(parameters, element, styleName) {
     return container;
 }
 
+
 function getRelativePositionsMouse(bound, event) {
     return {
         "posX": (event.clientX - bound.left),
@@ -180,10 +205,15 @@ function updateObject(element) {
             page.elements.push({
                 "id": elementId,
                 "type": type,
+                "content" : "",
                 "properties": {}
             })
             objectToUpdate = page.elements[page.elements.length - 1];
         }
+
+        objectToUpdate.content = element.textContent;
+
+        // so it doesn't stock the redundant "position : absolute "
         let index = 1;
         let currentStyle = element.style[index]
         while (currentStyle !== undefined) {

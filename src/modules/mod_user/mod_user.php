@@ -3,34 +3,30 @@ require_once "./modules/mod_user/cont_user.php";
 
 class ModUser
 {
-    private $controler;
+    private $controller;
     private $status;
+
 
     public function __construct()
     {
-        $this->controler = new ContUser();
+        $this->controller = new ContUser();
 
         $this->status = isset($_GET['status']) ? $_GET['status'] : 'login';
-
         switch ($this->status) {
-            case "register" :
-                $this->controler->tryRegister();
-                $this->controler->getRegisterForm();
+            case "register":
+                $this->controller->tryRegister();
+                $this->controller->getRegisterForm();
                 break;
-            case "login" :
-                $this->controler->tryLogin();
-                $this->controler->getLoginForm();
+            case "login":
+                $this->controller->tryLogin();
+                $this->controller->getLoginForm();
                 break;
-            case "lost" :
-                $this->controler->getLostForm();
+            case "lost":
+                $this->controller->getLostForm();
+                break;
         }
     }
 
 
-    public function getDisplay()
-    {
-        return $this->controler->displayMod();
-    }
+    public function getDisplay() { return $this->controller->displayMod(); }
 }
-
-?>

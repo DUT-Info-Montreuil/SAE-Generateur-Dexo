@@ -3,8 +3,6 @@ require_once "./connexion.php";
 
 class ModelUser extends Connexion
 {
-    public function __construct() { }
-
     public function login()
     {
         $username = $_POST["uname"];
@@ -12,11 +10,11 @@ class ModelUser extends Connexion
 
         $query = "SELECT * FROM compte WHERE login LIKE :username";
         $prep = parent::$bdd->prepare($query);
-        $prep->bindValue(':username',$username);
+        $prep->bindValue(':username', $username);
         $prep->execute();
 
         $login_info = $prep->fetch();
-        if (isset($login_info["password"]) && password_verify($pass,$login_info["password"])) {
+        if (isset($login_info["password"]) && password_verify($pass, $login_info["password"])) {
             $_SESSION["id"] = $login_info["idcompte"];
             $_SESSION["nom"] = $login_info["nom"];
             $_SESSION["prenom"] = $login_info["prenom"];
@@ -53,5 +51,3 @@ class ModelUser extends Connexion
         return $prepare->fetch();
     }
 }
-
-?>
