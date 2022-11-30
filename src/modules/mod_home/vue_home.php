@@ -100,7 +100,7 @@ class VueHome extends GenericView
                             <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         </button>
                         <label for="menuImg"><img src="../res/img/upload.png"></label>
-                        <input id="menuImg" style="display : none" type="button" onclick="showHideMenuImage()">
+                        <input id="menuImg" style="display : none" type="button">
                     </div>
                     <div class="content">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">

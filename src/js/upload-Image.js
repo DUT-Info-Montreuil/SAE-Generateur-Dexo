@@ -1,3 +1,4 @@
+var imgArray = new Array();
 const fileTypes = [
     "image/apng",
     "image/bmp",
@@ -10,11 +11,7 @@ const fileTypes = [
     "image/webp",
     "image/x-icon"
 ];
-console.log("test");
 const addImageMenu = document.getElementById("addImage");
-
-const exitMenu = addImageMenu.querySelector("#exit");
-
 const input = addImageMenu.querySelector('#image_uploads');
 const preview = addImageMenu.querySelector('.preview');
 const dataMenu = addImageMenu.querySelector('.dataMenu');
@@ -22,18 +19,18 @@ const numberImg = addImageMenu.querySelector('.numberImg');
 const remove = addImageMenu.querySelector("#remove");
 
 remove.addEventListener('click', removeImageDisplay);
-exitMenu.addEventListener('click', hide);
 input.addEventListener('change', addImageFromDirectory);
 
-function hide() {
-    object.style.display = 'none';
-};
+///////////////////To hide Image Menu (from upload_image.html)//////////////////
+
+
+
 
 function validFileType(file) {
     return fileTypes.includes(file.type);
 }
 
-var supprMode = false;
+var supprMode = true;
 
 //////////////////// Add Image ////////////////
 
@@ -44,9 +41,10 @@ function addImageFromDirectory() {
             const image = document.createElement('img');
             image.className = 'image_Upload';
             image.src = URL.createObjectURL(file);
+            imgArray.push(image);
             ajoutPreview(image);
         } else {
-            //do a alert  not good file select
+            //do a alert not good file select
         }
     }
 }
@@ -58,8 +56,8 @@ $(
             function() {
                 var image = new Image();
                 image.src = $("#image-url").val();
+                imgArray.push(image);
                 ajoutPreview(image);
-                console.log('ajoutPreview');
             }
         );
     }
@@ -67,7 +65,6 @@ $(
 //////////////////////////////////////////////
 
 preview.addEventListener('change', function() {
-    console.log(preview.children)
     if (preview.children.length === 0) {
         dataMenu.textContent = 'No picture are currently added for upload';
         numberImg.style.display = 'none';
@@ -93,8 +90,9 @@ function ajoutPreview(image) {
     preview.appendChild(div);
 
     removeBtn.onclick = function() {
-        removeFileFromFileList(div);
+        removeFileFromFileArrayList(image);
         preview.removeChild(div);
+        numberImg.textContent = preview.childElementCount;
     };
 
     numberImg.textContent = preview.childElementCount;
@@ -121,26 +119,9 @@ function removeImageDisplay() {
 
 }
 
-function indexOfPreview(node) {
-    for (let i = 0; i < preview.children.length; i++) {
-        if (node.isEqualNode(preview.children[i])) {
-            return i;
-        }
-    }
-    return null;
-}
-
-function removeFileFromFileList(node) {
-    const dt = new DataTransfer();
-    let index = indexOfPreview(node);
-    const { files } = input;
-    if (index !== null) {
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            if (index !== i)
-                dt.items.add(file);
-        }
-        input.files = dt.files;
-        console.log(input.files);
+function removeFileFromFileArrayList(img) {
+    let index = imgArray.indexOf(img);
+    if (index !== null && index > -1) {
+        imgArray.splice(index, 1);
     }
 }
