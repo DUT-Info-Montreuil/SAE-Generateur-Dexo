@@ -121,7 +121,7 @@ class VueHome extends GenericView
     public function displayA4Exo()
     { ?>
         <main>
-            <div>
+            <div style="height: 5%;">
                 <img id="export-pdf-button" src="../res/img/pdf.png" alt="pdf icon">
             </div>
             <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
