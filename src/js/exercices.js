@@ -1,4 +1,5 @@
 let navElement = null;
+let navItem = null;
 let selectedItem = null;
 let draggedElement = null;
 let rawAllOptions;
@@ -62,6 +63,7 @@ preview.addEventListener("mousemove", (ev) => {
 })
 preview.addEventListener('click', (ev) => {
     clearOptionAside();
+    clearIdSelectedItem(selectedItem)
     if (ev.composedPath()[0] !== preview) {
         selectedItem = ev.composedPath()[0];
         displayOptions(selectedItem);
@@ -83,9 +85,11 @@ preview.addEventListener('click', (ev) => {
             preview.append(element);
             displayOptions(element);
             updateObject(element);
+            selectedItem = element;
             id++;
         }
     }
+    selectedItem.id = 'selected-item';
 })
 preview.addEventListener("mouseup", () => {
     if (draggedElement != null) {
@@ -96,7 +100,12 @@ preview.addEventListener("mouseup", () => {
 
 for (let draggable of draggables) {
     draggable.addEventListener('click', (ev) => {
+        if (navItem !== null) {
+            navItem.id = '';
+        }
         navElement = ev.target.getAttribute('value');
+        navItem = ev.target;
+        navItem.id = 'selected-nav-item';
     })
 }
 
@@ -222,5 +231,11 @@ function updateObject(element) {
             currentStyle = element.style[index];
         }
         jsonOutput.setAttribute('value', JSON.stringify(page))
+    }
+}
+
+function clearIdSelectedItem(element) {
+    if (element !== null){
+    element.id = '';
     }
 }

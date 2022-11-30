@@ -35,7 +35,7 @@ aside {
     width: 100%;
 }
 
-#container-exercises > div {
+#container-exercises > #preview-div {
     width: 60%;
     height: 100%;
     display: flex;
@@ -57,6 +57,7 @@ aside {
 }
 
 #preview {
+    margin-top: 1cm;
     position: relative;
     height: 5cm;
     width: 20cm;
@@ -103,4 +104,12 @@ aside {
 #title-label {
     text-align: center;
     flex-basis: 100%;
+}
+
+#selected-item {
+    border: 1px solid blue;
+}
+
+#selected-nav-item {
+    border: 1px solid orange;
 }
