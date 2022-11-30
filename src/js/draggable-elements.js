@@ -47,10 +47,8 @@ exercice.addEventListener("load", () => {
 async function waitAllCategories(categories) {
     // if categories of images will be set to objects, add it here
     await waitAllLoad(categories);
-    console.log(categories[0].contentDocument);
 
     let draggableOutsideObject = document.getElementsByClassName('draggable');
-    let draggableInsideCategories = [];
 
     for (let category of categories) {
         for (let draggableElement of category.contentDocument.getElementsByClassName('draggable')) {
@@ -69,7 +67,7 @@ async function waitAllLoad(elements) {
     let size = elements.length;
     let test = Array(size).fill(false);
 
-    for (let i = 0; i < elements.length; i++) {
+    for (let i = 0; i < size; i++) {
         elements[i].addEventListener('load' , () => test[i] = true);
     }
 
@@ -85,16 +83,3 @@ function until(conditionFunction) {
 
     return new Promise(res);
 }
-
-/*
-waitOnload(categories,0);
-function waitOnload(elements,index) {
-    try {
-        console.log('i')
-        elements[index].addEventListener('load', (ev) =>{
-            waitOnload(elements,index+1);
-        })
-    } catch (e) {
-        console.log('hi')
-    }
-}*/
