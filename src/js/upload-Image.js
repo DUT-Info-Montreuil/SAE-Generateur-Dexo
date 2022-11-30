@@ -16,21 +16,22 @@ const input = addImageMenu.querySelector('#image_uploads');
 const preview = addImageMenu.querySelector('.preview');
 const dataMenu = addImageMenu.querySelector('.dataMenu');
 const numberImg = addImageMenu.querySelector('.numberImg');
-const remove = addImageMenu.querySelector("#remove");
 
-remove.addEventListener('click', removeImageDisplay);
 input.addEventListener('change', addImageFromDirectory);
 
-///////////////////To hide Image Menu (from upload_image.html)//////////////////
-
-
-
+function change() {
+    if (preview.childElementCount === 0) {
+        dataMenu.textContent = 'No picture are currently added for upload';
+        numberImg.style.display = 'none';
+    } else {
+        dataMenu.textContent = 'Number of picture  : ';
+        numberImg.style.display = 'block';
+    }
+}
 
 function validFileType(file) {
     return fileTypes.includes(file.type);
 }
-
-var supprMode = true;
 
 //////////////////// Add Image ////////////////
 
@@ -62,17 +63,6 @@ $(
         );
     }
 );
-//////////////////////////////////////////////
-
-preview.addEventListener('change', function() {
-    if (preview.children.length === 0) {
-        dataMenu.textContent = 'No picture are currently added for upload';
-        numberImg.style.display = 'none';
-    } else {
-        dataMenu.textContent = 'Number of picture  : ';
-        numberImg.style.display = 'block';
-    }
-});
 
 function ajoutPreview(image) {
 
@@ -89,33 +79,48 @@ function ajoutPreview(image) {
 
     preview.appendChild(div);
 
-    removeBtn.onclick = function() {
-        removeFileFromFileArrayList(image);
-        preview.removeChild(div);
-        numberImg.textContent = preview.childElementCount;
-    };
+    // removeBtn.onclick = function() {
+    //     removeFileFromFileArrayList(image);
+    //     preview.removeChild(div);
+    //     numberImg.textContent = preview.childElementCount;
+    //     change();
+    // };
+    removeBtn.addEventListener('click', removeUploadImage);
 
     numberImg.textContent = preview.childElementCount;
+    change();
+}
+//////////////////////////////////////////////
+var supprMode = false;
+const removeAll = addImageMenu.querySelector("#remove");
+removeAll.addEventListener('click', removeImageDisplay);
+
+function removeUploadImage(event) {
+    let div = event.target.parentNode;
+    let image = div.getElementsByTagName('img')[0];
+    console.log(image);
 }
 
 function removeImageDisplay() {
     const curFiles = input.files;
-    supprMode = !supprMode;
-    if (supprMode) {
-        if (curFiles.length === 0) {
-            //do a alert  'No picture are currently added for erase';
-        } else {
+    if (imgArray.length > 0) {
+        supprMode = !supprMode;
+        if (supprMode) {
             for (const children of preview.children) {
                 let removeBtn = children.querySelector(".cross_Remove_Image");
                 removeBtn.style.display = "block";
             }
+        } else {
+            for (const children of preview.children) {
+                let removeBtn = children.querySelector(".cross_Remove_Image");
+                removeBtn.style.display = "none";
+            }
         }
     } else {
-        for (const children of preview.children) {
-            let removeBtn = children.querySelector(".cross_Remove_Image");
-            removeBtn.style.display = "none";
-        }
+        supprMode = false;
+        //Alert 
     }
+
 
 }
 
