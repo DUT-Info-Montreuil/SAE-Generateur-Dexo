@@ -26,10 +26,6 @@ settingsMenu.addEventListener("load", () => {
     loginButton.addEventListener("click", () => {
         document.location.href = "index.php?module=user&status=login";
     });
-
-    logoutButton.addEventListener("click", () => {
-        document.location.href = "index.php?module=user&status=logout";
-    });
 });
 
 accountButton.addEventListener("click", () => {
