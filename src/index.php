@@ -34,6 +34,7 @@ $content = ($module !== "") ? $module->getDisplay() : "Module not found";
     <link id="theme" rel="stylesheet" href="./css/themes/white.css">
     <script type="text/javascript" src="./js/css_loader.js"></script>
     <script type="text/javascript" src="./js/librairies/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="./js/librairies/jspdf.umd.min.js"></script>
     <title>SAE | Générateur d'exercice</title>
 </head>
 <body>
