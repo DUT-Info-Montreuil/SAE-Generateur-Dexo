@@ -341,15 +341,13 @@ aside {
     margin-right: 10px;
 }
 
-#upload-Image-iframe {
-    display: none;
-}
-
 #pop-in_Image {
     background-color: rgba(0, 0, 0, 0.3);
     display: block;
     position: fixed;
     z-index: 999;
+    width: 100%;
+    height: 100%;
     bottom: 0;
     left: 0;
     right: 0;

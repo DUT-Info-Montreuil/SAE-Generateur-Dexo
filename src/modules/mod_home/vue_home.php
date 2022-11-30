@@ -41,11 +41,9 @@ class VueHome extends GenericView
     }
     public function displayImagUploadMenu(){
         ?>
-        <section id="pop-in_Image">
-            <object title="image-menu" type="text/html" id="upload-Image-iframe" data="./html/upload-Image.html">
+            <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
                 <p>Don't support object tag</p>
             </object> 
-        </section>
         <?php
     }
 

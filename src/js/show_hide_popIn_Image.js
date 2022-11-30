@@ -1,3 +1,4 @@
+///////////////////To show Image Menu (from vue_home.php)///////////////////////
 const iframeImgMenu = document.getElementById("pop-in_Image");
 
 function showHideMenuImage() {
@@ -6,3 +7,4 @@ function showHideMenuImage() {
     else
         iframeImgMenu.style.display = 'block';
 };
+///////////////////To hide Image Menu (from upload_image.html)//////////////////
