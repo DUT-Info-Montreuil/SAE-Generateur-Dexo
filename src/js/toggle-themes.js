@@ -17,7 +17,7 @@ function removeLink(doc) {
 }
 
 
-settingsIframe.addEventListener("load" ,() => {
+settingsIframe.addEventListener("load", () => {
     const radioWhiteTheme = settingsIframe.contentDocument.getElementById("white-theme");
     const radioBlackTheme = settingsIframe.contentDocument.getElementById("dark-theme");
     const A4Iframe = document.getElementById("A4-exo-iframe");

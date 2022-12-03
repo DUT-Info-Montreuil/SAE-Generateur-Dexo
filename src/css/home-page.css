@@ -7,37 +7,67 @@
     --size-button-panels: 30px;
 }
 
+
 @keyframes rotate {
-    from { transform: rotate(0); }
-    to { transform: rotate(-90deg); }
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
 }
 
 @keyframes rotateReverse {
-    from { transform: rotate(-90deg); }
-    to { transform: rotate(0deg); }
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 @keyframes HidePanelRight {
-    to { transform: translateX(var(--panel-open-width)); }
+    to {
+        transform: translateX(var(--panel-open-width));
+    }
 }
 
 @keyframes OpenPanelRight {
-    from { transform: translateX(calc(var(--panel-open-width))); }
-    to { transform: translateX(calc(-var(--panel-open-width))); }
+    from {
+        transform: translateX(calc(var(--panel-open-width)));
+    }
+    to {
+        transform: translateX(calc(-var(--panel-open-width)));
+    }
 }
 
 @keyframes HidePanelLeft {
-    to { left: calc(-1 * var(--panel-open-width)); }
+    to {
+        left: calc(-1 * var(--panel-open-width));
+    }
 }
 
 @keyframes OpenPanelLeft {
-    from { left: calc(-1 * var(--panel-open-width)); }
-    to { left: 0; }
+    from {
+        left: calc(-1 * var(--panel-open-width));
+    }
+    to {
+        left: 0;
+    }
 }
 
 
 input:focus {
     outline: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 55px;
+    height: calc(100vh - 60px);
+    width: calc(100vw / 2);
 }
 
 article {
@@ -61,11 +91,25 @@ aside {
     width: var(--size-account-button);
 }
 
-#left-panel { left: 0; border-radius: 0 5px 5px 0; }
-#right-panel { left: calc(100vw - var(--panel-open-width)); border-radius: 5px 0 0 5px; }
+#left-panel {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
 
-#left-panel-close { left: 0; border-radius: 0 5px 5px 0; }
-#right-panel-close { left: calc(100vw - var(--panel-close-width)); border-radius: 5px 0 0 5px; }
+#right-panel {
+    left: calc(100vw - var(--panel-open-width));
+    border-radius: 5px 0 0 5px;
+}
+
+#left-panel-close {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+#right-panel-close {
+    left: calc(100vw - var(--panel-close-width));
+    border-radius: 5px 0 0 5px;
+}
 
 #right-arrow-collapse {
     width: var(--size-button-panels);
@@ -77,7 +121,9 @@ aside {
     top: 75px;
 }
 
-#right-arrow-close { transform: rotate(180deg); }
+#right-arrow-close {
+    transform: rotate(180deg);
+}
 
 #left-arrow-close {
     width: var(--open-button-width);
@@ -88,9 +134,14 @@ aside {
 #A4-exo-iframe {
     overflow-x: scroll;
     overflow-y: scroll;
-    margin-top: 55px;
-    width: calc(100vw / 2);
-    height: calc(100vh - 60px);
+
+    width: 21cm;
+    height: calc(29.7cm - 70px);
+}
+
+#export-pdf-button {
+    width: 40px;
+    height: 40px;
 }
 
 #settings-iframe {

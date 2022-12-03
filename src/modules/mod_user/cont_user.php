@@ -19,22 +19,6 @@ class ContUser
         $this->model = new ModelUser();
     }
 
-
-    public function getLoginForm()
-    {
-        $this->vue->loginForm();
-    }
-
-    public function getRegisterForm()
-    {
-        $this->vue->registerForm();
-    }
-
-    public function getLostForm()
-    {
-        $this->vue->lostForm();
-    }
-
     public function tryLogin()
     {
         $is_vars_set = isset($_POST['uname'], $_POST['psw']);
@@ -61,10 +45,9 @@ class ContUser
         }
     }
 
-    public function displayMod()
-    {
-        return $this->vue->getDisplay();
-    }
-}
+    public function displayMod() { return $this->vue->getDisplay(); }
 
-?>
+    public function getLoginForm() { $this->vue->loginForm(); }
+    public function getRegisterForm() { $this->vue->registerForm(); }
+    public function getLostForm() { $this->vue->lostForm(); }
+}

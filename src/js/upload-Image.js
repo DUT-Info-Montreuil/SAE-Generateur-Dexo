@@ -12,9 +12,8 @@ const fileTypes = [
 ];
 
 
-
 const object = document.getElementById("pop-in_Image");
-object.onload = function() {
+object.onload = function () {
     const doc = object.contentDocument;
 
     const addImageMenu = doc.getElementById("addImage");
@@ -59,9 +58,9 @@ object.onload = function() {
 
     $(
         ///// Add Image From Url////
-        function() {
+        function () {
             $("#get-image-url").click(
-                function() {
+                function () {
                     var image = new Image();
                     image.src = $("#image-url").val();
                     ajoutPreview(image);
@@ -72,7 +71,7 @@ object.onload = function() {
     );
     //////////////////////////////////////////////
 
-    preview.addEventListener('change', function() {
+    preview.addEventListener('change', function () {
         console.log(preview.children)
         if (preview.children.length === 0) {
             dataMenu.textContent = 'No picture are currently added for upload';
@@ -98,7 +97,7 @@ object.onload = function() {
 
         preview.appendChild(div);
 
-        removeBtn.onclick = function() {
+        removeBtn.onclick = function () {
             removeFileFromFileList(div);
             preview.removeChild(div);
         };
@@ -139,7 +138,7 @@ object.onload = function() {
     function removeFileFromFileList(node) {
         const dt = new DataTransfer();
         let index = indexOfPreview(node);
-        const { files } = input;
+        const {files} = input;
         if (index !== null) {
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];

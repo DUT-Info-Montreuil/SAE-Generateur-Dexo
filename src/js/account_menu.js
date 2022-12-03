@@ -1,4 +1,3 @@
-/* Script created at 09/11/2022 */
 const measure = "px";
 
 const accountButton = document.getElementById("account-button");

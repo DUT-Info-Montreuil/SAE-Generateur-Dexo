@@ -3,14 +3,8 @@ require_once "./generic_view.php";
 
 class VueUser extends GenericView
 {
-
-    public function __construct()
-    {
-    }
-
     public function loginForm()
     { ?>
-
         <div class="form">
             <div class="border-form"></div>
 
@@ -66,17 +60,13 @@ class VueUser extends GenericView
         </div>
 
         <script src="./js/vue_user.js" type="text/javascript"></script>
-
     <?php }
 
     public function loginAlreadyTaken()
-    {
-        ?>
-
+    { ?>
         <div>
             <p>Le login que vous avez saisi est déjà utilisé par un autre utilisateur, veuillez en choisir un autre.</p>
         </div>
-
     <?php }
 
     public function wrongInfos()
@@ -89,5 +79,3 @@ class VueUser extends GenericView
         # code...
     }
 }
-
-?>

@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html id="html-A4" lang="fr">
-    <head>
-        <link rel="stylesheet" href="../css/A4-paper-exo.css"/>
-        <link id="theme" rel="stylesheet" href="../css/themes/white.css">
-
-        <title>A4</title>
-    </head>
-
-    <body id="A4-paper">
-        <div id="marge">
-            <header id="header"></header>
-            <div id="container"></div>
-        </div>
-    </body>
+<head>
+    <link rel="stylesheet" href="../css/A4-paper-exo.css"/>
+    <link id="theme" rel="stylesheet" href="../css/themes/white.css">
+    <script type="text/javascript" src="../js/librairies/es6-promise.min.js"></script>
+    <script type="text/javascript" src="../js/librairies/es6-promise.auto.min.js"></script>
+    <script type="text/javascript" src="../js/librairies/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="../js/librairies/html2canvas.min.js"></script>
+    <script type="text/javascript" src="../js/librairies/html2pdf.min.js"></script>
+    <script type="module">
+        window.html2canvas = html2canvas;
+        window.html2pdf = html2pdf;
+    </script>
+    <title>A4</title>
+</head>
+<body id="A4-paper">
+<header>
+    <img id="export-pdf-button" src="../../res/img/pdf.png" alt="pdf icon">
+</header>
+<main id="exercises"></main>
+<footer>
+    <script type="text/javascript" src="../js/export-pdf.js"></script>
+</footer>
+</body>
 </html>

@@ -1,5 +1,3 @@
-/* Script created at 22/10/2022 */
-
 const urlVars = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 // Contain all path of style sheet
 const pathsCSS =

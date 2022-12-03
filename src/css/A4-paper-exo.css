@@ -1,38 +1,34 @@
-html {
-    background-color: var(--eerie-black);
-
-    margin: 0 auto;
-
-    border: 3px solid red;
-
-    width: calc(21cm + 10vw);
-    height: calc(29.7cm + 10vh);
+* {
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    margin: 0 auto;
+html {
     width: 21cm;
     height: 29.7cm;
-
-    background-color: white;
 }
 
 header {
-    width: 21cm;
-    height: calc(29.7cm / 6);
+    position: fixed;
+
+    height: 30px;
+    left: 19cm;
+    z-index: 999;
 }
 
-#A4-paper {
-    padding: 5vh 5vw;
+header > img {
+    height: 100%;
 }
 
-#marge {
+body {
+    background-color: white;
+}
+
+#exercises {
+    position: relative;
+
     border: 1px dashed black;
+
     width: 21cm;
     height: 29.7cm;
-}
-
-#container {
-    width: 21cm;
-    height: calc(29.7cm - calc(29.7cm / 6));
 }

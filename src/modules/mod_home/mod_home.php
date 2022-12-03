@@ -4,7 +4,6 @@ require_once "./modules/mod_home/cont_home.php";
 class ModHome
 {
     private $controler;
-    private $status;
 
 
     public function __construct()
@@ -13,10 +12,5 @@ class ModHome
     }
 
 
-    public function getDisplay()
-    {
-        return $this->controler->displayMod();
-    }
+    public function getDisplay() { return $this->controler->displayMod(); }
 }
-
-?>
