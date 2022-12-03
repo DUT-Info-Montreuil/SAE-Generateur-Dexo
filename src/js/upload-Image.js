@@ -40,7 +40,6 @@ function addImageFromDirectory() {
     for (const file of curFiles) {
         if (validFileType(file)) {
             const image = document.createElement('img');
-            image.className = 'image_Upload';
             image.src = URL.createObjectURL(file);
             imgArray.push(image);
             ajoutPreview(image);
@@ -67,6 +66,7 @@ $(
 function ajoutPreview(image) {
 
     const div = document.createElement('div');
+    image.className = 'image_Upload';
     div.appendChild(image);
 
     //Construct a cross image use for remove element
@@ -128,5 +128,37 @@ function removeFileFromFileArrayList(img) {
     let index = imgArray.indexOf(img);
     if (index !== null && index > -1) {
         imgArray.splice(index, 1);
+    }
+}
+
+
+///////////////////////////////////////////
+
+function uploadFile() {
+
+ 
+    if(imgArray.length > 0 ){
+       var formData = new FormData();
+ for (let index = 0; index < array.length; index++) {
+       formData.append("Images",imgArray);
+
+    
+ }
+       var xhttp = new XMLHttpRequest();
+ 
+       xhttp.open("POST", "..\\ajax\\send_image.php");
+       xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            if(this.responseText == 1){
+               // do an alert image upload successfully
+            }else{
+               // do an alert image not uploaded
+            }
+          }
+       };
+       xhttp.send(formData);
+ 
+    }else{
+       // do an alert to put image
     }
 }
