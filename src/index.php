@@ -33,15 +33,6 @@ $content = ($module !== "") ? $module->getDisplay() : "Module not found";
     <link rel="stylesheet" href="./css/global.css">
     <link id="theme" rel="stylesheet" href="./css/themes/white.css">
     <script type="text/javascript" src="./js/librairies/jquery-3.6.1.min.js"></script>
-    <script type="text/javascript" src="./js/librairies/es6-promise.min.js"></script>
-    <script type="text/javascript" src="./js/librairies/es6-promise.auto.min.js"></script>
-    <script type="text/javascript" src="./js/librairies/jspdf.umd.min.js"></script>
-    <script type="text/javascript" src="./js/librairies/html2canvas.min.js"></script>
-    <script type="text/javascript" src="./js/librairies/html2pdf.min.js"></script>
-    <script type="module">
-        window.html2canvas = html2canvas;
-        window.html2pdf = html2pdf;
-    </script>
     <script type="text/javascript" src="./js/css_loader.js"></script>
     <title>SAE | Générateur d'exercice</title>
 </head>

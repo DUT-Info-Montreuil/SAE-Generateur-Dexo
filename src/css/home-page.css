@@ -63,7 +63,7 @@ input:focus {
 
 main {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 
     margin-top: 55px;
     height: calc(100vh - 60px);
@@ -134,7 +134,9 @@ aside {
 #A4-exo-iframe {
     overflow-x: scroll;
     overflow-y: scroll;
-    height: 95%;
+
+    width: 21cm;
+    height: calc(29.7cm - 70px);
 }
 
 #export-pdf-button {

@@ -121,9 +121,6 @@ class VueHome extends GenericView
     public function displayA4Exo()
     { ?>
         <main>
-            <div style="height: 5%;">
-                <img id="export-pdf-button" src="../res/img/pdf.png" alt="pdf icon">
-            </div>
             <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
                 <p>Don't support object tag</p>
             </object>
@@ -262,7 +259,6 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/left_panel.js"></script>
         <script type="text/javascript" src="./js/right_panel.js"></script>
         <script type="text/javascript" src="./js/vue_home.js"></script>
-        <script type="text/javascript" src="./js/export-pdf.js"></script>
         <script type="text/javascript" src="./js/toggle-themes.js"></script>
         <script type="text/javascript" src="./js/account_menu.js"></script>
         <script type="text/javascript" src="./js/settings.js"></script>
