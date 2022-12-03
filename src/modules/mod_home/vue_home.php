@@ -120,9 +120,11 @@ class VueHome extends GenericView
      */
     public function displayA4Exo()
     { ?>
-        <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
-            <p>Don't support object tag</p>
-        </object>
+        <main>
+            <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
+                <p>Don't support object tag</p>
+            </object>
+        </main>
     <?php }
 
     /**
