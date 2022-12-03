@@ -225,7 +225,7 @@ class VueHome extends GenericView
      */
     private function displayAccountMenu()
     {
-        if (!isset($_GET["user"])) { ?>
+        if (!isset($_SESSION["id"])) { ?>
             <div class="account-menu">
                 <button class="settings-button">Paramètre</button>
                 <button id="register-button">S'inscrire</button>
@@ -234,7 +234,7 @@ class VueHome extends GenericView
         <?php } else { ?>
             <div class="account-menu">
                 <button class="settings-button">Paramètre</button>
-                <button id="logout-button">Se connecter</button>
+                <button id="logout-button">Se déconnecter</button>
             </div>
         <?php } ?>
     <?php }
