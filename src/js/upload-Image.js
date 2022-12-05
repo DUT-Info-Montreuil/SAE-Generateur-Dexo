@@ -118,7 +118,7 @@ function removeUploadImage(event) {
     let div = event.target.parentNode;
     let image = div.getElementsByTagName('img')[0];
     removeFileFromFileArrayList(image);
-    imgArray.removeChild(div);
+    preview.removeChild(div);
 }
 
 function removeImageDisplay() {
