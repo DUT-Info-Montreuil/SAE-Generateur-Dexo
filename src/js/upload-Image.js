@@ -1,4 +1,5 @@
 var imgArray = new Array();
+
 const fileTypes = [
     "image/apng",
     "image/bmp",
@@ -11,6 +12,13 @@ const fileTypes = [
     "image/webp",
     "image/x-icon"
 ];
+const urlTypes = [
+    /.gif/,
+    /.jpeg/,
+    /.jpg/,
+    /.png/,
+];
+
 const addImageMenu = document.getElementById("addImage");
 const input = addImageMenu.querySelector('#image_uploads');
 const preview = addImageMenu.querySelector('.preview');
@@ -49,20 +57,38 @@ function addImageFromDirectory() {
     }
 }
 
-$(
-    ///// Add Image From Url////
-    function() {
+$(///// Add Image From Url////
+    function () {
         $("#get-image-url").click(
-            function() {
-                var image = new Image();
-                image.src = $("#image-url").val();
-                imgArray.push(image);
-                ajoutPreview(image);
+            function () {
+                let url = $("#image-url").val();
+                if (isImage(url) && verifyImageURL(url)) {
+                    var image = new Image();
+                    image.src = url;
+                    imgArray.push(image);
+                    ajoutPreview(image);
+                }
             }
         );
     }
 );
+function isImage(url) {
+    if (url) {
+        console.log(url);
+        for (let i = 0; i < urlTypes.length; i++) {
+            if (urlTypes[i].test(url)) return true;
+        }
+    }
+    else
+        return false;
+}
 
+function verifyImageURL(url) {
+    console.log("test");
+    var img = new Image();
+    img.src = url;
+    return img.complete;
+  }
 function ajoutPreview(image) {
 
     const div = document.createElement('div');
@@ -78,13 +104,6 @@ function ajoutPreview(image) {
     div.appendChild(removeBtn);
 
     preview.appendChild(div);
-
-    // removeBtn.onclick = function() {
-    //     removeFileFromFileArrayList(image);
-    //     preview.removeChild(div);
-    //     numberImg.textContent = preview.childElementCount;
-    //     change();
-    // };
     removeBtn.addEventListener('click', removeUploadImage);
 
     numberImg.textContent = preview.childElementCount;
@@ -98,7 +117,8 @@ removeAll.addEventListener('click', removeImageDisplay);
 function removeUploadImage(event) {
     let div = event.target.parentNode;
     let image = div.getElementsByTagName('img')[0];
-    console.log(image);
+    removeFileFromFileArrayList(image);
+    imgArray.removeChild(div);
 }
 
 function removeImageDisplay() {
@@ -133,32 +153,27 @@ function removeFileFromFileArrayList(img) {
 
 
 ///////////////////////////////////////////
-
+const uploadImage = addImageMenu.querySelector('#uploadImage');
+uploadImage.addEventListener('click', uploadFile);
 function uploadFile() {
-
- 
-    if(imgArray.length > 0 ){
-       var formData = new FormData();
- for (let index = 0; index < array.length; index++) {
-       formData.append("Images",imgArray);
-
-    
- }
-       var xhttp = new XMLHttpRequest();
- 
-       xhttp.open("POST", "..\\ajax\\send_image.php");
-       xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            if(this.responseText == 1){
-               // do an alert image upload successfully
-            }else{
-               // do an alert image not uploaded
-            }
-          }
-       };
-       xhttp.send(formData);
- 
-    }else{
-       // do an alert to put image
+    let image_to_upload = new Array();
+    for (let i = 0; i < imgArray.length; i++) {
+        image_to_upload.push(getBase64Image(imgArray[i]));
     }
+    var jsonString = JSON.stringify(image_to_upload);
+    $.ajax({
+        type: "POST",
+        url: '../ajax/send_image.php',
+        data: ({ "image_Json": jsonString })
+    }).then(function (re) { console.log(re); })
+}
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL.replace("/^data:image\/(png|jpg);base64,/", "");
 }
