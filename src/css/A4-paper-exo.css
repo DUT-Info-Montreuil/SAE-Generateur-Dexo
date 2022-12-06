@@ -1,16 +1,11 @@
-:root {
-    --width: 21cm;
-    --height: 29.6cm;
-}
-
 * {
     margin: 0;
     padding: 0;
 }
 
 html {
-    width: var(--width);
-    height: var(--height);
+    width: 21cm;
+    height: 29.6cm;
 }
 
 header {
@@ -30,8 +25,8 @@ body {
 }
 
 #exercises {
-    position: absolute;
+    position: relative;
 
-    width: var(--width);
-    height: var(--height);
+    width: 21cm;
+    height: 29.6cm;
 }
