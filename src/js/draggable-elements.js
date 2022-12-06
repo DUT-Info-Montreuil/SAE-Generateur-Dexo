@@ -3,7 +3,7 @@ const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
 let draggedElement = null;
 
-waitAllCategories(categories)
+waitAllCategories(categories);
 
 A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("dragover", (event) => {
@@ -14,8 +14,19 @@ A4.addEventListener("load", () => {
     });
     A4.contentDocument.addEventListener('drop', () => {
         //changer la condition quand on aura des vrais éléments :')
-        if (draggedElement !== null && draggedElement.tagName !== 'IMG'){
-            exercice.style.display = "block";
+        if (draggedElement !== null && draggedElement.tagName !== 'IMG') {
+            $.ajax({
+                type: "POST",
+                url: './ajax/get_exercise_content.php',
+                data: ({"id_exo": draggedElement.getAttribute('id-ex')})
+            }).then(function (res) {
+                if (res === '-1' || res === ''){
+                    popin("un problème est survenu, veuillez réessayer",false);
+                }else {
+                    setupExerciseToEdit(res);
+                    exercice.style.display = "block";
+                }
+            })
         }
     });
 });
@@ -27,6 +38,7 @@ exercice.addEventListener("load", () => {
 
 
     cancel.addEventListener('click', () => {
+        //TODO : clear preview
         exercice.style.display = "none";
     })
 
@@ -37,12 +49,15 @@ exercice.addEventListener("load", () => {
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
         }).then(function (re) {
-            console.log(re);
-            exercice.style.display = "none";
+            if (re !== ""){
+                console.log(re);
+            }else {
+                //TODO : clear preview
+                exercice.style.display = "none";
+            }
         })
     });
 });
-
 
 async function waitAllCategories(categories) {
     // if categories of images will be set to objects, add it here
@@ -57,7 +72,7 @@ async function waitAllCategories(categories) {
         }
     }
 
-    for (let draggableOutsideObjectKey of draggableOutsideObject){
+    for (let draggableOutsideObjectKey of draggableOutsideObject) {
         draggableOutsideObjectKey.addEventListener('dragstart', (ev) => draggedElement = ev.target);
         draggableOutsideObjectKey.addEventListener('dragend', (ev) => draggedElement = null);
     }
@@ -68,7 +83,7 @@ async function waitAllLoad(elements) {
     let test = Array(size).fill(false);
 
     for (let i = 0; i < size; i++) {
-        elements[i].addEventListener('load' , () => test[i] = true);
+        elements[i].addEventListener('load', () => test[i] = true);
     }
 
     return await until(() => test.every(el => el === true))
@@ -77,9 +92,16 @@ async function waitAllLoad(elements) {
 function until(conditionFunction) {
 
     const res = resolve => {
-        if(conditionFunction()) resolve();
+        if (conditionFunction()) resolve();
         else setTimeout(() => res(resolve), 50);
     }
 
     return new Promise(res);
+}
+
+function setupExerciseToEdit(res){
+    let tempScript = document.createElement("script");
+    tempScript.id = 'temp-script';
+    tempScript.textContent = "setExo("+ res +");";
+    exercice.contentDocument.body.appendChild(tempScript);
 }

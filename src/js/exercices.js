@@ -1,4 +1,3 @@
-let navElement = null;
 let navItem = null;
 let selectedItem = null;
 let draggedElement = null;
@@ -64,6 +63,7 @@ preview.addEventListener("mousemove", (ev) => {
 preview.addEventListener('click', (ev) => {
     clearOptionAside();
     clearIdSelectedItem(selectedItem)
+    let navElement = navItem !== null ? navItem.getAttribute('value') : null;
     if (ev.composedPath()[0] !== preview) {
         selectedItem = ev.composedPath()[0];
         displayOptions(selectedItem);
@@ -103,7 +103,6 @@ for (let draggable of draggables) {
         if (navItem !== null) {
             navItem.id = '';
         }
-        navElement = ev.target.getAttribute('value');
         navItem = ev.target;
         navItem.id = 'selected-nav-item';
     })
@@ -230,7 +229,7 @@ function updateObject(element) {
             index++;
             currentStyle = element.style[index];
         }
-        jsonOutput.setAttribute('value', JSON.stringify(page))
+        jsonOutput.setAttribute('value', JSON.stringify(page));
     }
 }
 
@@ -238,4 +237,35 @@ function clearIdSelectedItem(element) {
     if (element !== null){
     element.id = '';
     }
+}
+
+function setExo(json){
+    let script = document.getElementById('temp-script');
+    document.body.removeChild(script);
+    setPage(json);
+}
+
+function setPage(json){
+    if (typeof json === "object"){
+        updateA4(json);
+        page.elements = json;
+        jsonOutput.setAttribute('value', JSON.stringify(page));
+    }
+}
+
+function updateA4(json) {
+    json.forEach(el => {
+        let tag = document.createElement(el.type);
+        let properiesName = Object.keys(el.properties);
+        for (let i = 0; i < properiesName.length; i++) {
+            let property = properiesName[i];
+            tag.style[property] = el.properties[property];
+        }
+        tag.style.position = 'absolute';
+        tag.textContent = el.content;
+        preview.appendChild(tag);
+    })
+}
+function clearPage(){
+
 }
