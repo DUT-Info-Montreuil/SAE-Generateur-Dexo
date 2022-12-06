@@ -1,6 +1,7 @@
 const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
+let heightUsedByExercises = 0;
 let draggedElement = null;
 
 waitAllCategories(categories);
@@ -20,9 +21,9 @@ A4.addEventListener("load", () => {
                 url: './ajax/get_exercise_content.php',
                 data: ({"id_exo": draggedElement.getAttribute('id-ex')})
             }).then(function (res) {
-                if (res === '-1' || res === ''){
-                    popin("un problème est survenu, veuillez réessayer",false);
-                }else {
+                if (res === '-1' || res === '') {
+                    popin("un problème est survenu, veuillez réessayer", false);
+                } else {
                     setupExerciseToEdit(res);
                     exercice.style.display = "block";
                 }
@@ -38,13 +39,12 @@ exercice.addEventListener("load", () => {
 
 
     cancel.addEventListener('click', () => {
-        //TODO : clear preview
         exercice.style.display = "none";
     })
 
     send.addEventListener('click', () => {
         let exo = data.getAttribute('value');
-        $.ajax({
+        /*$.ajax({
             type: "POST",
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
@@ -52,10 +52,12 @@ exercice.addEventListener("load", () => {
             if (re !== ""){
                 console.log(re);
             }else {
-                //TODO : clear preview
+                addExerciceToPreview(exo);
                 exercice.style.display = "none";
             }
-        })
+        })*/
+        addExerciceToPreview(exo);
+        exercice.style.display = "none";
     });
 });
 
@@ -99,9 +101,44 @@ function until(conditionFunction) {
     return new Promise(res);
 }
 
-function setupExerciseToEdit(res){
+function setupExerciseToEdit(res) {
     let tempScript = document.createElement("script");
     tempScript.id = 'temp-script';
-    tempScript.textContent = "setExo("+ res +");";
+    tempScript.textContent = "setExo(" + res + ");";
     exercice.contentDocument.body.appendChild(tempScript);
+}
+
+function addExerciceToPreview(json) {
+    let container = document.createElement("div");
+    let preview = A4.contentDocument.getElementById('exercises');
+    let datas = JSON.parse(json);
+
+
+    container.style.height = datas.height;
+    container.style.top = heightUsedByExercises + 'cm';
+    container.style.border = 'solid red 1px'
+    container.style.position = 'absolute';
+    container.style.width = '20cm';
+    console.log(heightUsedByExercises);
+    heightUsedByExercises += parseInt(datas.height.split('cm'));
+
+    addElements(container, datas.elements);
+
+    preview.appendChild(container);
+}
+
+// possiblement utiliser cette fonction et passer le bon container à la place de la dupli dans exercices.js
+function addElements(container, elements) {
+
+    elements.forEach(el => {
+        let tag = document.createElement(el.type);
+        let properiesName = Object.keys(el.properties);
+        for (let i = 0; i < properiesName.length; i++) {
+            let property = properiesName[i];
+            tag.style[property] = el.properties[property];
+        }
+        tag.style.position = 'absolute';
+        tag.textContent = el.content;
+        container.appendChild(tag);
+    })
 }
