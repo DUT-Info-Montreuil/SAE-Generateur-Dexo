@@ -6,27 +6,41 @@ let draggedElement = null;
 waitAllCategories(categories);
 
 A4.addEventListener("load", () => {
+    const contentA4 = A4.contentDocument.getElementById("exercises");
+
     A4.contentDocument.addEventListener("dragover", (event) => {
         event.preventDefault();
-        elementTargetExo = event.target;
-        posXExo = event.layerX;
-        posYExo = event.layerY;
     });
-    A4.contentDocument.addEventListener('drop', () => {
+
+    A4.contentDocument.addEventListener('drop', (event) => {
         //changer la condition quand on aura des vrais éléments :')
-        if (draggedElement !== null && draggedElement.tagName !== 'IMG') {
-            $.ajax({
-                type: "POST",
-                url: './ajax/get_exercise_content.php',
-                data: ({"id_exo": draggedElement.getAttribute('id-ex')})
-            }).then(function (res) {
-                if (res === '-1' || res === ''){
-                    popin("un problème est survenu, veuillez réessayer",false);
-                }else {
-                    setupExerciseToEdit(res);
-                    exercice.style.display = "block";
-                }
-            })
+        if (draggedElement !== null) {
+            if (draggedElement.tagName !== 'IMG') {
+                $.ajax({
+                    type: "POST",
+                    url: './ajax/get_exercise_content.php',
+                    data: ({"id_exo": draggedElement.getAttribute('id-ex')})
+                }).then(function (res) {
+                    if (res === '-1' || res === ''){
+                        popin("un problème est survenu, veuillez réessayer",false);
+                    }else {
+                        setupExerciseToEdit(res);
+                        exercice.style.display = "block";
+                    }
+                });
+            } else if (draggedElement.tagName === 'IMG') {
+                event.preventDefault();
+                let bound = contentA4.getBoundingClientRect();
+                let img = document.createElement('IMG');
+
+                img.setAttribute("src", "../" + draggedElement.getAttribute("src"));
+                img.setAttribute("height", draggedElement.getAttribute("height"));
+                img.setAttribute("width", draggedElement.getAttribute("width"));
+                img.style.setProperty("position", "absolute");
+                img.style.setProperty("left", (event.clientX - bound.left) + "px")
+                img.style.setProperty("top", (event.clientY - bound.top) + "px")
+                contentA4.append(img);
+            }
         }
     });
 });
