@@ -12,9 +12,12 @@ else
 function uploadImage()
 {
     $images = json_decode($_POST['image_Json']);
-    foreach ($images as $key) {
-        echo $key;
-    }
+    echo $images[0];
+    // $data = $images->{'elements'};
+    
+    // foreach ($data as $key) {
+    //     echo $key;
+    // }
     // if (canBeSend($json)) {
     //     $idCompte = $_SESSION['id'];
     //     $idCategorie = $json->{"idCategorie"};
