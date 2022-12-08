@@ -19,6 +19,9 @@ const urlTypes = [
     /.png/,
 ];
 
+function getType() {
+
+}
 const addImageMenu = document.getElementById("addImage");
 const input = addImageMenu.querySelector('#image_uploads');
 const preview = addImageMenu.querySelector('.preview');
@@ -41,7 +44,7 @@ function validFileType(file) {
     return fileTypes.includes(file.type);
 }
 
-//////////////////// Add Image ////////////////
+/////////// Add Image From Directory////////////////
 
 function addImageFromDirectory() {
     const curFiles = input.files;
@@ -57,38 +60,36 @@ function addImageFromDirectory() {
     }
 }
 
-$(///// Add Image From Url////
-    function () {
+$( ///// Add Image From Url////
+    function() {
         $("#get-image-url").click(
-            function () {
+            function() {
                 let url = $("#image-url").val();
-                if (isImage(url) && verifyImageURL(url)) {
+                if (isImage(url)) {
                     var image = new Image();
                     image.src = url;
-                    imgArray.push(image);
-                    ajoutPreview(image);
+                    image.addEventListener('load', function() {
+                        if (image.complete) {
+                            imgArray.push(image);
+                            ajoutPreview(image);
+                        }
+                    })
                 }
             }
         );
     }
 );
+
 function isImage(url) {
     if (url) {
         console.log(url);
         for (let i = 0; i < urlTypes.length; i++) {
             if (urlTypes[i].test(url)) return true;
         }
-    }
-    else
+    } else
         return false;
 }
 
-function verifyImageURL(url) {
-    console.log("test");
-    var img = new Image();
-    img.src = url;
-    return img.complete;
-  }
 function ajoutPreview(image) {
 
     const div = document.createElement('div');
@@ -151,29 +152,29 @@ function removeFileFromFileArrayList(img) {
     }
 }
 
-
 ///////////////////////////////////////////
 const uploadImage = addImageMenu.querySelector('#uploadImage');
 uploadImage.addEventListener('click', uploadFile);
+
 function uploadFile() {
     let image_to_upload = new Array();
     for (let i = 0; i < imgArray.length; i++) {
         image_to_upload.push(getBase64Image(imgArray[i]));
     }
-    var jsonString = JSON.stringify(image_to_upload);
+    var jsonString = JSON.stringify(imgArray);
+    console.log(JSON.stringify(imgArray)[0]);
     $.ajax({
         type: "POST",
         url: '../ajax/send_image.php',
         data: ({ "image_Json": jsonString })
-    }).then(function (re) { console.log(re); })
+    }).then(function(re) { console.log(re); })
 }
 
 function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
+    const canvas = document.createElement("CANVAS");
     canvas.width = img.width;
     canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace("/^data:image\/(png|jpg);base64,/", "");
+    canvas.getContext("2d").drawImage(img, 0, 0);
+    let extension = img.src.split('.').at(-1);
+    return canvas.toDataURL('image/png');
 }
