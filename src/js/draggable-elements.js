@@ -14,7 +14,7 @@ A4.addEventListener("load", () => {
         // Changer la condition quand on aura des vrais éléments :')
         event.preventDefault();
         if (draggedElement !== null) {
-            if (draggedElement.tagName !== 'IMG') {
+            if (draggedElement.tagName !== Elements.IMG_TAG) {
                 $.ajax({
                     type: "POST",
                     url: './ajax/get_exercise_content.php',
@@ -27,24 +27,15 @@ A4.addEventListener("load", () => {
                         exercice.style.display = "block";
                     }
                 });
-            } else if (draggedElement.tagName === 'IMG') {
-                let bound = contentA4.getBoundingClientRect();
-                let img = createImgElement(document, "../" + draggedElement.getAttribute("src"),
-                    null, null, draggedElement.getAttribute("height"), draggedElement.getAttribute("width"),
-                    {
-                        "position": "absolute",
-                        "left": (event.clientX - bound.left) + "px",
-                        "top": (event.clientY - bound.top) + "px"
-                    }
-                );
-                img.addEventListener("click", movableElementClickedEvent);
+            } else if (draggedElement.tagName === Elements.IMG_TAG) {
+                const bound = contentA4.getBoundingClientRect();
 
-                let inputSizeElement = document.createElement("input");
-                inputSizeElement.id = "input-size";
-                inputSizeElement.placeholder = "Enter new size";
-                inputSizeElement.style.setProperty("position", "absolute");
-                inputSizeElement.style.setProperty("left", img.style.left);
-                inputSizeElement.style.setProperty("top", img.style.top);
+                const src = "../" + draggedElement.getAttribute("src");
+                const height = draggedElement.getAttribute("height");
+                const width = draggedElement.getAttribute("width")
+                let img = Elements.createImg(document, src, null, null, height, width, CSS.setPosition("absolute", (event.clientX - bound.left) + "px", (event.clientY - bound.top) + "px"));
+                img.addEventListener("click", movableElementClickedEvent);
+                let inputSizeElement = Elements.createInput(document, "imput-size", null, "Enter new size", CSS.setPosition("absolute", img.style.left, img.style.top));
 
                 inputSizeElement.addEventListener("input", (event) => {
                     img.height = event.target.value;
