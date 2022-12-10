@@ -3,17 +3,16 @@ const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
 let draggedElement = null;
 
+
 waitAllCategories(categories);
 
 A4.addEventListener("load", () => {
     const contentA4 = A4.contentDocument.getElementById("exercises");
 
-    A4.contentDocument.addEventListener("dragover", (event) => {
+    A4.contentDocument.addEventListener("dragover", (event) => event.preventDefault());
+    A4.contentDocument.addEventListener("drop", (event) => {
+        // Changer la condition quand on aura des vrais éléments :')
         event.preventDefault();
-    });
-
-    A4.contentDocument.addEventListener('drop', (event) => {
-        //changer la condition quand on aura des vrais éléments :')
         if (draggedElement !== null) {
             if (draggedElement.tagName !== 'IMG') {
                 $.ajax({
@@ -21,24 +20,24 @@ A4.addEventListener("load", () => {
                     url: './ajax/get_exercise_content.php',
                     data: ({"id_exo": draggedElement.getAttribute('id-ex')})
                 }).then(function (res) {
-                    if (res === '-1' || res === ''){
-                        popin("un problème est survenu, veuillez réessayer",false);
-                    }else {
+                    if (res === '-1' || res === '') {
+                        popin("un problème est survenu, veuillez réessayer", false);
+                    } else {
                         setupExerciseToEdit(res);
                         exercice.style.display = "block";
                     }
                 });
             } else if (draggedElement.tagName === 'IMG') {
-                event.preventDefault();
                 let bound = contentA4.getBoundingClientRect();
-                let img = document.createElement('IMG');
-
-                img.setAttribute("src", "../" + draggedElement.getAttribute("src"));
-                img.setAttribute("height", draggedElement.getAttribute("height"));
-                img.setAttribute("width", draggedElement.getAttribute("width"));
-                img.style.setProperty("position", "absolute");
-                img.style.setProperty("left", (event.clientX - bound.left) + "px")
-                img.style.setProperty("top", (event.clientY - bound.top) + "px")
+                let img = createImgElement(document, "../" + draggedElement.getAttribute("src"),
+                    null, null, draggedElement.getAttribute("height"), draggedElement.getAttribute("width"),
+                    {
+                        "position": "absolute",
+                        "left": (event.clientX - bound.left) + "px",
+                        "top": (event.clientY - bound.top) + "px"
+                    }
+                )
+                img.addEventListener("click", movableElementClickedEvent);
                 contentA4.append(img);
             }
         }
@@ -63,9 +62,9 @@ exercice.addEventListener("load", () => {
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
         }).then(function (re) {
-            if (re !== ""){
+            if (re !== "") {
                 console.log(re);
-            }else {
+            } else {
                 //TODO : clear preview
                 exercice.style.display = "none";
             }
@@ -113,9 +112,9 @@ function until(conditionFunction) {
     return new Promise(res);
 }
 
-function setupExerciseToEdit(res){
+function setupExerciseToEdit(res) {
     let tempScript = document.createElement("script");
     tempScript.id = 'temp-script';
-    tempScript.textContent = "setExo("+ res +");";
+    tempScript.textContent = "setExo(" + res + ");";
     exercice.contentDocument.body.appendChild(tempScript);
 }

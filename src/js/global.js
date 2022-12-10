@@ -18,3 +18,19 @@ function popin(text, isPermanent = true) {
         }, 8000)
     }
 }
+
+function createImgElement(doc, src, id=null, classes=null, height, width, cssStyle= {}) {
+    const img = doc.createElement("IMG");
+    img.setAttribute("src", src);
+    img.setAttribute("height", height);
+    img.setAttribute("width", width);
+    if (id !== null)
+        img.setAttribute("id", id)
+    if (classes !== null)
+        img.setAttribute("class", classes)
+    if (cssStyle !== null)
+        for (const key of cssStyle.keys())
+            img.style.setProperty(key, cssStyle[key])
+
+    return img;
+}
