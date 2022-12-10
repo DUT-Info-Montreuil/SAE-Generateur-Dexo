@@ -14,7 +14,7 @@ function movableElementClickedEvent(event) {
 function followClickPointer(event) {
     if (clicked) {
         bound = contentA4.getBoundingClientRect();
-        movableElement.style.left = (((event.clientX - movableElement.width/2) - bound.left) + contentA4.scrollLeft).toString() + "px";
-        movableElement.style.top = (((event.clientY - movableElement.height/2) - bound.top) + contentA4.scrollTop).toString() + "px";
+        movableElement.style.left = ((event.clientX - movableElement.width/2) - bound.left).toString() + "px";
+        movableElement.style.top = ((event.clientY - movableElement.height/2) - bound.top).toString() + "px";
     }
 }
