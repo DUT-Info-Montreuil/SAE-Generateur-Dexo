@@ -77,7 +77,7 @@ preview.addEventListener('click', (ev) => {
                 element = createImage();
             }
             element.setAttribute('value', id);
-            element.style.position = 'absolute';
+            element.classList.add("p-abs");
 
             element.style.left = 0.0264583333 * ev.offsetX.toString() + 'cm';
             element.style.top = 0.0264583333 * ev.offsetY.toString() + 'cm';
@@ -229,8 +229,7 @@ function updateObject(element) {
 
         objectToUpdate.content = element.textContent;
 
-        // so it doesn't stock the redundant "position : absolute "
-        let index = 1;
+        let index = 0;
         let currentStyle = element.style[index]
         while (currentStyle !== undefined) {
             objectToUpdate.properties[element.style[index]] = element.style[element.style[index]];
@@ -266,7 +265,7 @@ function updateA4(json) {
     json.forEach(el => {
         let tag = document.createElement(el.type);
         let properiesName = Object.keys(el.properties);
-        tag.style.position = 'absolute';
+        tag.classList.add("p-abs");
         for (let i = 0; i < properiesName.length; i++) {
             let property = properiesName[i];
             tag.style[property] = el.properties[property];

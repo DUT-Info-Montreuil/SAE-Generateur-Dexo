@@ -67,3 +67,6 @@ header {
 .account-menu > button {
     width: 100%;
 }
+.p-abs {
+    position: absolute;
+}

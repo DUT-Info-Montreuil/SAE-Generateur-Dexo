@@ -2,6 +2,7 @@ const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
 let heightUsedByExercises = 0;
+let idExercise = 1;
 let draggedElement = null;
 
 waitAllCategories(categories);
@@ -110,21 +111,34 @@ function setupExerciseToEdit(res) {
 
 function addExerciceToPreview(json) {
     let container = document.createElement("div");
+    let Rcontainer = document.createElement("div");
     let preview = A4.contentDocument.getElementById('exercises');
+    let idExoContainer = document.createElement("div");
+    let number = document.createElement("p");
+
     let datas = JSON.parse(json);
 
+    number.textContent = idExercise;
+    number.classList.add("id-exercise")
 
-    container.style.height = datas.height;
-    container.style.top = heightUsedByExercises + 'cm';
-    container.style.border = 'solid red 1px'
-    container.style.position = 'absolute';
-    container.style.width = '20cm';
-    console.log(heightUsedByExercises);
+    idExoContainer.append(number);
+    idExoContainer.classList.add("id-exercise-container");
+
+    Rcontainer.style.height = datas.height;
+    Rcontainer.style.top = heightUsedByExercises + 'cm';
+    Rcontainer.style.border = 'solid red 1px';
+    Rcontainer.classList.add("p-abs")
+    Rcontainer.classList.add("global-container")
+
+    container.style.border = 'solid red 1px';
+    container.classList.add("exercise-container");
+
+    Rcontainer.append(idExoContainer,container);
     heightUsedByExercises += parseInt(datas.height.split('cm'));
 
     addElements(container, datas.elements);
-
-    preview.appendChild(container);
+    idExercise++;
+    preview.appendChild(Rcontainer);
 }
 
 // possiblement utiliser cette fonction et passer le bon container à la place de la dupli dans exercices.js
@@ -137,7 +151,7 @@ function addElements(container, elements) {
             let property = properiesName[i];
             tag.style[property] = el.properties[property];
         }
-        tag.style.position = 'absolute';
+        tag.classList.add("p-abs");
         tag.textContent = el.content;
         container.appendChild(tag);
     })
