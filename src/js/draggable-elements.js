@@ -38,7 +38,26 @@ A4.addEventListener("load", () => {
                     }
                 );
                 img.addEventListener("click", movableElementClickedEvent);
+
+                let inputSizeElement = document.createElement("input");
+                inputSizeElement.id = "input-size";
+                inputSizeElement.placeholder = "Enter new size";
+                inputSizeElement.style.setProperty("position", "absolute");
+                inputSizeElement.style.setProperty("left", img.style.left);
+                inputSizeElement.style.setProperty("top", img.style.top);
+
+                inputSizeElement.addEventListener("input", (event) => {
+                    img.height = event.target.value;
+                    img.width = event.target.value;
+                });
+
+                inputSizeElement.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter')
+                        contentA4.removeChild(inputSizeElement);
+                });
+
                 contentA4.append(img);
+                contentA4.append(inputSizeElement);
             }
         }
     });

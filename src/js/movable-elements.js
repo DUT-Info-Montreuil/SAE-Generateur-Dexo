@@ -9,6 +9,7 @@ A4.addEventListener("load", () => {
 function movableElementClickedEvent(event) {
     movableElement = event.target;
     clicked = !clicked;
+    movableElement.setAttribute("id", clicked ? "selected-item" : "");
 }
 
 function followClickPointer(event) {
