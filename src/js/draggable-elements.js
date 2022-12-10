@@ -1,4 +1,3 @@
-const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
 let draggedElement = null;
@@ -9,6 +8,7 @@ waitAllCategories(categories);
 A4.addEventListener("load", () => {
     const contentA4 = A4.contentDocument.getElementById("exercises");
 
+    A4.contentDocument.addEventListener("mousemove", followClickPointer);
     A4.contentDocument.addEventListener("dragover", (event) => event.preventDefault());
     A4.contentDocument.addEventListener("drop", (event) => {
         // Changer la condition quand on aura des vrais éléments :')
@@ -36,7 +36,7 @@ A4.addEventListener("load", () => {
                         "left": (event.clientX - bound.left) + "px",
                         "top": (event.clientY - bound.top) + "px"
                     }
-                )
+                );
                 img.addEventListener("click", movableElementClickedEvent);
                 contentA4.append(img);
             }
@@ -68,7 +68,7 @@ exercice.addEventListener("load", () => {
                 //TODO : clear preview
                 exercice.style.display = "none";
             }
-        })
+        });
     });
 });
 

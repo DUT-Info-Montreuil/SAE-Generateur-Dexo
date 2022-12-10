@@ -1,3 +1,6 @@
+const A4 = document.getElementById('A4-exo-iframe');
+
+
 function popin(text, isPermanent = true) {
     const div = document.getElementById("pop-in-info-div");
     const elem = document.createElement("div");
@@ -29,7 +32,7 @@ function createImgElement(doc, src, id=null, classes=null, height, width, cssSty
     if (classes !== null)
         img.setAttribute("class", classes)
     if (cssStyle !== null)
-        for (const key of cssStyle.keys())
+        for (const key of Object.keys(cssStyle))
             img.style.setProperty(key, cssStyle[key])
 
     return img;
