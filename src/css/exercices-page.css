@@ -27,6 +27,9 @@ aside {
     flex-direction: column;
     gap: 20px;
 }
+h1{
+    font-size: 18pt;
+}
 
 #container-exercises {
     display: flex;
