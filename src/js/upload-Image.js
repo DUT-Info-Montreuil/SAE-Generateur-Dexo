@@ -86,7 +86,6 @@ function isImage(url) {
 function ajoutPreview(image) {
 
     const div = document.createElement('div');
-    div.className = 'image_div';
     image.className = 'image_Upload';
     div.appendChild(image);
     div.appendChild(constructDecription());
@@ -139,7 +138,11 @@ uploadImage.addEventListener('click', uploadFile);
 
 function uploadFile() {
     let image_to_upload = new Array();
-    getImageJson();
+    for (let i = 0; i < preview.children.length; i++) {
+        image_to_upload.push(getImageJson(preview.children[i]));
+    }
+    
+    var jsonString = JSON.stringify(image_to_upload);
     $.ajax({
         type: "POST",
         url: '../ajax/send_image.php',
@@ -159,18 +162,16 @@ function getBase64Image(img) {
     return canvas.toDataURL(extension);
 }
 
-function getImageJson(){
-    for (let i = 0; i < $(".image_div").length; i++) {
-        let image = $(".image_div").get(i).children('.image_Upload');
-        let name = $(".image_div")[i].children('.name').val();
-        let share = $(".image_div")[i].children('.share').val();
-        console.log(name);
-        console.log(share);
-        console.log(getBase64Image(image));
-    }
-    
-    const obj = {url: 'e', name: 30, share: "New York"};
-    const myJSON = JSON.stringify(obj);
+function getImageJson(div){
+    let image = div.getElementsByTagName('img')[0];
+    let name = div.getElementsByClassName('name');
+    let share = div.getElementsByClassName('share');
+    name = $(name).val();
+    share = $(share).is(":checked");
+    let url = getBase64Image(image);
+
+    const obj = {url: url, name: name, share: share};
+    return JSON.stringify(obj);
 }
 
 function constructDecription(){
