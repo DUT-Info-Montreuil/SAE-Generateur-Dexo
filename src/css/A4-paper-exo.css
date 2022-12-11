@@ -33,6 +33,12 @@ body {
     background-color: white;
     display: flex;
     justify-content: center;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 #exercises {
@@ -170,4 +176,33 @@ body {
     background: greenyellow;
     font-size: 20pt;
     cursor: default;
+}
+.p-abs {
+    position: absolute;
+}
+
+.global-container {
+    width:  100%;
+    display: flex;
+}
+
+.id-exercise-container {
+    flex-basis: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.id-exercise {
+    padding: 2px;
+    border: black 1px solid;
+    border-radius: 100%;
+}
+
+.exercise-container {
+    flex-basis: 95%;
+    position: relative;
+    height: 100%;
+}
+h1{
+    font-size: 18pt;
 }
