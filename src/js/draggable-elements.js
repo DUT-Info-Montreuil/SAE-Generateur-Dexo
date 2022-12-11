@@ -60,10 +60,7 @@ exercice.addEventListener("load", () => {
     const data = exercice.contentDocument.getElementById('jsonOutput');
 
 
-    cancel.addEventListener('click', () => {
-        //TODO : clear preview
-        exercice.style.display = "none";
-    })
+    cancel.addEventListener('click', () => exercice.style.display = "none");
 
     send.addEventListener('click', () => {
         let exo = data.getAttribute('value');
@@ -72,10 +69,8 @@ exercice.addEventListener("load", () => {
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
         }).then(function (re) {
-            if (re !== "") {
-                console.log(re);
-            } else {
-                //TODO : clear preview
+            if (re === "") {
+                addExerciceToPreview(exo);
                 exercice.style.display = "none";
             }
         });
@@ -127,4 +122,51 @@ function setupExerciseToEdit(res) {
     tempScript.id = 'temp-script';
     tempScript.textContent = "setExo(" + res + ");";
     exercice.contentDocument.body.appendChild(tempScript);
+}
+
+function addExerciceToPreview(json) {
+    let container = document.createElement("div");
+    let Rcontainer = document.createElement("div");
+    let preview = A4.contentDocument.getElementById('exercises');
+    let idExoContainer = document.createElement("div");
+    let number = document.createElement("p");
+
+    let datas = JSON.parse(json);
+
+    number.textContent = idExercise;
+    number.classList.add("id-exercise")
+
+    idExoContainer.append(number);
+    idExoContainer.classList.add("id-exercise-container");
+
+    Rcontainer.style.height = datas.height;
+    Rcontainer.style.top = heightUsedByExercises + 'cm';
+    Rcontainer.style.border = 'dashed black 0.5px';
+    Rcontainer.classList.add("p-abs")
+    Rcontainer.classList.add("global-container")
+
+    container.style.border = 'dashed black 0.5px';
+    container.classList.add("exercise-container");
+
+    Rcontainer.append(idExoContainer,container);
+    heightUsedByExercises += parseInt(datas.height.split('cm'));
+
+    addElements(container, datas.elements);
+    idExercise++;
+    preview.appendChild(Rcontainer);
+}
+
+function addElements(container, elements) {
+
+    elements.forEach(el => {
+        let tag = document.createElement(el.type);
+        let properiesName = Object.keys(el.properties);
+        for (let i = 0; i < properiesName.length; i++) {
+            let property = properiesName[i];
+            tag.style[property] = el.properties[property];
+        }
+        tag.classList.add("p-abs");
+        tag.textContent = el.content;
+        container.appendChild(tag);
+    })
 }
