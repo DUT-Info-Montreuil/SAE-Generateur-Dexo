@@ -75,7 +75,6 @@ $( ///// Add Image From Url////
 
 function isImage(url) {
     if (url) {
-        console.log(url);
         for (let i = 0; i < urlTypes.length; i++) {
             if (urlTypes[i].test(url)) return true;
         }
