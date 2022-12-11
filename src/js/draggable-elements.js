@@ -1,5 +1,7 @@
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
+let heightUsedByExercises = 3.5;
+let idExercise = 1;
 let draggedElement = null;
 
 

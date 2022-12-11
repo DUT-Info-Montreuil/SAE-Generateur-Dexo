@@ -242,7 +242,7 @@ function updateObject(element) {
 
 function clearIdSelectedItem(element) {
     if (element !== null){
-    element.id = '';
+        element.id = '';
     }
 }
 
@@ -288,7 +288,7 @@ function clearPage(){
     id = 0;
     title.value = page.title;
     // add clear categorie
-    
+
     clearPreview();
     clearOptionAside();
 }
