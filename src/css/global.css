@@ -72,6 +72,8 @@ header {
     border: 1px solid blue;
 }
 
-#input-size {
+#input-size {}
 
+.p-abs {
+    position: absolute;
 }

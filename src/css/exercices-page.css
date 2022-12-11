@@ -27,6 +27,9 @@ aside {
     flex-direction: column;
     gap: 20px;
 }
+h1{
+    font-size: 18pt;
+}
 
 #container-exercises {
     display: flex;
@@ -60,7 +63,7 @@ aside {
     margin-top: 1cm;
     position: relative;
     height: 5cm;
-    width: 20cm;
+    width: 95%;
 }
 
 .img-input {
