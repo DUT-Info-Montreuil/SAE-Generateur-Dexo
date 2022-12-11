@@ -1,7 +1,7 @@
 const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
-let heightUsedByExercises = 0;
+let heightUsedByExercises = 3.5;
 let idExercise = 1;
 let draggedElement = null;
 
@@ -45,7 +45,7 @@ exercice.addEventListener("load", () => {
 
     send.addEventListener('click', () => {
         let exo = data.getAttribute('value');
-        /*$.ajax({
+        $.ajax({
             type: "POST",
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
@@ -56,9 +56,7 @@ exercice.addEventListener("load", () => {
                 addExerciceToPreview(exo);
                 exercice.style.display = "none";
             }
-        })*/
-        addExerciceToPreview(exo);
-        exercice.style.display = "none";
+        })
     });
 });
 
@@ -126,11 +124,11 @@ function addExerciceToPreview(json) {
 
     Rcontainer.style.height = datas.height;
     Rcontainer.style.top = heightUsedByExercises + 'cm';
-    Rcontainer.style.border = 'solid red 1px';
+    Rcontainer.style.border = 'dashed black 0.5px';
     Rcontainer.classList.add("p-abs")
     Rcontainer.classList.add("global-container")
 
-    container.style.border = 'solid red 1px';
+    container.style.border = 'dashed black 0.5px';
     container.classList.add("exercise-container");
 
     Rcontainer.append(idExoContainer,container);
