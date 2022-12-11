@@ -358,7 +358,7 @@ aside {
 
 #pop-in_Image {
     background-color: rgba(0, 0, 0, 0.3);
-    display: block;
+    display: none;
     position: fixed;
     z-index: 999;
     width: 100%;
