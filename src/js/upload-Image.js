@@ -19,9 +19,6 @@ const urlTypes = [
     /.png/,
 ];
 
-function getType() {
-
-}
 const addImageMenu = document.getElementById("addImage");
 const input = addImageMenu.querySelector('#image_uploads');
 const preview = addImageMenu.querySelector('.preview');
@@ -139,10 +136,7 @@ function removeImageDisplay() {
         }
     } else {
         supprMode = false;
-        //Alert 
     }
-
-
 }
 
 function removeFileFromFileArrayList(img) {
@@ -161,7 +155,7 @@ function uploadFile() {
     for (let i = 0; i < imgArray.length; i++) {
         image_to_upload.push(getBase64Image(imgArray[i]));
     }
-    var jsonString = JSON.stringify(imgArray);
+    var jsonString = JSON.stringify(image_to_upload);
     console.log(JSON.stringify(imgArray)[0]);
     $.ajax({
         type: "POST",
@@ -171,10 +165,13 @@ function uploadFile() {
 }
 
 function getBase64Image(img) {
+    if(!img.src.includes('blob:http://localhost/')){
+        return img.src;
+    }
     const canvas = document.createElement("CANVAS");
     canvas.width = img.width;
     canvas.height = img.height;
     canvas.getContext("2d").drawImage(img, 0, 0);
-    let extension = img.src.split('.').at(-1);
-    return canvas.toDataURL('image/png');
+    let extension = 'image/'+img.src.split('.').at(-1);
+    return canvas.toDataURL(extension);
 }
