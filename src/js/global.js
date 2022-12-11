@@ -1,4 +1,11 @@
+const settings = document.getElementById("settings-iframe");
 const A4 = document.getElementById('A4-exo-iframe');
+
+const themes = {
+    "white": "./css/themes/white.css",
+    "dark": "./css/themes/dark.css"
+};
+
 const timePopInDisplayed = 8000;
 
 

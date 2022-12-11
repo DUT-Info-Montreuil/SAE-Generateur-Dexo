@@ -1,6 +1,3 @@
-const settingsIframe = document.getElementById("settings-iframe");
-
-
 function appendLink(doc, path) {
     doc.head.append(Elements.createLink(doc, path, "theme"));
 }
@@ -10,35 +7,30 @@ function removeLink(doc) {
 }
 
 
-settingsIframe.addEventListener("load", () => {
-    const radioWhiteTheme = settingsIframe.contentDocument.getElementById("white-theme");
-    const radioBlackTheme = settingsIframe.contentDocument.getElementById("dark-theme");
+settings.addEventListener("load", () => {
+    const radioWhiteTheme = settings.contentDocument.getElementById("white-theme");
+    const radioBlackTheme = settings.contentDocument.getElementById("dark-theme");
     const ExerciseIFrame = document.getElementById('exercice-edit');
 
     radioWhiteTheme.addEventListener("click", () => {
-        const path = "./css/themes/white.css";
-
         removeLink(document);
-        appendLink(document, path);
+        appendLink(document, themes["white"]);
         removeLink(A4.contentDocument);
-        appendLink(A4.contentDocument, '.' + path);
-        removeLink(settingsIframe.contentDocument);
-        appendLink(settingsIframe.contentDocument, '.' + path);
+        appendLink(A4.contentDocument, '.' + themes["white"]);
+        removeLink(settings.contentDocument);
+        appendLink(settings.contentDocument, '.' + themes["white"]);
         removeLink(exercice.contentDocument);
-        appendLink(exercice.contentDocument, '.' + path)
+        appendLink(exercice.contentDocument, '.' + themes["white"])
     });
 
     radioBlackTheme.addEventListener("click", () => {
-        const path = "./css/themes/dark.css";
-
         removeLink(document);
-        appendLink(document, path);
+        appendLink(document, themes["dark"]);
         removeLink(A4.contentDocument);
-        appendLink(A4.contentDocument, '.' + path);
-        removeLink(settingsIframe.contentDocument);
-        appendLink(settingsIframe.contentDocument, '.' + path);
+        appendLink(A4.contentDocument, '.' + themes["dark"]);
+        removeLink(settings.contentDocument);
+        appendLink(settings.contentDocument, '.' + themes["dark"]);
         removeLink(exercice.contentDocument);
-        appendLink(exercice.contentDocument, '.' + path)
-
+        appendLink(exercice.contentDocument, '.' + themes["dark"])
     });
 });
