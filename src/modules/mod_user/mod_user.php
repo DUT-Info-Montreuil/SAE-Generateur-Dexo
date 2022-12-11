@@ -14,19 +14,30 @@ class ModUser
         $this->status = isset($_GET['status']) ? $_GET['status'] : 'login';
         switch ($this->status) {
             case "register":
-                $this->controller->tryRegister();
-                $this->controller->getRegisterForm();
+                if (!isset($_SESSION["id"])) {
+                    $this->controller->tryRegister();
+                    $this->controller->getRegisterForm();
+                }
                 break;
             case "login":
-                $this->controller->tryLogin();
-                $this->controller->getLoginForm();
+                if (!isset($_SESSION["id"])) {
+                    $this->controller->tryLogin();
+                    $this->controller->getLoginForm();
+                }
                 break;
             case "lost":
-                $this->controller->getLostForm();
+                if (!isset($_SESSION["id"])) $this->controller->getLostForm();
+                break;
+            case "logout":
+                if (isset($_SESSION["id"]))
+                    $this->controller->tryLogout();
                 break;
         }
     }
 
 
-    public function getDisplay() { return $this->controller->displayMod(); }
+    public function getDisplay()
+    {
+        return $this->controller->displayMod();
+    }
 }

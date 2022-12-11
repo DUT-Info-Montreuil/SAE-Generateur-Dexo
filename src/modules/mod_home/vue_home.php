@@ -37,6 +37,16 @@ class VueHome extends GenericView
         $this->displayAsideLeft();
         $this->displayA4Exo();
         $this->displayAsideRight();
+        $this->displayImagUploadMenu();
+    }
+
+    public function displayImagUploadMenu()
+    {
+        ?>
+        <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
+            <p>Don't support object tag</p>
+        </object>
+        <?php
     }
 
     /**
@@ -90,6 +100,8 @@ class VueHome extends GenericView
                         <h2>Banque de photos</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
+                    <label id="labelImg" for="menuImg"><img src="../res/img/upload.png"></label>
+                    <input id="menuImg" style="display : none" type="button">
                     <div class="content">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
                         <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
@@ -121,7 +133,8 @@ class VueHome extends GenericView
     public function displayA4Exo()
     { ?>
         <main>
-            <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
+            <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe"
+                    data="./html/A4-paper-exo.html">
                 <p>Don't support object tag</p>
             </object>
         </main>
@@ -225,7 +238,7 @@ class VueHome extends GenericView
      */
     private function displayAccountMenu()
     {
-        if (!isset($_GET["user"])) { ?>
+        if (!isset($_SESSION["id"])) { ?>
             <div class="account-menu">
                 <button class="settings-button">Paramètre</button>
                 <button id="register-button">S'inscrire</button>
@@ -234,7 +247,7 @@ class VueHome extends GenericView
         <?php } else { ?>
             <div class="account-menu">
                 <button class="settings-button">Paramètre</button>
-                <button id="logout-button">Se connecter</button>
+                <button id="logout-button">Se déconnecter</button>
             </div>
         <?php } ?>
     <?php }
@@ -262,6 +275,8 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/toggle-themes.js"></script>
         <script type="text/javascript" src="./js/account_menu.js"></script>
         <script type="text/javascript" src="./js/settings.js"></script>
+        <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
     <?php }
 }
+
 ?>

@@ -56,6 +56,14 @@ html {
     background-color: white;
 }
 
+#container-exercises > div {
+    background-color: var(--white3);
+}
+
+#container-exercises > aside {
+    background-color: var(--white1);
+}
+
 .img-input {
     border: 2px solid #1c1b1b;
 }

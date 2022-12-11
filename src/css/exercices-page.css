@@ -5,21 +5,30 @@ body {
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
-                                     supported by Chrome, Edge, Opera and Firefox */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
     display: flex;
     flex-direction: column;
 }
-
+input {
+    width: 80%;
+    text-align: center;
+}
 header {
     position: static !important;
 }
 
 aside {
-    background: blue;
+    padding-top: 20px;
     width: 20%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+h1{
+    font-size: 18pt;
 }
 
 #container-exercises {
@@ -29,8 +38,7 @@ aside {
     width: 100%;
 }
 
-#container-exercises > div {
-    background: red;
+#container-exercises > #preview-div {
     width: 60%;
     height: 100%;
     display: flex;
@@ -52,9 +60,10 @@ aside {
 }
 
 #preview {
+    margin-top: 1cm;
     position: relative;
     height: 5cm;
-    width: 20cm;
+    width: 95%;
 }
 
 .img-input {
@@ -76,6 +85,7 @@ aside {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    justify-content: center;
 }
 
 .option-label {
@@ -97,4 +107,12 @@ aside {
 #title-label {
     text-align: center;
     flex-basis: 100%;
+}
+
+#selected-item {
+    border: 1px solid blue;
+}
+
+#selected-nav-item {
+    border: 1px solid orange;
 }

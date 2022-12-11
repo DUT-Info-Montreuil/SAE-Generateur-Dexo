@@ -124,7 +124,7 @@
     padding-top: 0;
 }
 
-#headerMenu > * {
+#headerMenu>* {
     margin: 0;
 }
 
@@ -144,7 +144,7 @@
     left: 0;
 }
 
-#dataFooter > * {
+#dataFooter>* {
     margin: 5px;
 }
 
@@ -155,7 +155,7 @@
     justify-content: space-between;
 }
 
-#optionFooter > * {
+#optionFooter>* {
     cursor: pointer;
 }
 
