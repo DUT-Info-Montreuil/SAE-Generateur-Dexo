@@ -1,4 +1,3 @@
-const settings = document.getElementById("settings-iframe");
 const A4 = document.getElementById('A4-exo-iframe');
 
 const themes = {

@@ -1,3 +1,6 @@
+const settings = document.getElementById("settings-iframe");
+
+
 settings.addEventListener("load", () => {
     const cancelButton = settings.contentDocument.getElementsByClassName("cancel-button");
     const displayButton = settings.contentDocument.getElementById("display-button");
