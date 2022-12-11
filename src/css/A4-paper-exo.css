@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+input {
+    min-width: 50%;
+}
+
 html {
     width: var(--width);
     height: var(--height);
@@ -27,6 +31,8 @@ header > img {
 
 body {
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
 
 #exercises {
@@ -34,4 +40,134 @@ body {
 
     width: var(--width);
     height: var(--height);
+}
+
+#idGroup {
+    font-size: 20pt;
+    font-weight: bold;
+}
+.circle-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: 0 36px;
+    font-size: 10pt;
+}
+#groupe {
+    position: relative;
+    flex-basis: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: white;
+    height: 72px;
+    width: 72px;
+}
+#type,
+#subtype {
+    font-size: 15pt;
+}
+#level {
+    height: 60%;
+    background: #555555;
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2mm;
+}
+#titles {
+    flex-basis: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#title {
+    font-size: 23pt;
+    font-weight: bold;
+}
+#subtitle {
+    font-size: 16pt;
+}
+#page {
+    width: 21cm;
+    height: 29.6cm;
+
+}
+#header-text {
+    display: flex;
+    height: 10%;
+    width: 90%;
+    justify-content: space-between;
+}
+
+#header-container {
+    width: 100%;
+    height: 33mm;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#header {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    margin-top: 3mm;
+    align-items: center;
+    position: relative;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(85, 85, 85, 0.1);
+    filter: blur(2px);
+}
+#edit-header-container {
+    text-align: center;
+    width: 100%;
+    height: 33mm;
+    align-items: center;
+    background: wheat;
+    position: absolute;
+    top: 0;
+}
+#titles-edit {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+}
+#level-edit {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+}
+#groupe-edit {
+    flex-basis: 15%;
+}
+#cancel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    font-size: 20pt;
+    cursor: default;
+}
+#valid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: greenyellow;
+    font-size: 20pt;
+    cursor: default;
 }

@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../js/librairies/jspdf.umd.min.js"></script>
     <script type="text/javascript" src="../js/librairies/html2canvas.min.js"></script>
     <script type="text/javascript" src="../js/librairies/html2pdf.min.js"></script>
+    <script type="text/javascript" src="../js/librairies/jquery-3.6.1.min.js"></script>
     <script type="module">
         window.html2canvas = html2canvas;
         window.html2pdf = html2pdf;
@@ -18,8 +19,50 @@
 <header>
     <img id="export-pdf-button" src="../../res/img/pdf.png" alt="pdf icon">
 </header>
-<main id="exercises"></main>
+<main id="exercises">
+    <div id="header-container">
+        <div id="header-text">
+            <span>Prénom:______</span>
+            <span>Date:_____/______/_____</span>
+        </div>
+        <div id="header">
+            <div id="titles">
+                <span id="title">Le Petit Chaperon Pouge</span>
+                <span id="subtitle">Charles Perrault</span>
+            </div>
+            <div id="level">
+                <span id="type">Lecture</span>
+                <span id="subtype">Texte 2</span>
+            </div>
+            <div id="groupe">
+                <span id="group">GROUPE</span>
+                <span id="idGroup">2</span>
+            </div>
+        </div>
+        <div id="edit-header-container" style="display: none">
+            <p id="cancel">X</p>
+            <p id="valid">&checkmark;</p>
+            <div id="titles-edit">
+                <label for="title-edit">Titre</label>
+                <input type="text" id="title-edit">
+                <label for="subtitle-edit">Sous-titre</label>
+                <input type="text" id="subtitle-edit">
+            </div>
+            <div id="level-edit">
+                <label for="type-edit">Type</label>
+                <input type="text" id="type-edit">
+                <label for="subtype-edit">Sous-type</label>
+                <input type="text" id="subtype-edit">
+            </div>
+            <div id="groupe-edit">
+                <label for="group-edit">numéro de groupe</label>
+                <input type="text" id="group-edit">
+            </div>
+        </div>
+    </div>
+</main>
 <footer>
+    <script type="text/javascript" src="../js/A4Header.js"></script>
     <script type="text/javascript" src="../js/export-pdf.js"></script>
 </footer>
 </body>
