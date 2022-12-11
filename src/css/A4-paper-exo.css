@@ -214,3 +214,7 @@ h1 {
     position: relative;
     height: 100%;
 }
+#export-pdf-button {
+    position: absolute;
+    left: 42%;
+}

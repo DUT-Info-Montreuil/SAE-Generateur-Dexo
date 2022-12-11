@@ -1,6 +1,6 @@
 const group = document.getElementById("group");
 const headerContainer = document.getElementById('header-container');
-const pdfExport = document.getElementById("export-pdf-button");
+const header = document.getElementById("a4-header");
 const editHeader = document.getElementById("edit-header-container");
 const validate = document.getElementById("valid");
 const cancel = document.getElementById("cancel");
@@ -15,21 +15,22 @@ const typeEdit = document.getElementById('type-edit');
 const subtypeEdit = document.getElementById('subtype-edit');
 const groupEdit = document.getElementById('group-edit');
 createAndRotateGroup();
+
 headerContainer.addEventListener("dblclick", () => {
     if (editHeader.style.display !== 'flex') {
         setData()
         editHeader.style.display = 'flex';
-        pdfExport.style.display = "none";
+        header.style.display = "none";
     }
 })
 cancel.addEventListener('click', () => {
     editHeader.style.display = 'none';
-    pdfExport.style.display = "block";
+    header.style.display = "block";
 })
 
 validate.addEventListener('click', () => {
     editHeader.style.display = 'none';
-    pdfExport.style.display = "block";
+    header.style.display = "block";
     resetDatas();
 })
 
