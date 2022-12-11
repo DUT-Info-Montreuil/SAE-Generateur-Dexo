@@ -1,8 +1,6 @@
 ///////////////////To show Image Menu (from vue_home.php)///////////////////////
-const iframeImgMenu = document.getElementById("pop-in_Image");
-
-
-iframeImgMenu.addEventListener('load', function () {
+window.addEventListener('load', function () {
+    const iframeImgMenu = document.getElementById("pop-in_Image");
     const openMenuImage = document.getElementById("menuImg");
     const exitMenu = iframeImgMenu.contentDocument.getElementById("exit");
 
