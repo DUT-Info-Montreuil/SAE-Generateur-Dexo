@@ -22,7 +22,7 @@ class Elements {
     static PARAGRAPH_TAG = "p";
 
 
-    private static setIdAndClassesAttribute(tag, id=null, classes=null) {
+    static setIdAndClassesAttribute(tag, id=null, classes=null) {
         if (id !== null) tag.setAttribute("id", id);
         if (classes !== null) tag.setAttribute("class", classes);
     }
@@ -44,7 +44,7 @@ class Elements {
         img.setAttribute("src", src);
         img.setAttribute("height", height);
         img.setAttribute("width", width);
-        this.setIdAndClassesAttribute(img, id, classes);
+        Elements.setIdAndClassesAttribute(img, id, classes);
         CSS.setProperties(img, style);
         return img;
     }
@@ -62,7 +62,7 @@ class Elements {
     static createInput(doc, id = null, classes = null, placeholder = null, style = {}) {
         const input = doc.createElement(Elements.INPUT_TAG);
         if (placeholder !== null) input.setAttribute("placeholder", placeholder);
-        this.setIdAndClassesAttribute(input, id, classes);
+        Elements.setIdAndClassesAttribute(input, id, classes);
         CSS.setProperties(input, style);
         return input;
     }
@@ -80,7 +80,7 @@ class Elements {
     static createParagraph(doc, id=null, classes=null, text, style={}) {
         const p = doc.createElement(Elements.PARAGRAPH_TAG);
         p.textContent = text;
-        this.setIdAndClassesAttribute(p, id, classes);
+        Elements.setIdAndClassesAttribute(p, id, classes);
         CSS.setProperties(p, style);
         return p;
     }
