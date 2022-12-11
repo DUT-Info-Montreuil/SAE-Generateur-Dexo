@@ -1,34 +1,55 @@
-const A4 = document.getElementById('A4-exo-iframe');
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
-let heightUsedByExercises = 3.5;
-let idExercise = 1;
 let draggedElement = null;
+
 
 waitAllCategories(categories);
 
 A4.addEventListener("load", () => {
-    A4.contentDocument.addEventListener("dragover", (event) => {
+    const contentA4 = A4.contentDocument.getElementById("exercises");
+
+    A4.contentDocument.addEventListener("mousemove", followClickPointer);
+    A4.contentDocument.addEventListener("dragover", (event) => event.preventDefault());
+    A4.contentDocument.addEventListener("drop", (event) => {
+        // Changer la condition quand on aura des vrais éléments :')
         event.preventDefault();
-        elementTargetExo = event.target;
-        posXExo = event.layerX;
-        posYExo = event.layerY;
-    });
-    A4.contentDocument.addEventListener('drop', () => {
-        //changer la condition quand on aura des vrais éléments :')
-        if (draggedElement !== null && draggedElement.tagName !== 'IMG') {
-            $.ajax({
-                type: "POST",
-                url: './ajax/get_exercise_content.php',
-                data: ({"id_exo": draggedElement.getAttribute('id-ex')})
-            }).then(function (res) {
-                if (res === '-1' || res === '') {
-                    popin("un problème est survenu, veuillez réessayer", false);
-                } else {
-                    setupExerciseToEdit(res);
-                    exercice.style.display = "block";
-                }
-            })
+        if (draggedElement !== null) {
+            if (draggedElement.tagName !== Elements.IMG_TAG) {
+                $.ajax({
+                    type: "POST",
+                    url: './ajax/get_exercise_content.php',
+                    data: ({"id_exo": draggedElement.getAttribute('id-ex')})
+                }).then(function (res) {
+                    if (res === '-1' || res === '') {
+                        popin("un problème est survenu, veuillez réessayer", false);
+                    } else {
+                        setupExerciseToEdit(res);
+                        exercice.style.display = "block";
+                    }
+                });
+            } else if (draggedElement.tagName === Elements.IMG_TAG) {
+                const bound = contentA4.getBoundingClientRect();
+
+                const src = "../" + draggedElement.getAttribute("src");
+                const height = draggedElement.getAttribute("height");
+                const width = draggedElement.getAttribute("width")
+                let img = Elements.createImg(document, src, null, null, height, width, CSS.setPosition("absolute", (event.clientX - bound.left) + "px", (event.clientY - bound.top) + "px"));
+                img.addEventListener("click", movableElementClickedEvent);
+                let inputSizeElement = Elements.createInput(document, "imput-size", null, "Enter new size", CSS.setPosition("absolute", img.style.left, img.style.top));
+
+                inputSizeElement.addEventListener("input", (event) => {
+                    img.height = event.target.value;
+                    img.width = event.target.value;
+                });
+
+                inputSizeElement.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter')
+                        contentA4.removeChild(inputSizeElement);
+                });
+
+                contentA4.append(img);
+                contentA4.append(inputSizeElement);
+            }
         }
     });
 });
@@ -40,6 +61,7 @@ exercice.addEventListener("load", () => {
 
 
     cancel.addEventListener('click', () => {
+        //TODO : clear preview
         exercice.style.display = "none";
     })
 
@@ -50,13 +72,13 @@ exercice.addEventListener("load", () => {
             url: './ajax/send_exercice.php',
             data: ({"json": exo})
         }).then(function (re) {
-            if (re !== ""){
+            if (re !== "") {
                 console.log(re);
-            }else {
-                addExerciceToPreview(exo);
+            } else {
+                //TODO : clear preview
                 exercice.style.display = "none";
             }
-        })
+        });
     });
 });
 
@@ -105,52 +127,4 @@ function setupExerciseToEdit(res) {
     tempScript.id = 'temp-script';
     tempScript.textContent = "setExo(" + res + ");";
     exercice.contentDocument.body.appendChild(tempScript);
-}
-
-function addExerciceToPreview(json) {
-    let container = document.createElement("div");
-    let Rcontainer = document.createElement("div");
-    let preview = A4.contentDocument.getElementById('exercises');
-    let idExoContainer = document.createElement("div");
-    let number = document.createElement("p");
-
-    let datas = JSON.parse(json);
-
-    number.textContent = idExercise;
-    number.classList.add("id-exercise")
-
-    idExoContainer.append(number);
-    idExoContainer.classList.add("id-exercise-container");
-
-    Rcontainer.style.height = datas.height;
-    Rcontainer.style.top = heightUsedByExercises + 'cm';
-    Rcontainer.style.border = 'dashed black 0.5px';
-    Rcontainer.classList.add("p-abs")
-    Rcontainer.classList.add("global-container")
-
-    container.style.border = 'dashed black 0.5px';
-    container.classList.add("exercise-container");
-
-    Rcontainer.append(idExoContainer,container);
-    heightUsedByExercises += parseInt(datas.height.split('cm'));
-
-    addElements(container, datas.elements);
-    idExercise++;
-    preview.appendChild(Rcontainer);
-}
-
-// possiblement utiliser cette fonction et passer le bon container à la place de la dupli dans exercices.js
-function addElements(container, elements) {
-
-    elements.forEach(el => {
-        let tag = document.createElement(el.type);
-        let properiesName = Object.keys(el.properties);
-        for (let i = 0; i < properiesName.length; i++) {
-            let property = properiesName[i];
-            tag.style[property] = el.properties[property];
-        }
-        tag.classList.add("p-abs");
-        tag.textContent = el.content;
-        container.appendChild(tag);
-    })
 }

@@ -67,6 +67,13 @@ header {
 .account-menu > button {
     width: 100%;
 }
+
+#selected-item {
+    border: 1px solid blue;
+}
+
+#input-size {}
+
 .p-abs {
     position: absolute;
 }
