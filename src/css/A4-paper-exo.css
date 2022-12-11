@@ -21,7 +21,7 @@ header {
     position: fixed;
 
     height: 30px;
-    left: 0cm;
+    left: 0;
     z-index: 999;
 }
 
@@ -39,6 +39,7 @@ body {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    color: black;
 }
 
 h1 {
