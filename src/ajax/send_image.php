@@ -1,8 +1,8 @@
 <?php
-// require "../connexion.php";
+require "../connexion.php";
 
-// session_start();
-// Connexion::set_up_connection("../../res/");
+session_start();
+Connexion::set_up_connection("../../res/");
 
 if (isset($_POST['image_Json']))
     uploadImage();
