@@ -20,6 +20,7 @@ class Elements {
     static IMG_TAG = "IMG";
     static INPUT_TAG = "input";
     static PARAGRAPH_TAG = "p";
+    static LINK_TAG = "link";
 
 
     static setIdAndClassesAttribute(tag, id=null, classes=null) {
@@ -83,6 +84,24 @@ class Elements {
         Elements.setIdAndClassesAttribute(p, id, classes);
         CSS.setProperties(p, style);
         return p;
+    }
+
+    /**
+     * It allows to create a link
+     *
+     * @param doc contained in the window
+     * @param src path or url of css stylesheet
+     * @param id id attribute of html tag
+     * @param classes one class or several classes of html tag
+     * @param rel by default: stylesheet
+     * @return {HTMLLinkElement} return a link HTML Element
+     */
+    static createLink(doc, src, id=null, classes=null, rel="stylesheet") {
+        const link = doc.createElement(Elements.LINK_TAG);
+        Elements.setIdAndClassesAttribute(link, id, classes);
+        link.setAttribute("href", src);
+        link.setAttribute("rel", rel);
+        return link;
     }
 }
 
