@@ -36,5 +36,8 @@ class ModUser
     }
 
 
-    public function getDisplay() { return $this->controller->displayMod(); }
+    public function getDisplay()
+    {
+        return $this->controller->displayMod();
+    }
 }

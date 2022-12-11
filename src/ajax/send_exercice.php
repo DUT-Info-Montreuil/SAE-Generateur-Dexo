@@ -4,11 +4,11 @@ require "../connexion.php";
 session_start();
 Connexion::set_up_connection("../../res/");
 
-if (isset($_POST['json'])){
+if (isset($_POST['json'])) {
     try {
         tryAddJSON();
-    }catch (Exception $e){
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    } catch (Exception $e) {
+        echo 'Caught exception: ', $e->getMessage(), "\n";
     }
 }
 

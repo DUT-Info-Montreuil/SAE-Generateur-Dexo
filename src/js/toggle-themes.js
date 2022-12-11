@@ -34,6 +34,6 @@ settingsIframe.addEventListener("load", () => {
         removeLink(settingsIframe.contentDocument);
         appendLink(settingsIframe.contentDocument, '.' + themes["dark"]);
         removeLink(exercice.contentDocument);
-        appendLink(exercice.contentDocument, '.' +  themes["dark"])
+        appendLink(exercice.contentDocument, '.' + themes["dark"])
     });
 });

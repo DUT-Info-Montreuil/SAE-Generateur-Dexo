@@ -39,11 +39,13 @@ class VueHome extends GenericView
         $this->displayAsideRight();
         $this->displayImagUploadMenu();
     }
-    public function displayImagUploadMenu(){
+
+    public function displayImagUploadMenu()
+    {
         ?>
-            <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
-                <p>Don't support object tag</p>
-            </object> 
+        <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
+            <p>Don't support object tag</p>
+        </object>
         <?php
     }
 
@@ -133,7 +135,8 @@ class VueHome extends GenericView
     public function displayA4Exo()
     { ?>
         <main>
-            <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe" data="./html/A4-paper-exo.html">
+            <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe"
+                    data="./html/A4-paper-exo.html">
                 <p>Don't support object tag</p>
             </object>
         </main>
@@ -277,4 +280,5 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
     <?php }
 }
+
 ?>

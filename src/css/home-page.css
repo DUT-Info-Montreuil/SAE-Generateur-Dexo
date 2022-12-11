@@ -212,7 +212,7 @@ aside {
     margin-bottom: 5vh;
 }
 
-.titleAside>h1 {
+.titleAside > h1 {
     font-weight: bold;
     font-size: 4vh;
 }
@@ -223,18 +223,18 @@ aside {
     border-radius: 10px;
 }
 
-.search-Part>input,
-.search-Part>button {
+.search-Part > input,
+.search-Part > button {
     border: none;
     background-color: var(--grey);
 }
 
-.search-Part>input {
+.search-Part > input {
     width: 90%;
     vertical-align: middle;
 }
 
-.search-Part>button {
+.search-Part > button {
     width: 5%;
     cursor: pointer;
 }

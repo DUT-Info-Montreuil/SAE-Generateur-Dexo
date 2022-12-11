@@ -16,7 +16,7 @@ const subtypeEdit = document.getElementById('subtype-edit');
 const groupEdit = document.getElementById('group-edit');
 createAndRotateGroup();
 headerContainer.addEventListener("dblclick", () => {
-    if (editHeader.style.display !== 'flex'){
+    if (editHeader.style.display !== 'flex') {
         setData()
         editHeader.style.display = 'flex';
         pdfExport.style.display = "none";
@@ -40,6 +40,7 @@ function resetDatas() {
     subType.textContent = subtypeEdit.value;
     idGroup.textContent = groupEdit.value;
 }
+
 function setData() {
     titleEdit.value = title.textContent;
     subtitleEdit.value = subtitle.textContent;
@@ -47,12 +48,13 @@ function setData() {
     subtypeEdit.value = subType.textContent;
     groupEdit.value = idGroup.textContent;
 }
-function createAndRotateGroup(){
-    group.innerHTML = group.textContent.replace(/\S/g,"<span class='circle-text'>$&</span>");
+
+function createAndRotateGroup() {
+    group.innerHTML = group.textContent.replace(/\S/g, "<span class='circle-text'>$&</span>");
     const cicledText = document.getElementsByClassName('circle-text');
     const maxRotat = 180 / cicledText.length;
-    for (let i = 0; i < cicledText.length; i++){
-        let test = (maxRotat*i) -85;
-        cicledText[i].style.transform = "rotate("+ test +"deg)";
+    for (let i = 0; i < cicledText.length; i++) {
+        let test = (maxRotat * i) - 85;
+        cicledText[i].style.transform = "rotate(" + test + "deg)";
     }
 }

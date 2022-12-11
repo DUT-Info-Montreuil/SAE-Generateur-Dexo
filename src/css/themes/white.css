@@ -59,6 +59,7 @@ html {
 #container-exercises > div {
     background-color: var(--white3);
 }
+
 #container-exercises > aside {
     background-color: var(--white1);
 }

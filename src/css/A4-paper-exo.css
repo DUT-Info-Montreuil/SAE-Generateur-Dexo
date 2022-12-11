@@ -41,6 +41,10 @@ body {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+h1 {
+    font-size: 18pt;
+}
+
 #exercises {
     position: relative;
     width: var(--width);
@@ -51,6 +55,7 @@ body {
     font-size: 20pt;
     font-weight: bold;
 }
+
 .circle-text {
     position: absolute;
     top: 0;
@@ -58,6 +63,7 @@ body {
     transform-origin: 0 36px;
     font-size: 10pt;
 }
+
 #groupe {
     position: relative;
     flex-basis: 10%;
@@ -85,6 +91,7 @@ body {
     align-items: center;
     gap: 2mm;
 }
+
 #titles {
     flex-basis: 65%;
     display: flex;
@@ -92,18 +99,22 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
 #title {
     font-size: 23pt;
     font-weight: bold;
 }
+
 #subtitle {
     font-size: 16pt;
 }
+
 #page {
     width: 21cm;
     height: 29.6cm;
 
 }
+
 #header-text {
     display: flex;
     height: 10%;
@@ -201,7 +212,4 @@ body {
     flex-basis: 95%;
     position: relative;
     height: 100%;
-}
-h1{
-    font-size: 18pt;
 }

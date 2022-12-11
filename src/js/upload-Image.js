@@ -55,14 +55,14 @@ function addImageFromDirectory() {
 }
 
 $( ///// Add Image From Url////
-    function() {
+    function () {
         $("#get-image-url").click(
-            function() {
+            function () {
                 let url = $("#image-url").val();
                 if (isImage(url)) {
                     var image = new Image();
                     image.src = url;
-                    image.addEventListener('load', function() {
+                    image.addEventListener('load', function () {
                         if (image.complete) {
                             ajoutPreview(image);
                         }
@@ -102,6 +102,7 @@ function ajoutPreview(image) {
     numberImg.textContent = preview.childElementCount;
     change();
 }
+
 //////////////////////////////////////////////
 var supprMode = false;
 const removeAll = addImageMenu.querySelector("#remove");
@@ -140,28 +141,30 @@ function uploadFile() {
     for (let i = 0; i < preview.children.length; i++) {
         image_to_upload.push(getImageJson(preview.children[i]));
     }
-    
+
     var jsonString = JSON.stringify(image_to_upload);
     $.ajax({
         type: "POST",
         url: '../ajax/send_image.php',
-        data: ({ "image_Json": jsonString })
-    }).then(function(re) { console.log(re); })
+        data: ({"image_Json": jsonString})
+    }).then(function (re) {
+        console.log(re);
+    })
 }
 
 function getBase64Image(img) {
-    if(!img.src.includes('blob:http://localhost/')){
+    if (!img.src.includes('blob:http://localhost/')) {
         return img.src;
     }
     const canvas = document.createElement("CANVAS");
     canvas.width = img.width;
     canvas.height = img.height;
     canvas.getContext("2d").drawImage(img, 0, 0);
-    let extension = 'image/'+img.src.split('.').at(-1);
+    let extension = 'image/' + img.src.split('.').at(-1);
     return canvas.toDataURL(extension);
 }
 
-function getImageJson(div){
+function getImageJson(div) {
     let image = div.getElementsByTagName('img')[0];
     let name = div.getElementsByClassName('name');
     let share = div.getElementsByClassName('share');
@@ -173,7 +176,7 @@ function getImageJson(div){
     return JSON.stringify(obj);
 }
 
-function constructDecription(){
+function constructDecription() {
     const span = document.createElement('span');
 
     const name = document.createElement('input');
@@ -186,10 +189,10 @@ function constructDecription(){
     name.type = "text";
     name.placeholder = "Nom de l'image";
     name.style.width = '60%';
-    
+
     share.type = "checkbox";
     share.name = "share";
-    
+
     labelShare.appendChild(document.createTextNode("Partage"));
     labelShare.for = "share";
 
@@ -199,7 +202,7 @@ function constructDecription(){
     span.appendChild(labelShare);
 
     span.style.display = 'flex';
-    span.style.justifyContent= 'center';
+    span.style.justifyContent = 'center';
     span.style.width = '100%';
 
     return span;

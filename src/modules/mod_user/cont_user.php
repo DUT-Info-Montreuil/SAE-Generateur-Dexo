@@ -51,9 +51,23 @@ class ContUser
         header("Location: index.php");
     }
 
-    public function displayMod() { return $this->vue->getDisplay(); }
+    public function displayMod()
+    {
+        return $this->vue->getDisplay();
+    }
 
-    public function getLoginForm() { $this->vue->loginForm(); }
-    public function getRegisterForm() { $this->vue->registerForm(); }
-    public function getLostForm() { $this->vue->lostForm(); }
+    public function getLoginForm()
+    {
+        $this->vue->loginForm();
+    }
+
+    public function getRegisterForm()
+    {
+        $this->vue->registerForm();
+    }
+
+    public function getLostForm()
+    {
+        $this->vue->lostForm();
+    }
 }

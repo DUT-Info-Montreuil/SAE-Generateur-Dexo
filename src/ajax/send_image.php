@@ -19,7 +19,7 @@ function uploadImage()
         $url = $jsonValue->{"url"};
         $partager = $jsonValue->{"share"};
 
-        if (isset($idCompte, $nom, $url,$partager)) {
+        if (isset($idCompte, $nom, $url, $partager)) {
             $query = "INSERT INTO public.photo VALUES (DEFAULT,:idCompte,:nom,:url,:partager)";
             $prepare = Connexion::getBdd()->prepare($query);
             $prepare->bindValue(':idCompte', $idCompte);
@@ -30,4 +30,5 @@ function uploadImage()
         }
     }
 }
+
 ?>

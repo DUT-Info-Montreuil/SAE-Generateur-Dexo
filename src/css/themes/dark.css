@@ -16,16 +16,20 @@ html {
     color: black;
     background-color: var(--rich-black);
 }
+
 #container-exercises > #preview-div > #A4-page {
     background-color: white;
 }
+
 #container-exercises > #preview-div > #A4-page > #preview {
     border: dashed red 2px;
     background-color: white;
 }
+
 #container-exercises > aside {
     background-color: var(--eerie-black);
 }
+
 #header-index {
     background-color: var(--eerie-black);
     color: white;

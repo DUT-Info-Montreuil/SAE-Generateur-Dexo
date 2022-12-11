@@ -136,14 +136,15 @@ function displayOptions(element) {
     let parameters = getOptions(element.tagName);
     if (parameters !== undefined) {
         let keys = Object.keys(parameters);
-        createTypeSpecificOptions(element,parameters.type);
+        createTypeSpecificOptions(element, parameters.type);
         for (let i = 1; i < keys.length; i++) {
             let options = createOptions(parameters[keys[i]], element, keys[i]);
             optionAside.appendChild(options);
         }
     }
 }
-function createTypeSpecificOptions(element,type) {
+
+function createTypeSpecificOptions(element, type) {
     const container = document.createElement('div');
     const label = document.createElement('label');
 
@@ -155,10 +156,10 @@ function createTypeSpecificOptions(element,type) {
         let inputField = document.createElement("input");
         inputField.value = element.textContent;
         inputField.addEventListener("input", () => {
-            element.textContent = inputField.value ;
+            element.textContent = inputField.value;
             updateObject(element);
         });
-        container.append(label,inputField);
+        container.append(label, inputField);
     }
     optionAside.append(container);
 }
@@ -221,7 +222,7 @@ function updateObject(element) {
             page.elements.push({
                 "id": elementId,
                 "type": type,
-                "content" : "",
+                "content": "",
                 "properties": {}
             })
             objectToUpdate = page.elements[page.elements.length - 1];
@@ -241,19 +242,19 @@ function updateObject(element) {
 }
 
 function clearIdSelectedItem(element) {
-    if (element !== null){
+    if (element !== null) {
         element.id = '';
     }
 }
 
-function setExo(json){
+function setExo(json) {
     clearTempScript();
     setPage(json);
 }
 
-function setPage(json){
+function setPage(json) {
     clearPage();
-    if (typeof json === "object"){
+    if (typeof json === "object") {
         updateA4(json);
         page.elements = json;
         id = Math.max(...page.elements.map(el => parseInt(el.id))) + 1;
@@ -276,12 +277,14 @@ function updateA4(json) {
         preview.appendChild(tag);
     })
 }
+
 function clearTempScript() {
     let script = document.getElementById('temp-script');
     document.body.removeChild(script);
 }
-function clearPage(){
-    page.title="Title Here";
+
+function clearPage() {
+    page.title = "Title Here";
     page.elements = Array();
     page.height = "5cm";
     page.idCategorie = "1";

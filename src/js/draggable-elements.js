@@ -150,7 +150,7 @@ function addExerciceToPreview(json) {
     container.style.border = 'dashed black 0.5px';
     container.classList.add("exercise-container");
 
-    Rcontainer.append(idExoContainer,container);
+    Rcontainer.append(idExoContainer, container);
     heightUsedByExercises += parseInt(datas.height.split('cm'));
 
     addElements(container, datas.elements);
