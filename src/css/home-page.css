@@ -7,6 +7,7 @@
     --size-button-panels: 30px;
 }
 
+
 @keyframes rotate {
     from {
         transform: rotate(0);
@@ -57,6 +58,15 @@
 
 input:focus {
     outline: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 55px;
+    height: calc(100vh - 60px);
+    width: calc(100vw / 2);
 }
 
 article {
@@ -125,9 +135,14 @@ aside {
 #A4-exo-iframe {
     overflow-x: scroll;
     overflow-y: scroll;
-    margin-top: 55px;
-    width: calc(100vw / 2);
-    height: calc(100vh - 60px);
+
+    width: 21cm;
+    height: calc(29.7cm - 70px);
+}
+
+#export-pdf-button {
+    width: 40px;
+    height: 40px;
 }
 
 #settings-iframe {

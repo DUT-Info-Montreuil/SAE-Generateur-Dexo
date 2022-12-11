@@ -1,38 +1,37 @@
-html {
-    background-color: var(--eerie-black);
-
-    margin: 0 auto;
-
-    border: 3px solid red;
-
-    width: calc(21cm + 10vw);
-    height: calc(29.7cm + 10vh);
+:root {
+    --width: 21cm;
+    --height: 29.6cm;
 }
 
-body {
-    margin: 0 auto;
-    width: 21cm;
-    height: 29.7cm;
+* {
+    margin: 0;
+    padding: 0;
+}
 
-    background-color: white;
+html {
+    width: var(--width);
+    height: var(--height);
 }
 
 header {
-    width: 21cm;
-    height: calc(29.7cm / 6);
+    position: fixed;
+
+    height: 30px;
+    left: 19cm;
+    z-index: 999;
 }
 
-#A4-paper {
-    padding: 5vh 5vw;
+header > img {
+    height: 100%;
 }
 
-#marge {
-    border: 1px dashed black;
-    width: 21cm;
-    height: 29.7cm;
+body {
+    background-color: white;
 }
 
-#container {
-    width: 21cm;
-    height: calc(29.7cm - calc(29.7cm / 6));
+#exercises {
+    position: relative;
+
+    width: var(--width);
+    height: var(--height);
 }
