@@ -347,13 +347,18 @@ aside {
     align-items: center;
 }
 
-#menu_Image img {
-    height: 20px;
-}
-
 #menu_Image .collapsible {
     width: auto;
-    margin-right: 10px;
+}
+
+#labelImg {
+    position: absolute;
+    top: 10px;
+    left: 2px;
+}
+
+#labelImg > img {
+    height: 20px;
 }
 
 #pop-in_Image {
