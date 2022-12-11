@@ -1,5 +1,3 @@
-var imgArray = new Array();
-
 const fileTypes = [
     "image/apng",
     "image/bmp",
@@ -49,7 +47,6 @@ function addImageFromDirectory() {
         if (validFileType(file)) {
             const image = document.createElement('img');
             image.src = URL.createObjectURL(file);
-            imgArray.push(image);
             ajoutPreview(image);
         } else {
             //do a alert not good file select
@@ -67,7 +64,6 @@ $( ///// Add Image From Url////
                     image.src = url;
                     image.addEventListener('load', function() {
                         if (image.complete) {
-                            imgArray.push(image);
                             ajoutPreview(image);
                         }
                     })
@@ -90,9 +86,10 @@ function isImage(url) {
 function ajoutPreview(image) {
 
     const div = document.createElement('div');
+    div.className = 'image_div';
     image.className = 'image_Upload';
     div.appendChild(image);
-
+    div.appendChild(constructDecription());
     //Construct a cross image use for remove element
     const removeBtn = document.createElement('img');
     removeBtn.src = "https://cdn-icons-png.flaticon.com/512/59/59836.png";
@@ -114,14 +111,11 @@ removeAll.addEventListener('click', removeImageDisplay);
 
 function removeUploadImage(event) {
     let div = event.target.parentNode;
-    let image = div.getElementsByTagName('img')[0];
-    removeFileFromFileArrayList(image);
     preview.removeChild(div);
 }
 
 function removeImageDisplay() {
-    const curFiles = input.files;
-    if (imgArray.length > 0) {
+    if (preview.children.length > 0) {
         supprMode = !supprMode;
         if (supprMode) {
             for (const children of preview.children) {
@@ -139,24 +133,13 @@ function removeImageDisplay() {
     }
 }
 
-function removeFileFromFileArrayList(img) {
-    let index = imgArray.indexOf(img);
-    if (index !== null && index > -1) {
-        imgArray.splice(index, 1);
-    }
-}
-
 ///////////////////////////////////////////
 const uploadImage = addImageMenu.querySelector('#uploadImage');
 uploadImage.addEventListener('click', uploadFile);
 
 function uploadFile() {
     let image_to_upload = new Array();
-    for (let i = 0; i < imgArray.length; i++) {
-        image_to_upload.push(getBase64Image(imgArray[i]));
-    }
-    var jsonString = JSON.stringify(image_to_upload);
-    console.log(JSON.stringify(imgArray)[0]);
+    getImageJson();
     $.ajax({
         type: "POST",
         url: '../ajax/send_image.php',
@@ -174,4 +157,50 @@ function getBase64Image(img) {
     canvas.getContext("2d").drawImage(img, 0, 0);
     let extension = 'image/'+img.src.split('.').at(-1);
     return canvas.toDataURL(extension);
+}
+
+function getImageJson(){
+    for (let i = 0; i < $(".image_div").length; i++) {
+        let image = $(".image_div").get(i).children('.image_Upload');
+        let name = $(".image_div")[i].children('.name').val();
+        let share = $(".image_div")[i].children('.share').val();
+        console.log(name);
+        console.log(share);
+        console.log(getBase64Image(image));
+    }
+    
+    const obj = {url: 'e', name: 30, share: "New York"};
+    const myJSON = JSON.stringify(obj);
+}
+
+function constructDecription(){
+    const span = document.createElement('span');
+
+    const name = document.createElement('input');
+    name.className = 'name';
+    const share = document.createElement('input');
+    share.className = 'share';
+
+    const labelShare = document.createElement('label');
+
+    name.type = "text";
+    name.placeholder = "Nom de l'image";
+    name.style.width = '60%';
+    
+    share.type = "checkbox";
+    share.name = "share";
+    
+    labelShare.appendChild(document.createTextNode("Partage"));
+    labelShare.for = "share";
+
+
+    span.appendChild(name);
+    span.appendChild(share);
+    span.appendChild(labelShare);
+
+    span.style.display = 'flex';
+    span.style.justifyContent= 'center';
+    span.style.width = '100%';
+
+    return span;
 }
