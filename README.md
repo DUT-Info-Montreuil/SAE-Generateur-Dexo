@@ -16,7 +16,7 @@ Ce projet est la SAE du semestre 3, nous devons réaliser un site internet qui p
 ### Concernant la BDD
 Les `scripts` à executer pour remplir et crée la BDD sur `postgres` sont situé dans le repertoire [scripts](https://github.com/DUT-Info-Montreuil/SAE-Generateur-Dexo/tree/main/scripts) du repository 
 #### `key.json`
-Un fichier `key.json` doit êtres crée en contenant:
+Un fichier `key.json` dans `res` doit êtres crée en contenant:
 ```json
 {
     "user": "<user>",
