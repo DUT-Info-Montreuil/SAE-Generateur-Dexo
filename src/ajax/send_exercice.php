@@ -39,7 +39,7 @@ function canBeSend($json)
 {
     $data = $json->{'elements'};
 
-    $strJsonFileContents = json_decode(file_get_contents("../../res/exerciceOptions.json"));
+    $strJsonFileContents = json_decode(file_get_contents("../../res/exerciseOptions.json"));
 
     foreach ($data as $key => $value) {
         if (isset($strJsonFileContents->{strtolower($value->{'type'})})) {

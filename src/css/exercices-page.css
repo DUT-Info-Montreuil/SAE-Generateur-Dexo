@@ -80,7 +80,7 @@ h1{
 }
 
 #selected-item {
-    border: 1px solid blue;
+    background: rgba(255,101,80,0.4);
 }
 
 #selected-nav-item {

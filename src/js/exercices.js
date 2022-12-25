@@ -3,9 +3,9 @@ let selectedItem = null;
 let draggedElement = null;
 let posMouseDraggedElement;
 let rawAllOptions;
-let mooveX, mooveY;
+let moveX, moveY;
 let id = 0;
-const TOLERANCE_CONTRUCTION = 0;
+const TOLERANCE_CONSTRUCTION = 10;
 const draggables = document.getElementsByClassName("elements");
 const preview = document.getElementById('preview');
 const optionAside = document.getElementById('options');
@@ -18,7 +18,7 @@ const page = {
     height: "5cm",
     idCategorie: "1"
 };
-fetch('../../res/exerciceOptions.json')
+fetch('../../res/exerciseOptions.json')
     .then((res) => res.json())
     .then((json) => rawAllOptions = json);
 
@@ -40,40 +40,47 @@ document.body.addEventListener('keydown', (ev) => {
 })
 preview.addEventListener("mousedown", (ev) => {
     if (ev.target !== preview) {
-        mooveX = ev.offsetX;
-        mooveY = ev.offsetY;
+        moveX = ev.offsetX;
+        moveY = ev.offsetY;
         draggedElement = ev.target;
         draggedElement.classList.add('preview-elements-moving');
+        posMouseDraggedElement = getRelativePositionsMouse(draggedElement.getBoundingClientRect(), ev);
     }
 })
 preview.addEventListener("mousemove", (ev) => {
     if (draggedElement != null) {
+        clearConstructionsLines();
         let elementHeight = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('height').replace('px', ''));
         let elementWidth = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('width').replace('px', ''));
-        //TODO:: can be mooved to global const or in the function get relative pos mouse I think but idk
         const bound = preview.getBoundingClientRect();
         const relativeMousePositions = getRelativePositionsMouse(bound, ev);
         const alignedElements = elementIsAlignedWithAnotherElement(draggedElement);
-        let mousePosRelativelyToPreviewX = relativeMousePositions.posX - mooveX;
-        let mousePosRelativelyToPreviewY = relativeMousePositions.posY - mooveY;
+        let mousePosRelativelyToPreviewX = relativeMousePositions.posX - moveX;
+        let mousePosRelativelyToPreviewY = relativeMousePositions.posY - moveY;
 
         if (alignedElements.length !== 0) {
+            const mousePose = getRelativePositionsMouse(draggedElement.getBoundingClientRect(), ev);
             const collidePoints = filterAlignedElements(alignedElements);
-            const alreadyExinstingConstructionLines = Array.from(document.querySelectorAll(".construction-line"));
-            collidePoints.top.forEach(point => createContructionLine(point, "top", alreadyExinstingConstructionLines));
-            collidePoints.left.forEach(point => createContructionLine(point, "left", alreadyExinstingConstructionLines));
+            const alreadyExistingConstructionLines = Array.from(document.querySelectorAll(".construction-line"));
+            collidePoints.top.forEach(point => createConstructionLine(point, "top", alreadyExistingConstructionLines));
+            collidePoints.left.forEach(point => createConstructionLine(point, "left", alreadyExistingConstructionLines));
+            // can still move to the direction where the element don't collide
             if (collidePoints.left.length === 0 && displacementPossible(mousePosRelativelyToPreviewX, elementWidth, bound.width)) {
-                draggedElement.style.left = (mousePosRelativelyToPreviewX * 2.54) / 96 + 'cm';
+                draggedElement.style.left = convertPxToCm(mousePosRelativelyToPreviewX) + 'cm';
             } else if (collidePoints.top.length === 0 && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
-                draggedElement.style.top = (mousePosRelativelyToPreviewY * 2.54) / 96 + 'cm';
-                console.log(collidePoints);
+                draggedElement.style.top = convertPxToCm(mousePosRelativelyToPreviewY) + 'cm';
             }
+            if (Math.abs(mousePose.posX - posMouseDraggedElement.posX) >= TOLERANCE_CONSTRUCTION && displacementPossible(mousePosRelativelyToPreviewX, elementWidth, bound.width)) {
+                draggedElement.style.left = convertPxToCm(mousePosRelativelyToPreviewX) + 'cm';
+            } else if (Math.abs(mousePose.posY - posMouseDraggedElement.posY) >= TOLERANCE_CONSTRUCTION && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
+                draggedElement.style.top = convertPxToCm(mousePosRelativelyToPreviewY) + 'cm';
+            }
+
             updateObject(draggedElement);
-        } else if (displacementPossible(mousePosRelativelyToPreviewX,elementWidth,bound.width) && displacementPossible(mousePosRelativelyToPreviewY,elementHeight,bound.height)) {
-            draggedElement.style.top = (mousePosRelativelyToPreviewY * 2.54) / 96 + 'cm';
-            draggedElement.style.left = (mousePosRelativelyToPreviewX * 2.54) / 96 + 'cm';
+        } else if (displacementPossible(mousePosRelativelyToPreviewX, elementWidth, bound.width) && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
+            draggedElement.style.top = convertPxToCm(mousePosRelativelyToPreviewY) + 'cm';
+            draggedElement.style.left = convertPxToCm(mousePosRelativelyToPreviewX) + 'cm';
             updateObject(draggedElement);
-            posMouseDraggedElement = getRelativePositionsMouse(draggedElement.getBoundingClientRect(), ev);
         }
     }
 })
@@ -96,8 +103,8 @@ preview.addEventListener('click', (ev) => {
             element.setAttribute('value', id);
             element.classList.add("p-abs");
 
-            element.style.left = (ev.offsetX * 2.54) / 96 + 'cm';
-            element.style.top = (ev.offsetY * 2.54) / 96 + 'cm';
+            element.style.left = convertPxToCm(ev.offsetX) + 'cm';
+            element.style.top = convertPxToCm(ev.offsetY) + 'cm';
 
             preview.append(element);
             displayOptions(element);
@@ -117,8 +124,8 @@ preview.addEventListener("mouseup", () => {
             draggedElement = null;
         }, 50);
         posMouseDraggedElement = null;
+        clearConstructionsLines();
     }
-    clearConstructionsLines();
 })
 
 for (let draggable of draggables) {
@@ -213,13 +220,13 @@ function createOptions(parameters, element, styleName) {
         const inputSlider = document.createElement('input');
         const rawActual = window.getComputedStyle(element, null).getPropertyValue(styleName);
         // converting px to pt
-        const filteredActual = (3 / 4) * parseFloat(rawActual.slice(0, rawActual.indexOf('p')));
+        const filteredActual = convertPxToPt(parseFloat(rawActual.slice(0, rawActual.indexOf('p'))));
         element.style.setProperty(styleName, filteredActual + 'pt');
 
         inputSlider.type = "range";
         inputSlider.min = min;
         inputSlider.max = max;
-        inputSlider.value = filteredActual;
+        inputSlider.value = filteredActual.toString();
         inputSlider.classList.add("slider");
 
         inputSlider.addEventListener('input', () => {
@@ -293,10 +300,10 @@ function setPage(json) {
 function updateA4(json) {
     json.forEach(el => {
         let tag = document.createElement(el.type);
-        let properiesName = Object.keys(el.properties);
+        let propertiesName = Object.keys(el.properties);
         tag.classList.add("p-abs");
-        for (let i = 0; i < properiesName.length; i++) {
-            let property = properiesName[i];
+        for (let i = 0; i < propertiesName.length; i++) {
+            let property = propertiesName[i];
             tag.style[property] = el.properties[property];
         }
 
@@ -344,8 +351,7 @@ function createOrReplaceConstructionLine(element, elementId) {
     }
     constructionLine.p1 = getTopLeftObject(element);
     constructionLine.p2 = getTopLeftObject(element, elementRect);
-    // ici magouille
-    // constructionLine.p2.top -= 3;
+
 }
 
 function isAligned(p1, p2) {
@@ -384,15 +390,23 @@ function addAlignedPoints(point1, point2, total) {
     }
 }
 
-function createContructionLine(position, side, lines) {
+function createConstructionLine(position, side, lines) {
     if (!lines.some(line => line.style[side] === position + 'px')) {
-        const contructionLine = document.createElement("div");
-        contructionLine.classList.add("construction-line", side);
-        contructionLine.style[side] = position + "px";
-        preview.appendChild(contructionLine);
+        const constructionLine = document.createElement("div");
+        constructionLine.classList.add("construction-line", side);
+        constructionLine.style[side] = position + "px";
+        preview.appendChild(constructionLine);
     }
 }
 
 function displacementPossible(futurePos, elementSize, parentSize) {
     return futurePos > 0 && futurePos + elementSize < parentSize
+}
+
+function convertPxToCm(number) {
+    return (number * 2.54) / 96;
+}
+
+function convertPxToPt(number) {
+    return (3 * number) / 4;
 }
