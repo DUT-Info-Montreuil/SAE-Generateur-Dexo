@@ -84,6 +84,17 @@ preview.addEventListener("mousemove", (ev) => {
         }
     }
 })
+preview.addEventListener("mouseup", () => {
+    if (draggedElement != null) {
+        setTimeout(() => {
+            draggedElement.classList.remove('preview-elements-moving');
+            draggedElement = null;
+        }, 50);
+        posMouseDraggedElement = null;
+        clearConstructionsLines();
+    }
+})
+
 preview.addEventListener('click', (ev) => {
     clearOptionAside();
     clearIdSelectedItem(selectedItem)
@@ -117,16 +128,7 @@ preview.addEventListener('click', (ev) => {
         selectedItem.id = 'selected-item';
     }
 })
-preview.addEventListener("mouseup", () => {
-    if (draggedElement != null) {
-        setTimeout(() => {
-            draggedElement.classList.remove('preview-elements-moving');
-            draggedElement = null;
-        }, 50);
-        posMouseDraggedElement = null;
-        clearConstructionsLines();
-    }
-})
+
 
 for (let draggable of draggables) {
     draggable.addEventListener('click', (ev) => {
