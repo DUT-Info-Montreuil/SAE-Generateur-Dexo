@@ -1,24 +1,26 @@
 let navItem = null;
 let selectedItem = null;
 let draggedElement = null;
+let posMouseDraggedElement;
 let rawAllOptions;
 let mooveX, mooveY;
 let id = 0;
-fetch('../../res/exerciceOptions.json')
-    .then((res) => res.json())
-    .then((json) => rawAllOptions = json);
-
+const TOLERANCE_CONTRUCTION = 0;
 const draggables = document.getElementsByClassName("elements");
 const preview = document.getElementById('preview');
 const optionAside = document.getElementById('options');
 const jsonOutput = document.getElementById('jsonOutput');
 const title = document.getElementById('title-exo');
+const allPossibleConstructionPos = [];
 const page = {
     title: "Title Here",
     elements: Array(),
     height: "5cm",
     idCategorie: "1"
 };
+fetch('../../res/exerciceOptions.json')
+    .then((res) => res.json())
+    .then((json) => rawAllOptions = json);
 
 
 title.addEventListener('input', () => {
@@ -26,9 +28,10 @@ title.addEventListener('input', () => {
     jsonOutput.setAttribute('value', JSON.stringify(page));
 })
 document.body.addEventListener('keydown', (ev) => {
-    if (ev.key === "Delete" && selectedItem != null) {
+    if (ev.key === "Delete" && selectedItem !== null) {
         let id = selectedItem.getAttribute('value');
         page.elements = page.elements.filter((el) => id !== el.id);
+        allPossibleConstructionPos.splice(allPossibleConstructionPos.indexOf(allPossibleConstructionPos.find(el => el.id === id)), 1);
         preview.removeChild(selectedItem);
         selectedItem = null;
         clearOptionAside();
@@ -47,16 +50,30 @@ preview.addEventListener("mousemove", (ev) => {
     if (draggedElement != null) {
         let elementHeight = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('height').replace('px', ''));
         let elementWidth = parseFloat(window.getComputedStyle(draggedElement, null).getPropertyValue('width').replace('px', ''));
+        //TODO:: can be mooved to global const or in the function get relative pos mouse I think but idk
         const bound = preview.getBoundingClientRect();
         const relativeMousePositions = getRelativePositionsMouse(bound, ev);
+        const alignedElements = elementIsAlignedWithAnotherElement(draggedElement);
         let mousePosRelativelyToPreviewX = relativeMousePositions.posX - mooveX;
         let mousePosRelativelyToPreviewY = relativeMousePositions.posY - mooveY;
 
-        if ((mousePosRelativelyToPreviewY > 0 && mousePosRelativelyToPreviewX > 0)
-            && (mousePosRelativelyToPreviewY + elementHeight < bound.height && mousePosRelativelyToPreviewX + elementWidth < bound.width)) {
-            draggedElement.style.top = 0.0264583333 * mousePosRelativelyToPreviewY + 'cm';
-            draggedElement.style.left = 0.0264583333 * mousePosRelativelyToPreviewX + 'cm';
-            updateObject(ev.target);
+        if (alignedElements.length !== 0) {
+            const collidePoints = filterAlignedElements(alignedElements);
+            const alreadyExinstingConstructionLines = Array.from(document.querySelectorAll(".construction-line"));
+            collidePoints.top.forEach(point => createContructionLine(point, "top", alreadyExinstingConstructionLines));
+            collidePoints.left.forEach(point => createContructionLine(point, "left", alreadyExinstingConstructionLines));
+            if (collidePoints.left.length === 0 && displacementPossible(mousePosRelativelyToPreviewX, elementWidth, bound.width)) {
+                draggedElement.style.left = (mousePosRelativelyToPreviewX * 2.54) / 96 + 'cm';
+            } else if (collidePoints.top.length === 0 && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
+                draggedElement.style.top = (mousePosRelativelyToPreviewY * 2.54) / 96 + 'cm';
+                console.log(collidePoints);
+            }
+            updateObject(draggedElement);
+        } else if (displacementPossible(mousePosRelativelyToPreviewX,elementWidth,bound.width) && displacementPossible(mousePosRelativelyToPreviewY,elementHeight,bound.height)) {
+            draggedElement.style.top = (mousePosRelativelyToPreviewY * 2.54) / 96 + 'cm';
+            draggedElement.style.left = (mousePosRelativelyToPreviewX * 2.54) / 96 + 'cm';
+            updateObject(draggedElement);
+            posMouseDraggedElement = getRelativePositionsMouse(draggedElement.getBoundingClientRect(), ev);
         }
     }
 })
@@ -67,7 +84,7 @@ preview.addEventListener('click', (ev) => {
     if (ev.composedPath()[0] !== preview) {
         selectedItem = ev.composedPath()[0];
         displayOptions(selectedItem);
-    } else {
+    } else if (draggedElement === null) {
         if (navElement != null) {
             let element;
             if (navElement === 'p' || navElement === 'h1') {
@@ -79,8 +96,8 @@ preview.addEventListener('click', (ev) => {
             element.setAttribute('value', id);
             element.classList.add("p-abs");
 
-            element.style.left = 0.0264583333 * ev.offsetX.toString() + 'cm';
-            element.style.top = 0.0264583333 * ev.offsetY.toString() + 'cm';
+            element.style.left = (ev.offsetX * 2.54) / 96 + 'cm';
+            element.style.top = (ev.offsetY * 2.54) / 96 + 'cm';
 
             preview.append(element);
             displayOptions(element);
@@ -89,13 +106,19 @@ preview.addEventListener('click', (ev) => {
             id++;
         }
     }
-    selectedItem.id = 'selected-item';
+    if (selectedItem) {
+        selectedItem.id = 'selected-item';
+    }
 })
 preview.addEventListener("mouseup", () => {
     if (draggedElement != null) {
-        draggedElement.classList.remove('preview-elements-moving');
-        draggedElement = null;
+        setTimeout(() => {
+            draggedElement.classList.remove('preview-elements-moving');
+            draggedElement = null;
+        }, 50);
+        posMouseDraggedElement = null;
     }
+    clearConstructionsLines();
 })
 
 for (let draggable of draggables) {
@@ -131,6 +154,10 @@ function clearPreview() {
     }
 }
 
+function clearConstructionsLines() {
+    const lines = document.querySelectorAll('.construction-line');
+    lines.forEach(el => preview.removeChild(el));
+}
 
 function displayOptions(element) {
     let parameters = getOptions(element.tagName);
@@ -215,6 +242,7 @@ function getRelativePositionsMouse(bound, event) {
 function updateObject(element) {
     let elementId = element.getAttribute('value');
     if (typeof elementId === "string") {
+        createOrReplaceConstructionLine(element, elementId);
         let objectToUpdate = page.elements.find((el) => el.id === elementId);
         if (objectToUpdate === undefined) {
 
@@ -290,8 +318,81 @@ function clearPage() {
     page.idCategorie = "1";
     id = 0;
     title.value = page.title;
-    // add clear categorie
 
     clearPreview();
     clearOptionAside();
+}
+
+function elementIsAlignedWithAnotherElement(element) {
+    const elementRect = element.getBoundingClientRect();
+    const topLeftObject1 = getTopLeftObject(element);
+    const topLeftObject2 = getTopLeftObject(element, elementRect);
+    const id = element.getAttribute("value");
+    return allPossibleConstructionPos.filter(el => el.id !== id && ((isAligned(el.p1, topLeftObject1) || isAligned(el.p2, topLeftObject1))
+        || (isAligned(el.p1, topLeftObject2) || isAligned(el.p2, topLeftObject2))));
+}
+
+function createOrReplaceConstructionLine(element, elementId) {
+    const elementRect = element.getBoundingClientRect();
+    let constructionLine = allPossibleConstructionPos.find(el => el.id === elementId);
+
+    if (!constructionLine) {
+        constructionLine = {
+            "id": elementId,
+        };
+        allPossibleConstructionPos.push(constructionLine);
+    }
+    constructionLine.p1 = getTopLeftObject(element);
+    constructionLine.p2 = getTopLeftObject(element, elementRect);
+    // ici magouille
+    // constructionLine.p2.top -= 3;
+}
+
+function isAligned(p1, p2) {
+    return p1.top - p2.top === 0 || p1.left - p2.left === 0;
+}
+
+function getTopLeftObject(element, rect = {height: 0, width: 0}) {
+    return {
+        top: Math.round(element.offsetTop + rect.height),
+        left: Math.round(element.offsetLeft + rect.width)
+    };
+}
+
+function filterAlignedElements(alignedElements) {
+    const points = {top: [], left: []};
+    const pos1 = getTopLeftObject(draggedElement);
+    const pos2 = getTopLeftObject(draggedElement, draggedElement.getBoundingClientRect());
+    // getting all points aligned with the dragged element
+    alignedElements.forEach(element => {
+        addAlignedPoints(pos1, element.p1, points);
+        addAlignedPoints(pos2, element.p1, points);
+        addAlignedPoints(pos1, element.p2, points);
+        addAlignedPoints(pos2, element.p2, points)
+    })
+    return points;
+}
+
+function addAlignedPoints(point1, point2, total) {
+    if (isAligned(point1, point2)) {
+        if (point1.top === point2.top && !total.top.includes(point1.top)) {
+            total.top.push(point1.top);
+        }
+        if (point1.left === point2.left && !total.left.includes(point1.left)) {
+            total.left.push(point1.left);
+        }
+    }
+}
+
+function createContructionLine(position, side, lines) {
+    if (!lines.some(line => line.style[side] === position + 'px')) {
+        const contructionLine = document.createElement("div");
+        contructionLine.classList.add("construction-line", side);
+        contructionLine.style[side] = position + "px";
+        preview.appendChild(contructionLine);
+    }
+}
+
+function displacementPossible(futurePos, elementSize, parentSize) {
+    return futurePos > 0 && futurePos + elementSize < parentSize
 }

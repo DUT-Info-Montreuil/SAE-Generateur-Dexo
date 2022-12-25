@@ -66,6 +66,27 @@ h1{
     width: 95%;
 }
 
+#input-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#title-label {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+#selected-item {
+    border: 1px solid blue;
+}
+
+#selected-nav-item {
+    border: 1px solid orange;
+}
+
 .img-input {
     width: 20px;
     height: 20px;
@@ -96,23 +117,16 @@ h1{
     cursor: move;
 }
 
-#input-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.construction-line {
+    box-sizing: border-box;
+    border: dashed 1px red;
+    position: absolute;
 }
 
-#title-label {
-    text-align: center;
-    flex-basis: 100%;
+.top {
+    width: 100%;
 }
 
-#selected-item {
-    border: 1px solid blue;
-}
-
-#selected-nav-item {
-    border: 1px solid orange;
+.left {
+    height: 100%;
 }
