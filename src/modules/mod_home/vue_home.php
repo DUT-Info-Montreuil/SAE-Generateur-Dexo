@@ -18,7 +18,7 @@ class VueHome extends GenericView
 
     public function displayExercices()
     { ?>
-        <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: block">
+        <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
             <p>Don't support object tag</p>
         </object>
     <?php }
