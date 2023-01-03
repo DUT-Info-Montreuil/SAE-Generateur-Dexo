@@ -89,9 +89,9 @@ preview.addEventListener("mouseup", () => {
         setTimeout(() => {
             draggedElement.classList.remove('preview-elements-moving');
             draggedElement = null;
+            posMouseDraggedElement = null;
+            clearConstructionsLines();
         }, 50);
-        posMouseDraggedElement = null;
-        clearConstructionsLines();
     }
 })
 
@@ -312,6 +312,8 @@ function updateA4(json) {
         tag.setAttribute("value", el.id);
         tag.textContent = el.content;
         preview.appendChild(tag);
+        // don't know why, but it won't work without a timeout ._.
+        setTimeout(()=> createOrReplaceConstructionLine(tag,el.id),0);
     })
 }
 
@@ -330,6 +332,7 @@ function clearPage() {
 
     clearPreview();
     clearOptionAside();
+    resetConstructionLines();
 }
 
 function elementIsAlignedWithAnotherElement(element) {
@@ -353,7 +356,6 @@ function createOrReplaceConstructionLine(element, elementId) {
     }
     constructionLine.p1 = getTopLeftObject(element);
     constructionLine.p2 = getTopLeftObject(element, elementRect);
-
 }
 
 function isAligned(p1, p2) {
@@ -398,6 +400,11 @@ function createConstructionLine(position, side, lines) {
         constructionLine.classList.add("construction-line", side);
         constructionLine.style[side] = position + "px";
         preview.appendChild(constructionLine);
+    }
+}
+function resetConstructionLines() {
+    while (allPossibleConstructionPos.length) {
+        allPossibleConstructionPos.pop();
     }
 }
 
