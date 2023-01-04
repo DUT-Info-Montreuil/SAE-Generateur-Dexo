@@ -170,7 +170,7 @@ class VueHome extends GenericView
             </section>
 
             <section class="contentAside">
-                <div>
+                <div id="root-categorie1">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Principe alphabétique</h2>
@@ -183,7 +183,7 @@ class VueHome extends GenericView
                     </div>
                 </div>
 
-                <div>
+                <div id="root-categorie2">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Conscience phonologique</h2>
@@ -196,7 +196,7 @@ class VueHome extends GenericView
                     </div>
                 </div>
 
-                <div>
+                <div id="root-categorie3">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Décodage</h2>
@@ -209,7 +209,7 @@ class VueHome extends GenericView
                     </div>
                 </div>
 
-                <div>
+                <div id="root-categorie4">
                     <button class="collapsible">
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                         <h2>Encodage</h2>
@@ -271,6 +271,7 @@ class VueHome extends GenericView
     { ?>
         <script type="text/javascript" src="./js/left_panel.js"></script>
         <script type="text/javascript" src="./js/right_panel.js"></script>
+        <script type="text/javascript" src="./js/append_ex_into_cat.js"></script>
         <script type="text/javascript" src="./js/vue_home.js"></script>
         <script type="text/javascript" src="./js/toggle-themes.js"></script>
         <script type="text/javascript" src="./js/account_menu.js"></script>
