@@ -1,3 +1,4 @@
+const A4 = document.getElementById('A4-exo-iframe');
 let movableElement = null;
 let clicked = false;
 

@@ -46,6 +46,7 @@ html {
 #html-A4 {
     background-color: var(--eerie-black);
     scrollbar-color: var(--grey) var(--eerie-black); /* firefox */
+    color: black;
 }
 
 /* edge, safari, chrome */
@@ -68,7 +69,6 @@ html {
 #aside-part {
     background-color: var(--eerie-black);
 }
-
 .account-menu {
     background-color: var(--grey);
 }
@@ -96,5 +96,5 @@ html {
 }
 
 .hideAside {
-    background-color: var(--grey);
+    background-color: var(--grey) !important;
 }

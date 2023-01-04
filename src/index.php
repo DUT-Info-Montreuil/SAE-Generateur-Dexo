@@ -41,7 +41,5 @@ $content = ($module !== "") ? $module->getDisplay() : "Module not found";
 </body>
 <footer>
     <script src="./js/global.js" type="text/javascript"></script>
-    <script src="./js/movable-elements.js" type="text/javascript"></script>
-    <script src="./js/draggable-elements.js" type="text/javascript"></script>
 </footer>
 </html>
