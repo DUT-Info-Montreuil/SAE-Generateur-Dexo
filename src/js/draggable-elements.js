@@ -3,7 +3,8 @@ const categories = document.getElementsByClassName('object-categories');
 let heightUsedByExercises = 3.5;
 let idExercise = 1;
 let draggedElement = null;
-
+let selectedExercise = undefined;
+let replacingExercise = undefined;
 
 waitAllCategories(categories);
 
@@ -54,6 +55,26 @@ A4.addEventListener("load", () => {
             }
         }
     });
+    A4.contentDocument.addEventListener("click", (ev) => {
+        selectedExercise = ev.composedPath().find(el => {
+            if (el.classList){
+                return el.classList.contains("global-container")
+            } return false;
+        });
+    });
+    A4.contentDocument.addEventListener("dblclick", (ev) => {
+        replacingExercise = ev.composedPath().find(el => {
+            if (el.classList){
+                return el.classList.contains("global-container")
+            } return false;
+        });
+        if (replacingExercise !== undefined) {
+            setupExerciseToEdit(replacingExercise.getAttribute("value"));
+            exercice.style.display = "block";
+        }
+    })
+    A4.contentDocument.addEventListener("keydown", removeExercise)
+    document.addEventListener("keydown", removeExercise)
 });
 
 exercice.addEventListener("load", () => {
@@ -72,8 +93,15 @@ exercice.addEventListener("load", () => {
             data: ({"json": exo})
         }).then(function (re) {
             if (re === "") {
-                addExerciceToPreview(exo);
-                exercice.style.display = "none";
+                if (replacingExercise !== undefined) {
+                    contentA4.insertBefore(getPreviewExercise(exo),replacingExercise);
+                    contentA4.removeChild(replacingExercise);
+                    replacingExercise = undefined;
+                    exercice.style.display = "none";
+                }else {
+                    contentA4.append(getPreviewExercise(exo));
+                    exercice.style.display = "none";
+                }
             }
         });
     });
@@ -126,36 +154,36 @@ function setupExerciseToEdit(res) {
     exercice.contentDocument.body.appendChild(tempScript);
 }
 
-function addExerciceToPreview(json) {
+function getPreviewExercise(json) {
     let container = document.createElement("div");
     let Rcontainer = document.createElement("div");
-    let preview = A4.contentDocument.getElementById('exercises');
     let idExoContainer = document.createElement("div");
     let number = document.createElement("p");
 
     let datas = JSON.parse(json);
 
-    number.textContent = idExercise;
+    if (replacingExercise === undefined) {
+        number.textContent = idExercise;
+        idExercise++;
+    } else {
+        number.textContent = replacingExercise.firstChild.firstChild.textContent;
+    }
     number.classList.add("id-exercise")
 
     idExoContainer.append(number);
     idExoContainer.classList.add("id-exercise-container");
 
     Rcontainer.style.height = datas.height;
-    Rcontainer.style.top = heightUsedByExercises + 'cm';
-    Rcontainer.style.border = 'dashed black 0.5px';
-    Rcontainer.classList.add("p-abs")
     Rcontainer.classList.add("global-container")
 
-    container.style.border = 'dashed black 0.5px';
     container.classList.add("exercise-container");
 
     Rcontainer.append(idExoContainer, container);
     heightUsedByExercises += parseInt(datas.height.split('cm'));
 
     addElements(container, datas.elements);
-    idExercise++;
-    preview.appendChild(Rcontainer);
+    Rcontainer.setAttribute("value",JSON.stringify(datas.elements));
+    return Rcontainer;
 }
 
 function addElements(container, elements) {
@@ -171,4 +199,20 @@ function addElements(container, elements) {
         tag.textContent = el.content;
         container.appendChild(tag);
     })
+}
+
+function removeExercise(event) {
+    if (selectedExercise !== undefined && event.key === "Delete") {
+        contentA4.removeChild(selectedExercise);
+        idExercise --;
+        resetIdExercises();
+    }
+}
+
+function resetIdExercises() {
+    let id = 1;
+    contentA4.querySelectorAll(".id-exercise-container").forEach(el => {
+        el.firstChild.textContent = id.toString();
+        id++;
+    });
 }
