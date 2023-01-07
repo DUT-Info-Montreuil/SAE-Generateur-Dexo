@@ -4,9 +4,14 @@ require_once "./generic_view.php";
 
 class VueHome extends GenericView
 {
-    public function __construct()
+    private $categories;
+
+
+    public function __construct($categories)
     {
         parent::__construct();
+        $this->categories = $categories;
+
         $this->displayHeader();
         $this->displayMain();
         $this->displayAccountMenu();
@@ -47,6 +52,30 @@ class VueHome extends GenericView
             <p>Don't support object tag</p>
         </object>
         <?php
+    }
+
+
+    public function generateCategories()
+    {
+        $categories_html = "";
+        foreach ($this->categories as $category) {
+            $categories_html = $categories_html."<div id=\"root-categorie".$category->id."\">";
+            $categories_html = $categories_html."<button class=\"collapsible\">";
+            $categories_html = $categories_html."<img class=\"Hide\" src=\"../res/img/hide.png\">";
+            $categories_html = $categories_html."<h2>".$category->nom."</h2>";
+            $categories_html = $categories_html."</button>";
+            $categories_html = $categories_html."<div class=\"content\">";
+
+            foreach ($category->exercises as $exercise) {
+                $categories_html = $categories_html."<div id=\"idexercise-".$exercise->id."\" class=\"categories draggable\" id-ex=\"".$exercise->id."\" draggable=\"true\">";
+                $categories_html = $categories_html."<h1>".$exercise->nom."</h1>";
+                $categories_html = $categories_html."</div>";
+            }
+
+            $categories_html = $categories_html."</div></div>";
+        }
+
+        return $categories_html;
     }
 
     /**
@@ -170,57 +199,7 @@ class VueHome extends GenericView
             </section>
 
             <section class="contentAside">
-                <div id="root-categorie1">
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Principe alphabétique</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie1" type="text/html"
-                                data="./html/categories/cat1.html">
-                            <p>Don't support object tag</p>
-                        </object>
-                    </div>
-                </div>
-
-                <div id="root-categorie2">
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Conscience phonologique</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie2" type="text/html"
-                                data="./html/categories/cat2.html">
-                            <p>Don't support object tag</p>
-                        </object>
-                    </div>
-                </div>
-
-                <div id="root-categorie3">
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Décodage</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie3" type="text/html"
-                                data="./html/categories/cat3.html">
-                            <p>Don't support object tag</p>
-                        </object>
-                    </div>
-                </div>
-
-                <div id="root-categorie4">
-                    <button class="collapsible">
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
-                        <h2>Encodage</h2>
-                    </button>
-                    <div class="content">
-                        <object class="object-categories" id="exos-categorie4" type="text/html"
-                                data="./html/categories/cat4.html">
-                            <p>Don't support object tag</p>
-                        </object>
-                    </div>
-                </div>
+                <?=$this->generateCategories()?>
             </section>
         </aside>
     <?php }
@@ -271,7 +250,6 @@ class VueHome extends GenericView
     { ?>
         <script type="text/javascript" src="./js/left_panel.js"></script>
         <script type="text/javascript" src="./js/right_panel.js"></script>
-        <script type="text/javascript" src="./js/append_ex_into_cat.js"></script>
         <script type="text/javascript" src="./js/vue_home.js"></script>
         <script type="text/javascript" src="./js/toggle-themes.js"></script>
         <script type="text/javascript" src="./js/account_menu.js"></script>
