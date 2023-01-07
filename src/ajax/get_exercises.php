@@ -4,7 +4,7 @@ require "../connexion.php";
 session_start();
 Connexion::set_up_connection("../../res/");
 
-$query = "SELECT idexercice, idcategorie, nom FROM exercices;";
+$query = "SELECT idexercice, nom FROM exercices WHERE idcategorie=".$_POST["id"].";";
 $prepare = Connexion::getBdd()->prepare($query);
 
 try {
@@ -15,9 +15,8 @@ try {
     $response = array();
     foreach ($result as $item) {
         $response[$i] = array(
-            "idexercice" => $item[0],
-            "idcategorie" => $item[1],
-            "nom" => $item[2]
+            "id" => $item[0],
+            "nom" => $item[1]
         );
         $i = $i + 1;
     }
