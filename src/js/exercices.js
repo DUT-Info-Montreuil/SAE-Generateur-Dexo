@@ -29,10 +29,7 @@ title.addEventListener('input', () => {
 })
 document.body.addEventListener('keydown', (ev) => {
     if (ev.key === "Delete" && selectedItem !== null) {
-        let id = selectedItem.getAttribute('value');
-        page.elements = page.elements.filter((el) => id !== el.id);
-        allPossibleConstructionPos.splice(allPossibleConstructionPos.indexOf(allPossibleConstructionPos.find(el => el.id === id)), 1);
-        preview.removeChild(selectedItem);
+        removeElement(selectedItem);
         selectedItem = null;
         clearOptionAside();
     }
@@ -75,7 +72,6 @@ preview.addEventListener("mousemove", (ev) => {
             } else if (Math.abs(mousePose.posY - posMouseDraggedElement.posY) >= TOLERANCE_CONSTRUCTION && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
                 draggedElement.style.top = convertPxToCm(mousePosRelativelyToPreviewY) + 'cm';
             }
-
             updateObject(draggedElement);
         } else if (displacementPossible(mousePosRelativelyToPreviewX, elementWidth, bound.width) && displacementPossible(mousePosRelativelyToPreviewY, elementHeight, bound.height)) {
             draggedElement.style.top = convertPxToCm(mousePosRelativelyToPreviewY) + 'cm';
@@ -100,7 +96,7 @@ preview.addEventListener('click', (ev) => {
     clearIdSelectedItem(selectedItem)
     let navElement = navItem !== null ? navItem.getAttribute('value') : null;
     if (ev.composedPath()[0] !== preview) {
-        selectedItem = ev.composedPath()[0];
+        setNewSelectedItem(ev.composedPath()[0]);
         displayOptions(selectedItem);
     } else if (draggedElement === null) {
         if (navElement != null) {
@@ -120,7 +116,8 @@ preview.addEventListener('click', (ev) => {
             preview.append(element);
             displayOptions(element);
             updateObject(element);
-            selectedItem = element;
+            checkLastSelectedItem();
+            setNewSelectedItem(element);
             id++;
         }
     }
@@ -418,4 +415,23 @@ function convertPxToCm(number) {
 
 function convertPxToPt(number) {
     return (3 * number) / 4;
+}
+
+function checkLastSelectedItem(element) {
+    if (element && element.textContent === "") {
+        removeElement(element);
+    }
+}
+
+function setNewSelectedItem(item) {
+    checkLastSelectedItem(selectedItem);
+    selectedItem = item;
+}
+
+function removeElement(element) {
+    let id = element.getAttribute('value');
+    page.elements = page.elements.filter((el) => id !== el.id);
+    allPossibleConstructionPos.splice(allPossibleConstructionPos.indexOf(allPossibleConstructionPos.find(el => el.id === id)), 1);
+    preview.removeChild(element);
+    jsonOutput.setAttribute('value', JSON.stringify(page));
 }
