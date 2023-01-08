@@ -36,7 +36,7 @@ A4.addEventListener("load", () => {
             } else if (draggedElement.tagName === Elements.IMG_TAG) {
                 const bound = contentA4.getBoundingClientRect();
 
-                const src = "../" + draggedElement.getAttribute("src");
+                const src = draggedElement.getAttribute("src");
                 const height = draggedElement.getAttribute("height");
                 const width = draggedElement.getAttribute("width")
                 let img = Elements.createImg(document, src, null, null, height, width, CSS.setPosition("absolute", (event.clientX - bound.left) + "px", (event.clientY - bound.top) + "px"));
