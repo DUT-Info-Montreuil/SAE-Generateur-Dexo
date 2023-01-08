@@ -116,7 +116,7 @@ preview.addEventListener('click', (ev) => {
             preview.append(element);
             displayOptions(element);
             updateObject(element);
-            checkLastSelectedItem();
+            checkLastSelectedItem(element);
             setNewSelectedItem(element);
             id++;
         }
