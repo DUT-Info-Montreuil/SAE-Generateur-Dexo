@@ -9,8 +9,9 @@ class ContHome
 
     public function __construct()
     {
-        $this->vue = new VueHome();
         $this->model = new ModelHome();
+        $categories = $this->model->fetchCategories();
+        $this->vue = new VueHome($categories);
     }
 
     public function displayMod()
