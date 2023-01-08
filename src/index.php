@@ -1,6 +1,7 @@
 <?php
 ini_set("display_errors", 1);
 
+require_once "./modules/mod_admin_panel/mod_admin_panel.php";
 require_once "./modules/mod_user/mod_user.php";
 require_once "./modules/mod_home/mod_home.php";
 require_once "./connexion.php";
@@ -17,6 +18,9 @@ switch ($_GET["module"]) {
         break;
     case "home":
         $module = new ModHome();
+        break;
+    case "admin_panel":
+        $module = new ModAdminPanel();
         break;
     default:
         break;

@@ -11,7 +11,8 @@ class ContHome
     {
         $this->model = new ModelHome();
         $categories = $this->model->fetchCategories();
-        $this->vue = new VueHome($categories);
+        $images = $this->model->fetchImages();
+        $this->vue = new VueHome($categories, $images);
     }
 
     public function displayMod()

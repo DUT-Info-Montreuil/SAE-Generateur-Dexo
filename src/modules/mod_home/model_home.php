@@ -2,9 +2,27 @@
 require_once "./connexion.php";
 require_once "./categorie.php";
 require_once "./exercise.php";
+require_once "./image.php";
 
 class ModelHome extends Connexion
 {
+    public function fetchImages()
+    {
+        $query = "SELECT * FROM photo";
+        $list_images = array();
+        $prepare = $this::$bdd->prepare($query);
+
+        try {
+            $prepare->execute();
+            $result = $prepare->fetchAll();
+
+            foreach ($result as $item)
+                $list_images[] = new Image($item["idphoto"], $item["idcompte"], $item["nom"], $item["partager"], stream_get_contents($item["bin"]));
+        } catch (Exception $e) {}
+
+        return $list_images;
+    }
+
     public function fetchCategories()
     {
         $query = "SELECT * FROM categorie";

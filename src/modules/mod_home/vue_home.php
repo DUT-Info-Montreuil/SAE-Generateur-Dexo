@@ -5,12 +5,14 @@ require_once "./generic_view.php";
 class VueHome extends GenericView
 {
     private $categories;
+    private $images;
 
 
-    public function __construct($categories)
+    public function __construct($categories, $images)
     {
         parent::__construct();
         $this->categories = $categories;
+        $this->images = $images;
 
         $this->displayHeader();
         $this->displayMain();
@@ -78,6 +80,15 @@ class VueHome extends GenericView
         return $categories_html;
     }
 
+    public function generatePicturesBank()
+    {
+        $picture_bank_html = "";
+        foreach ($this->images as $image)
+            $picture_bank_html = $picture_bank_html."<img src=\"".$image->bin."\" class=\"draggable\" draggable=\"true\" height=\"30\" alt=\"".$image->name."\">";
+
+        return $picture_bank_html;
+    }
+
     /**
      * Display images available on the website
      * @return void
@@ -132,10 +143,7 @@ class VueHome extends GenericView
                     <label id="labelImg" for="menuImg"><img src="../res/img/upload.png"></label>
                     <input id="menuImg" style="display : none" type="button">
                     <div class="content">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
+                        <?=$this->generatePicturesBank()?>
                     </div>
                 </div>
 
