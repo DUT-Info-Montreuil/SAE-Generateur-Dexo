@@ -10,7 +10,7 @@ class ModelAdminPanel extends Connexion
         $prepare = parent::$bdd->prepare($query);
 
         try {
-            $prepare->execute([$idcompte, $nom, $partager, pg_escape_bytea(file_get_contents($bin))]);
+            $prepare->execute([$idcompte, $nom, $partager, pg_escape_bytea(base64_encode(file_get_contents($bin)))]);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
