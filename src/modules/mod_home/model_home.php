@@ -17,7 +17,7 @@ class ModelHome extends Connexion
             $result = $prepare->fetchAll();
 
             foreach ($result as $item)
-                $list_images[] = new Image($item["idphoto"], $item["idcompte"], $item["nom"], $item["partager"], stream_get_contents($item["bin"]));
+                $list_images[] = new Image($item["idphoto"], $item["idcompte"], $item["nom"], $item["partager"], pg_unescape_bytea(stream_get_contents($item["bin"])));
         } catch (Exception $e) {}
 
         return $list_images;

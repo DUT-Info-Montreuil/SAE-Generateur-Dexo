@@ -83,9 +83,9 @@ class VueHome extends GenericView
     public function generatePicturesBank()
     {
         $picture_bank_html = "";
-        foreach ($this->images as $image)
-            $picture_bank_html = $picture_bank_html."<img src=\"".$image->bin."\" class=\"draggable\" draggable=\"true\" height=\"30\" alt=\"".$image->name."\">";
-
+        foreach ($this->images as $image){
+            $picture_bank_html = $picture_bank_html.'<img src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
+        }
         return $picture_bank_html;
     }
 
