@@ -42,8 +42,8 @@ $content = ($module !== "") ? $module->getDisplay() : "Module not found";
 </head>
 <body>
 <?=$content?>
-</body>
 <footer>
     <script src="./js/global.js" type="text/javascript"></script>
 </footer>
+</body>
 </html>
