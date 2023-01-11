@@ -1,17 +1,9 @@
 const fileTypes = [
-    "image/apng",
-    "image/bmp",
-    "image/gif",
     "image/jpeg",
-    "image/pjpeg",
+    "image/jpg",
     "image/png",
-    "image/svg+xml",
-    "image/tiff",
-    "image/webp",
-    "image/x-icon"
 ];
 const urlTypes = [
-    /.gif/,
     /.jpeg/,
     /.jpg/,
     /.png/,
@@ -83,7 +75,6 @@ function isImage(url) {
 }
 
 function ajoutPreview(image) {
-
     const div = document.createElement('div');
     image.className = 'image_Upload';
     div.appendChild(image);
@@ -137,31 +128,23 @@ const uploadImage = addImageMenu.querySelector('#uploadImage');
 uploadImage.addEventListener('click', uploadFile);
 
 function uploadFile() {
-    let image_to_upload = new Array();
-    for (let i = 0; i < preview.children.length; i++) {
+    let image_to_upload = [];
+    for (let i = 0; i < preview.children.length; i++)
         image_to_upload.push(getImageJson(preview.children[i]));
-    }
 
-    var jsonString = JSON.stringify(image_to_upload);
     $.ajax({
         type: "POST",
         url: '../ajax/send_image.php',
-        data: ({"image_Json": jsonString})
+        data: ({"image_Json": JSON.stringify(image_to_upload)})
     }).then(function (re) {
         console.log(re);
     })
 }
 
 function getBase64Image(img) {
-    if (!img.src.includes('blob:http://localhost/')) {
-        return img.src;
-    }
     const canvas = document.createElement("CANVAS");
-    canvas.width = img.width;
-    canvas.height = img.height;
     canvas.getContext("2d").drawImage(img, 0, 0);
-    let extension = 'image/' + img.src.split('.').at(-1);
-    return canvas.toDataURL(extension);
+    return canvas.toDataURL();
 }
 
 function getImageJson(div) {
