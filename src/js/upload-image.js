@@ -74,7 +74,7 @@ function addPreview(img)
     const div = document.createElement("div");
     img.className = "image_Upload";
     div.appendChild(img);
-    div.appendChild(constructDescription());
+    div.appendChild(buildDescription());
     // Construct a cross image use for remove element
     const removeBtn = document.createElement("img");
     removeBtn.src = "https://cdn-icons-png.flaticon.com/512/59/59836.png";
@@ -130,6 +130,8 @@ function uploadFile()
 
 function getBase64Image(img) {
     const canvas = document.createElement("CANVAS");
+    canvas.setAttribute("height", img.naturalHeight);
+    canvas.setAttribute("width", img.naturalWidth);
     canvas.getContext("2d").drawImage(img, 0, 0);
     return canvas.toDataURL();
 }
@@ -143,7 +145,7 @@ function getImageJson(div)
     };
 }
 
-function constructDescription()
+function buildDescription()
 {
     const span = document.createElement("span");
     const name = document.createElement("input");

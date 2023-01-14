@@ -269,6 +269,5 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
         <script type="text/javascript" src="./js/movable-elements.js"></script>
         <script type="text/javascript" src="./js/draggable-elements.js"></script>
-        <script type="text/javascript" src="./js/upload-Image.js"></script>
     <?php }
 }
