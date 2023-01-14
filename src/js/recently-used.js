@@ -7,8 +7,6 @@ const imagesRecentlyUsedContainer = document.getElementById("images-recently-use
 const exercisesRecentlyUsedContainer = document.getElementById("exercises-recently-used-content");
 
 
-function isExercises(elementDropped) { return elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories"); }
-function isImages(elementDropped) { return elementDropped.tagName === Elements.IMG_TAG; }
 
 function writeRecentlyUsed(elementDropped, listOfElements, container)
 {
@@ -25,11 +23,11 @@ function writeRecentlyUsed(elementDropped, listOfElements, container)
 
 function checkDuplicate(elementDropped, listOfElements)
 {
-    if (isImages(elementDropped)) {
+    if (Elements.isImages(elementDropped)) {
         for (const el of listOfElements)
             if (elementDropped.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString())
                 return true;
-    } else if (isExercises(elementDropped)) {
+    } else if (Elements.isExercises(elementDropped)) {
         for (const el of listOfElements)
             if (elementDropped.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString())
                 return true;
@@ -40,10 +38,10 @@ function checkDuplicate(elementDropped, listOfElements)
 
 A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("drop", () => {
-        if (isImages(draggedElement)) {
+        if (Elements.isImages(draggedElement)) {
             if (!checkDuplicate(draggedElement, imagesRecentlyUsed))
                 writeRecentlyUsed(draggedElement, imagesRecentlyUsed, imagesRecentlyUsedContainer);
-        } else if (isExercises(draggedElement)) {
+        } else if (Elements.isExercises(draggedElement)) {
             if (!checkDuplicate(draggedElement, exercisesRecentlyUsed))
                 writeRecentlyUsed(draggedElement, exercisesRecentlyUsed, exercisesRecentlyUsedContainer);
         }

@@ -30,6 +30,9 @@ class Elements {
     static IMG_ID_ATTRIBUTE = "img-id";
     static EXERCISE_ID_ATTRIBUTE = "id-ex";
 
+    
+    static isExercises(elementDropped) { return elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories"); }
+    static isImages(elementDropped) { return elementDropped.tagName === Elements.IMG_TAG; }
 
     static setIdAndClassesAttribute(tag, id=null, classes=null) {
         if (id !== null) tag.setAttribute("id", id);
