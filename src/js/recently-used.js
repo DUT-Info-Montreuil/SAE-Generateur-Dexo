@@ -27,11 +27,11 @@ function checkDuplicate(elementDropped, listOfElements)
 {
     if (isImages(elementDropped)) {
         for (const el of listOfElements)
-            if (el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString())
+            if (elementDropped.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString())
                 return true;
     } else if (isExercises(elementDropped)) {
         for (const el of listOfElements)
-            if (el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString())
+            if (elementDropped.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString())
                 return true;
     }
     return false;
