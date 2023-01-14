@@ -402,3 +402,7 @@ aside {
     right: 0;
     top: 0;
 }
+
+#admin-panel-button {
+    padding: 0 2px;
+}

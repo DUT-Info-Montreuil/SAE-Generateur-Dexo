@@ -42,10 +42,12 @@ class VueAdminPanel extends GenericView
                 ?>
                 <tr>
                     <?php
-                    foreach ($row as $value) {
-                        ?>
+                    foreach ($row as $key => $value) {
+                        if ($key !== 'bin') {?>
                         <td><?= $value ?></td>
-                        <?php
+                        <?php } else { ?>
+                            <td><?= $this->getImage($value) ?></td>
+                        <?php }
                     }
                     ?>
                 <td><?php $this->getDelete($row['id'], $mode) ?></td></tr>
@@ -76,5 +78,10 @@ class VueAdminPanel extends GenericView
         ?>
         <script type="text/javascript" src="./js/admin.js"></script>
         <?php
+    }
+
+    private function getImage($value)
+    {
+        return '<img src="data:image;base64,'.pg_unescape_bytea(stream_get_contents($value)).'" class="draggable" draggable="true" height="30"';
     }
 }

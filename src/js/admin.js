@@ -6,9 +6,14 @@ deleteButtons.forEach(deleteButton => {
             $.ajax({
                 type: "POST",
                 url: './ajax/delete_element.php',
-                data: ({"id": value[0], "mode": value[1]})
-            }).then(function (res) {
-                console.log(res);
+                data: ({"id": value[0], "mode": value[1]}),
+                success: (res) => {
+                    console.log(res);
+                    deleteButton.parentNode.parentNode.remove();
+                },
+                error: (res) => {
+                    popin("Une erreur est survenue, veuillez acualiser la page");
+                }
             });
         }
     });
