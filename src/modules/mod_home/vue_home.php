@@ -69,7 +69,7 @@ class VueHome extends GenericView
             $categories_html = $categories_html."<div class=\"content\">";
 
             foreach ($category->exercises as $exercise) {
-                $categories_html = $categories_html."<div id=\"idexercise-".$exercise->id."\" class=\"categories draggable\" id-ex=\"".$exercise->id."\" draggable=\"true\">";
+                $categories_html = $categories_html."<div id=\"idexercise-".$exercise->id."\" class=\"categories draggable\" id-ex=\"".$exercise->id."\" draggable=\"true\" alt=\"".$exercise->nom."\">";
                 $categories_html = $categories_html."<h1>".$exercise->nom."</h1>";
                 $categories_html = $categories_html."</div>";
             }
@@ -83,8 +83,8 @@ class VueHome extends GenericView
     public function generatePicturesBank()
     {
         $picture_bank_html = "";
-        foreach ($this->images as $image){
-            $picture_bank_html = $picture_bank_html.'<img src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
+        foreach ($this->images as $image) {
+            $picture_bank_html = $picture_bank_html."<img src=\"data:image;base64,".$image->bin."\" alt=\"".$image->name."\" class=\"draggable\" draggable=\"true\" height=\"30\">";
         }
         return $picture_bank_html;
     }
@@ -196,13 +196,16 @@ class VueHome extends GenericView
                 <h1>EXERCICES</h1>
 
                 <div class="search-Part">
-                    <label for="exercice-search"></label>
-                    <input type="search" id="site-search" name="searchBar">
+                    <input id="exercises-input-search-bar" placeholder="Rechercher votre exercice" type="search"/>
                     <button>
                         <img class="loupeImg" src="../res/img/loupe.png">
                     </button>
                 </div>
             </section>
+
+            <div>
+                <div id="exercises-search-container" class="content" style="max-height: initial;"></div>
+            </div>
 
             <section class="contentAside">
                 <?=$this->generateCategories()?>
