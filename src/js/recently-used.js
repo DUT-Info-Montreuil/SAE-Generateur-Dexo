@@ -7,32 +7,31 @@ const imagesRecentlyUsedContainer = document.getElementById("images-recently-use
 const exercisesRecentlyUsedContainer = document.getElementById("exercises-recently-used-content");
 
 
-function isExercises(elementDropped) { return elementDropped.tagName === "DIV" && elementDropped.getAttribute("class").includes("categories"); }
-function isImages(elementDropped) { return elementDropped.tagName === "IMG"; }
+function isExercises(elementDropped) { return elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories"); }
+function isImages(elementDropped) { return elementDropped.tagName === Elements.IMG_TAG; }
 
 function writeRecentlyUsed(elementDropped, listOfElements, container)
 {
-    let cloneElementDropped = elementDropped.cloneNode(true);
-    cloneElementDropped.addEventListener('dragstart', (ev) => draggedElement = ev.target);
-    cloneElementDropped.addEventListener('dragend', () => draggedElement = null);
+    const cloneElementDropped = elementDropped.cloneNode(true);
+    cloneElementDropped.addEventListener("dragstart", (ev) => draggedElement = ev.target);
+    cloneElementDropped.addEventListener("dragend", () => draggedElement = null);
+
     listOfElements.splice(0, 0, cloneElementDropped);
     if (listOfElements.length > LIMIT_ELEMENT) listOfElements.pop(listOfElements[listOfElements.length-1]);
 
-    for (const child of container.children)
-        container.removeChild(child);
-    for (const img of listOfElements)
-        container.appendChild(img);
+    for (const child of container.children) container.removeChild(child);
+    for (const img of listOfElements) container.appendChild(img);
 }
 
 function checkDuplicate(elementDropped, listOfElements)
 {
     if (isImages(elementDropped)) {
         for (const el of listOfElements)
-            if (el.getAttribute("img-id").toString() === el.getAttribute("img-id").toString())
+            if (el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.IMG_ID_ATTRIBUTE).toString())
                 return true;
     } else if (isExercises(elementDropped)) {
         for (const el of listOfElements)
-            if (el.getAttribute("id-ex").toString() === el.getAttribute("id-ex").toString())
+            if (el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString() === el.getAttribute(Elements.EXERCISE_ID_ATTRIBUTE).toString())
                 return true;
     }
     return false;
@@ -41,11 +40,12 @@ function checkDuplicate(elementDropped, listOfElements)
 
 A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("drop", () => {
-        if (isImages(draggedElement))
+        if (isImages(draggedElement)) {
             if (!checkDuplicate(draggedElement, imagesRecentlyUsed))
                 writeRecentlyUsed(draggedElement, imagesRecentlyUsed, imagesRecentlyUsedContainer);
-        else if (isExercises(draggedElement))
+        } else if (isExercises(draggedElement)) {
             if (!checkDuplicate(draggedElement, exercisesRecentlyUsed))
                 writeRecentlyUsed(draggedElement, exercisesRecentlyUsed, exercisesRecentlyUsedContainer);
+        }
     });
 });
