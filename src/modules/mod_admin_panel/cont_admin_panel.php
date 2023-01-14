@@ -17,4 +17,22 @@ class ContAdminPanel
     {
         return $this->vue->getDisplay();
     }
+
+    public function getAdminPannel($mode)
+    {
+        $datas = null;
+        switch ($mode) {
+            case 0:
+                $datas = $this->model->getAccounts();
+                break;
+            /*case 1:
+                $datas = $this->model->get();
+                break;*/
+            default:
+                $datas = $this->model->getImages();
+                break;
+        }
+        $this->vue->displayAdminPannel($datas,$mode);
+        $this->vue->getScripts();
+    }
 }

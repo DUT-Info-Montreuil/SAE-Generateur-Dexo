@@ -15,4 +15,28 @@ class ModelAdminPanel extends Connexion
             echo $e->getMessage();
         }
     }
+
+    public function getAccounts()
+    {
+        $query = "SELECT idcompte as id, nom, prenom, login, email FROM public.compte WHERE idrole = 2";
+        $prepare = parent::$bdd->prepare($query);
+        $prepare->execute();
+        return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /*public function getExercises()
+    {
+        $query = "SELECT idexercice as id,exercices.nom , login, compte.nom, prenom, (SELECT 2) as mode FROM public.exercices inner join public.compte on (exercices.idcompte = compte.idcompte)";
+        $prepare = parent::$bdd->prepare($query);
+        $prepare->execute();
+        return $prepare->fetchAll();
+    }*/
+
+    public function getImages()
+    {
+        $query = "SELECT idexercice as id,exercices.nom , login, compte.nom, prenom FROM public.exercices inner join public.compte on (exercices.idcompte = compte.idcompte)";
+        $prepare = parent::$bdd->prepare($query);
+        $prepare->execute();
+        return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

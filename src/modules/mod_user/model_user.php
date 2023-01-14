@@ -16,8 +16,7 @@ class ModelUser extends Connexion
         $login_info = $prep->fetch();
         if (isset($login_info["password"]) && password_verify($pass, $login_info["password"])) {
             $_SESSION["id"] = $login_info["idcompte"];
-            $_SESSION["nom"] = $login_info["nom"];
-            $_SESSION["prenom"] = $login_info["prenom"];
+            $_SESSION['role'] = $login_info['idrole'];
             return true;
         }
 
