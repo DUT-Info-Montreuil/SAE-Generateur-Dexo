@@ -60,7 +60,7 @@ class VueHome extends GenericView
     {
         $picture_bank_html = "";
         $img_id = 0;
-        foreach ($this->images as $image) {
+        foreach ($this->bank_pictures as $image) {
             $picture_bank_html = $picture_bank_html.'<img img-id="'.$img_id.'" src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
             $img_id = $img_id + 1;
         }
