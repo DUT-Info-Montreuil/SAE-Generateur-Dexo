@@ -5,7 +5,7 @@ require_once "./modules/mod_home/model_home.php";
 class ContHome
 {
     private $vue;
-    public $model;
+    private $model;
 
     public function __construct()
     {
