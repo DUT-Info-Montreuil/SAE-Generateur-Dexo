@@ -3,17 +3,17 @@ require_once "./modules/mod_home/cont_home.php";
 
 class ModHome
 {
-    private $controler;
+    private $controller;
 
 
     public function __construct()
     {
-        $this->controler = new ContHome();
+        $this->controller = new ContHome();
     }
 
 
     public function getDisplay()
     {
-        return $this->controler->displayMod();
+        return $this->controller->displayMod();
     }
 }

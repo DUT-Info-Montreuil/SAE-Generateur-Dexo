@@ -48,6 +48,17 @@ h2 {
 
 #account-part {
     display: none;
+    height: 100%;
+}
+
+#license-part {
+    display: none;
+    height: 100%;
+}
+
+#credit-part {
+    display: none;
+    height: 100%;
 }
 
 #settings-container {

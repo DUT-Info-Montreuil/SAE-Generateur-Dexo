@@ -1,0 +1,69 @@
+#pop-in-info-div {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    position: relative;
+    top: 50px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #dddddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.delete-button span {
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    transform: scale(1.2);
+    background-color: #8B0000;
+}
+
+.pop-in-element {
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+    background: red;
+    text-align: center;
+}
+
+body {
+    display: block;
+    overflow: scroll;
+}

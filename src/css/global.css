@@ -7,6 +7,12 @@
     }
 }
 
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 * {
     margin: 0;
@@ -44,6 +50,11 @@ header {
     left: 0;
 }
 
+header > a {
+    text-decoration: none;
+    color: black;
+}
+
 .pop-in-disappear {
     animation-delay: 3000ms;
     animation-duration: 5000ms;
@@ -68,7 +79,22 @@ header {
     width: 100%;
 }
 
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 #input-size {
+}
+
+#loader {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
 }
 
 .p-abs {
