@@ -24,14 +24,6 @@ class ModelAdminPanel extends Connexion
         return $prepare->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /*public function getExercises()
-    {
-        $query = "SELECT idexercice as id,exercices.nom , login, compte.nom, prenom, (SELECT 2) as mode FROM public.exercices inner join public.compte on (exercices.idcompte = compte.idcompte)";
-        $prepare = parent::$bdd->prepare($query);
-        $prepare->execute();
-        return $prepare->fetchAll();
-    }*/
-
     public function getImages()
     {
         $query = "SELECT idphoto as id, photo.nom as nomPhoto, login, compte.nom, prenom , bin from public.photo inner join public.compte on (photo.idcompte = compte.idcompte)";
