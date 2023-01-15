@@ -45,6 +45,18 @@ async function resetPassword()
     }
 }
 
+async function changePersonalInformation()
+{
+    const familyNameInput = settings.contentDocument.getElementById("family-name-input");
+    const nameInput = settings.contentDocument.getElementById("name-input");
+    const loginInput = settings.contentDocument.getElementById("login-input");
+    const emailInput = settings.contentDocument.getElementById("email-input");
+
+    if (familyNameInput.value.length > 0 || nameInput.value.length > 0 || loginInput.value.length > 0 || emailInput.value.length > 0) {
+
+    }
+}
+
 
 settings.addEventListener("load", () => {
     const cancelButton = settings.contentDocument.getElementsByClassName("cancel-button");
@@ -53,6 +65,7 @@ settings.addEventListener("load", () => {
     const licenseButton = settings.contentDocument.getElementById("license-button");
     const creditButton = settings.contentDocument.getElementById("credit-button");
     const validatePasswordButton = settings.contentDocument.getElementById("edit-password-button");
+    const validatePersonalInfoButton = settings.contentDocument.getElementById("edit-personal-info-button");
 
     const contentDisplay = settings.contentDocument.getElementById("display-part");
     const contentAccount = settings.contentDocument.getElementById("account-part");
@@ -71,4 +84,5 @@ settings.addEventListener("load", () => {
     creditButton.addEventListener("click", () => showOption(contentCredit, contentDisplay, contentAccount, contentLicense));
 
     validatePasswordButton.addEventListener("click", resetPassword);
+    validatePersonalInfoButton.addEventListener("click", changePersonalInformation);
 });
