@@ -126,7 +126,7 @@ class VueHome extends GenericView
             <section class="contentAside">
                 <div>
                     <button class="collapsible">
-                        <h2>Images utilisé recement</h2>
+                        <h2>Images utilisées récemment</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
                     <div class="content" id="images-recently-used-content"></div>
