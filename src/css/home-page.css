@@ -324,7 +324,7 @@ aside {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 3px;
+    gap: 5px;
 
     margin-top: 5px;
     max-height: 0;
