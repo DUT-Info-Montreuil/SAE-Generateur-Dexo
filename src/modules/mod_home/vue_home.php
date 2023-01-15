@@ -272,9 +272,6 @@ class VueHome extends GenericView
         <div id="pop-in-info-div"></div>
     <?php }
 
-    /**
-     * @return void
-     */
     private function putScripts()
     { ?>
         <script type="text/javascript" src="./js/left_panel.js"></script>
@@ -288,5 +285,6 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/draggable-elements.js"></script>
         <script type="text/javascript" src="./js/search-bar.js"></script>
         <script type="text/javascript" src="./js/recently-used.js"></script>
+        <script type="text/javascript" src="./js/personal-images.js"></script>
     <?php }
 }
