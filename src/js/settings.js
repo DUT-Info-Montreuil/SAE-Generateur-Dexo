@@ -1,6 +1,12 @@
 const settings = document.getElementById("settings-iframe");
 
 
+function showOption(targetShow, ...hiddenElements) {
+    targetShow.style.display = "block";
+    for (const el of hiddenElements)
+        el.style.display = "none";
+}
+
 settings.addEventListener("load", () => {
     const cancelButton = settings.contentDocument.getElementsByClassName("cancel-button");
     const displayButton = settings.contentDocument.getElementById("display-button");
@@ -13,37 +19,14 @@ settings.addEventListener("load", () => {
     const contentLicense = settings.contentDocument.getElementById("license-part");
     const contentCredit = settings.contentDocument.getElementById("credit-part");
 
-    for (let butt of cancelButton)
+    for (const butt of cancelButton)
         butt.addEventListener("click", () => {
             settings.style.display = "none";
             showSettingMenu = false;
         });
 
-    displayButton.addEventListener("click", () => {
-        contentDisplay.style.display = "block";
-        contentAccount.style.display = "none";
-        contentLicense.style.display = "none";
-        contentCredit.style.display = "none";
-    });
-
-    accountButton.addEventListener("click", () => {
-        contentDisplay.style.display = "none";
-        contentAccount.style.display = "block";
-        contentLicense.style.display = "none";
-        contentCredit.style.display = "none";
-    });
-
-    licenseButton.addEventListener("click", () => {
-        contentDisplay.style.display = "none";
-        contentAccount.style.display = "none";
-        contentLicense.style.display = "block";
-        contentCredit.style.display = "none";
-    });
-
-    creditButton.addEventListener("click", () => {
-        contentDisplay.style.display = "none";
-        contentAccount.style.display = "none";
-        contentLicense.style.display = "none";
-        contentCredit.style.display = "block";
-    });
+    displayButton.addEventListener("click", () => showOption(contentDisplay, contentAccount, contentLicense, contentCredit));
+    accountButton.addEventListener("click", () => showOption(contentAccount, contentDisplay, contentLicense, contentCredit));
+    licenseButton.addEventListener("click", () => showOption(contentLicense, contentDisplay, contentAccount, contentCredit));
+    creditButton.addEventListener("click", () => showOption(contentCredit, contentDisplay, contentAccount, contentLicense));
 });
