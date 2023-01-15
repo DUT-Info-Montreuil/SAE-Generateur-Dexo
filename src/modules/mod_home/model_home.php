@@ -6,12 +6,14 @@ require_once "./image.php";
 
 class ModelHome extends Connexion
 {
-    public function fetchImages()
+    public function fetchImages($idcompte = null, $shared = null)
     {
-        $query = "SELECT * FROM photo";
+        if ($idcompte == null || $shared == null)
+            $query = "SELECT * FROM photo";
+        else $query = "SELECT * FROM photo WHERE partager=0 AND idcompte=".$idcompte;
         $list_images = array();
-        $prepare = $this::$bdd->prepare($query);
 
+        $prepare = $this::$bdd->prepare($query);
         try {
             $prepare->execute();
             $result = $prepare->fetchAll();
@@ -42,7 +44,7 @@ class ModelHome extends Connexion
 
     public function fetchExercises($idcategorie)
     {
-        $query = "SELECT idexercice, nom FROM exercices WHERE idcategorie=".$idcategorie;
+        $query = "SELECT idexercice, nom FROM exercices WHERE idcategorie=" . $idcategorie;
         $list_exercises = array();
         $prepare = $this::$bdd->prepare($query);
 

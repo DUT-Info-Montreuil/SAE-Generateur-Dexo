@@ -5,14 +5,16 @@ require_once "./generic_view.php";
 class VueHome extends GenericView
 {
     private $categories;
-    private $images;
+    private $bank_pictures;
+    private $my_pictures;
 
 
-    public function __construct($categories, $images)
+    public function __construct($categories, $pictures_bank, $my_pictures)
     {
         parent::__construct();
         $this->categories = $categories;
-        $this->images = $images;
+        $this->bank_pictures = $pictures_bank;
+        $this->my_pictures = $my_pictures;
 
         $this->displayHeader();
         $this->displayMain();
@@ -23,39 +25,13 @@ class VueHome extends GenericView
         $this->putScripts();
     }
 
-    public function displayExercices()
-    { ?>
-        <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
-            <p>Don't support object tag</p>
-        </object>
-    <?php }
-
-    public function displayHeader()
-    { ?>
-        <header id="header-index">
-            <h1>Historique</h1>
-            <h1>SAE | Générateur d'exercices !</h1>
-            <div><img id="account-button" src="../res/profile-user.png" alt="profile-user"/></div>
-        </header>
-    <?php }
-
     public function displayMain()
     {
         $this->displayAsideLeft();
         $this->displayA4Exo();
         $this->displayAsideRight();
-        $this->displayImagUploadMenu();
+        $this->displayImageUploadMenu();
     }
-
-    public function displayImagUploadMenu()
-    {
-        ?>
-        <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
-            <p>Don't support object tag</p>
-        </object>
-        <?php
-    }
-
 
     public function generateCategories()
     {
@@ -90,6 +66,41 @@ class VueHome extends GenericView
         }
         return $picture_bank_html;
     }
+
+    public function generateMyPictures()
+    {
+        $my_pictures_html = "";
+        if(isset($_SESSION["id"])) {
+            foreach ($this->my_pictures as $image)
+                $my_pictures_html = $my_pictures_html.'<img src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
+        } else $my_pictures_html = $my_pictures_html."<p>Vous devez vous connectez pour pouvoir avoir vos images</p>";
+
+        return $my_pictures_html;
+    }
+
+
+    public function displayExercices()
+    { ?>
+        <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
+            <p>Don't support object tag</p>
+        </object>
+    <?php }
+
+    public function displayHeader()
+    { ?>
+        <header id="header-index">
+            <h1>Historique</h1>
+            <h1>SAE | Générateur d'exercices !</h1>
+            <div><img id="account-button" src="../res/profile-user.png" alt="profile-user"/></div>
+        </header>
+    <?php }
+
+    public function displayImageUploadMenu()
+    { ?>
+    <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
+        <p>Don't support object tag</p>
+    </object>
+    <?php }
 
     /**
      * Display images available on the website
@@ -138,10 +149,11 @@ class VueHome extends GenericView
                 <div>
                     <button class="collapsible">
                         <h2>Banque de photos</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <img class="Hide" src="../res/img/hide.png">
                     </button>
                     <label id="labelImg" for="menuImg"><img src="../res/img/upload.png"></label>
                     <input id="menuImg" style="display : none" type="button">
+                    
                     <div id="bank-pictures-container" class="content">
                         <?=$this->generatePicturesBank()?>
                     </div>
@@ -150,9 +162,9 @@ class VueHome extends GenericView
                 <div>
                     <button class="collapsible">
                         <h2>Mes Photos</h2>
-                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <img class="Hide" src="../res/img/hide.png">
                     </button>
-                    <div id="personal-pictures-container" class="content"></div>
+                    <div id="personal-pictures-container" class="content"><?=$this->generateMyPictures()?></div>
                 </div>
             </section>
         </aside>
@@ -275,5 +287,3 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/recently-used.js"></script>
     <?php }
 }
-
-?>
