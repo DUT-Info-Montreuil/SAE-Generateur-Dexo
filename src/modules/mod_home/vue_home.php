@@ -45,7 +45,7 @@ class VueHome extends GenericView
             $categories_html = $categories_html."<div class=\"content\">";
 
             foreach ($category->exercises as $exercise) {
-                $categories_html = $categories_html."<div id=\"idexercise-".$exercise->id."\" class=\"categories draggable\" id-ex=\"".$exercise->id."\" draggable=\"true\">";
+                $categories_html = $categories_html."<div id=\"idexercise-".$exercise->id."\" class=\"categories draggable\" id-ex=\"".$exercise->id."\" draggable=\"true\" alt=\"".$exercise->nom."\">";
                 $categories_html = $categories_html."<h1>".$exercise->nom."</h1>";
                 $categories_html = $categories_html."</div>";
             }
@@ -126,8 +126,7 @@ class VueHome extends GenericView
             <section class="titleAside">
                 <h1>GALERIES</h1>
                 <div class="search-Part">
-                    <label for="exercice-search"></label>
-                    <input type="search" id="site-search" name="searchBar">
+                    <input id="images-input-search-bar" type="search" placeholder="Rechercher votre images"/>
                     <button>
                         <img class="loupeImg" src="../res/img/loupe.png">
                     </button>
@@ -135,6 +134,10 @@ class VueHome extends GenericView
             </section>
 
             <section class="contentAside">
+                <div>
+                    <div id="images-search-container" class="content" style="max-height: initial;"></div>
+                </div>
+
                 <div>
                     <button class="collapsible">
                         <h2>Images utilisées récemment</h2>
@@ -150,7 +153,10 @@ class VueHome extends GenericView
                     </button>
                     <label id="labelImg" for="menuImg"><img src="../res/img/upload.png"></label>
                     <input id="menuImg" style="display : none" type="button">
-                    <div class="content"><?=$this->generatePicturesBank()?></div>
+                    
+                    <div id="bank-pictures-container" class="content">
+                        <?=$this->generatePicturesBank()?>
+                    </div>
                 </div>
 
                 <div>
@@ -158,7 +164,7 @@ class VueHome extends GenericView
                         <h2>Mes Photos</h2>
                         <img class="Hide" src="../res/img/hide.png">
                     </button>
-                    <div class="content"><?=$this->generateMyPictures()?></div>
+                    <div id="personal-pictures-container" class="content"><?=$this->generateMyPictures()?></div>
                 </div>
             </section>
         </aside>
@@ -199,13 +205,16 @@ class VueHome extends GenericView
                 <h1>EXERCICES</h1>
 
                 <div class="search-Part">
-                    <label for="exercice-search"></label>
-                    <input type="search" id="site-search" name="searchBar">
+                    <input id="exercises-input-search-bar" placeholder="Recherchez un exercice" type="search"/>
                     <button>
                         <img class="loupeImg" src="../res/img/loupe.png">
                     </button>
                 </div>
             </section>
+
+            <div>
+                <div id="exercises-search-container" class="content" style="max-height: initial;"></div>
+            </div>
 
             <section class="contentAside">
                 <div>
@@ -274,6 +283,7 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
         <script type="text/javascript" src="./js/movable-elements.js"></script>
         <script type="text/javascript" src="./js/draggable-elements.js"></script>
+        <script type="text/javascript" src="./js/search-bar.js"></script>
         <script type="text/javascript" src="./js/recently-used.js"></script>
     <?php }
 }
