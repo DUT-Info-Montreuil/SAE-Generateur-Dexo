@@ -22,10 +22,17 @@ class CSS {
 
 class Elements {
     static IMG_TAG = "IMG";
+    static DIV_TAG = "DIV";
     static INPUT_TAG = "input";
     static PARAGRAPH_TAG = "p";
     static LINK_TAG = "link";
 
+    static IMG_ID_ATTRIBUTE = "img-id";
+    static EXERCISE_ID_ATTRIBUTE = "id-ex";
+
+    
+    static isExercises(elementDropped) { return elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories"); }
+    static isImages(elementDropped) { return elementDropped.tagName === Elements.IMG_TAG; }
 
     static setIdAndClassesAttribute(tag, id=null, classes=null) {
         if (id !== null) tag.setAttribute("id", id);

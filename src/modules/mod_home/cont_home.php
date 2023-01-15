@@ -11,8 +11,11 @@ class ContHome
     {
         $this->model = new ModelHome();
         $categories = $this->model->fetchCategories();
-        $images = $this->model->fetchImages();
-        $this->vue = new VueHome($categories, $images);
+        $bank_pictures = $this->model->fetchImages();
+        $my_picture = array();
+        if (isset($_SESSION["id"]))
+            $my_picture = $this->model->fetchImages($_SESSION["id"], false);
+        $this->vue = new VueHome($categories, $bank_pictures, $my_picture);
     }
 
     public function displayMod()

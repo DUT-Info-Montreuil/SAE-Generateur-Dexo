@@ -24,7 +24,7 @@ A4.addEventListener("load", () => {
                 $.ajax({
                     type: "POST",
                     url: './ajax/get_exercise_content.php',
-                    data: ({"id_exo": draggedElement.getAttribute('id-ex')})
+                    data: ({"id_exo": draggedElement.getAttribute("id-ex")})
                 }).then(function (res) {
                     if (res === '-1' || res === '') {
                         popin("un problème est survenu, veuillez réessayer", false);
