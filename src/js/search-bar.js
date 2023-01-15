@@ -39,5 +39,5 @@ function writeSearchResult(textInput, containerResult, ...containerAtCheck)
 }
 
 
-imagesInputSearchBar.addEventListener("change", (ev) => writeSearchResult(ev.target.value, imagesSearchContainer, bankPicturesContainer, personalPicturesContainer));
-exercisesInputSearchBar.addEventListener("change", (ev) => writeSearchResult(ev.target.value, exercisesSearchContainer, rootCategorie1, rootCategorie2, rootCategorie3, rootCategorie4));
+imagesInputSearchBar.addEventListener("input", (ev) => writeSearchResult(ev.target.value, imagesSearchContainer, bankPicturesContainer, personalPicturesContainer));
+exercisesInputSearchBar.addEventListener("input", (ev) => writeSearchResult(ev.target.value, exercisesSearchContainer, rootCategorie1, rootCategorie2, rootCategorie3, rootCategorie4));
