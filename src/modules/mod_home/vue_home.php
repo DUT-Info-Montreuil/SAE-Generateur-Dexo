@@ -196,7 +196,7 @@ class VueHome extends GenericView
                 <h1>EXERCICES</h1>
 
                 <div class="search-Part">
-                    <input id="exercises-input-search-bar" placeholder="Rechercher votre exercice" type="search"/>
+                    <input id="exercises-input-search-bar" placeholder="Recherchez un exercice" type="search"/>
                     <button>
                         <img class="loupeImg" src="../res/img/loupe.png">
                     </button>
