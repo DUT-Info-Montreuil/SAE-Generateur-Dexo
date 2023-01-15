@@ -26,7 +26,7 @@ function writeSearchResult(textInput, containerResult, ...containerAtCheck)
             for (const child of container.children) {
                 const attr = child.getAttribute("alt");
                 if (attr !== null)
-                    if (attr.toLowerCase().startsWith(textInput.toLowerCase()))
+                    if (attr.toLowerCase().includes(textInput.toLowerCase()))
                         listResult.push(child.cloneNode(true));
             }
 
