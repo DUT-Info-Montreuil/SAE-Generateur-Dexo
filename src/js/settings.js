@@ -1,20 +1,20 @@
 const settings = document.getElementById("settings-iframe");
 
 
-function showOption(targetShow, ...hiddenElements) {
+function showOption(targetShow, ...hiddenElements)
+{
     targetShow.style.display = "block";
     for (const el of hiddenElements)
         el.style.display = "none";
 }
 
-async function resetPassword() {
+async function resetPassword()
+{
     const oldPasswordInput = settings.contentDocument.getElementById("old-password-input");
     const newPasswordInput = settings.contentDocument.getElementById("new-password-input");
     const confirmPasswordInput = settings.contentDocument.getElementById("confirme-password-input");
 
     if (oldPasswordInput.value.length > 0 && newPasswordInput.value.length > 0 && confirmPasswordInput.value.length > 0) {
-        console.log(oldPasswordInput.value)
-
         let verify_password;
         await $.ajax({
             type: "POST",
@@ -22,7 +22,6 @@ async function resetPassword() {
             data: ({"oldPassword": oldPasswordInput.value})
         }).then((response) => {verify_password = response;});
 
-        console.log(verify_password);
         if (verify_password === "-1") {
             popin("Vous devez vous connecter pour pouvoir réinitialiser votre mot de passe", false);
         } else if (verify_password === "0") {
