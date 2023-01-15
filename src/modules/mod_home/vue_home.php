@@ -251,6 +251,9 @@ class VueHome extends GenericView
             </div>
         <?php } else { ?>
             <div class="account-menu">
+                <?php if ($_SESSION['role'] === 1) { ?>
+                <a href="./index.php?module=admin_panel&mode=0"><button id="admin-panel-button">Gestion du site</button></a>
+                <?php } ?>
                 <button class="settings-button">Paramètre</button>
                 <button id="logout-button">Se déconnecter</button>
             </div>

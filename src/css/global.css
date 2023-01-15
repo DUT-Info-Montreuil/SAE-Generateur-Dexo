@@ -50,6 +50,11 @@ header {
     left: 0;
 }
 
+header > a {
+    text-decoration: none;
+    color: black;
+}
+
 .pop-in-disappear {
     animation-delay: 3000ms;
     animation-duration: 5000ms;

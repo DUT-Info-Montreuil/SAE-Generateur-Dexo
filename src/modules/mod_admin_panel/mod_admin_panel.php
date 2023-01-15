@@ -8,10 +8,14 @@ class ModAdminPanel
 
     public function __construct()
     {
-        $this->controler = new ContAdminPanel();
-
-        if (isset($_POST["insert"]))
-            $this->controler->model->insertImages(1, $_FILES["image"]["name"], true, $_FILES["image"]["tmp_name"]);
+        if ($_SESSION['role'] == 1) {
+            $this->controler = new ContAdminPanel();
+            $mode = isset($_GET["mode"]) && $_GET["mode"] <= 1 && $_GET["mode"] >= 0 ? $_GET["mode"] : 0;
+            $this->controler->getAdminPannel($mode);
+        } else {
+            header('Location: ./index.php?module=home');
+            die("forbidden");
+        }
     }
 
     public function getDisplay()
