@@ -59,9 +59,11 @@ class VueHome extends GenericView
     public function generatePicturesBank()
     {
         $picture_bank_html = "";
-        foreach ($this->bank_pictures as $image)
-            $picture_bank_html = $picture_bank_html.'<img src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
-
+        $img_id = 0;
+        foreach ($this->images as $image) {
+            $picture_bank_html = $picture_bank_html.'<img img-id="'.$img_id.'" src="data:image;base64,'.$image->bin.'" class="draggable" draggable="true" height="30" alt="'.$image->name.'">';
+            $img_id = $img_id + 1;
+        }
         return $picture_bank_html;
     }
 
@@ -135,15 +137,10 @@ class VueHome extends GenericView
             <section class="contentAside">
                 <div>
                     <button class="collapsible">
-                        <h2>Utilisé recement</h2>
+                        <h2>Images utilisées récemment</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
                     </button>
-                    <div class="content">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                        <img class="draggable" src="../res/img/img1.jpeg" height="30" draggable="true">
-                    </div>
+                    <div class="content" id="images-recently-used-content"></div>
                 </div>
 
                 <div>
@@ -211,6 +208,14 @@ class VueHome extends GenericView
             </section>
 
             <section class="contentAside">
+                <div>
+                    <button class="collapsible">
+                        <h2>Exercices utilisé recement</h2>
+                        <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                    </button>
+                    <div class="content" id="exercises-recently-used-content"></div>
+                </div>
+
                 <?=$this->generateCategories()?>
             </section>
         </aside>
@@ -269,5 +274,6 @@ class VueHome extends GenericView
         <script type="text/javascript" src="./js/show_hide_popIn_Image.js"></script>
         <script type="text/javascript" src="./js/movable-elements.js"></script>
         <script type="text/javascript" src="./js/draggable-elements.js"></script>
+        <script type="text/javascript" src="./js/recently-used.js"></script>
     <?php }
 }

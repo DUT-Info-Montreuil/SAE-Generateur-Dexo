@@ -6,8 +6,11 @@ let draggedElement = null;
 let selectedExercise = undefined;
 let replacingExercise = undefined;
 
-waitAllCategories(categories);
-
+const draggableElements = document.getElementsByClassName('draggable');
+for (const draggableElement of draggableElements) {
+    draggableElement.addEventListener('dragstart', (ev) => draggedElement = ev.target);
+    draggableElement.addEventListener('dragend', () => draggedElement = null);
+}
 A4.addEventListener("load", () => {
     const contentA4 = A4.contentDocument.getElementById("exercises");
 
@@ -106,46 +109,6 @@ exercice.addEventListener("load", () => {
         });
     });
 });
-
-async function waitAllCategories(categories) {
-    // if categories of images will be set to objects, add it here
-    await waitAllLoad(categories);
-
-    let draggableOutsideObject = document.getElementsByClassName('draggable');
-
-    for (let category of categories) {
-        for (let draggableElement of category.contentDocument.getElementsByClassName('draggable')) {
-            draggableElement.addEventListener('dragstart', (ev) => draggedElement = ev.target);
-            draggableElement.addEventListener('dragend', (ev) => draggedElement = null);
-        }
-    }
-
-    for (let draggableOutsideObjectKey of draggableOutsideObject) {
-        draggableOutsideObjectKey.addEventListener('dragstart', (ev) => draggedElement = ev.target);
-        draggableOutsideObjectKey.addEventListener('dragend', (ev) => draggedElement = null);
-    }
-}
-
-async function waitAllLoad(elements) {
-    let size = elements.length;
-    let test = Array(size).fill(false);
-
-    for (let i = 0; i < size; i++) {
-        elements[i].addEventListener('load', () => test[i] = true);
-    }
-
-    return await until(() => test.every(el => el === true))
-}
-
-function until(conditionFunction) {
-
-    const res = resolve => {
-        if (conditionFunction()) resolve();
-        else setTimeout(() => res(resolve), 50);
-    }
-
-    return new Promise(res);
-}
 
 function setupExerciseToEdit(res) {
     let tempScript = document.createElement("script");
