@@ -9,8 +9,8 @@ class ModelHome extends Connexion
     public function fetchImages($idcompte = null, $shared = null)
     {
         if ($idcompte == null || $shared == null)
-            $query = "SELECT * FROM photo";
-        else $query = "SELECT * FROM photo WHERE partager=0 AND idcompte=".$idcompte;
+            $query = "SELECT * FROM photo p INNER JOIN compte c ON p.idcompte=c.idcompte WHERE (c.idrole = '1') OR (p.partager = 't')";
+        else $query = "SELECT * FROM photo WHERE (partager = 'f') AND (idcompte = '".$idcompte."')";
         $list_images = array();
 
         $prepare = $this::$bdd->prepare($query);

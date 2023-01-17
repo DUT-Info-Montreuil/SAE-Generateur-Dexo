@@ -42,20 +42,38 @@ A4.addEventListener("load", () => {
                 const width = draggedElement.getAttribute("width")
                 let img = Elements.createImg(document, src, null, null, height, width, CSS.setPosition("absolute", (event.clientX - bound.left) + "px", (event.clientY - bound.top) + "px"));
                 img.addEventListener("click", movableElementClickedEvent);
-                let inputSizeElement = Elements.createInput(document, "imput-size", null, "Enter new size", CSS.setPosition("absolute", img.style.left, img.style.top));
 
-                inputSizeElement.addEventListener("input", (event) => {
-                    img.height = event.target.value;
-                    img.width = event.target.value;
-                });
+                const containerPopInInput = document.createElement("div");
+                const containerInputX = document.createElement("div");
+                const XText = document.createElement("p");
+                XText.textContent = "width: ";
+                containerInputX.appendChild(XText);
+                let inputSizeElementWidth = Elements.createInput(document, "imput-size-width", null, "Enter new size");
+                inputSizeElementWidth.style.setProperty("width", "65px");
+                let inputSizeElementHeight = Elements.createInput(document, "imput-size-height", null, "Enter new size");
+                inputSizeElementHeight.style.setProperty("width", "65px");
 
-                inputSizeElement.addEventListener('keypress', (event) => {
-                    if (event.key === 'Enter')
-                        contentA4.removeChild(inputSizeElement);
-                });
+                containerInputX.appendChild(inputSizeElementWidth);
+                containerPopInInput.appendChild(containerInputX);
+                const containerInputY = document.createElement("div");
+                const YText = document.createElement("p");
+                YText.textContent = "height: ";
+                containerInputY.appendChild(YText);
+                containerInputY.appendChild(inputSizeElementHeight);
+                containerPopInInput.appendChild(containerInputY);
+
+                containerPopInInput.style.setProperty("position", "absolute");
+                containerPopInInput.style.setProperty("left", img.style.left);
+                containerPopInInput.style.setProperty("top", img.style.top);
+
+                inputSizeElementWidth.addEventListener("input", (event) => img.width = event.target.value);
+                inputSizeElementHeight.addEventListener("input", (event) => img.height = event.target.value);
+
+                inputSizeElementWidth.addEventListener('keypress', (event) => {if (event.key === 'Enter') contentA4.removeChild(containerPopInInput);});
+                inputSizeElementHeight.addEventListener('keypress', (event) => {if (event.key === 'Enter') contentA4.removeChild(containerPopInInput);});
 
                 contentA4.append(img);
-                contentA4.append(inputSizeElement);
+                contentA4.append(containerPopInInput);
             }
         }
     });

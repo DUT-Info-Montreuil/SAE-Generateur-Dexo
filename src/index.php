@@ -43,9 +43,9 @@ $content = ($module !== "") ? $module->getDisplay() : "Module not found";
 <body>
 <div id="loader" class="center"></div>
 <?=$content?>
-</body>
 <footer>
     <script src="./js/loading-screen.js" type="text/javascript"></script>
     <script src="./js/global.js" type="text/javascript"></script>
 </footer>
+</body>
 </html>
