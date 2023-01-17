@@ -190,7 +190,6 @@ class VueHome extends GenericView
      */
     private function displayAsideRight()
     { ?>
-
         <aside id="right-panel-close" class="panels-close">
             <img id="right-arrow-close" class="arrows-collapse" src="../res/arrow.png" alt="Arrow">
         </aside>
@@ -201,7 +200,8 @@ class VueHome extends GenericView
                 <img id="right-arrow-collapse" src="../res/img/circleArrow.png" alt="Arrow">
             </div>
 
-            <section class="titleAside">
+            <section class="titleAside" id="section-exercices">
+                <label for="section-exercices" id="add-new-exo">+</label>
                 <h1>EXERCICES</h1>
 
                 <div class="search-Part">

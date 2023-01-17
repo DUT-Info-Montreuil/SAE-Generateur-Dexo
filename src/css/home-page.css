@@ -403,6 +403,13 @@ aside {
     top: 0;
 }
 
+#add-new-exo {
+    position: absolute;
+    right: 5px;
+    font-size: 29px;
+    top: 0;
+}
+
 #admin-panel-button {
     padding: 0 2px;
 }

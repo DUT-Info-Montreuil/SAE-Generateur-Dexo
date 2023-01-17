@@ -12,6 +12,7 @@ const optionAside = document.getElementById('options');
 const jsonOutput = document.getElementById('jsonOutput');
 const title = document.getElementById('title-exo');
 const allPossibleConstructionPos = [];
+const categorieSelector = document.getElementById("categorie-select");
 const page = {
     title: "Title Here",
     elements: Array(),
@@ -21,8 +22,22 @@ const page = {
 fetch('../../res/exerciseOptions.json')
     .then((res) => res.json())
     .then((json) => rawAllOptions = json);
+$.ajax({
+    url: '../ajax/fetch_categories.php',
+    success: function (res) {
+        JSON.parse(res).forEach(el => {
+            const option = document.createElement("option");
+            option.value = el.idcategorie;
+            option.textContent = el.nom;
+            categorieSelector.appendChild(option);
+        })
+    }
+});
 
-
+categorieSelector.addEventListener("change", (ev) => {
+    page.idCategorie = categorieSelector.value;
+    jsonOutput.value = JSON.stringify(page);
+})
 title.addEventListener('input', () => {
     page.title = title.value;
     jsonOutput.setAttribute('value', JSON.stringify(page));
@@ -330,6 +345,7 @@ function clearPage() {
     clearPreview();
     clearOptionAside();
     resetConstructionLines();
+    jsonOutput.value = JSON.stringify(page);
 }
 
 function elementIsAlignedWithAnotherElement(element) {
