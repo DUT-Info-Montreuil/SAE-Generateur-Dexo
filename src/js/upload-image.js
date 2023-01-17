@@ -6,11 +6,6 @@ const fileTypes = [
     "image/jpg",
     "image/png",
 ];
-const urlTypes = [
-    /.jpeg/,
-    /.jpg/,
-    /.png/,
-];
 
 const addImageMenu = document.getElementById("addImage");
 const input = addImageMenu.querySelector("#image_uploads");
@@ -44,30 +39,9 @@ function addImageFromDirectory()
             const image = document.createElement("img");
             image.src = URL.createObjectURL(file);
             addPreview(image);
-        } /* TODO do a alert not good file select */
-}
-
-/* Add Image From Url */
-$(function() {
-    $("#get-image-url").click(function() {
-        let url = $("#image-url").val();
-        if (isImage(url)) {
-            const img = new Image();
-            img.src = url;
-            img.addEventListener("load", () => {
-                if (img.complete) addPreview(img);
-            });
         }
-    });
-});
-
-function isImage(url)
-{
-    for (let i = 0; i < urlTypes.length; i++)
-        if (urlTypes[i].test(url))
-            return true;
-    return false;
 }
+
 
 function addPreview(img)
 {
@@ -86,7 +60,7 @@ function addPreview(img)
     preview.appendChild(div);
     removeBtn.addEventListener("click", removeUploadImage);
 
-    numberImg.textContent = preview.childElementCount;
+    numberImg.textContent = preview.childElementCount.toString();
     change();
 }
 

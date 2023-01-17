@@ -38,8 +38,8 @@ async function resetPassword()
                 }).then((response) => {reset_password = response});
 
                 if (reset_password === "1")
-                    popin("Le mot de passe à bien étais changé", false);
-                else popin("Une erreur est survenue lors de le réinitialiser de votre mot de passe");
+                    popin("Le mot de passe à bien été changé", false);
+                else popin("Une erreur est survenue lors de la réinitialisation de votre mot de passe");
             }
         }
     }
