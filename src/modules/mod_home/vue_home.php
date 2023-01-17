@@ -126,7 +126,7 @@ class VueHome extends GenericView
             <section class="titleAside">
                 <h1>GALERIES</h1>
                 <div class="search-Part">
-                    <input id="images-input-search-bar" type="search" placeholder="Rechercher votre images"/>
+                    <input id="images-input-search-bar" type="search" placeholder="Recherchez votre images"/>
                     <button>
                         <img class="loupeImg" src="../res/img/loupe.png">
                     </button>
@@ -219,8 +219,8 @@ class VueHome extends GenericView
             <section class="contentAside">
                 <div>
                     <button class="collapsible">
-                        <h2>Exercices utilisé recement</h2>
                         <img class="Hide" src="../res/img/hide.png"> <!-- JS passer à img/show.png-->
+                        <h2>Exercices utilisées récemment</h2>
                     </button>
                     <div class="content" id="exercises-recently-used-content"></div>
                 </div>
