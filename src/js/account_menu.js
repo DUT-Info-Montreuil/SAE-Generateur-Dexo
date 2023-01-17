@@ -14,8 +14,8 @@ window.addEventListener("load", () => {
     const logoutButton = document.getElementById("logout-button");
 
 
-    for (let s of settingsButton) {
-        s.addEventListener("click", () => {
+    for (let setting of settingsButton) {
+        setting.addEventListener("click", () => {
             showSettingMenu = !showSettingMenu;
             settingsMenu.style.display = showSettingMenu ? "block" : "none";
         });

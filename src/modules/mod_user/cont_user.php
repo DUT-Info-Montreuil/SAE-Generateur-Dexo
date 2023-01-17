@@ -47,7 +47,7 @@ class ContUser
 
     public function tryLogout()
     {
-        $_SESSION["id"] = null;
+        session_destroy();
         header("Location: index.php");
     }
 
@@ -64,10 +64,5 @@ class ContUser
     public function getRegisterForm()
     {
         $this->vue->registerForm();
-    }
-
-    public function getLostForm()
-    {
-        $this->vue->lostForm();
     }
 }

@@ -82,7 +82,7 @@ class VueHome extends GenericView
     public function displayExercices()
     { ?>
         <object id="exercice-edit" data="./html/exercices.html" type="text/html" style="display: none">
-            <p>Don't support object tag</p>
+            <p>Objet non supporté par le navigateur</p>
         </object>
     <?php }
 
@@ -98,7 +98,7 @@ class VueHome extends GenericView
     public function displayImageUploadMenu()
     { ?>
     <object title="image-menu" type="text/html" id="pop-in_Image" data="./html/upload-Image.html">
-        <p>Don't support object tag</p>
+        <p>Objet non supporté par le navigateur</p>
     </object>
     <?php }
 
@@ -124,7 +124,7 @@ class VueHome extends GenericView
             </div>
 
             <section class="titleAside">
-                <h1>GALERIES</h1>
+                <h1>GALERIE</h1>
                 <div class="search-Part">
                     <input id="images-input-search-bar" type="search" placeholder="Recherchez votre images"/>
                     <button>
@@ -179,7 +179,7 @@ class VueHome extends GenericView
         <main>
             <object title="A4-paper" type="text/html" role="application" id="A4-exo-iframe"
                     data="./html/A4-paper-exo.html">
-                <p>Don't support object tag</p>
+                <p>Objet non supporté par le navigateur</p>
             </object>
         </main>
     <?php }
@@ -263,7 +263,7 @@ class VueHome extends GenericView
     private function displaySettingsMenu()
     { ?>
         <object title="Settings" type="text/html" role="application" id="settings-iframe" data="./html/settings.html">
-            <p>Don't support object tag</p>
+            <p>Objet non supporté par le navigateur</p>
         </object>
     <?php }
 

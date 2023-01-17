@@ -85,23 +85,6 @@
     align-items: center;
 }
 
-#image-url {
-    line-height: 22px;
-    border-radius: 4px;
-    border: darkgray;
-    width: 60%;
-    height: 32px;
-    margin: 0;
-    padding-left: 6px;
-}
-
-#get-image-url {
-    background-color: blue;
-    color: white;
-    text-align: center;
-    border-radius: 4px;
-    padding: 5px;
-}
 
 
 /******************Part of the pop-in_Image part******************/

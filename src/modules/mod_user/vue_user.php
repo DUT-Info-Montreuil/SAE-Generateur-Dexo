@@ -20,13 +20,8 @@ class VueUser extends GenericView
                     <button id="register-button" class="buttons-form" type="button">PAS DE COMPTE ?</button>
                     <button id="back-button" class="buttons-form" type="button">RETOUR</button>
                 </div>
-
-                <div id="remember-me-section">
-                    <input type="checkbox" checked="checked" name="remember">
-                    <label for="remember"><b>Remember me</b></label>
-                </div>
             </form>
-            <div id="pop-in-info-div" class="test"></div>
+            <div id="pop-in-info-div"></div>
         </div>
 
         <script src="./js/vue_user.js" type="text/javascript"></script>
@@ -73,9 +68,4 @@ class VueUser extends GenericView
     { ?>
         <script src="./js/wrong-login-infos.js" type="text/javascript"></script>
     <?php }
-
-    public function lostForm()
-    {
-        # code...
-    }
 }

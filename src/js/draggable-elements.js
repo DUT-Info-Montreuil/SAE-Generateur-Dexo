@@ -149,7 +149,7 @@ function getPreviewExercise(json) {
     let datas = JSON.parse(json);
 
     if (replacingExercise === undefined) {
-        number.textContent = idExercise;
+        number.textContent = idExercise.toString();
         idExercise++;
     } else {
         number.textContent = replacingExercise.firstChild.firstChild.textContent;
