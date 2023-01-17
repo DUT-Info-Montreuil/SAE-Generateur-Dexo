@@ -330,6 +330,7 @@ function clearPage() {
     clearPreview();
     clearOptionAside();
     resetConstructionLines();
+    jsonOutput.value = JSON.stringify(page);
 }
 
 function elementIsAlignedWithAnotherElement(element) {

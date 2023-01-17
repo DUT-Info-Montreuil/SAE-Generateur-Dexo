@@ -1,5 +1,7 @@
 const exercice = document.getElementById('exercice-edit');
 const categories = document.getElementsByClassName('object-categories');
+const newExoButton = document.getElementById('add-new-exo');
+
 let heightUsedByExercises = 3.5;
 let idExercise = 1;
 let draggedElement = null;
@@ -17,7 +19,6 @@ A4.addEventListener("load", () => {
     A4.contentDocument.addEventListener("mousemove", followClickPointer);
     A4.contentDocument.addEventListener("dragover", (event) => event.preventDefault());
     A4.contentDocument.addEventListener("drop", (event) => {
-        // Changer la condition quand on aura des vrais éléments :')
         event.preventDefault();
         if (draggedElement !== null) {
             if (draggedElement.tagName !== Elements.IMG_TAG) {
@@ -75,6 +76,10 @@ A4.addEventListener("load", () => {
             setupExerciseToEdit(replacingExercise.getAttribute("value"));
             exercice.style.display = "block";
         }
+    })
+    newExoButton.addEventListener('click', () => {
+        setupExerciseToEdit('');
+        exercice.style.display = "block";
     })
     A4.contentDocument.addEventListener("keydown", removeExercise)
     document.addEventListener("keydown", removeExercise)
