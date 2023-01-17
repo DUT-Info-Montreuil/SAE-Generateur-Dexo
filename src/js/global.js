@@ -31,8 +31,8 @@ class Elements {
     static EXERCISE_ID_ATTRIBUTE = "id-ex";
 
     
-    static isExercises(elementDropped) { return elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories"); }
-    static isImages(elementDropped) { return elementDropped.tagName === Elements.IMG_TAG; }
+    static isExercises(elementDropped) { return elementDropped ? elementDropped.tagName === Elements.DIV_TAG && elementDropped.getAttribute("class").includes("categories") : false; }
+    static isImages(elementDropped) { return elementDropped ? elementDropped.tagName === Elements.IMG_TAG : false; }
 
     static setIdAndClassesAttribute(tag, id=null, classes=null) {
         if (id !== null) tag.setAttribute("id", id);
@@ -54,8 +54,7 @@ class Elements {
     static createImg(doc, src, id = null, classes = null, height, width, style = {}) {
         const img = doc.createElement(Elements.IMG_TAG);
         img.setAttribute("src", src);
-        img.setAttribute("height", height);
-        img.setAttribute("width", width);
+        img.setAttribute("width", 50);
         Elements.setIdAndClassesAttribute(img, id, classes);
         CSS.setProperties(img, style);
         return img;

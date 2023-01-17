@@ -50,16 +50,10 @@ A4.addEventListener("load", () => {
                 containerInputX.appendChild(XText);
                 let inputSizeElementWidth = Elements.createInput(document, "imput-size-width", null, "Enter new size");
                 inputSizeElementWidth.style.setProperty("width", "65px");
-                let inputSizeElementHeight = Elements.createInput(document, "imput-size-height", null, "Enter new size");
-                inputSizeElementHeight.style.setProperty("width", "65px");
 
                 containerInputX.appendChild(inputSizeElementWidth);
                 containerPopInInput.appendChild(containerInputX);
                 const containerInputY = document.createElement("div");
-                const YText = document.createElement("p");
-                YText.textContent = "height: ";
-                containerInputY.appendChild(YText);
-                containerInputY.appendChild(inputSizeElementHeight);
                 containerPopInInput.appendChild(containerInputY);
 
                 containerPopInInput.style.setProperty("position", "absolute");
@@ -67,10 +61,8 @@ A4.addEventListener("load", () => {
                 containerPopInInput.style.setProperty("top", img.style.top);
 
                 inputSizeElementWidth.addEventListener("input", (event) => img.width = event.target.value);
-                inputSizeElementHeight.addEventListener("input", (event) => img.height = event.target.value);
 
                 inputSizeElementWidth.addEventListener('keypress', (event) => {if (event.key === 'Enter') contentA4.removeChild(containerPopInInput);});
-                inputSizeElementHeight.addEventListener('keypress', (event) => {if (event.key === 'Enter') contentA4.removeChild(containerPopInInput);});
 
                 contentA4.append(img);
                 contentA4.append(containerPopInInput);
