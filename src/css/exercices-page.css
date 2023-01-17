@@ -16,6 +16,7 @@ input {
 }
 header {
     position: static !important;
+    justify-content: normal;
 }
 
 aside {
@@ -29,6 +30,16 @@ aside {
 }
 h1{
     font-size: 18pt;
+}
+
+#send-exercises,
+#cancel-exercice {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+#title-exo {
+    width: 264px;
 }
 
 #container-exercises {
@@ -66,17 +77,12 @@ h1{
     width: 95%;
 }
 
-#input-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#title-label {
-    text-align: center;
-    flex-basis: 100%;
+#categorie-select {
+    padding: 0 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
 }
 
 #selected-item {
@@ -85,6 +91,15 @@ h1{
 
 #selected-nav-item {
     border: 1px solid orange;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-basis: 30%;
 }
 
 .img-input {
@@ -129,4 +144,9 @@ h1{
 
 .left {
     height: 100%;
+}
+
+.input-label {
+    text-align: center;
+    flex-basis: 100%;
 }

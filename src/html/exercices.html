@@ -6,17 +6,22 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/exercices-page.css">
     <link id="theme" rel="stylesheet" href="../css/themes/white.css">
+    <script type="text/javascript" src="../js/librairies/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 <header id="header-exercises">
     <p id="cancel-exercice">Annuler</p>
-    <input type="hidden" id="jsonOutput" name="json">
-    <div id="input-title">
-        <label for="title-exo" id="title-label">Titre de l'exercice</label>
+    <div class="input-div">
+        <label for="title-exo" class="input-label">Titre de l'exercice</label>
         <input type="text" id="title-exo" value="Title Here">
     </div>
-
+    <div class="input-div">
+        <label for="categorie-select" class="input-label">Selectionnez la catégorie de l'exercice</label>
+        <select id="categorie-select">
+        </select>
+    </div>
     <p id="send-exercises">Valider</p>
+    <input type="hidden" id="jsonOutput" name="json">
 </header>
 <div id="container-exercises">
     <aside id="tools">
