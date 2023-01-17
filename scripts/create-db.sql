@@ -1,11 +1,10 @@
 -- Database: sae_ge
 DROP DATABASE IF EXISTS sae_ge;
-CREATE DATABASE sae_ge WITH OWNER = nchrzaszcz ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8' TABLESPACE = pg_default CONNECTION
-LIMIT = -1 IS_TEMPLATE = False;
+CREATE DATABASE sae_ge WITH ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8' TABLESPACE = pg_default CONNECTION
 COMMENT ON DATABASE sae_ge IS 'Base de donnée de la SAE sur le site du générateur dexercice';
 
 -- Table: public.role
-DROP TABLE IF EXISTS public.role;
+DROP TABLE IF EXISTS public.role CASCADE;
 CREATE TABLE IF NOT EXISTS public.role (
     idrole integer NOT NULL DEFAULT nextval('role_idrole_seq'::regclass),
     nom text COLLATE pg_catalog."default" NOT NULL,
@@ -13,7 +12,7 @@ CREATE TABLE IF NOT EXISTS public.role (
 );
 
 -- Table: public.compte
-DROP TABLE IF EXISTS public.compte;
+DROP TABLE IF EXISTS public.compte CASCADE;
 CREATE TABLE IF NOT EXISTS public.compte (
     idcompte integer NOT NULL DEFAULT nextval('compte_idcompte_seq'::regclass),
     idrole integer NOT NULL DEFAULT 2,
@@ -27,7 +26,7 @@ CREATE TABLE IF NOT EXISTS public.compte (
 );
 
 -- Table: public.photo
-DROP TABLE IF EXISTS public.photo;
+DROP TABLE IF EXISTS public.photo CASCADE;
 CREATE TABLE IF NOT EXISTS public.photo (
     idphoto integer NOT NULL DEFAULT nextval('photo_idphoto_seq'::regclass),
     idcompte integer NOT NULL,
@@ -39,7 +38,7 @@ CREATE TABLE IF NOT EXISTS public.photo (
 );
 
 -- Table: public.categorie
-DROP TABLE IF EXISTS public.categorie;
+DROP TABLE IF EXISTS public.categorie CASCADE;
 CREATE TABLE IF NOT EXISTS public.categorie (
     idcategorie integer NOT NULL DEFAULT nextval('categorie_idcategorie_seq'::regclass),
     nom text COLLATE pg_catalog."default" NOT NULL,
@@ -47,7 +46,7 @@ CREATE TABLE IF NOT EXISTS public.categorie (
 );
 
 -- Table: public.exercices
-DROP TABLE IF EXISTS public.exercices;
+DROP TABLE IF EXISTS public.exercices CASCADE;
 CREATE TABLE IF NOT EXISTS public.exercices (
     idexercice integer NOT NULL DEFAULT nextval('exercices_idexercice_seq'::regclass),
     idcompte integer NOT NULL,
@@ -60,7 +59,7 @@ CREATE TABLE IF NOT EXISTS public.exercices (
 );
 
 -- Table: public.templates
-DROP TABLE IF EXISTS public.templates;
+DROP TABLE IF EXISTS public.templates CASCADE;
 CREATE TABLE IF NOT EXISTS public.templates (
     idtemplate integer NOT NULL DEFAULT nextval('templates_idtemplate_seq'::regclass),
     idcompte integer NOT NULL,
@@ -72,7 +71,7 @@ CREATE TABLE IF NOT EXISTS public.templates (
 );
 
 -- Table: public.historique
-DROP TABLE IF EXISTS public.historique;
+DROP TABLE IF EXISTS public.historique CASCADE;
 CREATE TABLE IF NOT EXISTS public.historique (
     idhistorique integer NOT NULL DEFAULT nextval('historique_idhistorique_seq'::regclass),
     idcompte integer NOT NULL,
@@ -84,7 +83,7 @@ CREATE TABLE IF NOT EXISTS public.historique (
 );
 
 -- RELATION HISTORIQUE COMPTE
-DROP TABLE IF EXISTS public.templates_exercice;
+DROP TABLE IF EXISTS public.templates_exercice CASCADE;
 CREATE TABLE IF NOT EXISTS public.templates_exercice (
     idtemplate integer NOT NULL,
     idexercice integer NOT NULL,
