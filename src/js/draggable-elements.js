@@ -182,6 +182,7 @@ function addElements(container, elements) {
 function removeExercise(event) {
     if (selectedExercise !== undefined && event.key === "Delete") {
         contentA4.removeChild(selectedExercise);
+        selectedExercise = undefined;
         idExercise--;
         resetIdExercises();
     }
