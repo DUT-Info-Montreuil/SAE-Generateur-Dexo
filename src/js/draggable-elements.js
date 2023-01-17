@@ -79,16 +79,18 @@ A4.addEventListener("load", () => {
     });
     A4.contentDocument.addEventListener("click", (ev) => {
         selectedExercise = ev.composedPath().find(el => {
-            if (el.classList){
+            if (el.classList) {
                 return el.classList.contains("global-container")
-            } return false;
+            }
+            return false;
         });
     });
     A4.contentDocument.addEventListener("dblclick", (ev) => {
         replacingExercise = ev.composedPath().find(el => {
-            if (el.classList){
+            if (el.classList) {
                 return el.classList.contains("global-container")
-            } return false;
+            }
+            return false;
         });
         if (replacingExercise !== undefined) {
             setupExerciseToEdit(replacingExercise.getAttribute("value"));
@@ -113,23 +115,21 @@ exercice.addEventListener("load", () => {
 
     send.addEventListener('click', () => {
         let exo = data.getAttribute('value');
-        $.ajax({
-            type: "POST",
-            url: './ajax/send_exercice.php',
-            data: ({"json": exo})
-        }).then(function (re) {
-            if (re === "") {
-                if (replacingExercise !== undefined) {
-                    contentA4.insertBefore(getPreviewExercise(exo),replacingExercise);
-                    contentA4.removeChild(replacingExercise);
-                    replacingExercise = undefined;
-                    exercice.style.display = "none";
-                }else {
-                    contentA4.append(getPreviewExercise(exo));
-                    exercice.style.display = "none";
+        if (confirm("voulez-vous ajouter cet exercice au menu de selection d'exercices ?"))
+            $.ajax({
+                type: "POST",
+                url: './ajax/send_exercice.php',
+                data: ({"json": exo})
+            }).then(function (re) {
+                if (re === "") {
+                    addExerciceToA4(exo)
+                } else {
+                    popin("une erreur est survenue, veuillez ressayer");
                 }
-            }
-        });
+            });
+        else {
+            addExerciceToA4(exo);
+        }
     });
 });
 
@@ -168,7 +168,7 @@ function getPreviewExercise(json) {
     heightUsedByExercises += parseInt(datas.height.split('cm'));
 
     addElements(container, datas.elements);
-    Rcontainer.setAttribute("value",JSON.stringify(datas.elements));
+    Rcontainer.setAttribute("value", JSON.stringify(datas.elements));
     return Rcontainer;
 }
 
@@ -190,7 +190,7 @@ function addElements(container, elements) {
 function removeExercise(event) {
     if (selectedExercise !== undefined && event.key === "Delete") {
         contentA4.removeChild(selectedExercise);
-        idExercise --;
+        idExercise--;
         resetIdExercises();
     }
 }
@@ -201,4 +201,16 @@ function resetIdExercises() {
         el.firstChild.textContent = id.toString();
         id++;
     });
+}
+
+function addExerciceToA4(exo) {
+    if (replacingExercise !== undefined) {
+        contentA4.insertBefore(getPreviewExercise(exo), replacingExercise);
+        contentA4.removeChild(replacingExercise);
+        replacingExercise = undefined;
+        exercice.style.display = "none";
+    } else {
+        contentA4.append(getPreviewExercise(exo));
+        exercice.style.display = "none";
+    }
 }
