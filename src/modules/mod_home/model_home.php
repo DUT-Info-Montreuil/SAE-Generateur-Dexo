@@ -9,7 +9,7 @@ class ModelHome extends Connexion
     public function fetchImages($idcompte = null, $shared = null)
     {
         if ($idcompte == null || $shared == null)
-            $query = "SELECT * FROM photo p INNER JOIN compte c ON p.idcompte=c.idcompte WHERE (c.idrole = '1') OR (p.partager = 't')";
+            $query = "SELECT p.idphoto, p.idcompte, p.nom, p.partager, p.bin FROM photo p INNER JOIN compte c ON p.idcompte=c.idcompte WHERE (c.idrole = '1') OR (p.partager = 't')";
         else $query = "SELECT * FROM photo WHERE (partager = 'f') AND (idcompte = '".$idcompte."')";
         $list_images = array();
 
