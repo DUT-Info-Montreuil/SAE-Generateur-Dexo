@@ -25,9 +25,6 @@ class ModUser
                     $this->controller->getLoginForm();
                 }
                 break;
-            case "lost":
-                if (!isset($_SESSION["id"])) $this->controller->getLostForm();
-                break;
             case "logout":
                 if (isset($_SESSION["id"]))
                     $this->controller->tryLogout();

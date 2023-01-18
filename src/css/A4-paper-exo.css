@@ -7,7 +7,9 @@
     margin: 0;
     padding: 0;
 }
-
+html {
+    overflow: scroll;
+}
 input {
     min-width: 50%;
 }
@@ -113,7 +115,6 @@ h1 {
 #page {
     width: 21cm;
     height: 29.6cm;
-
 }
 
 #header-text {
