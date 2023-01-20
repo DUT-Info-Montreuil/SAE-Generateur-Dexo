@@ -34,7 +34,7 @@ h1{
 
 #send-exercises,
 #cancel-exercice {
-    flex-basis: 20%;
+    flex-basis: 21%;
     text-align: center;
 }
 
@@ -99,7 +99,7 @@ h1{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-basis: 30%;
+    flex-basis: calc(58% / 3);
 }
 
 .img-input {

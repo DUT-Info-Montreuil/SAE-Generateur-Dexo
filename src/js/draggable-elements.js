@@ -107,7 +107,8 @@ exercice.addEventListener("load", () => {
 
     send.addEventListener('click', () => {
         let exo = data.getAttribute('value');
-        if (confirm("voulez-vous ajouter cet exercice au menu de selection d'exercices ?"))
+        const publish = exercice.contentDocument.getElementById('publish-checkbox');
+        if (publish.checked)
             $.ajax({
                 type: "POST",
                 url: './ajax/send_exercice.php',
@@ -116,7 +117,7 @@ exercice.addEventListener("load", () => {
                 if (re === "") {
                     addExerciceToA4(exo)
                 } else {
-                    popin("une erreur est survenue, veuillez ressayer");
+                    popin("une erreur est survenue");
                 }
             });
         else {
