@@ -3,6 +3,11 @@
 
 _IUT de Montreuil Pari8 | BUT Informatique en 2eme année._
 
+## Sommaire:
+- [Développeurs sur le projet](#développeurs-sur-le-projet)
+- [Qu'est-ce que c'est ce projet ?](#quest-ce-que-cest-ce-projet-)
+- [Concernant la BDD](#concernant-la-bdd)
+
 ---
 
 ## Développeurs sur le projet:
