@@ -1,0 +1,23 @@
+services:
+  website:
+    container_name: website
+    build:
+      context: website
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    ports:
+      - "80:80"
+
+  database:
+    container_name: database
+    build:
+      context: database
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: U4JJUJCfWBfh
+      POSTGRES_USER: www-data
+      POSTGRES_DB: sae_ge
+    ports:
+      - "5432:5432"

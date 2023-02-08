@@ -1,8 +1,3 @@
--- Database: sae_ge
-DROP DATABASE IF EXISTS sae_ge;
-CREATE DATABASE sae_ge WITH ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8' TABLESPACE = pg_default CONNECTION
-COMMENT ON DATABASE sae_ge IS 'Base de donnée de la SAE sur le site du générateur dexercice';
-
 -- Table: public.role
 DROP TABLE IF EXISTS public.role CASCADE;
 CREATE TABLE IF NOT EXISTS public.role (
