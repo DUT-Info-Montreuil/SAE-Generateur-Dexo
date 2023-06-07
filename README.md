@@ -17,6 +17,8 @@ _IUT de Montreuil Pari8 | BUT Informatique en 2eme année._
 
 ## Qu'est-ce que c'est ce projet ?
 Ce projet est la SAE du semestre 3 du BUT Informatique, nous devons réaliser un site internet qui permet de generer des exercices pour une école primaire
+- Cahier des charges selon le demande client: [here](https://github.com/DUT-Info-Montreuil/SAE-Generateur-Dexo/blob/main/SAE%20-%20S3.01-1.pdf)
+- Conception BDD: [here](https://github.com/DUT-Info-Montreuil/SAE-Generateur-Dexo/blob/main/SAE-BDD.pdf)
 
 ## Concernant la BDD
 Les `scripts` à executer pour remplir et crée la BDD sur `postgres` sont situé dans le repertoire [scripts](https://github.com/DUT-Info-Montreuil/SAE-Generateur-Dexo/tree/main/scripts) du repository 
