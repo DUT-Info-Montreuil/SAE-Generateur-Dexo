@@ -7,6 +7,7 @@ _IUT de Montreuil Pari8 | BUT Informatique en 2eme année._
 - [Développeurs sur le projet](#développeurs-sur-le-projet)
 - [Qu'est-ce que c'est ce projet ?](#quest-ce-que-cest-ce-projet-)
 - [Concernant la BDD](#concernant-la-bdd)
+- [Comment lancer le siteweb chez soi ?](#comment-lancer-le-siteweb-depuis-chez-soi-)
 
 ---
 
@@ -22,3 +23,11 @@ Ce projet est la SAE du semestre 3 du BUT Informatique, nous devons réaliser un
 
 ## Concernant la BDD
 Les `scripts` à executer pour remplir et crée la BDD sur `postgres` sont situé dans le repertoire [scripts](https://github.com/DUT-Info-Montreuil/SAE-Generateur-Dexo/tree/main/scripts) du repository 
+
+## Comment lancer le siteweb depuis chez soi ?
+Pour lancer le site web depuis chez soi en toute simplicité, vous devez vous assurer que vous avez plein droit sur votre machine qui tourne sur Linux et placez-vous à la racine du projet !
+Ensuite, vous devez taper cette commande :
+```console
+sudo docker compose up
+```
+La commande suivante permet de construire le projet avec ses dépendances et de lancer le serveur web automatiquement, lorsque la construction et le lancement du projet est terminé vous pouvez vous rendre sur votre navigateur internet et écrire cet URL : `localhost: 80'
